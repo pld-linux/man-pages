@@ -11,7 +11,7 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Name:		man-pages
 Version:	1.40
-Release:	1
+Release:	2
 License:	Distributable
 Group:		Documentation
 Group(de):	Dokumentation
