@@ -29,7 +29,7 @@ Group:		Documentation
 %define		hu_version		2001_01_05
 %define		id_version		20011116
 %define		it_version		0.3.3
-%define		ja_version		20030115
+%define		ja_version		20030217
 %define		ko_version		20010901
 %define		nl_version		0.13.3
 %define		pl_version		20020828
