@@ -176,13 +176,13 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f %{name}-cs-%{cs_version}/$n ]; then
 		install %{name}-cs-%{cs_version}/$n $RPM_BUILD_ROOT%{_mandir}/cs/$n
 	fi
-	if [ -f %{name}-de-%{de_version}/$n ]; then
+	if [ -f manpages-de-%{de_version}/$n ]; then
 		install %{name}-de-%{de_version}/$n $RPM_BUILD_ROOT%{_mandir}/de/$n
 	fi
 	if [ -f %{name}-es-%{es_version}/$n ]; then
 		install %{name}-es-%{es_version}/$n $RPM_BUILD_ROOT%{_mandir}/es/$n
 	fi
-	if [ -f manpages-fi/$n.bz2 ]; then
+	if [ -f manpages-fi/$n ]; then
 		install manpages-fi/$n $RPM_BUILD_ROOT%{_mandir}/fi/$n
 	fi
 	if [ -f man-fr-%{fr_version}/$n ]; then
