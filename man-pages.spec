@@ -11,7 +11,7 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Name:		man-pages
 Version:	1.47
-Release:	3
+Release:	4
 License:	distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -22,7 +22,7 @@ Group(pt_BR):	DocumentaГЦo
 Group(ru):	Документация
 %define		cs_version		0.14
 %define		da_version		0.1.1
-%define		de_version		0.3
+%define		de_version		0.4
 %define		es_version		1.28
 %define		es_extra_version	0.8a
 %define		fi_version		0.1
