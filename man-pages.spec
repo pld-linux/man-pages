@@ -15,8 +15,8 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Summary(uk):	Стор╕нки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	1.53
-Release:	5
+Version:	1.54
+Release:	0.1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.14
@@ -25,45 +25,49 @@ Group:		Documentation
 %define		es_version		1.28
 %define		es_extra_version	0.8a
 %define		fi_version		0.1
-%define		fr_version		0.9
+%define		fr_version		0.9.7
 %define		hu_version		2001_01_05
 %define		id_version		20011116
-%define		it_version		0.3.0
-%define		ja_version		20021215
-%define		ko_version		20010605
+%define		it_version		0.3.3
+%define		ja_version		20030115
+%define		ko_version		20010901
 %define		nl_version		0.13.3
 %define		pl_version		20020828
 %define		pt_version		1.39
 %define		ru_version		0.7
+%define		uk_version		0.1.1 
 %define		zh_version		0.1
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
 # there is no LDP man page here, yet.
 # Source2:	http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz
-Source3:	http://www.infodrom.de/projects/manpages-de/download/manpages-de-%{de_version}.tar.gz
+Source3:	http://www.infodrom.org/projects/manpages-de/download/manpages-de-%{de_version}.tar.gz
 Source4:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-%{es_version}.tar.gz
 Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra_version}.tar.gz
 # extracted from http://developer.bestlinux.net/man-fi/usr/man/RPMS/%{name}-fi-%{fi_version}-4.src.rpm
 Source6:	man-fi-%{fi_version}.tar.bz2
-Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
+# Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
+Source7:	http://perso.club-internet.fr/ccb/man/man-fr-%{fr_version}.tar.gz
 Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 # there is no LDP man page here, yet.
 # based on http://nakula.rvs.uni-bielefeld.de/made/my_project/ManPage/
 # Source9:	man-pages-from-www-id-%{id_version}.tar.gz
-Source10:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-it-%{it_version}.tar.gz
-# Source11:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ja-%{ja_version}.tar.gz
+# available also as http://
+Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
 Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
-Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
+# Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
+Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
-# Source17:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
+# from ASP Linux
+Source17:	man-pages-uk-%{ru_version}.tar.bz2
+# Source18:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
 Source50:	%{name}-extra.tar.bz2
 Source51:	mbox.5
 Patch0:		%{name}-localtime.patch
 BuildArch:	noarch
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Autoreqprov:	false
 Obsoletes:	man-pages-cs
 Obsoletes:	man-pages-de
@@ -79,6 +83,9 @@ Obsoletes:	man-pages-pl
 Obsoletes:	man-pages-pt
 Obsoletes:	man-pages-pt_BR
 Obsoletes:	man-pages-ru
+Obsoletes:	man-pages-ru-asp
+Obsoletes:	man-pages-uk
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A large collection of man pages covering programming APIs, file
@@ -219,11 +226,13 @@ Project (LDP). Стор╕нки орган╕зован╕ у так╕ секц╕╖: Секц╕я 1, команди
 вступ).
 
 %prep
-%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a10 -a11 -a13 -a14 -a15 -a16
+#%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a10 -a11 -a13 -a14 -a15 -a16 -a17
+%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a11 -a13 -a14 -a15 -a16 -a17
 %patch0 -p1
 
 mkdir hu ko
 tar xzf %{SOURCE8} -C hu
+tar xzf %{SOURCE10} -C it
 tar xzf %{SOURCE12} -C ko
 
 %build
@@ -265,6 +274,7 @@ install -d $RPM_BUILD_ROOT%{_mandir}/pl/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/pt/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/pt_BR/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/ru/man{1,2,3,4,5,6,7,8}
+install -d $RPM_BUILD_ROOT%{_mandir}/uk/man{1,2,3,4,5,6,7,8}
 for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f %{name}-cs-%{cs_version}/$n ]; then
 		install %{name}-cs-%{cs_version}/$n $RPM_BUILD_ROOT%{_mandir}/cs/$n
@@ -286,8 +296,10 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f hu/$n ]; then
 		install hu/$n $RPM_BUILD_ROOT%{_mandir}/hu/$n
 	fi
-	if [ -f %{name}-it-%{it_version}/$n ]; then
-		install %{name}-it-%{it_version}/$n $RPM_BUILD_ROOT%{_mandir}/it/$n
+#	if [ -f %{name}-it-%{it_version}/$n ]; then
+#		install %{name}-it-%{it_version}/$n $RPM_BUILD_ROOT%{_mandir}/it/$n
+	if [ -f it/$n ]; then
+		install it/$n $RPM_BUILD_ROOT%{_mandir}/it/$n
 	fi
 	if [ -f %{name}-ja-%{ja_version}/manual/LDP_man-pages/$n ]; then
 		install %{name}-ja-%{ja_version}/manual/LDP_man-pages/$n $RPM_BUILD_ROOT%{_mandir}/ja/$n
@@ -310,12 +322,15 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f manpages-ru-%{ru_version}/$n ]; then
 		install manpages-ru-%{ru_version}/$n $RPM_BUILD_ROOT%{_mandir}/ru/$n
 	fi
+	if [ -f man-pages-uk-%{uk_version}/$n ]; then
+		install man-pages-uk-%{uk_version}/$n $RPM_BUILD_ROOT%{_mandir}/ru/$n
+	fi
 done
 bzip2 -dc %{SOURCE50} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 install %{SOURCE51} $RPM_BUILD_ROOT%{_mandir}/man5/mbox.5
 
-for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,nl,pl,pt,pt_BR,ru} ; do
+for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,nl,pl,pt,pt_BR,ru,uk} ; do
 	for n in $k/man{1,2,3,4,5,6,7,8}/*; do
 		if head -1 $n| grep '^\.so' >/dev/null 2>&1 ; then
 			sed 's,\.so man./,.so ,' < $n > $n.
@@ -344,3 +359,4 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt) %{_mandir}/pt/man*/*
 %lang(pt_BR) %{_mandir}/pt_BR/man*/*
 %lang(ru) %{_mandir}/ru/man*/*
+%lang(uk) %{_mandir}/ru/man*/*
