@@ -15,8 +15,8 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Summary(uk):	Стор╕нки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	1.60
-Release:	1
+Version:	1.61
+Release:	0.1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -25,20 +25,20 @@ Group:		Documentation
 %define		es_version		1.28
 %define		es_extra_version	0.8a
 %define		fi_version		0.1
-%define		fr_version		0.9.7
+%define		fr_version		1.58.0
 %define		hu_version		2001_01_05
 %define		id_version		20011116
-%define		it_version		0.3.3
-%define		ja_version		20030815
+%define		it_version		0.3.4
+%define		ja_version		20031115
 %define		ko_version		20010901
 %define		nl_version		0.13.3
 %define		pl_version		20020828
 %define		pt_version		1.39
 %define		ru_version		0.7
 %define		uk_version		0.1.1
-%define		zh_version		0.3
+%define		zh_version		1.4
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
-# Source0-md5:	cdf174fa62a4620f4014e0e3ee3ab983
+# Source0-md5:	b8519c598340dbd4a47ab3eed53918ab
 #
 # Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
@@ -54,10 +54,10 @@ Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra
 # Source5-md5:	5827f41f77658df17f550b7f8e831432
 # extracted from http://developer.bestlinux.net/man-fi/usr/man/RPMS/%{name}-fi-%{fi_version}-4.src.rpm
 Source6:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-fi-%{fi_version}.tar.bz2
-# Source6-md5: 	53dcf98b573c6e00c45eb91affca0a2e
+# Source6-md5:	53dcf98b573c6e00c45eb91affca0a2e
 # Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
-Source7:	http://perso.club-internet.fr/ccb/man/man-fr-%{fr_version}.tar.gz
-# Source7-md5:	aec50d6d7fbb9b7a096ae26ab4a3177f
+Source7:	http://perso.club-internet.fr/ccb/man/man-fr-%{fr_version}.tar.bz2
+# Source7-md5:	50c82c2114ccca1dcb691f4122b7b4ff
 Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 # Source8-md5:	8b94f02287672c5a0601c1ad422a8e07
 #
@@ -66,9 +66,9 @@ Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 # Source9:	man-pages-from-www-id-%{id_version}.tar.gz
 # available also as http://
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
-# Source10-md5:	dfacc75f081e7340094d88c7a04b5fab
+# Source10-md5:	4e072cafbd196654c925ff0a0dca2c8f
 Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	ac3d3d163e80d2320ca807e565ed75af
+# Source11-md5:	91290eab138a266b41f33a36a0cfd2a6
 #
 # Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
@@ -85,8 +85,8 @@ Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.ta
 # from ASP Linux
 Source17:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-pages-uk-%{uk_version}.tar.bz2
 # Source17-md5:	a4f11eb6cdd2af4d57b967de868eb7fd
-Source18:	http://cmpp.linuxforum.net/download/cman-%{zh_version}.tar.gz
-# Source18-md5:	8c631fb761cd684ea3e41aef438d0b49
+Source18:	http://cmpp.linuxforum.net/download/man-pages-zh_CN-%{zh_version}.tar.gz
+# Source18-md5:	2638da6c30a83b443064ca7353563a09
 Source50:	%{name}-extra.tar.bz2
 # Source50-md5:	967e10b6b691f53885ffa01695657f79
 Source51:	mbox.5
