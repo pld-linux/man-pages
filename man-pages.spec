@@ -230,7 +230,7 @@ Project (LDP). Стор╕нки орган╕зован╕ у так╕ секц╕╖: Секц╕я 1, команди
 %setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a11 -a13 -a14 -a15 -a16 -a17
 %patch0 -p1
 
-mkdir hu ko
+mkdir hu it ko
 tar xzf %{SOURCE8} -C hu
 tar xzf %{SOURCE10} -C it
 tar xzf %{SOURCE12} -C ko
