@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Summary(uk):	óÔÏÒ¦ÎËÉ ÍÁÎÕÁÌÕ (man) Ú Linux Documentation Project
 Name:		man-pages
 Version:	1.63
-Release:	0.1
+Release:	1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -25,7 +25,8 @@ Group:		Documentation
 %define		es_version		1.28
 %define		es_extra_version	0.8a
 %define		fi_version		0.1
-%define		fr_version		1.58.0
+%define		fr_base_version		1.58
+%define		fr_version		%{fr_base_version}.0
 %define		hu_version		2001_01_05
 %define		id_version		20011116
 %define		it_version		0.3.4
@@ -321,10 +322,10 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f manpages-fi/$n ]; then
 		install manpages-fi/$n $RPM_BUILD_ROOT%{_mandir}/fi/$n
 	fi
-#	if [ -f man-fr-%{fr_version}/$n ]; then
-#		install man-fr-%{fr_version}/$n $RPM_BUILD_ROOT%{_mandir}/fr/$n
-	if [ -f man-fr/$n ]; then
-		install man-fr/$n $RPM_BUILD_ROOT%{_mandir}/fr/$n
+	if [ -f man-fr-%{fr_base_version}/$n ]; then
+		install man-fr-%{fr_base_version}/$n $RPM_BUILD_ROOT%{_mandir}/fr/$n
+#	if [ -f man-fr/$n ]; then
+#		install man-fr/$n $RPM_BUILD_ROOT%{_mandir}/fr/$n
 	fi
 	if [ -f hu/$n ]; then
 		install hu/$n $RPM_BUILD_ROOT%{_mandir}/hu/$n
@@ -358,8 +359,12 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f %{name}-uk-%{uk_version}/$n ]; then
 		install %{name}-uk-%{uk_version}/$n $RPM_BUILD_ROOT%{_mandir}/uk/$n
 	fi
-	if [ -f cman/$n ]; then
-		install cman/$n $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
+#	if [ -f cman/$n ]; then
+#		install cman/$n $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
+	if [ -f man-pages-zh_CN-%{zh_version}/src/$n ]; then
+		# these man-pages are in UTF-8
+#		iconv -f UTF8 -t GB2312 man-pages-zh_CN-%{zh_version}/src/$n > $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
+		install man-pages-zh_CN-%{zh_version}/src/$n $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
 #               Doesn't work. Bad encoding ?
 #		iconv -f GB2312 -t Big5 cman/$n > $RPM_BUILD_ROOT%{_mandir}/zh_TW/$n
 	fi
