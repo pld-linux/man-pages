@@ -50,8 +50,8 @@ Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
 #Source7:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-fr-%{fr_version}.tar.gz
 Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 # there is no LDP man page here, yet.
+# based on http://nakula.rvs.uni-bielefeld.de/made/my_project/ManPage/
 #Source9:	man-pages-from-www-id-%{id_version}.tar.gz
-#Source9:	http://nakula.rvs.uni-bielefeld.de/my_project/ManPage/
 Source10:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-it-%{it_version}.tar.gz
 Source11:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ja-%{ja_version}.tar.gz
 #Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
@@ -292,7 +292,7 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 		install ko/$n $RPM_BUILD_ROOT%{_mandir}/ko/$n
 	fi
 	if [ -f manpages-nl-%{nl_version}/$n ]; then
-		install nl/$n $RPM_BUILD_ROOT%{_mandir}/nl/$n
+		install manpages-nl-%{nl_version}/$n $RPM_BUILD_ROOT%{_mandir}/nl/$n
 	fi
 	if [ -f pl_PL/$n ]; then
 		install pl_PL/$n $RPM_BUILD_ROOT%{_mandir}/pl/$n
