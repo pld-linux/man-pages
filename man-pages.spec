@@ -11,7 +11,7 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Name:		man-pages
 Version:	1.47
-Release:	1
+Release:	2
 License:	distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -60,6 +60,7 @@ Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
 #Source17:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
+Source30:	semget.2
 Source50:	%{name}-extra.tar.bz2
 #Patch0:		%{name}-iconv.patch
 #Patch1:		%{name}-ctype.patch
@@ -234,6 +235,8 @@ rm -f man*/README*
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8}
+
+install %{SOURCE30} $RPM_BUILD_ROOT%{_mandir}/man2
 
 for n in man{1,2,3,4,5,6,7,8}/*; do
 	if head -1 $n| grep '^\.so' >/dev/null 2>&1 ; then
