@@ -5,18 +5,20 @@ Summary(fi):	Suomenkieliset man-sivut
 Summary(fr):	Pages man système du Projet de Documentation Linux
 Summary(it):	Pagine di manuale
 Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
+Summary(pt):	Páginas de manual, do Projeto de Documentação do Linux (LDP)
 Summary(pt_BR):	Páginas de manual, do Projeto de Documentação do Linux (LDP)
 Summary(ru):	óÔÒÁÎÉÃÙ ÒÕËÏ×ÏÄÓÔ×Á ÉÚ ğÒÏÅËÔÁ äÏËÕÍÅÎÔÁÃÉÉ ÎÁ ìÉÎÕËÓ
 Summary(tr):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Name:		man-pages
-Version:	1.39
-Release:	2
+Version:	1.40
+Release:	1
 License:	Distributable
 Group:		Documentation
 Group(de):	Dokumentation
 Group(es):	Documentación
 Group(pl):	Dokumentacja
 Group(pt):	Documentação
+Group(pt_BR):	Documentação
 Group(ru):	äÏËÕÍÅÎÔÁÃÉÑ
 %define		cs_version	0.14
 %define		da_version	0.1.1
@@ -27,9 +29,9 @@ Group(ru):	äÏËÕÍÅÎÔÁÃÉÑ
 %define		hu_version	2001_01_05
 %define		id_version	20010914
 %define		it_version	0.3.0
-%define		ja_version	20010815
+%define		ja_version	20010915
 %define		ko_version	20010605
-%define		pl_version	20010913
+%define		pl_version	20011004
 %define		pt_version	1.39
 %define		ru_version	0.7
 %define		zh_version	0.1
@@ -49,7 +51,7 @@ Source7:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 #Source8:	http://nakula.rvs.uni-bielefeld.de/made/my_project/ManPage/id-man.tar.bz2
 Source9:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-it-%{it_version}.tar.gz
 Source10:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ja-%{ja_version}.tar.gz
-#Source10:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.bz2
+#Source10:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
 Source11:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source12:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-nl.tar.gz
 Source13:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.gz
@@ -83,7 +85,7 @@ formats, protocols, etc.
 
 - section 1: user commands (intro only)
 - section 2: system calls
-- section 3: libc calls
+- section 3: libc calls (intro only)
 - section 4: devices (e.g., hd, sd)
 - section 5: file formats and protocols (e.g., wtmp, /etc/passwd, nfs)
 - section 6: games (intro only)
@@ -96,7 +98,7 @@ Dateiformate, Protokolle, usw..
 
 - section 1: Benutzerbefehle (nur intro)
 - section 2: Systemaufrufe
-- section 3: libc-Aufrufe
+- section 3: libc-Aufrufe (nur intro)
 - section 4: Geräte (z.B. hd, sd)
 - section 5: Dateiformate und Protokolle (z.B. wtmp, /etc/passwd, nfs)
 - section 6: Spiele (nur intro)
@@ -109,7 +111,7 @@ APIs, formatos de archivos, protocolos, etc.
 
 - seción 1: comandos de usuario (solamente introducción)
 - seción 2: llamadas de sistema
-- seción 3: llamadas libc
+- seción 3: llamadas libc (solamente introducción)
 - seción 4: dispositivos (ej.: hd, sd)
 - seción 5: formatos de archivos y protocolos (ej: wtmp, /etc/passwd,
   nfs)
@@ -128,9 +130,9 @@ Une large collection de pages de manuel du Project de Documentation
 Linux (LDP), traduites en Français. Les pages de manuel sont
 organisées en differentes sections :
 
-- section 1: Commandes utilisateur
+- section 1: Commandes utilisateur (intro seulement)
 - section 2: Appels système
-- section 3: Appels de la Libc
+- section 3: Appels de la Libc (intro seulement)
 - section 4: Périphériques (par ex. hd, sd)
 - section 5: Formats de fichiers et de protocoles (par ex. wtmp,
   /etc/passwd, nfs)
@@ -150,12 +152,27 @@ opisuj±cych format plików, protoko³y itp.
 
 - sekcja 1: komendy u¿ytkowników (tylko wstêp)
 - sekcja 2: wywo³ania systemowe
-- sekcja 3: wywo³ania bibliotek
+- sekcja 3: wywo³ania bibliotek (tylko wstêp)
 - sekcja 4: urz±dzenia (np., hd, sd)
 - sekcja 5: format plików i protoko³y (np., wtmp, /etc/passwd, nfs)
 - sekcja 6: gry (tylko wstêp)
 - sekcja 7: konwencje, makro-pakiety, itp. (np., nroff, ascii)
 - sekcja 8: administracja systemu (tylko wstêp)
+
+%description -l pt
+Uma larga coleção de páginas de manuais cobrindo programação APIs,
+formatos de arquivos, protocolos, etc.
+
+- seção 1: comandos de usuário (somente introdução)
+- seção 2: chamadas de sistema
+- seção 3: chamadas libc (somente introdução)
+- seção 4: dispositivos (ex.: hd, sd)
+- seção 5: formatos de arquivos e protocolos (ex: wtmp, /etc/passwd,
+  nfs)
+- seção 6: jogos (somente introdução)
+- seção 7: convenções, pacotes de macros, etc. (ex: nroff, ascii)
+- seção 8: administração de sistema (somente introdução)
+- seção 9: kernel
 
 %description -l pt_BR
 Uma larga coleção de páginas de manuais cobrindo programação APIs,
@@ -163,7 +180,7 @@ formatos de arquivos, protocolos, etc.
 
 - seção 1: comandos de usuário (somente introdução)
 - seção 2: chamadas de sistema
-- seção 3: chamadas libc
+- seção 3: chamadas libc (somente introdução)
 - seção 4: dispositivos (ex.: hd, sd)
 - seção 5: formatos de arquivos e protocolos (ex: wtmp, /etc/passwd,
   nfs)
@@ -178,9 +195,9 @@ formatos de arquivos, protocolos, etc.
 
 - ÓÅËÃÉÑ 1: ËÏÍÁÎÄ ĞÏÌØÚÏ×ÁÔÅÌÑ (ÔÏÌØËÏ ××ÅÄÅÎÉÅ)
 - ÓÅËÃÉÑ 2: ÓÉÓÔÅÍÎÙÅ ×ÙÚÏ×Ù
-- ÓÅËÃÉÑ 3: ÆÕÎËÃÉÉ ÂÉÂÌÉÏÔÅËÉ ÑÚÙËÁ C
+- ÓÅËÃÉÑ 3: ÆÕÎËÃÉÉ ÂÉÂÌÉÏÔÅËÉ ÑÚÙËÁ C (ÔÏÌØËÏ ××ÅÄÅÎÉÅ)
 - ÓÅËÃÉÑ 4: ÕÓÔÒÏÊÓÔ×Á (ÎÁĞÒÉÍÅÒ, hd, sd)
-- ÓÅËÃÉÑ 4: ÆÏÒÍÁÔÙ ÆÁÊÌÏ× É ĞÒÏÔÏËÏÌÙ (ÎÁĞÒÉÍÅÒ, wtmp, /etc/passwd,
+- ÓÅËÃÉÑ 5: ÆÏÒÍÁÔÙ ÆÁÊÌÏ× É ĞÒÏÔÏËÏÌÙ (ÎÁĞÒÉÍÅÒ, wtmp, /etc/passwd,
   nfs)
 - ÓÅËÃÉÑ 6: ÉÇÒÙ (ÔÏÌØËÏ ××ÅÄÅÎÉÅ)
 - ÓÅËÃÉÑ 7: ÓÏÇÌÁÛÅÎÉÑ, ÍÁËÒÏ-ĞÁËÅÔÙ, É Ô. Ğ. (ÎÁĞÒÉÍÅÒ, nroff, ascii)
@@ -216,9 +233,10 @@ rm -f man*/README*
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8}
 
-for n in man{1,2,3,4,5,6,7,8}/*; do
+for n in man{1,2,4,5,6,7,8}/*; do
 	install $n $RPM_BUILD_ROOT%{_mandir}/$n
 done
+install man3/intro.3 $RPM_BUILD_ROOT%{_mandir}/man3/intro.3
 
 # rm -f $RPM_BUILD_ROOT%{_mandir}/man*/README*
 
@@ -234,6 +252,7 @@ install -d $RPM_BUILD_ROOT%{_mandir}/ko/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/nl/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/pl/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/pt/man{1,2,3,4,5,6,7,8}
+install -d $RPM_BUILD_ROOT%{_mandir}/pt_BR/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/ru/man{1,2,3,4,5,6,7,8}
 for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f %{name}-cs-%{cs_version}/$n ]; then
@@ -270,6 +289,9 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 		install pl_PL/$n $RPM_BUILD_ROOT%{_mandir}/pl/$n
 	fi
 	if [ -f %{name}-%{pt_version}-pt_BR/$n ]; then
+		install %{name}-%{pt_version}-pt_BR/$n $RPM_BUILD_ROOT%{_mandir}/pt_BR/$n
+	fi
+	if [ -f %{name}-%{pt_version}-pt_BR/$n ]; then
 		install %{name}-%{pt_version}-pt_BR/$n $RPM_BUILD_ROOT%{_mandir}/pt/$n
 	fi
 	if [ -f manpages-ru-%{ru_version}/$n ]; then
@@ -295,4 +317,5 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nl) %{_mandir}/nl/man*/*
 %lang(pl) %{_mandir}/pl/man*/*
 %lang(pt) %{_mandir}/pt/man*/*
+%lang(pt_BR) %{_mandir}/pt_BR/man*/*
 %lang(ru) %{_mandir}/ru/man*/*
