@@ -366,10 +366,10 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 		install %{name}-%{pt_version}-pt_BR/$n $RPM_BUILD_ROOT%{_mandir}/pt/$n
 	fi
 	if [ -f manpages-ru-asp-%{ru_asp_version}/$n ]; then
-		install manpages-ru-%{ru_version}/$n $RPM_BUILD_ROOT%{_mandir}/ru/$n
+		install manpages-ru-asp-%{ru_asp_version}/$n $RPM_BUILD_ROOT%{_mandir}/ru/$n
 	fi
 	if [ -f %{name}-uk_UA.alfa/$n ]; then
-		install %{name}-uk-%{uk_version}/$n $RPM_BUILD_ROOT%{_mandir}/uk/$n
+		install %{name}-uk_UA.alfa/$n $RPM_BUILD_ROOT%{_mandir}/uk/$n
 	fi
 #	if [ -f cman/$n ]; then
 #		install cman/$n $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
