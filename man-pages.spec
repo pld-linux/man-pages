@@ -285,7 +285,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8}
 
 for n in man{1,2,3,4,5,6,7,8}/*; do
-	if head -1 $n| grep '^\.so' >/dev/null 2>&1 ; then
+	if head -n 1 $n| grep '^\.so' >/dev/null 2>&1 ; then
 		sed 's,\.so man./,.so ,' < $n > $n.
 		mv $n. $n
 	fi
@@ -377,7 +377,7 @@ install %{SOURCE51} $RPM_BUILD_ROOT%{_mandir}/man5/mbox.5
 
 for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,nl,pl,pt,pt_BR,ru,uk,zh_CN,zh_TW} ; do
 	for n in $k/man{1,2,3,4,5,6,7,8}/*; do
-		if head -1 $n| grep '^\.so' >/dev/null 2>&1 ; then
+		if head -n 1 $n| grep '^\.so' >/dev/null 2>&1 ; then
 			sed 's,\.so man./,.so ,' < $n > $n.
 			mv $n. $n
 		fi
