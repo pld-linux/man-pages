@@ -15,8 +15,8 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Summary(uk):	Стор╕нки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	1.58
-Release:	2
+Version:	1.59
+Release:	1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
