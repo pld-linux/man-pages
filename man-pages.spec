@@ -5,8 +5,8 @@ Summary(pl):	PodrÍczniki systemowe z Linux Documentation Project
 Summary(ru):	Û‘“¡Œ…√Ÿ “’Àœ◊œƒ”‘◊¡ …⁄ “œ≈À‘¡ ‰œÀ’Õ≈Œ‘¡√…… Œ¡ Ï…Œ’À”.
 Summary(tr):	Linux Belgeleme Projesinin sistem k˝lavuz sayfalar˝
 Name:		man-pages
-Version:	1.35
-Release:	4
+Version:	1.39
+Release:	1
 License:	Distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -132,11 +132,13 @@ Programlama aray¸zlerini, dosya formatlar˝n˝, protokolleri vs.
 kapsayan, geni˛ bir k˝lavuz sayfalar˝ derlemesi.
 
 %prep
-%setup -q -a7 -c -T -n %{name}-hu-%{hu_version}
-%setup -q -a11 -c -T -n %{name}-ko-%{ko_version}
 %setup -q -a1 -a3 -a4 -a5 -a6 -a9 -a10 -a12 -a13 -a14 -a15
 %patch0 -p1
 %patch1 -p1
+
+mkdir hu ko
+tar xzf %{SOURCE7} -C hu
+tar xzf %{SOURCE11} -C ko
 
 %build
 rm -f man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install,diff}.1
@@ -146,7 +148,7 @@ rm -f man2/{capget,capset}.2
 rm -f man4/console.4
 rm -f man5/{locale,nsswitch.conf,passwd,tzfile}.5
 rm -f man7/{ascii,charsets,iso*,latin*,locale,unicode,utf*}.7
-rm -f man8/{sync,tzselect,zdump,zic}.8
+rm -f man8/{sync,tzselect,zdump,zic,ldconfig}.8
 
 rm -f man*/README*
 
@@ -189,8 +191,8 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f man-fr-%{fr_version}/$n ]; then
 		install man-fr-%{fr_version}/$n $RPM_BUILD_ROOT%{_mandir}/fr/$n
 	fi
-	if [ -f ../%{name}-hu-%{hu_version}/$n ]; then
-		install ../%{name}-hu-%{hu_version}/$n $RPM_BUILD_ROOT%{_mandir}/hu/$n
+	if [ -f hu/$n ]; then
+		install hu/$n $RPM_BUILD_ROOT%{_mandir}/hu/$n
 	fi
 	if [ -f %{name}-it-%{it_version}/$n ]; then
 		install %{name}-it-%{it_version}/$n $RPM_BUILD_ROOT%{_mandir}/it/$n
@@ -198,8 +200,8 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f %{name}-ja-%{ja_version}/manual/LDP_man-pages/$n ]; then
 		install %{name}-ja-%{ja_version}/manual/LDP_man-pages/$n $RPM_BUILD_ROOT%{_mandir}/ja/$n
 	fi
-	if [ -f ../%{name}-ko-%{ko_version}/$n ]; then
-		install ../%{name}-ko-%{ko_version}/$n $RPM_BUILD_ROOT%{_mandir}/ko/$n
+	if [ -f ko/$n ]; then
+		install ko/$n $RPM_BUILD_ROOT%{_mandir}/ko/$n
 	fi
 	if [ -f nl/$n ]; then
 		install nl/$n $RPM_BUILD_ROOT%{_mandir}/nl/$n
