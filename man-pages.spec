@@ -15,7 +15,7 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Name:		man-pages
 Version:	1.48
-Release:	1
+Release:	2
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.14
@@ -59,6 +59,7 @@ Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
 # Source17:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
 Source50:	%{name}-extra.tar.bz2
+Source51:	mbox.5
 Patch0:		%{name}-localtime.patch
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -300,6 +301,8 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	fi
 done
 bzip2 -dc %{SOURCE50} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+
+install %{SOURCE51} $RPM_BUILD_ROOT%{_mandir}/man5/mbox.5
 
 for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,nl,pl,pt,pt_BR,ru} ; do
 	for n in $k/man{1,2,3,4,5,6,7,8}/*; do
