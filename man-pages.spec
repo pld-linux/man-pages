@@ -291,7 +291,7 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f ko/$n ]; then
 		install ko/$n $RPM_BUILD_ROOT%{_mandir}/ko/$n
 	fi
-	if [ -f nl/$n ]; then
+	if [ -f manpages-nl-%{nl_version}/$n ]; then
 		install nl/$n $RPM_BUILD_ROOT%{_mandir}/nl/$n
 	fi
 	if [ -f pl_PL/$n ]; then
