@@ -15,7 +15,7 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Summary(uk):	Стор╕нки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	1.63
+Version:	1.64
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -39,7 +39,7 @@ Group:		Documentation
 %define		uk_version		0.1.1
 %define		zh_version		1.4
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
-# Source0-md5:	235d9a3df5bc4eaf926622c5deec7a2a
+# Source0-md5:	c2008b298e34008a1b84595415f09fce
 #
 # Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
