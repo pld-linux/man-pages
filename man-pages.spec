@@ -11,7 +11,7 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Name:		man-pages
 Version:	1.43
-Release:	4
+Release:	5
 License:	distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -226,7 +226,7 @@ rm -f man1/{ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,time,touch,dir,vdir}.1
 rm -f man1/COPYING
 rm -f man2/{capget,capset}.2 
 find man3 -type f | grep -v 'intro\.3' | xargs rm -f
-rm -f man4/console.4
+rm -f man4/{console,console_ioctl}.4
 rm -f man5/{locale,nscd.conf,nsswitch.conf,passwd,tzfile}.5
 rm -f man7/{ascii,charsets,iso*,koi8-r,latin*,locale,unicode,utf*}.7
 rm -f man8/{ldconfig,nscd,sync,tzselect,zdump,zic}.8
