@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem k˝lavuz sayfalar˝
 Summary(uk):	Û‘œ“¶ŒÀ… Õ¡Œ’¡Ã’ (man) ⁄ Linux Documentation Project
 Name:		man-pages
 Version:	1.69
-Release:	1
+Release:	1.1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -30,13 +30,14 @@ Group:		Documentation
 %define		hu_version		2001_01_05
 %define		id_version		20011116
 %define		it_version		0.3.4
-%define		ja_version		20040815
+%define		ja_version		20041015
 %define		ko_version		20010901
 %define		nl_version		0.13.3
 %define		pl_version		20040119
 %define		pt_version		1.39
-%define		ru_version		0.97
-%define		uk_version		0.1.1
+%define		ro_version		0.1
+#%%define	ru_version		0.97
+%define		ru_asp_version		1.4
 %define		zh_version		1.4
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
 # Source0-md5:	6e89aabacdc847173fe2fa708a239c3a
@@ -70,7 +71,7 @@ Source8:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man_hu_%{hu_version}
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
 # Source10-md5:	4e072cafbd196654c925ff0a0dca2c8f
 Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	fd04a9139d42e39d6c01671d38ff6480
+# Source11-md5:	03615746f5b970e7359fda3628917bd4
 #
 # Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
@@ -82,14 +83,15 @@ Source14:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 # Source14-md5:	f2f4c62520c11d3cf909b571954fef0d
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 # Source15-md5:	3f8db6dd6a7884b595e70f624ac93735
-Source16:	http://www.linuxshare.ru/projects/trans/manpages-ru-%{ru_version}.tar.bz2
-# Source16-md5:	0496e600fed4a218f3dd896cfff49e4b
-#
-# from ASP Linux
-Source17:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-pages-uk-%{uk_version}.tar.bz2
-# Source17-md5:	a4f11eb6cdd2af4d57b967de868eb7fd
-Source18:	http://cmpp.linuxforum.net/download/man-pages-zh_CN-%{zh_version}.tar.gz
-# Source18-md5:	2638da6c30a83b443064ca7353563a09
+# Source16:	http://www.rolix.org/man/arhiva/man-pages-ro-%{ro_version}.tar.gz
+#Source17:	http://www.linuxshare.ru/projects/trans/manpages-ru-%{ru_version}.tar.bz2
+# ASP-linux have more up-to-date manpages
+Source17:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/manpages-ru-asp-%{ru_asp_version}.tar.gz
+# Source17-md5:	fffb27648417c8dd551e2a4403eefc64
+Source18:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.tar.gz
+# Source18-md5:	89576c5b51bb83c8bfa8bda794b96e21
+Source19:	http://cmpp.linuxforum.net/download/man-pages-zh_CN-%{zh_version}.tar.gz
+# Source19-md5:	2638da6c30a83b443064ca7353563a09
 Source50:	%{name}-extra.tar.bz2
 # Source50-md5:	967e10b6b691f53885ffa01695657f79
 Source51:	mbox.5
@@ -265,8 +267,7 @@ Part of POSIX 1003.1-2003 in man pages format.
 Fragmenty POSIX 1003.1-2003 w postaci stron podrÍcznika systemowego.
 
 %prep
-#%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18
-%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a11 -a13 -a14 -a15 -a16 -a17 -a18
+%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a11 -a13 -a14 -a15 -a17 -a18 -a19
 %patch0 -p1
 %patch1 -p0
 #rm -f cman/man*/*.html
@@ -364,10 +365,10 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f %{name}-%{pt_version}-pt_BR/$n ]; then
 		install %{name}-%{pt_version}-pt_BR/$n $RPM_BUILD_ROOT%{_mandir}/pt/$n
 	fi
-	if [ -f manpages-ru-%{ru_version}/$n ]; then
+	if [ -f manpages-ru-asp-%{ru_asp_version}/$n ]; then
 		install manpages-ru-%{ru_version}/$n $RPM_BUILD_ROOT%{_mandir}/ru/$n
 	fi
-	if [ -f %{name}-uk-%{uk_version}/$n ]; then
+	if [ -f %{name}-uk_UA.alfa/$n ]; then
 		install %{name}-uk-%{uk_version}/$n $RPM_BUILD_ROOT%{_mandir}/uk/$n
 	fi
 #	if [ -f cman/$n ]; then
