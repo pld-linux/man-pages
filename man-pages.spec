@@ -106,7 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Sun Nov 29 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.22-1]
-- added gziping man pages,
+- added gzipping man pages,
 - changed base Source url.
 
 * Fri Sep 04 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
