@@ -11,7 +11,7 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Name:		man-pages
 Version:	1.47
-Release:	2
+Release:	3
 License:	distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -32,6 +32,7 @@ Group(ru):	Документация
 %define		it_version		0.3.0
 %define		ja_version		20011215
 %define		ko_version		20010605
+%define		nl_version		0.13.3
 %define		pl_version		20020102
 %define		pt_version		1.39
 %define		ru_version		0.7
@@ -55,7 +56,7 @@ Source10:	ftp://ftp.win.tue.nl/pub/home/aeb/home/aeb/linux-local/manpages/tr/%{n
 Source11:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ja-%{ja_version}.tar.gz
 #Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
 Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
-Source13:	ftp://ftp.win.tue.nl/pub/home/aeb/home/aeb/linux-local/manpages/tr/%{name}-nl.tar.gz
+Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
