@@ -11,7 +11,7 @@ Group:		Documentation
 Group(pl):	Dokumentacja
 Source:		ftp://ftp.us.kernel.org/pub/linux/docs/manpages/%{name}-%{version}.tar.bz2
 BuildArch:	noarch
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Autoreqprov:	false
 
 %description
