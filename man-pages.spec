@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _with_tars         generate man-pages tars for other packages
+%bcond_with	tars	# generate man-pages tars for other packages [not done yet]
 #
 Summary:	System manual pages from the Linux Documentation Project
 Summary(de):	System-man-Seiten vom Linux Documentation Project
@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem k˝lavuz sayfalar˝
 Summary(uk):	Û‘œ“¶ŒÀ… Õ¡Œ’¡Ã’ (man) ⁄ Linux Documentation Project
 Name:		man-pages
 Version:	1.64
-Release:	2
+Release:	3
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -33,7 +33,7 @@ Group:		Documentation
 %define		ja_version		20031215
 %define		ko_version		20010901
 %define		nl_version		0.13.3
-%define		pl_version		20020828
+%define		pl_version		20040119
 %define		pt_version		1.39
 %define		ru_version		0.7
 %define		uk_version		0.1.1
@@ -78,7 +78,7 @@ Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 # Source13-md5:	b37b0216a87db7583e88ba87031a0b4a
 Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
-# Source14-md5:	2ad83c91c1a568c1c5f40ba699077cd6
+# Source14-md5:	f2f4c62520c11d3cf909b571954fef0d
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 # Source15-md5:	3f8db6dd6a7884b595e70f624ac93735
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
