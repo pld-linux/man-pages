@@ -157,7 +157,6 @@ APIs, formatos de archivos, protocolos, etc.
 - seción 6: juegos (solamente introducción)
 - seción 7: convenciones, paquetes de macros, etc. (ej: nroff, ascii)
 - seción 8: administración de sistema (solamente introducción)
-- seción 9: kernel
 
 %description -l fi
 Kokoelma man-sivujen käännöksiä suomenkielelle. Sivuja on mukana
@@ -178,7 +177,6 @@ organisées en differentes sections :
 - section 6: Jeux (intro seulement)
 - section 7: Conventions, macro packages, etc. (par ex. nroff, ascii)
 - section 8: Administration système (intro seulement)
-- section 9: Routines du noyau
 
 %description -l it
 Traduzioni italiane delle pagine di manuale per Linux: questo
@@ -211,7 +209,6 @@ formatos de arquivos, protocolos, etc.
 - seção 6: jogos (somente introdução)
 - seção 7: convenções, pacotes de macros, etc. (ex: nroff, ascii)
 - seção 8: administração de sistema (somente introdução)
-- seção 9: kernel
 
 %description -l pt_BR
 Uma larga coleção de páginas de manuais cobrindo programação APIs,
@@ -226,7 +223,6 @@ formatos de arquivos, protocolos, etc.
 - seção 6: jogos (somente introdução)
 - seção 7: convenções, pacotes de macros, etc. (ex: nroff, ascii)
 - seção 8: administração de sistema (somente introdução)
-- seção 9: kernel
 
 %description -l ru
 îÅÂÏÌØÛÁÑ ËÏÌÌÅËÃÉÑ ÓÔÒÁÎÉÃ ÒÕËÏ×ÏÄÓÔ×Á ÉÚ ğÒÏÅËÔÁ äÏËÕÍÅÎÔÁÃÉÉ ÎÁ
@@ -255,6 +251,18 @@ Project (LDP). óÔÏÒ¦ÎËÉ ÏÒÇÁÎ¦ÚÏ×ÁÎ¦ Õ ÔÁË¦ ÓÅËÃ¦§: óÅËÃ¦Ñ 1, ËÏÍÁÎÄÉ
 óÅËÃ¦Ñ 6, ¦ÇÒÉ (Ô¦ÌØËÉ ×ÓÔÕĞ); óÅËÃ¦Ñ 7, ÕÇÏÄÉ, ÍÁËÒÏĞÁËÅÔÉ ¦ Ô.¦.
 (ÎÁĞÒÉËÌÁÄ, nroff, ascii); óÅËÃ¦Ñ 8, ÓÉÓÔÅÍÎÅ ÁÄÍ¦Î¦ÓÔÒÕ×ÁÎÎÑ (Ô¦ÌØËÉ
 ×ÓÔÕĞ).
+
+%package posix
+Summary:	POSIX manual pages from the Linux Documentation Project
+Summary(de):	POSIX-man-Seiten vom Linux Documentation Project
+Summary(pl):	Podrêczniki systemowe z Linux Documentation Project dotycz±ce POSIX
+Group:		Documentation
+
+%description posix
+Part of POSIX 1003.1-2003 in man pages format.
+
+%description posix -l pl
+Fragmenty POSIX 1003.1-2003 w postaci stron podrêcznika systemowego.
 
 %prep
 #%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18
