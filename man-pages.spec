@@ -75,8 +75,8 @@ geniþ bir kýlavuz sayfalarý derlemesi.
 
 %build
 rm -fv man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install,diff}.1
-rm -fv man1/{ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,touch}.1
-rm -fv man2/{modules,quotactl,get_kernel_syms}.2 
+rm -fv man1/{ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,touch,dir,vdir}.1
+rm -fv man2/{modules,quotactl,get_kernel_syms,capget}.2 
 rm -fv man2/{create,delete,init,query}_module.2
 rm -fv man3/{resolver,getnetent,strcasecmp}.3
 rm -fv man4/console.4
