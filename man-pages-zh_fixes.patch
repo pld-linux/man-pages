@@ -1,0 +1,154 @@
+--- man-pages-zh_CN-1.4/src/man1/gcc.1.orig	Wed Nov 19 15:19:48 2003
++++ man-pages-zh_CN-1.4/src/man1/gcc.1	Wed Nov 19 15:26:37 2003
+@@ -3153,7 +3153,7 @@
+ .BR r6000 .
+ 虽然 选定 某个 
+ .I cpu-type
+-后, GCC 将 针对 选定的 芯片 安排 对应的 工作, 但是 如果 不指定�
++后, GCC 将 针对 选定的 芯片 安排 对应的 工作, 但是 如果 不指定
+ .B \-mips2
+ 或
+ .B \-mips3
+--- man-pages-zh_CN-1.4/src/man1/intro.1.orig	Wed Nov 19 14:45:51 2003
++++ man-pages-zh_CN-1.4/src/man1/intro.1	Wed Nov 19 14:45:51 2003
+@@ -36,7 +36,7 @@
+ INTRO(1)
+ 
+ 名称
+-intro – 介绍用户命令
++intro \- 介绍用户命令
+ 
+ 描述
+ 这章描述用户命令。
+--- man-pages-zh_CN-1.4/src/man1/ls.1.orig	Wed Nov 19 15:17:19 2003
++++ man-pages-zh_CN-1.4/src/man1/ls.1	Wed Nov 19 15:18:36 2003
+@@ -43,7 +43,7 @@
+ .br
+ 每一内含文件的目录）分别按文件名比较顺序排序。如果
+ .br
+-“ -l ”选项存在，每组文件前显示一摘要行——给出该
++“ -l ”选项存在，每组文件前显示一摘要行 - 给出该
+ .br
+ 组文件长度之和（以 512 字节为单位）。
+ 
+@@ -78,7 +78,7 @@
+ 将目录名象其它文件一样列出，而不是列出它们的内容。
+ .TP
+ .B "\-i"
+-输出文件前先输出文件系列号（即 i 节点号— i-node number）。
++输出文件前先输出文件系列号（即 i 节点号 - i-node number）。
+ -l 列出（以单列格式）文件模式（ file mode ），文件的链
+ 接数，所有者名，组名，文件大小（以字节为单位），时间信
+ 息，及文件名。缺省时，时间信息显示最近修改时间；可以以
+@@ -136,8 +136,8 @@
+ .B "-g" 忽略，为兼容UNIX用。
+ .TP
+ .B "-i, --inode"
+-在每个文件左边打印 i 节点号（也叫文件序列号和索引号—
+-— file serial number and index number）。i节点号在每
++在每个文件左边打印 i 节点号（也叫文件序列号和索引号
++\- file serial number and index number）。i节点号在每
+ 个特定的文件系统中是唯一的。
+ .TP
+ .B "-k, --kilobytes"
+--- man-pages-zh_CN-1.4/src/man2/close.2.orig	Thu Oct 30 23:35:00 2003
++++ man-pages-zh_CN-1.4/src/man2/close.2	Wed Nov 19 15:33:02 2003
+@@ -29,7 +29,7 @@
+ .\"   corrected description of effect on locks (thanks to
+ .\"   Tigran Aivazian <tigran@sco.com>).
+ .\" Modified Fri Jan 31 16:21:46 1997 by Eric S. Raymond <esr@thyrsus.com>
+-.\" Modified 2000-07-22 by Nicol醩 Lichtmaier <nick@debian.org>
++.\" Modified 2000-07-22 by Nicolas Lichtmaier <nick@debian.org>
+ .\"   added note about close(2) not guaranteeing that data is safe on close.
+ .\"
+ .TH CLOSE 2 1996-04-14 "" "Linux Programmer's Manual"
+--- man-pages-zh_CN-1.4/src/man5/environ.5.orig	Thu Oct 30 23:35:02 2003
++++ man-pages-zh_CN-1.4/src/man5/environ.5	Wed Nov 19 15:35:36 2003
+@@ -26,7 +26,7 @@
+ .\" Modified Sun Jul 25 10:45:30 1993 by Rik Faith (faith@cs.unc.edu)
+ .\" Modified Sun Jul 21 21:25:26 1996 by Andries Brouwer (aeb@cwi.nl)
+ .\" Modified Mon Oct 21 17:47:19 1996 by Eric S. Raymond (esr@thyrsus.com)
+-.\" Modified Wed Aug 27 20:28:58 1997 by Nicol醩 Lichtmaier 
++.\" Modified Wed Aug 27 20:28:58 1997 by Nicolas Lichtmaier 
+ .\" Modified Mon Sep 21 00:00:26 1998 by Andries Brouwer (aeb@cwi.nl)
+ .TH ENVIRON(5) Linux Programmer's Manual ENVIRON(5)
+ 
+--- man-pages-zh_CN-1.4/src/man7/hier.7.orig	Wed Nov 19 15:37:08 2003
++++ man-pages-zh_CN-1.4/src/man7/hier.7	Wed Nov 19 15:37:15 2003
+@@ -23,8 +23,8 @@
+ .\" License.
+ .\" Modified Sun Jul 25 11:05:58 1993 by Rik Faith (faith@cs.unc.edu)
+ .\" Modified Sat Feb 10 16:18:03 1996 by Urs Thuermann (urs@isnogud.escape.de)
+-.\" Modified Mon Jun 16 20:02:00 1997 by Nicol醩 Lichtmaier 
+-.\" Modified Mon Feb 6 16:41:00 1999 by Nicol醩 Lichtmaier 
++.\" Modified Mon Jun 16 20:02:00 1997 by Nicolas Lichtmaier 
++.\" Modified Mon Feb 6 16:41:00 1999 by Nicolas Lichtmaier 
+ .\" Modified Tue Feb 8 16:46:45 2000 by Chris Pepper 
+ .\" 中文版 Copyright (c) 2000 LetBright 和 www.linuxforum.net
+ .TH HIER 7 "June 16, 1997" "Linux" "Linux Programmer's Manual"
+--- man-pages-zh_CN-1.4/src/man7/suffix.7.orig	Wed Nov 19 15:37:23 2003
++++ man-pages-zh_CN-1.4/src/man7/suffix.7	Wed Nov 19 15:37:27 2003
+@@ -27,7 +27,7 @@
+ .\" Modified Tue Oct 22 23:28:12 1996 by Eric S. Raymond 
+ .\" Modified Sun Jan 26 21:56:56 1997 by Ralph Schleicher
+ .\" 
+-.\" Modified Mon Jun 16 20:24:58 1997 by Nicol醩 Lichtmaier 
++.\" Modified Mon Jun 16 20:24:58 1997 by Nicolas Lichtmaier 
+ .\" Modified Sun Oct 18 22:11:28 1998 by Joseph S. Myers 
+ .\" Modified Mon Nov 16 17:24:47 1998 by Andries Brouwer 
+ .\"
+--- man-pages-zh_CN-1.4/src/man8/blockdev.8.orig	Thu Oct 30 23:35:15 2003
++++ man-pages-zh_CN-1.4/src/man8/blockdev.8	Wed Nov 19 15:54:29 2003
+@@ -34,7 +34,7 @@
+ 只读模式检测。如果是只读模式，显示1，否则显示0。
+ .TP
+ .B \--getss
+-用字节为单位打印扇区大小——一般是512字节。
++用字节为单位打印扇区大小 - 一般是512字节。
+ .TP
+ .B \--getsize
+ 显示设备容量（使用512个字节大小的扇区为单位）
+--- man-pages-zh_CN-1.4/src/man8/iptables.8.orig	Thu Oct 30 23:35:17 2003
++++ man-pages-zh_CN-1.4/src/man8/iptables.8	Wed Nov 19 15:51:40 2003
+@@ -1,5 +1,5 @@
+ .TH Iptables "iptables 中文手册" ""
+-./杨鹏·NetSnake 2002年3月20日
++./杨鹏・NetSnake 2002年3月20日
+ ./for CMPP
+ .SH 名子
+ iptables - IP包过滤器管理
+@@ -443,4 +443,4 @@
+                            Mar 20, 2000
+ .br
+ 
+-.SS 中文维护：杨鹏·NetSnake
++.SS 中文维护：杨鹏・NetSnake
+--- man-pages-zh_CN-1.4/src/man8/lilo.8.orig	Thu Oct 30 23:35:17 2003
++++ man-pages-zh_CN-1.4/src/man8/lilo.8	Wed Nov 19 15:58:27 2003
+@@ -26,21 +26,21 @@
+ .SH 总述
+ 主要功能:
+ .LP
+-.B ” /sbin/lilo”
++.B " /sbin/lilo"
+ \- 安装引导装入程序
+ .LP
+ 辅助用途:
+ .LP
+-.B ”/sbin/lilo –q”
++.B " /sbin/lilo -q"
+ \- 查询影射表
+ .br
+-.B ”/sbin/lilo –R”
++.B " /sbin/lilo -R"
+ \- 设置下次启动的默认命令行
+ .br
+-.B ”/sbin/lilo –I”
++.B " /sbin/lilo -I"
+ \- 查询当前内核的路径
+ .br
+-.B ”/sbin/lilo {-u|-U}”
++.B " /sbin/lilo {-u|-U}"
+ \- 卸载lilo
+ 
+ .SH 使用说明
