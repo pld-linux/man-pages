@@ -5,7 +5,7 @@ Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
 Version:	1.28
-Release:	1
+Release:	2
 Copyright:	distributable
 Group:		Documentation
 Group(pl):	Dokumentacja
@@ -90,6 +90,8 @@ install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8}
 for n in man{1,2,3,4,5,6,7,8}/*; do
 	install $n $RPM_BUILD_ROOT%{_mandir}/$n
 done
+
+rm -f $RPM_BUILD_ROOT%{_mandir}/man*/README*
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/*
 
