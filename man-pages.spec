@@ -4,7 +4,7 @@ Summary(fr):	Pages man système du Projet de Documentation Linux
 Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
-Version:	1.30
+Version:	1.31
 Release:	1
 Copyright:	distributable
 Group:		Documentation
@@ -77,14 +77,14 @@ kapsayan, geniþ bir kýlavuz sayfalarý derlemesi.
 %setup -q
 
 %build
-rm -fv man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install,diff}.1
-rm -fv man1/{ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,touch,dir,vdir}.1
-rm -fv man2/{modules,quotactl,get_kernel_syms,capget,capset}.2 
-rm -fv man2/{create,delete,init,query}_module.2
-rm -fv man3/{resolver,getnetent,strcasecmp}.3
-rm -fv man4/console.4
-rm -fv man5/{exports,lilo.conf,nfs,fstab,passwd}.5
-rm -fv man8/lilo.8
+rm -f man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install,diff}.1
+rm -f man1/{ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,touch,dir,vdir}.1
+rm -f man2/{modules,quotactl,get_kernel_syms,capget,capset}.2 
+rm -f man2/{create,delete,init,query}_module.2
+rm -f man3/{resolver,getnetent,strcasecmp}.3
+rm -f man4/console.4
+rm -f man5/{exports,lilo.conf,nfs,fstab,passwd}.5
+rm -f man8/lilo.8
 
 %install
 rm -rf $RPM_BUILD_ROOT
