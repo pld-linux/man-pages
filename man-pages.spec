@@ -5,9 +5,10 @@ Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
 Version:	1.27
-Release:	1
+Release:	2
 Copyright:	distributable
 Group:		Documentation
+Group(pl):	Dokumentacja
 URL:		ftp://ftp.us.kernel.org/pub/linux/docs/manpages
 Source:		%{name}-%{version}.tar.bz2
 BuildArch:	noarch
