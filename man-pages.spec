@@ -398,7 +398,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%dir %{_mandir}/man*p
 %{_mandir}/man?/*
 %lang(cs) %{_mandir}/cs/man*/*
 %lang(de) %{_mandir}/de/man*/*
