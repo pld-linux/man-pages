@@ -5,7 +5,7 @@ Summary(pl): Podrêczniki systemowe z Linux Documentation Project
 Summary(tr): Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:        man-pages
 Version:     1.22
-Release:     1
+Release:     2
 Copyright:   distributable
 Group:       Documentation
 Source:      ftp://ftp.win.tue.nl/pub/linux/man/%{name}-%{version}.tar.gz
@@ -85,6 +85,8 @@ rm -fv man5/exports.5
 rm -fv man5/nfs.5
 rm -fv man5/fstab.5
 rm -fv man3/strcasecmp.3
+rm -fv man1/lilo.conf.5
+rm -fv man8/lilo.8
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -100,10 +102,14 @@ gzip -9nf $RPM_BUILD_ROOT/usr/man/man{1,2,3,4,5,6,7,8}/*
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, man)
-/usr/man/man*/*
+%attr(644, root, man) /usr/man/man*/*
 
 %changelog
+* Fri Dec  6 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.22-2]
+- removed lilo(5), lilo.conf(8) man pages (will be in lilo package),
+- %defattr changed to %attr.
+
 * Sun Nov 29 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.22-1]
 - added gzipping man pages,
