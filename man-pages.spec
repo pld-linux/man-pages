@@ -1,3 +1,7 @@
+#
+# Conditional build:
+# _with_tars         generate man-pages tars for other packages
+#
 Summary:	System manual pages from the Linux Documentation Project
 Summary(de):	System-man-Seiten vom Linux Documentation Project
 Summary(es):	Páginas de manual, del Proyecto de Documentación del Linux (LDP)
@@ -11,7 +15,7 @@ Summary(ru):	óÔÒÁÎÉÃÙ ÒÕËÏ×ÏÄÓÔ×Á ÉÚ ğÒÏÅËÔÁ äÏËÕÍÅÎÔÁÃÉÉ ÎÁ ìÉÎÕËÓ
 Summary(tr):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Name:		man-pages
 Version:	1.47
-Release:	5
+Release:	6
 License:	distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -40,32 +44,32 @@ Group(ru):	äÏËÕÍÅÎÔÁÃÉÑ
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
 # there is no LDP man page here, yet.
-#Source2:	http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz
+# Source2:	http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz
 Source3:	http://www.infodrom.ffis.de/projects/manpages-de/download/manpages-de-%{de_version}.tar.gz
 Source4:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-%{es_version}.tar.gz
 Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra_version}.tar.gz
+# extracted from http://developer.bestlinux.net/man-fi/usr/man/RPMS/%{name}-fi-%{fi_version}-4.src.rpm
 Source6:	man-fi-%{fi_version}.tar.bz2
-#Source6:	http://developer.bestlinux.net/man-fi/usr/man/RPMS/%{name}-fi-%{fi_version}-4.src.rpm
 Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
-#Source7:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-fr-%{fr_version}.tar.gz
 Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 # there is no LDP man page here, yet.
 # based on http://nakula.rvs.uni-bielefeld.de/made/my_project/ManPage/
-#Source9:	man-pages-from-www-id-%{id_version}.tar.gz
+# Source9:	man-pages-from-www-id-%{id_version}.tar.gz
 Source10:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-it-%{it_version}.tar.gz
-Source11:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ja-%{ja_version}.tar.gz
-#Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
+# Source11:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ja-%{ja_version}.tar.gz
+Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
 Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
-#Source17:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
+# Source17:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
 Source30:	semget.2
+Source31:	shmctl.2
+Source32:	shmop.2
+Source33:	truncate.2
 Source50:	%{name}-extra.tar.bz2
-#Patch0:		%{name}-iconv.patch
-#Patch1:		%{name}-ctype.patch
-Patch2:		%{name}-localtime.patch
+Patch0:		%{name}-localtime.patch
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Autoreqprov:	false
@@ -214,7 +218,7 @@ kapsayan, geniş bir kılavuz sayfaları derlemesi.
 
 %prep
 %setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a10 -a11 -a13 -a14 -a15 -a16
-%patch2 -p1
+%patch0 -p1
 
 mkdir hu ko
 tar xzf %{SOURCE8} -C hu
@@ -238,6 +242,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8}
 
 install %{SOURCE30} $RPM_BUILD_ROOT%{_mandir}/man2
+install %{SOURCE31} $RPM_BUILD_ROOT%{_mandir}/man2
+install %{SOURCE32} $RPM_BUILD_ROOT%{_mandir}/man2
+install %{SOURCE33} $RPM_BUILD_ROOT%{_mandir}/man2
 
 for n in man{1,2,3,4,5,6,7,8}/*; do
 	if head -1 $n| grep '^\.so' >/dev/null 2>&1 ; then
