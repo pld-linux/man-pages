@@ -1,17 +1,17 @@
-Summary:     System manual pages from the Linux Documentation Project
-Summary(de): System-man-Seiten vom Linux Documentation Project
-Summary(fr): Pages man système du Projet de Documentation Linux
-Summary(pl): Podrêczniki systemowe z Linux Documentation Project
-Summary(tr): Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
-Name:        man-pages
-Version:     1.22
-Release:     2
-Copyright:   distributable
-Group:       Documentation
-Source:      ftp://ftp.win.tue.nl/pub/linux/man/%{name}-%{version}.tar.gz
-BuildArchitectures: noarch
-Buildroot:   /tmp/%{name}-%{version}-root
-Autoreqprov: false
+Summary:	System manual pages from the Linux Documentation Project
+Summary(de):	System-man-Seiten vom Linux Documentation Project
+Summary(fr):	Pages man système du Projet de Documentation Linux
+Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
+Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
+Name:		man-pages
+Version:	1.23
+Release:	1
+Copyright:	distributable
+Group:		Documentation
+Source:		ftp://ftp.win.tue.nl/pub/linux/man/%{name}-%{version}.tar.gz
+BuildArch:	noarch
+Buildroot:	/tmp/%{name}-%{version}-root
+Autoreqprov:	false
 
 %description
 A large collection of man pages covering programming APIs, file
@@ -96,15 +96,19 @@ for n in man?/*; do
 	install $n $RPM_BUILD_ROOT/usr/man/$n
 done
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man{1,2,3,4,5,6,7,8}/*
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man*/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%attr(644, root, man) /usr/man/man*/*
+%attr(644,root,root) /usr/man/man*/*
 
 %changelog
+* Tue Mar 30 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.23-1]
+- removed man group from man pages.
+
 * Fri Dec  6 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.22-2]
 - removed lilo(5), lilo.conf(8) man pages (will be in lilo package),
