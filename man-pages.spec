@@ -15,8 +15,8 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Summary(uk):	Стор╕нки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	1.64
-Release:	3
+Version:	1.65
+Release:	0.1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -30,7 +30,7 @@ Group:		Documentation
 %define		hu_version		2001_01_05
 %define		id_version		20011116
 %define		it_version		0.3.4
-%define		ja_version		20031215
+%define		ja_version		20040115
 %define		ko_version		20010901
 %define		nl_version		0.13.3
 %define		pl_version		20040119
@@ -39,7 +39,7 @@ Group:		Documentation
 %define		uk_version		0.1.1
 %define		zh_version		1.4
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
-# Source0-md5:	c2008b298e34008a1b84595415f09fce
+# Source0-md5:	b841b98513f57d0fb5aa279570a852df
 #
 # Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
@@ -70,7 +70,7 @@ Source8:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man_hu_%{hu_version}
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
 # Source10-md5:	4e072cafbd196654c925ff0a0dca2c8f
 Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	da828d52b5e4597ac63d54f277f9bbb0
+# Source11-md5:	6590d539e1da253c8cd6784041768414
 #
 # Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
