@@ -13,6 +13,7 @@ Summary(pt):	PАginas de manual, do Projeto de DocumentaГЦo do Linux (LDP)
 Summary(pt_BR):	PАginas de manual, do Projeto de DocumentaГЦo do Linux (LDP)
 Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
+Summary(uk):	Стор╕нки мануалу (man) з Linux Documentation Project
 Name:		man-pages
 Version:	1.48
 Release:	6
@@ -206,6 +207,16 @@ formatos de arquivos, protocolos, etc.
 %description -l tr
 Programlama arayЭzlerini, dosya formatlarЩnЩ, protokolleri vs.
 kapsayan, geniЧ bir kЩlavuz sayfalarЩ derlemesi.
+
+%description -l uk
+Великий наб╕р стор╕нок мануалу (документац╕╖) з Linux Documentation
+Project (LDP). Стор╕нки орган╕зован╕ у так╕ секц╕╖: Секц╕я 1, команди
+користувача (т╕льки вступ); Секц╕я 2, системн╕ виклики; Секц╕я 3,
+виклики libc; Секц╕я 4, пристро╖ (наприклад, hd, sd); Секц╕я 5,
+формати файл╕в та протоколи (наприклад, wtmp, /etc/passwd, nfs);
+Секц╕я 6, ╕гри (т╕льки вступ); Секц╕я 7, угоди, макропакети ╕ т.╕.
+(наприклад, nroff, ascii); Секц╕я 8, системне адм╕н╕стрування (т╕льки
+вступ).
 
 %prep
 %setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a10 -a11 -a13 -a14 -a15 -a16
