@@ -19,7 +19,6 @@ formats, protocols, etc.
 
     Section 1 = user commands (intro only)
     Section 2 = system calls
-    Section 3 = libc calls
     Section 4 = devices (e.g., hd, sd)
     Section 5 = file formats and protocols (e.g., wtmp, /etc/passwd, nfs)
     Section 6 = games (intro only)
@@ -32,7 +31,6 @@ Dateiformate, Protokolle, usw..
 
     Section 1 = Benutzerbefehle (nur intro)
     Section 2 = Systemaufrufe
-    Section 3 = libc-Aufrufe
     Section 4 = Geräte (z.B. hd, sd)
     Section 5 = Dateiformate und Protokolle (z.B. wtmp, /etc/passwd, nfs)
     Section 6 = Spiele (nur intro)
@@ -45,7 +43,6 @@ les formats de fichiers, les protocoles, etc.
 
     Section 1 = commandes utilisateur (intro seulement)
     Section 2 = appels système
-    Section 3 = appels libc
     Section 4 = périphériques (e.g., hd, sd)
     Section 5 = formats de fichiers et protocoles (e.g., wtmp, /etc/passwd, nfs)
     Section 6 = jeux (intro seulement)
@@ -58,7 +55,6 @@ opisuj±cych format plików, protoko³y itp.
 
     Section 1 = komendy u¿ytkowników (tylko wstêp)
     Section 2 = wywo³ania systemowe
-    Section 3 = wywo³ania bibliotek
     Section 4 = urz±dzenia (np., hd, sd)
     Section 5 = format plików i protoko³y (np., wtmp, /etc/passwd, nfs)
     Section 6 = gry (tylko wstêp)
@@ -91,8 +87,8 @@ rm -fv man8/lilo.8
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/usr/man/man{1,2,3,4,5,6,7,8}
-for n in man?/*; do
+install -d $RPM_BUILD_ROOT/usr/man/man{1,2,4,5,6,7,8}
+for n in man{1,2,4,5,6,7,8}/*; do
 	install $n $RPM_BUILD_ROOT/usr/man/$n
 done
 
@@ -107,6 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Tue Mar 30 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.23-1]
+- man pages level 3 moved to glibc-devel package,
 - removed man group from man pages.
 
 * Fri Dec  6 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
