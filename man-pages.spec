@@ -337,7 +337,7 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f cman/$n ]; then
 		install cman/$n $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
 #               Doesn't work. Bad encoding ?
-		iconv -f GB2312 -t Big5 cman/$n > $RPM_BUILD_ROOT%{_mandir}/zh_TW/$n
+#		iconv -f GB2312 -t Big5 cman/$n > $RPM_BUILD_ROOT%{_mandir}/zh_TW/$n
 	fi
 done
 bzip2 -dc %{SOURCE50} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
