@@ -5,14 +5,16 @@ Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
 Version:	1.31
-Release:	1
-Copyright:	distributable
+Release:	2
+License:	Distributable
 Group:		Documentation
+Group(de):	Dokumentation
 Group(pl):	Dokumentacja
 Source0:	ftp://ftp.us.kernel.org/pub/linux/docs/manpages/%{name}-%{version}.tar.bz2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Autoreqprov:	false
+Obsoletes:	man-pages-pl
 
 %description
 A large collection of man pages covering programming APIs, file
@@ -95,8 +97,6 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 done
 
 rm -f $RPM_BUILD_ROOT%{_mandir}/man*/README*
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
