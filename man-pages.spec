@@ -11,7 +11,7 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Name:		man-pages
 Version:	1.40
-Release:	2
+Release:	3
 License:	Distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -225,7 +225,7 @@ rm -f man2/{capget,capset}.2
 find man3 -type f | grep -v 'intro\.3' | xargs rm -f
 rm -f man4/console.4
 rm -f man5/{locale,nsswitch.conf,passwd,tzfile}.5
-rm -f man7/{ascii,charsets,iso*,latin*,locale,unicode,utf*}.7
+rm -f man7/{ascii,charsets,iso*,koi8-r,latin*,locale,unicode,utf*}.7
 rm -f man8/{sync,tzselect,zdump,zic,ldconfig}.8
 
 rm -f man*/README*
