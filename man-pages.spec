@@ -10,8 +10,8 @@ Summary(pt_BR):	PАginas de manual, do Projeto de DocumentaГЦo do Linux (LDP)
 Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Name:		man-pages
-Version:	1.44
-Release:	2
+Version:	1.45
+Release:	1
 License:	distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -32,7 +32,7 @@ Group(ru):	Документация
 %define		it_version		0.3.0
 %define		ja_version		20011215
 %define		ko_version		20010605
-%define		pl_version		20011116
+%define		pl_version		20011217
 %define		pt_version		1.39
 %define		ru_version		0.7
 %define		zh_version		0.1
