@@ -65,6 +65,7 @@ Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
 # Source10-md5: dfacc75f081e7340094d88c7a04b5fab
 Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
+# Source11-md5:	cbac21348344f9f4120bb43d7ea3397a
 # Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5: e73c7999af103208e5497f939de764ca
