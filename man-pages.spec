@@ -5,12 +5,13 @@ Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
 Version:	1.35
-Release:	1
+Release:	2
 License:	Distributable
 Group:		Documentation
 Group(de):	Dokumentation
 Group(pl):	Dokumentacja
 Source0:	ftp://ftp.win.tue.nl/pub/linux-local/manpages/%{name}-%{version}.tar.gz
+Source1:	man-pages-pl-PTM-snapshot.20010913.tar.gz
 Patch0:		man-pages-iconv.patch
 Patch1:		man-pages-ctype.patch
 BuildArch:	noarch
@@ -78,7 +79,7 @@ Programlama arayüzlerini, dosya formatlarýný, protokolleri vs.
 kapsayan, geniþ bir kýlavuz sayfalarý derlemesi.
 
 %prep
-%setup -q
+%setup -q -a1
 %patch0 -p1
 %patch1 -p1
 
@@ -100,9 +101,17 @@ done
 
 rm -f $RPM_BUILD_ROOT%{_mandir}/man*/README*
 
+install -d $RPM_BUILD_ROOT%{_mandir}/pl/man{1,2,3,4,5,6,7,8}
+for n in man{1,2,3,4,5,6,7,8}/*; do
+	if [ -f pl_PL/$n ]; then
+		install pl_PL/$n $RPM_BUILD_ROOT%{_mandir}/pl/$n
+	fi
+done
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %{_mandir}/man*/*
+%{_mandir}/pl/man*/*
