@@ -15,7 +15,7 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Summary(uk):	Стор╕нки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	1.50
+Version:	1.51
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -233,7 +233,7 @@ rm -f man1/COPYING
 rm -f man2/{capget,capset}.2
 find man3 -type f | grep -v 'intro\.3' | xargs rm -f
 rm -f man4/{console,console_ioctl}.4
-rm -f man5/{locale,nscd.conf,nsswitch.conf,passwd,tzfile}.5
+rm -f man5/{ftpusers,locale,nscd.conf,nsswitch.conf,passwd,tzfile}.5
 rm -f man7/{ascii,charsets,iso*,koi8-r,latin*,locale,unicode,utf*}.7
 rm -f man8/{ld.so,ldconfig,nscd,sync,tzselect,zdump,zic}.8
 
