@@ -222,7 +222,7 @@ tar xzf %{SOURCE12} -C ko
 rm -f man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install,diff}.1
 rm -f man1/{ldd,ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,time,touch,dir,vdir}.1
 rm -f man1/COPYING
-rm -f man2/{capget,capset}.2 
+rm -f man2/{capget,capset}.2
 find man3 -type f | grep -v 'intro\.3' | xargs rm -f
 rm -f man4/{console,console_ioctl}.4
 rm -f man5/{locale,nscd.conf,nsswitch.conf,passwd,tzfile}.5
