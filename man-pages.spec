@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem k˝lavuz sayfalar˝
 Summary(uk):	Û‘œ“¶ŒÀ… Õ¡Œ’¡Ã’ (man) ⁄ Linux Documentation Project
 Name:		man-pages
 Version:	1.67
-Release:	2
+Release:	3
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -35,7 +35,7 @@ Group:		Documentation
 %define		nl_version		0.13.3
 %define		pl_version		20040119
 %define		pt_version		1.39
-%define		ru_version		0.96
+%define		ru_version		0.97
 %define		uk_version		0.1.1
 %define		zh_version		1.4
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
@@ -83,7 +83,7 @@ Source14:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 # Source15-md5:	3f8db6dd6a7884b595e70f624ac93735
 Source16:	http://www.linuxshare.ru/projects/trans/manpages-ru-%{ru_version}.tar.bz2
-# Source16-md5:	c968f36b405c5a74730648fd302fbedf
+# Source16-md5:	0496e600fed4a218f3dd896cfff49e4b
 #
 # from ASP Linux
 Source17:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-pages-uk-%{uk_version}.tar.bz2
