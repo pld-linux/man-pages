@@ -10,8 +10,8 @@ Summary(pt_BR):	Páginas de manual, do Projeto de Documentação do Linux (LDP)
 Summary(ru):	óÔÒÁÎÉÃÙ ÒÕËÏ×ÏÄÓÔ×Á ÉÚ ðÒÏÅËÔÁ äÏËÕÍÅÎÔÁÃÉÉ ÎÁ ìÉÎÕËÓ
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
-Version:	1.43
-Release:	5
+Version:	1.44
+Release:	1
 License:	distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -61,8 +61,8 @@ Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
 #Source17:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
 Source50:	%{name}-extra.tar.bz2
-Patch0:		%{name}-iconv.patch
-Patch1:		%{name}-ctype.patch
+#Patch0:		%{name}-iconv.patch
+#Patch1:		%{name}-ctype.patch
 Patch2:		%{name}-localtime.patch
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -212,8 +212,6 @@ kapsayan, geniþ bir kýlavuz sayfalarý derlemesi.
 
 %prep
 %setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a10 -a11 -a13 -a14 -a15 -a16
-%patch0 -p1
-%patch1 -p1
 %patch2 -p1
 
 mkdir hu ko
@@ -238,7 +236,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8}
 
 for n in man{1,2,3,4,5,6,7,8}/*; do
-	if [ `wc -l $n` = 1 ] ; then
+	if head -1 $n| grep '^\.so' >/dev/null 2>&1 ; then
 		sed 's,\.so man./,.so ,' < $n > $n.
 		mv $n. $n
 	fi
@@ -309,7 +307,7 @@ bzip2 -dc %{SOURCE50} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,nl,pl,pt,pt_BR,ru} ; do
 	for n in $k/man{1,2,3,4,5,6,7,8}/*; do
-		if [ `wc -l $n` = 1 ] ; then
+		if head -1 $n| grep '^\.so' >/dev/null 2>&1 ; then
 			sed 's,\.so man./,.so ,' < $n > $n.
 			mv $n. $n
 		fi
