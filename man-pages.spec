@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem k˝lavuz sayfalar˝
 Summary(uk):	Û‘œ“¶ŒÀ… Õ¡Œ’¡Ã’ (man) ⁄ Linux Documentation Project
 Name:		man-pages
 Version:	1.66
-Release:	4
+Release:	5
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -30,7 +30,7 @@ Group:		Documentation
 %define		hu_version		2001_01_05
 %define		id_version		20011116
 %define		it_version		0.3.4
-%define		ja_version		20040315
+%define		ja_version		20040515
 %define		ko_version		20010901
 %define		nl_version		0.13.3
 %define		pl_version		20040119
@@ -70,7 +70,7 @@ Source8:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man_hu_%{hu_version}
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
 # Source10-md5:	4e072cafbd196654c925ff0a0dca2c8f
 Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	b0a7e5c94714f4d5f42b8d97d971ed3d
+# Source11-md5:	889064bf95ad5e7aa974edc7093c1f06
 #
 # Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
