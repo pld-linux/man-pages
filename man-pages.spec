@@ -63,7 +63,7 @@ Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
 # from ASP Linux
 Source17:	man-pages-uk-%{uk_version}.tar.bz2
-# Source18:	http://cmpp.linuxforum.net/download/cman-%{zh_version}.tar.gz
+Source18:	http://cmpp.linuxforum.net/download/cman-%{zh_version}.tar.gz
 Source50:	%{name}-extra.tar.bz2
 Source51:	mbox.5
 Patch0:		%{name}-localtime.patch
@@ -75,6 +75,7 @@ Obsoletes:	man-pages-es
 Obsoletes:	man-pages-fi
 Obsoletes:	man-pages-fr
 Obsoletes:	man-pages-hu
+Obsoletes:	manpages-hu
 Obsoletes:	man-pages-it
 Obsoletes:	man-pages-ja
 Obsoletes:	man-pages-ko
@@ -85,6 +86,7 @@ Obsoletes:	man-pages-pt_BR
 Obsoletes:	man-pages-ru
 Obsoletes:	man-pages-ru-asp
 Obsoletes:	man-pages-uk
+Obsoletes:	man-pages-zh
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -227,8 +229,9 @@ Project (LDP). Стор╕нки орган╕зован╕ у так╕ секц╕╖: Секц╕я 1, команди
 
 %prep
 #%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a10 -a11 -a13 -a14 -a15 -a16 -a17
-%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a11 -a13 -a14 -a15 -a16 -a17
+%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a11 -a13 -a14 -a15 -a16 -a17 -a18
 %patch0 -p1
+rm -f cman/man*/*.html
 
 mkdir hu it ko
 tar xzf %{SOURCE8} -C hu
@@ -275,6 +278,8 @@ install -d $RPM_BUILD_ROOT%{_mandir}/pt/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/pt_BR/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/ru/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/uk/man{1,2,3,4,5,6,7,8}
+install -d $RPM_BUILD_ROOT%{_mandir}/zh_CN/man{1,2,3,4,5,6,7,8}
+install -d $RPM_BUILD_ROOT%{_mandir}/zh_TW/man{1,2,3,4,5,6,7,8}
 for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f %{name}-cs-%{cs_version}/$n ]; then
 		install %{name}-cs-%{cs_version}/$n $RPM_BUILD_ROOT%{_mandir}/cs/$n
@@ -327,12 +332,17 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f %{name}-uk-%{uk_version}/$n ]; then
 		install %{name}-uk-%{uk_version}/$n $RPM_BUILD_ROOT%{_mandir}/uk/$n
 	fi
+	if [ -f cman/$n ]; then
+		install cman/$n $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
+#               Doesn't work. Bad encoding ?
+#		iconv -f GB2312 -t Big5 cman/$n > $RPM_BUILD_ROOT%{_mandir}/zh_TW/$n
+	fi
 done
 bzip2 -dc %{SOURCE50} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 install %{SOURCE51} $RPM_BUILD_ROOT%{_mandir}/man5/mbox.5
 
-for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,nl,pl,pt,pt_BR,ru,uk} ; do
+for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,nl,pl,pt,pt_BR,ru,uk,zh_CN,zh_TW} ; do
 	for n in $k/man{1,2,3,4,5,6,7,8}/*; do
 		if head -1 $n| grep '^\.so' >/dev/null 2>&1 ; then
 			sed 's,\.so man./,.so ,' < $n > $n.
@@ -362,3 +372,5 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt_BR) %{_mandir}/pt_BR/man*/*
 %lang(ru) %{_mandir}/ru/man*/*
 %lang(uk) %{_mandir}/uk/man*/*
+%lang(zh_CN) %{_mandir}/zh_CN/man*/*
+#%lang(zh_TW) %{_mandir}/zh_TW/man*/*
