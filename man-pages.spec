@@ -222,6 +222,7 @@ rm -f man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install,diff}.1
 rm -f man1/{ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,time,touch,dir,vdir}.1
 rm -f man1/COPYING
 rm -f man2/{capget,capset}.2 
+find man3 -type f | grep -v 'intro\.3' | xargs rm -f
 rm -f man4/console.4
 rm -f man5/{locale,nsswitch.conf,passwd,tzfile}.5
 rm -f man7/{ascii,charsets,iso*,latin*,locale,unicode,utf*}.7
@@ -233,12 +234,9 @@ rm -f man*/README*
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8}
 
-for n in man{1,2,4,5,6,7,8}/*; do
+for n in man{1,2,3,4,5,6,7,8}/*; do
 	install $n $RPM_BUILD_ROOT%{_mandir}/$n
 done
-install man3/intro.3 $RPM_BUILD_ROOT%{_mandir}/man3/intro.3
-
-# rm -f $RPM_BUILD_ROOT%{_mandir}/man*/README*
 
 install -d $RPM_BUILD_ROOT%{_mandir}/cs/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/de/man{1,2,3,4,5,6,7,8}
