@@ -38,7 +38,8 @@ Group:		Documentation
 %define		uk_version		0.1.1 
 %define		zh_version		0.3
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
-Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
+# Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
+Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # there is no LDP man page here, yet.
 # Source2:	http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz
 Source3:	http://www.infodrom.org/projects/manpages-de/download/manpages-de-%{de_version}.tar.gz
@@ -336,7 +337,7 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f cman/$n ]; then
 		install cman/$n $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
 #               Doesn't work. Bad encoding ?
-#		iconv -f GB2312 -t Big5 cman/$n > $RPM_BUILD_ROOT%{_mandir}/zh_TW/$n
+		iconv -f GB2312 -t Big5 cman/$n > $RPM_BUILD_ROOT%{_mandir}/zh_TW/$n
 	fi
 done
 bzip2 -dc %{SOURCE50} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
