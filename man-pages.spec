@@ -15,7 +15,7 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Name:		man-pages
 Version:	1.48
-Release:	2
+Release:	3
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.14
@@ -28,10 +28,10 @@ Group:		Documentation
 %define		hu_version		2001_01_05
 %define		id_version		20011116
 %define		it_version		0.3.0
-%define		ja_version		20020215
+%define		ja_version		20020315
 %define		ko_version		20010605
 %define		nl_version		0.13.3
-%define		pl_version		20020219
+%define		pl_version		20020318
 %define		pt_version		1.39
 %define		ru_version		0.7
 %define		zh_version		0.1
