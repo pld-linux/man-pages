@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Summary(uk):	óÔÏÒ¦ÎËÉ ÍÁÎÕÁÌÕ (man) Ú Linux Documentation Project
 Name:		man-pages
 Version:	1.65
-Release:	0.1
+Release:	1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -283,9 +283,9 @@ rm -f man*/README*
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8}
+install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8,0p,1p,3p}
 
-for n in man{1,2,3,4,5,6,7,8}/*; do
+for n in man{1,2,3,4,5,6,7,8,0p,1p,3p}/*; do
 	if head -n 1 $n| grep '^\.so' >/dev/null 2>&1 ; then
 		sed 's,\.so man./,.so ,' < $n > $n.
 		mv $n. $n
@@ -390,7 +390,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{_mandir}/man*/*
+%dir %{_mandir}/man*p
+%{_mandir}/man?/*
 %lang(cs) %{_mandir}/cs/man*/*
 %lang(de) %{_mandir}/de/man*/*
 %lang(es) %{_mandir}/es/man*/*
@@ -408,3 +409,8 @@ rm -rf $RPM_BUILD_ROOT
 %lang(uk) %{_mandir}/uk/man*/*
 %lang(zh_CN) %{_mandir}/zh_CN/man*/*
 #%lang(zh_TW) %{_mandir}/zh_TW/man*/*
+
+%files posix
+%defattr(644,root,root,755)
+%dir %{_mandir}/man?p
+%{_mandir}/man?p/*
