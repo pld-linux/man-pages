@@ -5,7 +5,7 @@ Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
 Version:	1.26
-Release:	2
+Release:	3
 Copyright:	distributable
 Group:		Documentation
 URL:		ftp://ftp.win.tue.nl/pub/linux/docs/manpages
@@ -80,7 +80,7 @@ rm -fv man2/{modules,quotactl,get_kernel_syms}.2
 rm -fv man2/{create,delete,init,query}_module.2
 rm -fv man3/{resolver,getnetent,gethostbyname,strcasecmp}.3
 rm -fv man4/console.4
-rm -fv man5/{exports,lilo.conf,nfs,fstab}.5
+rm -fv man5/{exports,lilo.conf,nfs,fstab,passwd}.5
 rm -fv man8/lilo.8
 
 %install
