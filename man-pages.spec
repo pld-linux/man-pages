@@ -35,7 +35,7 @@ Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs
 #Source2:	http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz
 Source3:	http://www.infodrom.ffis.de/projects/manpages-de/download/manpages-de-%{de_version}.tar.gz
 Source4:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-%{es_version}.tar.gz
-Source5:	%{name}-from-rpm-fi-%{fi_version}.tar.gz
+Source5:	man-fi-%{fi_version}.tar.bz2
 #Source5:	http://developer.bestlinux.net/man-fi/usr/man/RPMS/%{name}-fi-%{fi_version}-4.src.rpm
 Source6:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
 #Source6:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-fr-%{fr_version}.tar.gz
@@ -182,10 +182,8 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f %{name}-es-%{es_version}/$n ]; then
 		install %{name}-es-%{es_version}/$n $RPM_BUILD_ROOT%{_mandir}/es/$n
 	fi
-	# fi/man?/* are bziped
-	if [ -f fi/$n.bz2 ]; then
-		bunzip2 fi/$n.bz2
-		install fi/$n $RPM_BUILD_ROOT%{_mandir}/fi/$n
+	if [ -f manpages-fi/$n.bz2 ]; then
+		install manpages-fi/$n $RPM_BUILD_ROOT%{_mandir}/fi/$n
 	fi
 	if [ -f man-fr-%{fr_version}/$n ]; then
 		install man-fr-%{fr_version}/$n $RPM_BUILD_ROOT%{_mandir}/fr/$n
