@@ -87,6 +87,7 @@ Obsoletes:	man-pages-ru
 Obsoletes:	man-pages-ru-asp
 Obsoletes:	man-pages-uk
 Obsoletes:	man-pages-zh
+Conflicts:	attr-devel < 2.2.0-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -228,7 +229,7 @@ Project (LDP). Стор╕нки орган╕зован╕ у так╕ секц╕╖: Секц╕я 1, команди
 вступ).
 
 %prep
-#%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a10 -a11 -a13 -a14 -a15 -a16 -a17
+#%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18
 %setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a11 -a13 -a14 -a15 -a16 -a17 -a18
 %patch0 -p1
 rm -f cman/man*/*.html
