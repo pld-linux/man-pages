@@ -77,7 +77,8 @@ Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e73c7999af103208e5497f939de764ca
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 # Source13-md5:	b37b0216a87db7583e88ba87031a0b4a
-Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
+#Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
+Source14:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 # Source14-md5:	f2f4c62520c11d3cf909b571954fef0d
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 # Source15-md5:	3f8db6dd6a7884b595e70f624ac93735
