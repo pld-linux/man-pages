@@ -12,7 +12,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
 Version:	1.43
 Release:	1
-License:	Distributable
+License:	distributable
 Group:		Documentation
 Group(de):	Dokumentation
 Group(es):	Documentación
