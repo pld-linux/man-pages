@@ -42,6 +42,7 @@ Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{versio
 # Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # Source1-md5: e8036794c1762804f2e242cc5b52001e
+# 
 # there is no LDP man page here, yet.
 # Source2:	http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz
 Source3:	http://www.infodrom.org/projects/manpages-de/download/manpages-de-%{de_version}.tar.gz
@@ -51,13 +52,14 @@ Source4:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-%{es_version}.ta
 Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra_version}.tar.gz
 # Source5-md5: 5827f41f77658df17f550b7f8e831432
 # extracted from http://developer.bestlinux.net/man-fi/usr/man/RPMS/%{name}-fi-%{fi_version}-4.src.rpm
-Source6:	man-fi-%{fi_version}.tar.bz2
+Source6:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-fi-%{fi_version}.tar.bz2
 # Source6-md5: 	53dcf98b573c6e00c45eb91affca0a2e
 # Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
 Source7:	http://perso.club-internet.fr/ccb/man/man-fr-%{fr_version}.tar.gz
 # Source7-md5: aec50d6d7fbb9b7a096ae26ab4a3177f
 Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 # Source8-md5: 8b94f02287672c5a0601c1ad422a8e07
+# 
 # there is no LDP man page here, yet.
 # based on http://nakula.rvs.uni-bielefeld.de/made/my_project/ManPage/
 # Source9:	man-pages-from-www-id-%{id_version}.tar.gz
@@ -71,14 +73,15 @@ Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5: e73c7999af103208e5497f939de764ca
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 # Source13-md5: b37b0216a87db7583e88ba87031a0b4a
-Source14:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
+Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 # Source14-md5: 2ad83c91c1a568c1c5f40ba699077cd6
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 # Source15-md5: 3f8db6dd6a7884b595e70f624ac93735
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
 # Source16-md5: bfd5a8f20a12b994e19cfca0c4a21249
+# 
 # from ASP Linux
-Source17:	man-pages-uk-%{uk_version}.tar.bz2
+Source17:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-pages-uk-%{uk_version}.tar.bz2
 # Source17-md5: a4f11eb6cdd2af4d57b967de868eb7fd
 Source18:	http://cmpp.linuxforum.net/download/cman-%{zh_version}.tar.gz
 # Source18-md5: 8c631fb761cd684ea3e41aef438d0b49
