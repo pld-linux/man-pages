@@ -32,7 +32,7 @@ Group:		Documentation
 %define		ja_version		20020816
 %define		ko_version		20010605
 %define		nl_version		0.13.3
-%define		pl_version		20020611
+%define		pl_version		20020828
 %define		pt_version		1.39
 %define		ru_version		0.7
 %define		zh_version		0.1
