@@ -54,7 +54,7 @@ Source10:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ja-%{ja_ver
 #Source10:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
 Source11:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source12:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-nl.tar.gz
-Source13:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.gz
+Source13:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 Source14:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 Source15:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
 #Source16:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
