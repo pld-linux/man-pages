@@ -5,7 +5,7 @@ Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
 Version:	1.31
-Release:	2
+Release:	3
 License:	Distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -81,6 +81,7 @@ kapsayan, geniþ bir kýlavuz sayfalarý derlemesi.
 %build
 rm -f man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install,diff}.1
 rm -f man1/{ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,touch,dir,vdir}.1
+rm -f man1/COPYING
 rm -f man2/{modules,quotactl,get_kernel_syms,capget,capset}.2 
 rm -f man2/{create,delete,init,query}_module.2
 rm -f man3/{resolver,getnetent,strcasecmp}.3
