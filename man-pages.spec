@@ -33,10 +33,10 @@ Source0:	ftp://ftp.win.tue.nl/pub/linux-local/manpages/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
 # there is no LDP man page here, yet.
 #Source2:	http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz
-Source3:	http://www.infodrom.ffis.de/projects/manpages-de/download/manpages-de-{de_version}.tar.gz
+Source3:	http://www.infodrom.ffis.de/projects/manpages-de/download/manpages-de-%{de_version}.tar.gz
 Source4:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-%{es_version}.tar.gz
 Source5:	%{name}-from-rpm-fi-%{fi_version}.tar.gz
-#Source5:	http://developer.bestlinux.net/man-fi/usr/man/RPMS/{name}-fi-%{fi_version}-4.src.rpm
+#Source5:	http://developer.bestlinux.net/man-fi/usr/man/RPMS/%{name}-fi-%{fi_version}-4.src.rpm
 Source6:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
 #Source6:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-fr-%{fr_version}.tar.gz
 Source7:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
@@ -51,7 +51,7 @@ Source12:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-nl.t
 Source13:	man-pages-pl-PTM-snapshot.%{pl_version}.tar.gz
 Source14:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 Source15:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
-#Source16:	http://www.cmpp.net/download/cman-{zh_version}.tar.gz
+#Source16:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
 Patch0:		man-pages-iconv.patch
 Patch1:		man-pages-ctype.patch
 BuildArch:	noarch
@@ -145,6 +145,7 @@ rm -f man1/COPYING
 rm -f man2/{capget,capset}.2 
 rm -f man4/console.4
 rm -f man5/passwd.5
+rm -f man8/sync.8
 
 rm -f man*/README*
 
