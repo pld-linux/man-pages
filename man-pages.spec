@@ -5,7 +5,7 @@ Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
 Version:	1.34
-Release:	2
+Release:	3
 License:	Distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -86,7 +86,7 @@ kapsayan, geniþ bir kýlavuz sayfalarý derlemesi.
 rm -f man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install,diff}.1
 rm -f man1/{ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,time,touch,dir,vdir}.1
 rm -f man1/COPYING
-rm -f man2/{quotactl,capget,capset}.2 
+rm -f man2/{capget,capset}.2 
 rm -f man4/console.4
 rm -f man5/{lilo.conf,passwd}.5
 rm -f man8/lilo.8
