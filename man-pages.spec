@@ -88,8 +88,6 @@ rm -f man4/console.4
 rm -f man5/{exports,lilo.conf,nfs,fstab,passwd}.5
 rm -f man8/lilo.8
 
-rm -f man3/{getaddrinfo,gethostbyname,getipnodebyname}.3
-
 %install
 rm -rf $RPM_BUILD_ROOT
 
