@@ -35,7 +35,7 @@ Group:		Documentation
 %define		pl_version		20020828
 %define		pt_version		1.39
 %define		ru_version		0.7
-%define		uk_version		0.1.1 
+%define		uk_version		0.1.1
 %define		zh_version		0.3
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
 # Source0-md5:	d163d7d3b954ef3387d9b4182ad52d59
@@ -43,7 +43,7 @@ Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{versio
 # Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # Source1-md5:	e8036794c1762804f2e242cc5b52001e
-# 
+#
 # there is no LDP man page here, yet.
 # Source2:	http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz
 Source3:	http://www.infodrom.org/projects/manpages-de/download/manpages-de-%{de_version}.tar.gz
@@ -60,7 +60,7 @@ Source7:	http://perso.club-internet.fr/ccb/man/man-fr-%{fr_version}.tar.gz
 # Source7-md5:	aec50d6d7fbb9b7a096ae26ab4a3177f
 Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 # Source8-md5:	8b94f02287672c5a0601c1ad422a8e07
-# 
+#
 # there is no LDP man page here, yet.
 # based on http://nakula.rvs.uni-bielefeld.de/made/my_project/ManPage/
 # Source9:	man-pages-from-www-id-%{id_version}.tar.gz
@@ -81,7 +81,7 @@ Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt
 # Source15-md5:	3f8db6dd6a7884b595e70f624ac93735
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
 # Source16-md5:	bfd5a8f20a12b994e19cfca0c4a21249
-# 
+#
 # from ASP Linux
 Source17:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-pages-uk-%{uk_version}.tar.bz2
 # Source17-md5:	a4f11eb6cdd2af4d57b967de868eb7fd
