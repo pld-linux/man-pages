@@ -36,7 +36,7 @@ Group:		Documentation
 %define		pt_version		1.39
 %define		ru_version		0.7
 %define		uk_version		0.1.1 
-%define		zh_version		0.1
+%define		zh_version		0.3
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
 # there is no LDP man page here, yet.
@@ -63,7 +63,7 @@ Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
 # from ASP Linux
 Source17:	man-pages-uk-%{uk_version}.tar.bz2
-# Source18:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
+# Source18:	http://cmpp.linuxforum.net/download/cman-%{zh_version}.tar.gz
 Source50:	%{name}-extra.tar.bz2
 Source51:	mbox.5
 Patch0:		%{name}-localtime.patch
@@ -324,8 +324,8 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f manpages-ru-%{ru_version}/$n ]; then
 		install manpages-ru-%{ru_version}/$n $RPM_BUILD_ROOT%{_mandir}/ru/$n
 	fi
-	if [ -f man-pages-uk-%{uk_version}/$n ]; then
-		install man-pages-uk-%{uk_version}/$n $RPM_BUILD_ROOT%{_mandir}/ru/$n
+	if [ -f %{name}-uk-%{uk_version}/$n ]; then
+		install %{name}-uk-%{uk_version}/$n $RPM_BUILD_ROOT%{_mandir}/uk/$n
 	fi
 done
 bzip2 -dc %{SOURCE50} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
@@ -361,4 +361,4 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt) %{_mandir}/pt/man*/*
 %lang(pt_BR) %{_mandir}/pt_BR/man*/*
 %lang(ru) %{_mandir}/ru/man*/*
-%lang(uk) %{_mandir}/ru/man*/*
+%lang(uk) %{_mandir}/uk/man*/*
