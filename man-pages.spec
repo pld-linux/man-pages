@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem k˝lavuz sayfalar˝
 Summary(uk):	Û‘œ“¶ŒÀ… Õ¡Œ’¡Ã’ (man) ⁄ Linux Documentation Project
 Name:		man-pages
 Version:	1.56
-Release:	4
+Release:	5
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -29,7 +29,7 @@ Group:		Documentation
 %define		hu_version		2001_01_05
 %define		id_version		20011116
 %define		it_version		0.3.3
-%define		ja_version		20030525
+%define		ja_version		20030615
 %define		ko_version		20010901
 %define		nl_version		0.13.3
 %define		pl_version		20020828
@@ -70,7 +70,7 @@ Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
 # Source11-md5:	82e9882e75d038e9b416a386a059e692
 # Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
-# Source12-md5: e73c7999af103208e5497f939de764ca
+# Source12-md5: c6237b53deee160bd29b3ca783e18295
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 # Source13-md5: b37b0216a87db7583e88ba87031a0b4a
 Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
