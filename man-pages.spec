@@ -5,7 +5,7 @@ Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
 Version:	1.26
-Release:	1
+Release:	2
 Copyright:	distributable
 Group:		Documentation
 URL:		ftp://ftp.win.tue.nl/pub/linux/docs/manpages
@@ -74,7 +74,7 @@ geniþ bir kýlavuz sayfalarý derlemesi.
 %setup -q
 
 %build
-rm -fv man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install}.1
+rm -fv man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install,diff}.1
 rm -fv man1/{ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,touch}.1
 rm -fv man2/{modules,quotactl,get_kernel_syms}.2 
 rm -fv man2/{create,delete,init,query}_module.2
