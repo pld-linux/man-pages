@@ -4,8 +4,8 @@ Summary(fr):	Pages man système du Projet de Documentation Linux
 Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
-Version:	1.31
-Release:	3
+Version:	1.32
+Release:	1
 License:	Distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -91,8 +91,8 @@ rm -f man8/lilo.8
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8}
+
 for n in man{1,2,3,4,5,6,7,8}/*; do
 	install $n $RPM_BUILD_ROOT%{_mandir}/$n
 done
