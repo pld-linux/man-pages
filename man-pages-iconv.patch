@@ -3,9 +3,9 @@
 @@ -17,7 +17,7 @@
  .B #include <iconv.h>
  .sp
- .BI "size_t iconv (iconv_t " cd ,
--.BI "              const char* * " inbuf ", size_t * "inbytesleft ,
-+.BI "              char* * " inbuf ", size_t * "inbytesleft ,
- .BI "              char* * " outbuf ", size_t * "outbytesleft );
+ .BI "size_t iconv(iconv_t " cd ,
+-.BI "              const char **" inbuf ", size_t *" inbytesleft ,
++.BI "              char **" inbuf ", size_t *" inbytesleft ,
+ .BI "              char **" outbuf ", size_t *" outbytesleft );
  .fi
  .SH DESCRIPTION
