@@ -38,7 +38,7 @@ Group:		Documentation
 %define		uk_version		0.1.1
 %define		zh_version		0.3
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
-# Source0-md5:	d163d7d3b954ef3387d9b4182ad52d59
+# Source0-md5:	a08f6e791ab8169bbf957253b392c2f1
 #
 # Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
