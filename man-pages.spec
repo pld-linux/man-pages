@@ -4,11 +4,11 @@ Summary(fr): Pages man système du Projet de Documentation Linux
 Summary(pl): Podrêczniki systemowe z Linux Documentation Project
 Summary(tr): Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:        man-pages
-Version:     1.21
-Release:     2
+Version:     1.22
+Release:     1
 Copyright:   distributable
 Group:       Documentation
-Source:      ftp://sunsite.unc.edu/pub/Linux/docs/man-pages/%{name}-%{version}.tar.gz
+Source:      ftp://ftp.win.tue.nl/pub/linux/man/%{name}-%{version}.tar.gz
 BuildArchitectures: noarch
 Buildroot:   /tmp/%{name}-%{version}-root
 Autoreqprov: false
@@ -94,6 +94,8 @@ for n in man?/*; do
 	install $n $RPM_BUILD_ROOT/usr/man/$n
 done
 
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man{1,2,3,4,5,6,7,8}/*
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -102,6 +104,11 @@ rm -rf $RPM_BUILD_ROOT
 /usr/man/man*/*
 
 %changelog
+* Sun Nov 29 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.22-1]
+- added gziping man pages,
+- changed base Source url.
+
 * Fri Sep 04 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
   [1.19-2]
 - added pl translation,
