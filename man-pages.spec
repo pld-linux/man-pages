@@ -144,8 +144,9 @@ rm -f man1/{ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,time,touch,dir,vdir}.1
 rm -f man1/COPYING
 rm -f man2/{capget,capset}.2 
 rm -f man4/console.4
-rm -f man5/passwd.5
-rm -f man8/sync.8
+rm -f man5/{locale,nsswitch.conf,passwd,tzfile}.5
+rm -f man7/{ascii,charsets,iso*,latin*,locale,unicode,utf*}.7
+rm -f man8/{sync,tzselect,zdump,zic}.8
 
 rm -f man*/README*
 
