@@ -11,7 +11,7 @@ Summary(ru):	Û‘“¡Œ…√Ÿ “’Àœ◊œƒ”‘◊¡ …⁄ “œ≈À‘¡ ‰œÀ’Õ≈Œ‘¡√…… Œ¡ Ï…Œ’À”
 Summary(tr):	Linux Belgeleme Projesinin sistem k˝lavuz sayfalar˝
 Name:		man-pages
 Version:	1.43
-Release:	3
+Release:	4
 License:	distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -20,44 +20,47 @@ Group(pl):	Dokumentacja
 Group(pt):	DocumentaÁ„o
 Group(pt_BR):	DocumentaÁ„o
 Group(ru):	‰œÀ’Õ≈Œ‘¡√…—
-%define		cs_version	0.14
-%define		da_version	0.1.1
-%define		de_version	0.3
-%define		es_version	1.28
-%define		fi_version	0.1
-%define		fr_version	0.9
-%define		hu_version	2001_01_05
-%define		id_version	20011116
-%define		it_version	0.3.0
-%define		ja_version	20011115
-%define		ko_version	20010605
-%define		pl_version	20011116
-%define		pt_version	1.39
-%define		ru_version	0.7
-%define		zh_version	0.1
+%define		cs_version		0.14
+%define		da_version		0.1.1
+%define		de_version		0.3
+%define		es_version		1.28
+%define		es_extra_version	0.8a
+%define		fi_version		0.1
+%define		fr_version		0.9
+%define		hu_version		2001_01_05
+%define		id_version		20011116
+%define		it_version		0.3.0
+%define		ja_version		20011115
+%define		ko_version		20010605
+%define		pl_version		20011116
+%define		pt_version		1.39
+%define		ru_version		0.7
+%define		zh_version		0.1
 Source0:	ftp://ftp.win.tue.nl/pub/linux-local/manpages/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
 # there is no LDP man page here, yet.
 #Source2:	http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz
 Source3:	http://www.infodrom.ffis.de/projects/manpages-de/download/manpages-de-%{de_version}.tar.gz
 Source4:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-%{es_version}.tar.gz
-Source5:	man-fi-%{fi_version}.tar.bz2
-#Source5:	http://developer.bestlinux.net/man-fi/usr/man/RPMS/%{name}-fi-%{fi_version}-4.src.rpm
-Source6:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
-#Source6:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-fr-%{fr_version}.tar.gz
-Source7:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
+Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra_version}.tar.gz
+Source6:	man-fi-%{fi_version}.tar.bz2
+#Source6:	http://developer.bestlinux.net/man-fi/usr/man/RPMS/%{name}-fi-%{fi_version}-4.src.rpm
+Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
+#Source7:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-fr-%{fr_version}.tar.gz
+Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 # there is no LDP man page here, yet.
-#Source8:	man-pages-from-www-id-%{id_version}.tar.gz
-#Source8:	http://nakula.rvs.uni-bielefeld.de/my_project/ManPage/
-Source9:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-it-%{it_version}.tar.gz
-Source10:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ja-%{ja_version}.tar.gz
-#Source10:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
-Source11:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
-Source12:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-nl.tar.gz
-Source13:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
-Source14:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
-Source15:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
-#Source16:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
+#Source9:	man-pages-from-www-id-%{id_version}.tar.gz
+#Source9:	http://nakula.rvs.uni-bielefeld.de/my_project/ManPage/
+Source10:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-it-%{it_version}.tar.gz
+Source11:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ja-%{ja_version}.tar.gz
+#Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
+Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
+Source13:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-nl.tar.gz
+Source14:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
+Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
+Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
+#Source17:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
+Source50:	%{name}-extra.tar.bz2
 Patch0:		%{name}-iconv.patch
 Patch1:		%{name}-ctype.patch
 Patch2:		%{name}-localtime.patch
@@ -208,14 +211,14 @@ Programlama aray¸zlerini, dosya formatlar˝n˝, protokolleri vs.
 kapsayan, geni˛ bir k˝lavuz sayfalar˝ derlemesi.
 
 %prep
-%setup -q -a1 -a3 -a4 -a5 -a6 -a9 -a10 -a12 -a13 -a14 -a15
+%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a10 -a11 -a13 -a14 -a15 -a16
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
 
 mkdir hu ko
-tar xzf %{SOURCE7} -C hu
-tar xzf %{SOURCE11} -C ko
+tar xzf %{SOURCE8} -C hu
+tar xzf %{SOURCE12} -C ko
 
 %build
 rm -f man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install,diff}.1
@@ -235,6 +238,10 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8}
 
 for n in man{1,2,3,4,5,6,7,8}/*; do
+	if [ `wc -l $n` = 1 ] ; then
+		sed 's,\.so man./,.so ,' < $n > $n.
+		mv $n. $n
+	fi
 	install $n $RPM_BUILD_ROOT%{_mandir}/$n
 done
 
@@ -261,6 +268,8 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	fi
 	if [ -f %{name}-es-%{es_version}/$n ]; then
 		install %{name}-es-%{es_version}/$n $RPM_BUILD_ROOT%{_mandir}/es/$n
+	elif [ -f %{name}-es-extra-%{es_extra_version}/$n ]; then
+		install %{name}-es-extra-%{es_extra_version}/$n $RPM_BUILD_ROOT%{_mandir}/es/$n
 	fi
 	if [ -f manpages-fi/$n ]; then
 		install manpages-fi/$n $RPM_BUILD_ROOT%{_mandir}/fi/$n
@@ -295,6 +304,16 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f manpages-ru-%{ru_version}/$n ]; then
 		install manpages-ru-%{ru_version}/$n $RPM_BUILD_ROOT%{_mandir}/ru/$n
 	fi
+done
+bzip2 -dc %{SOURCE50} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+
+for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,nl,pl,pt,pt_BR,ru} ; do
+	for n in $k/man{1,2,3,4,5,6,7,8}/*; do
+		if [ `wc -l $n` = 1 ] ; then
+			sed 's,\.so man./,.so ,' < $n > $n.
+			mv $n. $n
+		fi
+	done
 done
 
 %clean
