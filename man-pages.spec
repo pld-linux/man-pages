@@ -1,12 +1,15 @@
 Summary:	System manual pages from the Linux Documentation Project
 Summary(de):	System-man-Seiten vom Linux Documentation Project
+Summary(fi):	Suomenkieliset man-sivut
 Summary(fr):	Pages man systХme du Projet de Documentation Linux
+Summary(it):	Pagine di manuale
 Summary(pl):	PodrЙczniki systemowe z Linux Documentation Project
-Summary(ru):	Страницы руководства из Проекта Документации на Линукс.
+Summary(pt_BR):	TraduГУes para portuguЙs (pt_BR) das pАginas de manual
+Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Name:		man-pages
 Version:	1.39
-Release:	1
+Release:	2
 License:	Distributable
 Group:		Documentation
 Group(de):	Dokumentation
@@ -48,84 +51,110 @@ Source10:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ja-%{ja_ver
 #Source10:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.bz2
 Source11:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source12:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-nl.tar.gz
-Source13:	man-pages-pl-PTM-snapshot.%{pl_version}.tar.gz
+Source13:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.gz
 Source14:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 Source15:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
 #Source16:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
-Patch0:		man-pages-iconv.patch
-Patch1:		man-pages-ctype.patch
+Patch0:		%{name}-iconv.patch
+Patch1:		%{name}-ctype.patch
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Autoreqprov:	false
+Obsoletes:	man-pages-cs
+Obsoletes:	man-pages-de
+Obsoletes:	man-pages-es
+Obsoletes:	man-pages-fi
+Obsoletes:	man-pages-fr
+Obsoletes:	man-pages-hu
+Obsoletes:	man-pages-it
+Obsoletes:	man-pages-ja
+Obsoletes:	man-pages-ko
+Obsoletes:	man-pages-nl
 Obsoletes:	man-pages-pl
+Obsoletes:	man-pages-pt
+Obsoletes:	man-pages-ru
 
 %description
 A large collection of man pages covering programming APIs, file
 formats, protocols, etc.
 
-- section 1 = user commands (intro only)
-- section 2 = system calls
-- section 3 = libc calls
-- section 4 = devices (e.g., hd, sd)
-- section 5 = file formats and protocols (e.g., wtmp, /etc/passwd,
-  nfs)
-- section 6 = games (intro only)
-- section 7 = conventions, macro packages, etc. (e.g., nroff, ascii)
-- section 8 = system administration (intro only)
+- section 1: user commands (intro only)
+- section 2: system calls
+- section 3: libc calls
+- section 4: devices (e.g., hd, sd)
+- section 5: file formats and protocols (e.g., wtmp, /etc/passwd, nfs)
+- section 6: games (intro only)
+- section 7: conventions, macro packages, etc. (e.g., nroff, ascii)
+- section 8: system administration (intro only)
 
 %description -l de
 Eine groъe Sammlung von man-Seiten Эber Programmier-APIs,
 Dateiformate, Protokolle, usw..
 
-- section 1 = Benutzerbefehle (nur intro)
-- section 2 = Systemaufrufe
-- section 3 = libc-Aufrufe
-- section 4 = GerДte (z.B. hd, sd)
-- section 5 = Dateiformate und Protokolle (z.B. wtmp, /etc/passwd,
-  nfs)
-- section 6 = Spiele (nur intro)
-- section 7 = Konventionen, Makro-Pakete, usw. (z.B. nroff, ascii)
-- section 8 = Systemverwaltung (nur intro)
+- section 1: Benutzerbefehle (nur intro)
+- section 2: Systemaufrufe
+- section 3: libc-Aufrufe
+- section 4: GerДte (z.B. hd, sd)
+- section 5: Dateiformate und Protokolle (z.B. wtmp, /etc/passwd, nfs)
+- section 6: Spiele (nur intro)
+- section 7: Konventionen, Makro-Pakete, usw. (z.B. nroff, ascii)
+- section 8: Systemverwaltung (nur intro)
+
+%description -l fi
+Kokoelma man-sivujen kДДnnЖksiД suomenkielelle. Sivuja on mukana
+yhteensД 211 kpl ja ne on paketoitu 14.11.1999 mennessД valmiina
+olleista sivuista. Sivut ovat osista 1 (komennot) ja 2 (pelit).
 
 %description -l fr
-Un large ensemble de pages de man couvrant la programmation des APIs,
-les formats de fichiers, les protocoles, etc.
+Une large collection de pages de manuel du Project de Documentation
+Linux (LDP), traduites en FranГais. Les pages de manuel sont
+organisИes en differentes sections :
 
-- section 1 = commandes utilisateur (intro seulement)
-- section 2 = appels systХme
-- section 3 = appels libc
-- section 4 = pИriphИriques (e.g., hd, sd)
-- section 5 = formats de fichiers et protocoles (e.g., wtmp,
+- section 1: Commandes utilisateur
+- section 2: Appels systХme
+- section 3: Appels de la Libc
+- section 4: PИriphИriques (par ex. hd, sd)
+- section 5: Formats de fichiers et de protocoles (par ex. wtmp,
   /etc/passwd, nfs)
-- section 6 = jeux (intro seulement)
-- section 7 = conventions, paquetages, etc. (e.g., nroff, ascii)
-- section 8 = administration systХme (intro seulement)
+- section 6: Jeux (intro seulement)
+- section 7: Conventions, macro packages, etc. (par ex. nroff, ascii)
+- section 8: Administration systХme (intro seulement)
+- section 9: Routines du noyau
+
+%description -l it
+Traduzioni italiane delle pagine di manuale per Linux: questo
+pacchetto include non solo quelle dell'LDP, ma anche traduzioni di
+altre pagine di uso comune. ATTENZIONE: alcune pagine sono obsolete!
 
 %description -l pl
 Pakiet ten zawiera du©╠ kolekcjЙ podrЙcznikСw ekranowych (man pages),
 opisuj╠cych format plikСw, protokoЁy itp.
 
-- sekcja 1 = komendy u©ytkownikСw (tylko wstЙp)
-- sekcja 2 = wywoЁania systemowe
-- sekcja 3 = wywoЁania bibliotek
-- sekcja 4 = urz╠dzenia (np., hd, sd)
-- sekcja 5 = format plikСw i protokoЁy (np., wtmp, /etc/passwd, nfs)
-- sekcja 6 = gry (tylko wstЙp)
-- sekcja 7 = konwencje, makro-pakiety, itp. (np., nroff, ascii)
-- sekcja 8 = administracja systemu (tylko wstЙp)
+- sekcja 1: komendy u©ytkownikСw (tylko wstЙp)
+- sekcja 2: wywoЁania systemowe
+- sekcja 3: wywoЁania bibliotek
+- sekcja 4: urz╠dzenia (np., hd, sd)
+- sekcja 5: format plikСw i protokoЁy (np., wtmp, /etc/passwd, nfs)
+- sekcja 6: gry (tylko wstЙp)
+- sekcja 7: konwencje, makro-pakiety, itp. (np., nroff, ascii)
+- sekcja 8: administracja systemu (tylko wstЙp)
 
-%description(ru)
-Небольшая коллекция страниц руководства из Проекта Документации на Линукс.
-Страницы руководства организованы следующим образом:
+%description -l pt_BR
+TraduГУes para portuguЙs (pt_BR) das pАginas de manual.
 
-- секция 1, команд пользователя (только введение)
-- секция 2, системные вызовы
-- секция 3, функции библиотеки языка C
-- секция 4, устройства (например, hd, sd)
-- секция 4, форматы файлов и протоколы (например, wtmp, /etc/passwd, nfs)
-- секция 6, игры (только введение)
-- секция 7, соглашения, макро-пакеты, и т. п. (например, nroff, ascii)
-- секция 8, утилиты администратора (только введение)
+%description -l ru
+Небольшая коллекция страниц руководства из Проекта Документации на
+Линукс. Страницы руководства организованы следующим образом:
+
+- секция 1: команд пользователя (только введение)
+- секция 2: системные вызовы
+- секция 3: функции библиотеки языка C
+- секция 4: устройства (например, hd, sd)
+- секция 4: форматы файлов и протоколы (например, wtmp, /etc/passwd,
+  nfs)
+- секция 6: игры (только введение)
+- секция 7: соглашения, макро-пакеты, и т. п. (например, nroff, ascii)
+- секция 8: утилиты администратора (только введение)
 
 %description -l tr
 Programlama arayЭzlerini, dosya formatlarЩnЩ, protokolleri vs.
