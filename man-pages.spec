@@ -18,12 +18,6 @@ Version:	1.47
 Release:	9
 License:	distributable
 Group:		Documentation
-Group(de):	Dokumentation
-Group(es):	Documentación
-Group(pl):	Dokumentacja
-Group(pt):	Documentação
-Group(pt_BR):	Documentação
-Group(ru):	äÏËÕÍÅÎÔÁÃÉÑ
 %define		cs_version		0.14
 %define		da_version		0.1.1
 %define		de_version		0.4
