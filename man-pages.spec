@@ -10,8 +10,8 @@ Summary(pt_BR):	PАginas de manual, do Projeto de DocumentaГЦo do Linux (LDP)
 Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Name:		man-pages
-Version:	1.40
-Release:	4
+Version:	1.42
+Release:	1
 License:	Distributable
 Group:		Documentation
 Group(de):	Dokumentation
