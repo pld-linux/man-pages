@@ -79,18 +79,18 @@ rm -fv man8/lilo.8
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/usr/man/man{1,4,5,6,7,8}
+install -d $RPM_BUILD_ROOT%{_mandir}/man{1,4,5,6,7,8}
 for n in man{1,4,5,6,7,8}/*; do
-	install $n $RPM_BUILD_ROOT/usr/man/$n
+	install $n $RPM_BUILD_ROOT%{_mandir}/$n
 done
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man*/*
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%attr(644,root,root) /usr/man/man*/*
+%attr(644,root,root) %{_mandir}/man*/*
 
 %changelog
 * Tue Mar 30 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
