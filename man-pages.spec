@@ -4,13 +4,13 @@ Summary(fr):	Pages man système du Projet de Documentation Linux
 Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
-Version:	1.34
-Release:	3
+Version:	1.35
+Release:	1
 License:	Distributable
 Group:		Documentation
 Group(de):	Dokumentation
 Group(pl):	Dokumentacja
-Source0:	ftp://ftp.us.kernel.org/pub/linux/docs/manpages/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.win.tue.nl/pub/linux-local/manpages/%{name}-%{version}.tar.gz
 Patch0:		man-pages-iconv.patch
 Patch1:		man-pages-ctype.patch
 BuildArch:	noarch
