@@ -290,8 +290,10 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f manpages-fi/$n ]; then
 		install manpages-fi/$n $RPM_BUILD_ROOT%{_mandir}/fi/$n
 	fi
-	if [ -f man-fr-%{fr_version}/$n ]; then
-		install man-fr-%{fr_version}/$n $RPM_BUILD_ROOT%{_mandir}/fr/$n
+#	if [ -f man-fr-%{fr_version}/$n ]; then
+#		install man-fr-%{fr_version}/$n $RPM_BUILD_ROOT%{_mandir}/fr/$n
+	if [ -f man-fr/$n ]; then
+		install man-fr/$n $RPM_BUILD_ROOT%{_mandir}/fr/$n
 	fi
 	if [ -f hu/$n ]; then
 		install hu/$n $RPM_BUILD_ROOT%{_mandir}/hu/$n
