@@ -6,47 +6,52 @@ Summary(ru):	Û‘“¡Œ…√Ÿ “’Àœ◊œƒ”‘◊¡ …⁄ “œ≈À‘¡ ‰œÀ’Õ≈Œ‘¡√…… Œ¡ Ï…Œ’À”.
 Summary(tr):	Linux Belgeleme Projesinin sistem k˝lavuz sayfalar˝
 Name:		man-pages
 Version:	1.35
-Release:	3
+Release:	4
 License:	Distributable
 Group:		Documentation
 Group(de):	Dokumentation
 Group(es):	DocumentaciÛn
 Group(pl):	Dokumentacja
-Group(pt_BR):	DocumentaÁ„o
+Group(pt):	DocumentaÁ„o
 Group(ru):	‰œÀ’Õ≈Œ‘¡√…—
 %define		cs_version	0.14
 %define		da_version	0.1.1
-%define		de_version	0.2
+%define		de_version	0.3
 %define		es_version	1.28
-%define		fr_version	0.7
 %define		fi_version	0.1
-%define		hu_version	2000_10_08
+%define		fr_version	0.9
+%define		hu_version	2001_01_05
+%define		id_version	20010914
 %define		it_version	0.3.0
 %define		ja_version	20010815
 %define		ko_version	20010605
 %define		pl_version	20010913
-%define		pt_BR_version	1.39
-%define	ru_version	0.7
+%define		pt_version	1.39
+%define		ru_version	0.7
+%define		zh_version	0.1
 Source0:	ftp://ftp.win.tue.nl/pub/linux-local/manpages/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
 # there is no LDP man page here, yet.
 #Source2:	http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz
-Source3:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-de-%{de_version}.tar.gz
+Source3:	http://www.infodrom.ffis.de/projects/manpages-de/download/manpages-de-{de_version}.tar.gz
 Source4:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-%{es_version}.tar.gz
 Source5:	%{name}-from-rpm-fi-%{fi_version}.tar.gz
-Source6:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-fr-%{fr_version}.tar.gz
-#Source6:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
+#Source5:	http://developer.bestlinux.net/man-fi/usr/man/RPMS/{name}-fi-%{fi_version}-4.src.rpm
+Source6:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
+#Source6:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-fr-%{fr_version}.tar.gz
 Source7:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
+# there is no LDP man page here, yet.
+#Source8:	man-pages-from-www-id-%{id_version}.tar.gz
 #Source8:	http://nakula.rvs.uni-bielefeld.de/made/my_project/ManPage/id-man.tar.bz2
 Source9:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-it-%{it_version}.tar.gz
 Source10:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ja-%{ja_version}.tar.gz
 #Source10:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.bz2
-# there is no LDP man page here, yet.
-#Source11:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
+Source11:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source12:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-nl.tar.gz
 Source13:	man-pages-pl-PTM-snapshot.%{pl_version}.tar.gz
-Source14:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_BR_version}-pt_BR.tgz
+Source14:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 Source15:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
+#Source16:	http://www.cmpp.net/download/cman-{zh_version}.tar.gz
 Patch0:		man-pages-iconv.patch
 Patch1:		man-pages-ctype.patch
 BuildArch:	noarch
@@ -128,6 +133,7 @@ kapsayan, geni˛ bir k˝lavuz sayfalar˝ derlemesi.
 
 %prep
 %setup -q -a7 -c -T -n %{name}-hu-%{hu_version}
+%setup -q -a11 -c -T -n %{name}-ko-%{ko_version}
 %setup -q -a1 -a3 -a4 -a5 -a6 -a9 -a10 -a12 -a13 -a14 -a15
 %patch0 -p1
 %patch1 -p1
@@ -160,9 +166,10 @@ install -d $RPM_BUILD_ROOT%{_mandir}/fr/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/hu/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/it/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/ja/man{1,2,3,4,5,6,7,8}
+install -d $RPM_BUILD_ROOT%{_mandir}/ko/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/nl/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/pl/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/pt_BR/man{1,2,3,4,5,6,7,8}
+install -d $RPM_BUILD_ROOT%{_mandir}/pt/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/ru/man{1,2,3,4,5,6,7,8}
 for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f %{name}-cs-%{cs_version}/$n ]; then
@@ -182,9 +189,7 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f man-fr-%{fr_version}/$n ]; then
 		install man-fr-%{fr_version}/$n $RPM_BUILD_ROOT%{_mandir}/fr/$n
 	fi
-	# hu/man?/* are gziped
-	if [ -f ../%{name}-hu-%{hu_version}/$n.gz ]; then
-		gunzip ../%{name}-hu-%{hu_version}/$n.gz
+	if [ -f ../%{name}-hu-%{hu_version}/$n ]; then
 		install ../%{name}-hu-%{hu_version}/$n $RPM_BUILD_ROOT%{_mandir}/hu/$n
 	fi
 	if [ -f %{name}-it-%{it_version}/$n ]; then
@@ -193,14 +198,17 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f %{name}-ja-%{ja_version}/manual/LDP_man-pages/$n ]; then
 		install %{name}-ja-%{ja_version}/manual/LDP_man-pages/$n $RPM_BUILD_ROOT%{_mandir}/ja/$n
 	fi
+	if [ -f ../%{name}-ko-%{ko_version}/$n ]; then
+		install ../%{name}-ko-%{ko_version}/$n $RPM_BUILD_ROOT%{_mandir}/ko/$n
+	fi
 	if [ -f nl/$n ]; then
 		install nl/$n $RPM_BUILD_ROOT%{_mandir}/nl/$n
 	fi
 	if [ -f pl_PL/$n ]; then
 		install pl_PL/$n $RPM_BUILD_ROOT%{_mandir}/pl/$n
 	fi
-	if [ -f %{name}-%{pt_BR_version}-pt_BR/$n ]; then
-		install %{name}-%{pt_BR_version}-pt_BR/$n $RPM_BUILD_ROOT%{_mandir}/pt_BR/$n
+	if [ -f %{name}-%{pt_version}-pt_BR/$n ]; then
+		install %{name}-%{pt_version}-pt_BR/$n $RPM_BUILD_ROOT%{_mandir}/pt/$n
 	fi
 	if [ -f manpages-ru-%{ru_version}/$n ]; then
 		install manpages-ru-%{ru_version}/$n $RPM_BUILD_ROOT%{_mandir}/ru/$n
@@ -221,7 +229,8 @@ rm -rf $RPM_BUILD_ROOT
 %lang(hu) %{_mandir}/hu/man*/*
 %lang(it) %{_mandir}/it/man*/*
 %lang(ja) %{_mandir}/ja/man*/*
+%lang(ko) %{_mandir}/ko/man*/*
 %lang(nl) %{_mandir}/nl/man*/*
 %lang(pl) %{_mandir}/pl/man*/*
-%lang(pt) %{_mandir}/pt_BR/man*/*
+%lang(pt) %{_mandir}/pt/man*/*
 %lang(ru) %{_mandir}/ru/man*/*
