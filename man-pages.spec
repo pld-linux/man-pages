@@ -74,6 +74,7 @@ Obsoletes:	man-pages-ko
 Obsoletes:	man-pages-nl
 Obsoletes:	man-pages-pl
 Obsoletes:	man-pages-pt
+Obsoletes:	man-pages-pt_BR
 Obsoletes:	man-pages-ru
 
 %description
