@@ -5,10 +5,11 @@ Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
 Version:	1.23
-Release:	1
+Release:	2
 Copyright:	distributable
 Group:		Documentation
-Source:		ftp://ftp.win.tue.nl/pub/linux/docs/manpages/%{name}-%{version}.tar.bz2
+URL:		ftp://ftp.win.tue.nl/pub/linux/docs/manpages
+Source:		%{name}-%{version}.tar.bz2
 BuildArch:	noarch
 Buildroot:	/tmp/%{name}-%{version}-root
 Autoreqprov:	false
@@ -18,6 +19,8 @@ A large collection of man pages covering programming APIs, file
 formats, protocols, etc.
 
     Section 1 = user commands (intro only)
+    Section 2 = system calls
+    Section 3 = libc calls
     Section 4 = devices (e.g., hd, sd)
     Section 5 = file formats and protocols (e.g., wtmp, /etc/passwd, nfs)
     Section 6 = games (intro only)
@@ -29,6 +32,8 @@ Eine große Sammlung von man-Seiten über Programmier-APIs,
 Dateiformate, Protokolle, usw..
 
     Section 1 = Benutzerbefehle (nur intro)
+    Section 2 = Systemaufrufe
+    Section 3 = libc-Aufrufe
     Section 4 = Geräte (z.B. hd, sd)
     Section 5 = Dateiformate und Protokolle (z.B. wtmp, /etc/passwd, nfs)
     Section 6 = Spiele (nur intro)
@@ -40,6 +45,8 @@ Un large ensemble de pages de man couvrant la programmation des APIs,
 les formats de fichiers, les protocoles, etc.
 
     Section 1 = commandes utilisateur (intro seulement)
+    Section 2 = appels système
+    Section 3 = appels libc
     Section 4 = périphériques (e.g., hd, sd)
     Section 5 = formats de fichiers et protocoles (e.g., wtmp, /etc/passwd, nfs)
     Section 6 = jeux (intro seulement)
@@ -51,6 +58,8 @@ Pakiet ten zawiera du¿± kolekcjê podrêczników ekranowych (man pages),
 opisuj±cych format plików, protoko³y itp.
 
     Section 1 = komendy u¿ytkowników (tylko wstêp)
+    Section 2 = wywo³ania systemowe
+    Section 3 = wywo³ania bibliotek
     Section 4 = urz±dzenia (np., hd, sd)
     Section 5 = format plików i protoko³y (np., wtmp, /etc/passwd, nfs)
     Section 6 = gry (tylko wstêp)
@@ -67,20 +76,18 @@ geniþ bir kýlavuz sayfalarý derlemesi.
 %build
 rm -fv man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install}.1
 rm -fv man1/{ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,touch}.1
+rm -fv man2/{modules,quotactl,get_kernel_syms}.2 
+rm -fv man2/{create,delete,init,query}_module.2
+rm -fv man3/{resolver,getnetent,gethostbyname,strcasecmp}.3
 rm -fv man4/console.4
-rm -fv man5/exports.5
-rm -fv man5/nfs.5
-rm -fv man5/fstab.5
-rm -fv man5/lilo.conf.5
-rm -fv man3/strcasecmp.3
-rm -fv man1/lilo.conf.5
+rm -fv man5/{exports,lilo.conf,nfs,fstab}.5
 rm -fv man8/lilo.8
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_mandir}/man{1,4,5,6,7,8}
-for n in man{1,4,5,6,7,8}/*; do
+install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8}
+for n in man{1,2,3,4,5,6,7,8}/*; do
 	install $n $RPM_BUILD_ROOT%{_mandir}/$n
 done
 
@@ -90,9 +97,14 @@ gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/*
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%attr(644,root,root) %{_mandir}/man*/*
+%defattr(644,root,root,755)
+%{_mandir}/man*/*
 
 %changelog
+* Tue Jun 01 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
+- man3 and man2 -- not found in kernel-headers, and glibc-devel. 
+- cosmetic
+
 * Tue Mar 30 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.23-1]
 - man pages level 2 moved to kernel-headers,
