@@ -4,8 +4,8 @@ Summary(fr):	Pages man système du Projet de Documentation Linux
 Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
-Version:	1.23
-Release:	2
+Version:	1.26
+Release:	1
 Copyright:	distributable
 Group:		Documentation
 URL:		ftp://ftp.win.tue.nl/pub/linux/docs/manpages
