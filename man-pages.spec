@@ -47,18 +47,18 @@ Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra
 Source6:	man-fi-%{fi_version}.tar.bz2
 #Source6:	http://developer.bestlinux.net/man-fi/usr/man/RPMS/%{name}-fi-%{fi_version}-4.src.rpm
 Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
-#Source7:	ftp://ftp.win.tue.nl/pub/home/aeb/home/aeb/linux-local/manpages/tr/%{name}-fr-%{fr_version}.tar.gz
+#Source7:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-fr-%{fr_version}.tar.gz
 Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 # there is no LDP man page here, yet.
 #Source9:	man-pages-from-www-id-%{id_version}.tar.gz
 #Source9:	http://nakula.rvs.uni-bielefeld.de/my_project/ManPage/
-Source10:	ftp://ftp.win.tue.nl/pub/home/aeb/home/aeb/linux-local/manpages/tr/%{name}-it-%{it_version}.tar.gz
+Source10:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-it-%{it_version}.tar.gz
 Source11:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ja-%{ja_version}.tar.gz
 #Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
 Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
-Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
+Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
 #Source17:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
 Source30:	semget.2
