@@ -9,7 +9,7 @@ Release:	1
 Copyright:	distributable
 Group:		Documentation
 Group(pl):	Dokumentacja
-Source:		ftp://ftp.us.kernel.org/pub/linux/docs/manpages/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.us.kernel.org/pub/linux/docs/manpages/%{name}-%{version}.tar.bz2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Autoreqprov:	false
@@ -18,57 +18,60 @@ Autoreqprov:	false
 A large collection of man pages covering programming APIs, file
 formats, protocols, etc.
 
-    Section 1 = user commands (intro only)
-    Section 2 = system calls
-    Section 3 = libc calls
-    Section 4 = devices (e.g., hd, sd)
-    Section 5 = file formats and protocols (e.g., wtmp, /etc/passwd, nfs)
-    Section 6 = games (intro only)
-    Section 7 = conventions, macro packages, etc. (e.g., nroff, ascii)
-    Section 8 = system administration (intro only)
+- section 1 = user commands (intro only)
+- section 2 = system calls
+- section 3 = libc calls
+- section 4 = devices (e.g., hd, sd)
+- section 5 = file formats and protocols (e.g., wtmp, /etc/passwd,
+  nfs)
+- section 6 = games (intro only)
+- section 7 = conventions, macro packages, etc. (e.g., nroff, ascii)
+- section 8 = system administration (intro only)
 
 %description -l de
 Eine große Sammlung von man-Seiten über Programmier-APIs,
 Dateiformate, Protokolle, usw..
 
-    Section 1 = Benutzerbefehle (nur intro)
-    Section 2 = Systemaufrufe
-    Section 3 = libc-Aufrufe
-    Section 4 = Geräte (z.B. hd, sd)
-    Section 5 = Dateiformate und Protokolle (z.B. wtmp, /etc/passwd, nfs)
-    Section 6 = Spiele (nur intro)
-    Section 7 = Konventionen, Makro-Pakete, usw. (z.B. nroff, ascii)
-    Section 8 = Systemverwaltung (nur intro)
+- section 1 = Benutzerbefehle (nur intro)
+- section 2 = Systemaufrufe
+- section 3 = libc-Aufrufe
+- section 4 = Geräte (z.B. hd, sd)
+- section 5 = Dateiformate und Protokolle (z.B. wtmp, /etc/passwd,
+  nfs)
+- section 6 = Spiele (nur intro)
+- section 7 = Konventionen, Makro-Pakete, usw. (z.B. nroff, ascii)
+- section 8 = Systemverwaltung (nur intro)
 
 %description -l fr
 Un large ensemble de pages de man couvrant la programmation des APIs,
 les formats de fichiers, les protocoles, etc.
 
-    Section 1 = commandes utilisateur (intro seulement)
-    Section 2 = appels système
-    Section 3 = appels libc
-    Section 4 = périphériques (e.g., hd, sd)
-    Section 5 = formats de fichiers et protocoles (e.g., wtmp, /etc/passwd, nfs)
-    Section 6 = jeux (intro seulement)
-    Section 7 = conventions, paquetages, etc. (e.g., nroff, ascii)
-    Section 8 = administration système (intro seulement)
+- section 1 = commandes utilisateur (intro seulement)
+- section 2 = appels système
+- section 3 = appels libc
+- section 4 = périphériques (e.g., hd, sd)
+- section 5 = formats de fichiers et protocoles (e.g., wtmp,
+  /etc/passwd, nfs)
+- section 6 = jeux (intro seulement)
+- section 7 = conventions, paquetages, etc. (e.g., nroff, ascii)
+- section 8 = administration système (intro seulement)
 
 %description -l pl
 Pakiet ten zawiera du¿± kolekcjê podrêczników ekranowych (man pages),
 opisuj±cych format plików, protoko³y itp.
 
-    Section 1 = komendy u¿ytkowników (tylko wstêp)
-    Section 2 = wywo³ania systemowe
-    Section 3 = wywo³ania bibliotek
-    Section 4 = urz±dzenia (np., hd, sd)
-    Section 5 = format plików i protoko³y (np., wtmp, /etc/passwd, nfs)
-    Section 6 = gry (tylko wstêp)
-    Section 7 = konwencje, makro-pakiety, etc. (np., nroff, ascii)
-    Section 8 = administracja systemu (tylko wstêp)
+- sekcja 1 = komendy u¿ytkowników (tylko wstêp)
+- sekcja 2 = wywo³ania systemowe
+- sekcja 3 = wywo³ania bibliotek
+- sekcja 4 = urz±dzenia (np., hd, sd)
+- sekcja 5 = format plików i protoko³y (np., wtmp, /etc/passwd, nfs)
+- sekcja 6 = gry (tylko wstêp)
+- sekcja 7 = konwencje, makro-pakiety, etc. (np., nroff, ascii)
+- sekcja 8 = administracja systemu (tylko wstêp)
 
 %description -l tr
-Programlama arayüzlerini, dosya formatlarýný, protokolleri vs. kapsayan,
-geniþ bir kýlavuz sayfalarý derlemesi.
+Programlama arayüzlerini, dosya formatlarýný, protokolleri vs.
+kapsayan, geniþ bir kýlavuz sayfalarý derlemesi.
 
 %prep
 %setup -q
