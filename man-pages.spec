@@ -19,7 +19,7 @@ Version:	1.56
 Release:	1
 License:	distributable
 Group:		Documentation
-%define		cs_version		0.14
+%define		cs_version		0.16
 %define		da_version		0.1.1
 %define		de_version		0.4
 %define		es_version		1.28
