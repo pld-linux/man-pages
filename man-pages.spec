@@ -27,7 +27,7 @@ Group(ru):	Документация
 %define		fi_version	0.1
 %define		fr_version	0.9
 %define		hu_version	2001_01_05
-%define		id_version	20010914
+%define		id_version	20011116
 %define		it_version	0.3.0
 %define		ja_version	20011015
 %define		ko_version	20010605
@@ -48,7 +48,7 @@ Source6:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
 Source7:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 # there is no LDP man page here, yet.
 #Source8:	man-pages-from-www-id-%{id_version}.tar.gz
-#Source8:	http://nakula.rvs.uni-bielefeld.de/made/my_project/ManPage/id-man.tar.bz2
+#Source8:	http://nakula.rvs.uni-bielefeld.de/my_project/ManPage/
 Source9:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-it-%{it_version}.tar.gz
 Source10:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ja-%{ja_version}.tar.gz
 #Source10:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
