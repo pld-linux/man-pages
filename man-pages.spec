@@ -15,7 +15,7 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Summary(uk):	Стор╕нки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	1.61
+Version:	1.63
 Release:	0.1
 License:	distributable
 Group:		Documentation
@@ -38,7 +38,7 @@ Group:		Documentation
 %define		uk_version		0.1.1
 %define		zh_version		1.4
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
-# Source0-md5:	b8519c598340dbd4a47ab3eed53918ab
+# Source0-md5:	235d9a3df5bc4eaf926622c5deec7a2a
 #
 # Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
@@ -58,7 +58,8 @@ Source6:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-fi-%{fi_version}
 # Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
 Source7:	http://perso.club-internet.fr/ccb/man/man-fr-%{fr_version}.tar.bz2
 # Source7-md5:	50c82c2114ccca1dcb691f4122b7b4ff
-Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
+#Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
+Source8:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man_hu_%{hu_version}.tar.gz
 # Source8-md5:	8b94f02287672c5a0601c1ad422a8e07
 #
 # there is no LDP man page here, yet.
