@@ -62,7 +62,7 @@ Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
 # from ASP Linux
-Source17:	man-pages-uk-%{ru_version}.tar.bz2
+Source17:	man-pages-uk-%{uk_version}.tar.bz2
 # Source18:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
 Source50:	%{name}-extra.tar.bz2
 Source51:	mbox.5
