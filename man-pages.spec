@@ -4,7 +4,7 @@ Summary(fr):	Pages man système du Projet de Documentation Linux
 Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Name:		man-pages
-Version:	1.29
+Version:	1.30
 Release:	1
 Copyright:	distributable
 Group:		Documentation
