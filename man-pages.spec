@@ -1,10 +1,11 @@
 Summary:	System manual pages from the Linux Documentation Project
 Summary(de):	System-man-Seiten vom Linux Documentation Project
+Summary(es):	Páginas de manual, del Proyecto de Documentación del Linux (LDP)
 Summary(fi):	Suomenkieliset man-sivut
 Summary(fr):	Pages man système du Projet de Documentation Linux
 Summary(it):	Pagine di manuale
 Summary(pl):	Podrêczniki systemowe z Linux Documentation Project
-Summary(pt_BR):	Traduções para português (pt_BR) das páginas de manual
+Summary(pt_BR):	Páginas de manual, do Projeto de Documentação do Linux (LDP)
 Summary(ru):	óÔÒÁÎÉÃÙ ÒÕËÏ×ÏÄÓÔ×Á ÉÚ ğÒÏÅËÔÁ äÏËÕÍÅÎÔÁÃÉÉ ÎÁ ìÉÎÕËÓ
 Summary(tr):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Name:		man-pages
@@ -57,6 +58,7 @@ Source15:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.ta
 #Source16:	http://www.cmpp.net/download/cman-%{zh_version}.tar.gz
 Patch0:		%{name}-iconv.patch
 Patch1:		%{name}-ctype.patch
+Patch2:		%{name}-localtime.patch
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Autoreqprov:	false
@@ -100,6 +102,21 @@ Dateiformate, Protokolle, usw..
 - section 7: Konventionen, Makro-Pakete, usw. (z.B. nroff, ascii)
 - section 8: Systemverwaltung (nur intro)
 
+%description -l es
+Una larga colección de páginas de manuales cubriendo programación
+APIs, formatos de archivos, protocolos, etc.
+
+- seción 1: comandos de usuario (solamente introducción)
+- seción 2: llamadas de sistema
+- seción 3: llamadas libc
+- seción 4: dispositivos (ej.: hd, sd)
+- seción 5: formatos de archivos y protocolos (ej: wtmp, /etc/passwd,
+  nfs)
+- seción 6: juegos (solamente introducción)
+- seción 7: convenciones, paquetes de macros, etc. (ej: nroff, ascii)
+- seción 8: administración de sistema (solamente introducción)
+- seción 9: kernel
+
 %description -l fi
 Kokoelma man-sivujen käännöksiä suomenkielelle. Sivuja on mukana
 yhteensä 211 kpl ja ne on paketoitu 14.11.1999 mennessä valmiina
@@ -140,7 +157,19 @@ opisuj±cych format plików, protoko³y itp.
 - sekcja 8: administracja systemu (tylko wstêp)
 
 %description -l pt_BR
-Traduções para português (pt_BR) das páginas de manual.
+Uma larga coleção de páginas de manuais cobrindo programação APIs,
+formatos de arquivos, protocolos, etc.
+
+- seção 1: comandos de usuário (somente introdução)
+- seção 2: chamadas de sistema
+- seção 3: chamadas libc
+- seção 4: dispositivos (ex.: hd, sd)
+- seção 5: formatos de arquivos e protocolos (ex: wtmp, /etc/passwd,
+  nfs)
+- seção 6: jogos (somente introdução)
+- seção 7: convenções, pacotes de macros, etc. (ex: nroff, ascii)
+- seção 8: administração de sistema (somente introdução)
+- seção 9: kernel
 
 %description -l ru
 îÅÂÏÌØÛÁÑ ËÏÌÌÅËÃÉÑ ÓÔÒÁÎÉÃ ÒÕËÏ×ÏÄÓÔ×Á ÉÚ ğÒÏÅËÔÁ äÏËÕÍÅÎÔÁÃÉÉ ÎÁ
@@ -164,6 +193,7 @@ kapsayan, geniş bir kılavuz sayfaları derlemesi.
 %setup -q -a1 -a3 -a4 -a5 -a6 -a9 -a10 -a12 -a13 -a14 -a15
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 mkdir hu ko
 tar xzf %{SOURCE7} -C hu
