@@ -33,7 +33,7 @@ Group(ru):	Документация
 %define		ja_version		20011215
 %define		ko_version		20010605
 %define		nl_version		0.13.3
-%define		pl_version		20020102
+%define		pl_version		20020105
 %define		pt_version		1.39
 %define		ru_version		0.7
 %define		zh_version		0.1
