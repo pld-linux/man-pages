@@ -8,7 +8,7 @@ Version:	1.23
 Release:	1
 Copyright:	distributable
 Group:		Documentation
-Source:		ftp://ftp.win.tue.nl/pub/linux/man/%{name}-%{version}.tar.gz
+Source:		ftp://ftp.win.tue.nl/pub/linux/docs/manpages/%{name}-%{version}.tar.bz2
 BuildArch:	noarch
 Buildroot:	/tmp/%{name}-%{version}-root
 Autoreqprov:	false
