@@ -177,7 +177,7 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 		install %{name}-cs-%{cs_version}/$n $RPM_BUILD_ROOT%{_mandir}/cs/$n
 	fi
 	if [ -f manpages-de-%{de_version}/$n ]; then
-		install %{name}-de-%{de_version}/$n $RPM_BUILD_ROOT%{_mandir}/de/$n
+		install manpages-de-%{de_version}/$n $RPM_BUILD_ROOT%{_mandir}/de/$n
 	fi
 	if [ -f %{name}-es-%{es_version}/$n ]; then
 		install %{name}-es-%{es_version}/$n $RPM_BUILD_ROOT%{_mandir}/es/$n
