@@ -93,6 +93,7 @@ Source50:	%{name}-extra.tar.bz2
 # Source50-md5:	967e10b6b691f53885ffa01695657f79
 Source51:	mbox.5
 Patch0:		%{name}-localtime.patch
+Patch1:		%{name}-zh_fixes.patch
 BuildArch:	noarch
 AutoReqProv:	no
 Obsoletes:	man-pages-cs
@@ -258,7 +259,8 @@ Project (LDP). Стор╕нки орган╕зован╕ у так╕ секц╕╖: Секц╕я 1, команди
 #%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18
 %setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a11 -a13 -a14 -a15 -a16 -a17 -a18
 %patch0 -p1
-rm -f cman/man*/*.html
+%patch1 -p0
+#rm -f cman/man*/*.html
 
 mkdir hu it ko
 tar xzf %{SOURCE8} -C hu
@@ -363,8 +365,8 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 #		install cman/$n $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
 	if [ -f man-pages-zh_CN-%{zh_version}/src/$n ]; then
 		# these man-pages are in UTF-8
-#		iconv -f UTF8 -t GB2312 man-pages-zh_CN-%{zh_version}/src/$n > $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
-		install man-pages-zh_CN-%{zh_version}/src/$n $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
+		iconv -f UTF8 -t GB2312 man-pages-zh_CN-%{zh_version}/src/$n > $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
+#		install man-pages-zh_CN-%{zh_version}/src/$n $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
 #               Doesn't work. Bad encoding ?
 #		iconv -f GB2312 -t Big5 cman/$n > $RPM_BUILD_ROOT%{_mandir}/zh_TW/$n
 	fi
