@@ -92,7 +92,7 @@ Source50:	%{name}-extra.tar.bz2
 Source51:	mbox.5
 Patch0:		%{name}-localtime.patch
 BuildArch:	noarch
-Autoreqprov:	false
+AutoReqProv:	no
 Obsoletes:	man-pages-cs
 Obsoletes:	man-pages-de
 Obsoletes:	man-pages-es
