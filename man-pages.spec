@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk):	óÔÏÒ¦ÎËÉ ÍÁÎÕÁÌÕ (man) Ú Linux Documentation Project
 Name:		man-pages
 Version:	1.66
-Release:	3
+Release:	4
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
