@@ -52,7 +52,7 @@ Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra
 # Source5-md5: 5827f41f77658df17f550b7f8e831432
 # extracted from http://developer.bestlinux.net/man-fi/usr/man/RPMS/%{name}-fi-%{fi_version}-4.src.rpm
 Source6:	man-fi-%{fi_version}.tar.bz2
-# Source6-md5: 568d21eb28e09aaa7838f6fb024a78fd
+# Source6-md5: 	53dcf98b573c6e00c45eb91affca0a2e
 # Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
 Source7:	http://perso.club-internet.fr/ccb/man/man-fr-%{fr_version}.tar.gz
 # Source7-md5: aec50d6d7fbb9b7a096ae26ab4a3177f
@@ -71,19 +71,19 @@ Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5: e73c7999af103208e5497f939de764ca
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 # Source13-md5: b37b0216a87db7583e88ba87031a0b4a
-Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
-# Source14-md5: 9492a200d093f1183f1f42cabf6e1eb0
+Source14:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
+# Source14-md5: 2ad83c91c1a568c1c5f40ba699077cd6
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 # Source15-md5: 3f8db6dd6a7884b595e70f624ac93735
 Source16:	http://alexm.here.ru/manpages-ru/download/manpages-ru-%{ru_version}.tar.gz
 # Source16-md5: bfd5a8f20a12b994e19cfca0c4a21249
 # from ASP Linux
 Source17:	man-pages-uk-%{uk_version}.tar.bz2
-# Source17-md5: ff22bdabb60246f613b668f606bfc303
+# Source17-md5: a4f11eb6cdd2af4d57b967de868eb7fd
 Source18:	http://cmpp.linuxforum.net/download/cman-%{zh_version}.tar.gz
 # Source18-md5: 8c631fb761cd684ea3e41aef438d0b49
 Source50:	%{name}-extra.tar.bz2
-# Source50-md5: 7342757af92a6dccf06f6370cc17b276
+# Source50-md5: 967e10b6b691f53885ffa01695657f79
 Source51:	mbox.5
 Patch0:		%{name}-localtime.patch
 BuildArch:	noarch
