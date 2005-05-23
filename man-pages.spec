@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem k˝lavuz sayfalar˝
 Summary(uk):	Û‘œ“¶ŒÀ… Õ¡Œ’¡Ã’ (man) ⁄ Linux Documentation Project
 Name:		man-pages
 Version:	2.01
-Release:	1
+Release:	1.1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -95,6 +95,7 @@ Source19:	http://cmpp.linuxforum.net/download/man-pages-zh_CN-%{zh_version}.tar.
 Source50:	%{name}-extra.tar.bz2
 # Source50-md5:	967e10b6b691f53885ffa01695657f79
 Source51:	mbox.5
+Source52:	sk98lin.4
 Patch0:		%{name}-localtime.patch
 Patch1:		%{name}-zh_fixes.patch
 BuildArch:	noarch
@@ -283,7 +284,7 @@ rm -f man1/{ldd,ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,time,touch,dir,vdir}.1
 rm -f man1/COPYING
 rm -f man2/{capget,capset}.2
 find man3 -type f | grep -v 'intro\.3' | xargs rm -f
-rm -f man4/{console,console_ioctl}.4
+rm -f man4/{console,console_ioctl,sk98lin}.4
 rm -f man5/{ftpusers,locale,nscd.conf,nsswitch.conf,passwd,tzfile}.5
 rm -f man7/{ascii,charsets,iso*,koi8-r,latin*,locale,unicode,utf*}.7
 rm -f man8/{ld.so,ldconfig,nscd,sync,tzselect,zdump,zic}.8
