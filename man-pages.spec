@@ -385,6 +385,7 @@ done
 bzip2 -dc %{SOURCE50} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 install %{SOURCE51} $RPM_BUILD_ROOT%{_mandir}/man5/mbox.5
+install %{SOURCE52} $RPM_BUILD_ROOT%{_mandir}/man4/sk98lin.4
 
 for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,nl,pl,pt,pt_BR,ru,uk,zh_CN,zh_TW} ; do
 	for n in $k/man{1,2,3,4,5,6,7,8}/*; do
