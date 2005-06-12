@@ -59,7 +59,7 @@ Source6:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-fi-%{fi_version}
 # Source6-md5:	53dcf98b573c6e00c45eb91affca0a2e
 Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.bz2
 # Source7:	http://perso.club-internet.fr/ccb/man/man-fr-%{fr_version}.tar.bz2
-# Source7-md5:	50c82c2114ccca1dcb691f4122b7b4ff
+# Source7-md5:	ab2cd0d107ce1d12ff8bfd72437fc8c4
 #Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 Source8:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man_hu_%{hu_version}.tar.gz
 # Source8-md5:	8b94f02287672c5a0601c1ad422a8e07
@@ -78,8 +78,7 @@ Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e73c7999af103208e5497f939de764ca
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 # Source13-md5:	b37b0216a87db7583e88ba87031a0b4a
-#Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
-Source14:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
+Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 # Source14-md5:	4119c4ff3056798772a0ff841f9afc8b
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 # Source15-md5:	3f8db6dd6a7884b595e70f624ac93735
