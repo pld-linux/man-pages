@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Summary(uk):	óÔÏÒ¦ÎËÉ ÍÁÎÕÁÌÕ (man) Ú Linux Documentation Project
 Name:		man-pages
 Version:	2.01
-Release:	1.1
+Release:	2
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -26,16 +26,16 @@ Group:		Documentation
 %define		es_extra_version	0.8a
 %define		fi_version		0.1
 %define		fr_base_version		1.58
-%define		fr_version		%{fr_base_version}.0
+%define		fr_version		%{fr_base_version}.1
 %define		hu_version		2001_01_05
 %define		id_version		20011116
 %define		it_version		0.3.4
-%define		ja_version		20050215
+%define		ja_version		20050415
 %define		ko_version		20010901
 %define		nl_version		0.13.3
-%define		pl_version		20040119
+%define		pl_version		20050612
 %define		pt_version		1.39
-%define		ro_version		0.1
+%define		ro_version		0.2
 #%%define	ru_version		0.97
 %define		ru_asp_version		1.4
 %define		zh_version		1.4
@@ -57,8 +57,8 @@ Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra
 # extracted from http://developer.bestlinux.net/man-fi/usr/man/RPMS/%{name}-fi-%{fi_version}-4.src.rpm
 Source6:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-fi-%{fi_version}.tar.bz2
 # Source6-md5:	53dcf98b573c6e00c45eb91affca0a2e
-# Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.gz
-Source7:	http://perso.club-internet.fr/ccb/man/man-fr-%{fr_version}.tar.bz2
+Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.bz2
+# Source7:	http://perso.club-internet.fr/ccb/man/man-fr-%{fr_version}.tar.bz2
 # Source7-md5:	50c82c2114ccca1dcb691f4122b7b4ff
 #Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 Source8:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man_hu_%{hu_version}.tar.gz
@@ -71,7 +71,7 @@ Source8:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man_hu_%{hu_version}
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
 # Source10-md5:	4e072cafbd196654c925ff0a0dca2c8f
 Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	07dd3d65f7ead37bd5704dbafb7e4c5a
+# Source11-md5:	4e58c2d0b555c497788b260393d46d66
 #
 # Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
@@ -80,7 +80,7 @@ Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version
 # Source13-md5:	b37b0216a87db7583e88ba87031a0b4a
 #Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 Source14:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
-# Source14-md5:	f2f4c62520c11d3cf909b571954fef0d
+# Source14-md5:	4119c4ff3056798772a0ff841f9afc8b
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 # Source15-md5:	3f8db6dd6a7884b595e70f624ac93735
 # Source16:	http://www.rolix.org/man/arhiva/man-pages-ro-%{ro_version}.tar.gz
@@ -387,7 +387,7 @@ bzip2 -dc %{SOURCE50} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 install %{SOURCE51} $RPM_BUILD_ROOT%{_mandir}/man5/mbox.5
 install %{SOURCE52} $RPM_BUILD_ROOT%{_mandir}/man4/sk98lin.4
 
-for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,nl,pl,pt,pt_BR,ru,uk,zh_CN,zh_TW} ; do
+for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,lt,nl,pl,pt,pt_BR,ru,uk,zh_CN,zh_TW} ; do
 	for n in $k/man{1,2,3,4,5,6,7,8}/*; do
 		if head -n 1 $n| grep '^\.so' >/dev/null 2>&1 ; then
 			sed 's,\.so man./,.so ,' < $n > $n.
