@@ -30,7 +30,7 @@ Group:		Documentation
 %define		hu_version		2001_01_05
 %define		id_version		20011116
 %define		it_version		0.3.4
-%define		ja_version		20050515
+%define		ja_version		20050615
 %define		ko_version		20010901
 %define		nl_version		0.13.3
 %define		pl_version		20050612
@@ -58,8 +58,8 @@ Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra
 Source6:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-fi-%{fi_version}.tar.bz2
 # Source6-md5:	53dcf98b573c6e00c45eb91affca0a2e
 Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.bz2
-# Source7:	http://perso.club-internet.fr/ccb/man/man-fr-%{fr_version}.tar.bz2
 # Source7-md5:	ab2cd0d107ce1d12ff8bfd72437fc8c4
+# Source7:	http://perso.club-internet.fr/ccb/man/man-fr-%{fr_version}.tar.bz2
 #Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
 Source8:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man_hu_%{hu_version}.tar.gz
 # Source8-md5:	8b94f02287672c5a0601c1ad422a8e07
@@ -71,7 +71,7 @@ Source8:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man_hu_%{hu_version}
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
 # Source10-md5:	4e072cafbd196654c925ff0a0dca2c8f
 Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	597aae98309e219d53c9ca695e181040
+# Source11-md5:	30d5ecaf3831d43c645932de40c45fab
 #
 # Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
 Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
