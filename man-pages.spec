@@ -38,7 +38,7 @@ Group:		Documentation
 #%%define	ru_version		0.98
 %define		ru_asp_version		1.4
 %define		tr_version		1.0.3
-%define		zh_version		1.4
+%define		zh_version		1.5
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
 # Source0-md5:	8b5a9c069013ba2402da1a2339f727af
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
@@ -78,7 +78,7 @@ Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version
 #Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 Source14:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 # Source14-md5:	b9b5751fcde4c36022850d0e5a4757d3
-Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
+Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-pt_BR-%{pt_version}.tgz
 # Source15-md5:	3f8db6dd6a7884b595e70f624ac93735
 # no LDP man pages yet
 Source16:	http://www.rolix.org/man/arhiva/man-pages-ro-%{ro_version}.tar.gz
@@ -91,8 +91,9 @@ Source18:	http://dl.sourceforge.net/belgeler/man-pages-tr-%{tr_version}.tar.gz
 # Source18-md5:	903c7b22a87961842dec8f4f1adeeaf3
 Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.tar.gz
 # Source19-md5:	89576c5b51bb83c8bfa8bda794b96e21
-Source20:	http://cmpp.linuxforum.net/download/man-pages-zh_CN-%{zh_version}.tar.gz
-# Source20-md5:	2638da6c30a83b443064ca7353563a09
+#Source20:	http://cmpp.linuxforum.net/download/man-pages-zh_CN-%{zh_version}.tar.gz
+Source20:	http://download.sf.linuxforum.net/cmpp/man-pages-zh_CN-%{zh_version}.tar.gz
+# Source20-md5:	edfe517621579520cf7451088ab126ea
 Source50:	%{name}-extra.tar.bz2
 # Source50-md5:	967e10b6b691f53885ffa01695657f79
 Source51:	mbox.5
@@ -271,7 +272,7 @@ Fragmenty POSIX 1003.1-2003 w postaci stron podrêcznika systemowego.
 %prep
 %setup -q -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a11 -a13 -a14 -a15 -a17 -a18 -a19 -a20
 %patch0 -p1
-%patch1 -p0
+#%%patch1 -p0
 
 mkdir it ko
 tar xzf %{SOURCE10} -C it
