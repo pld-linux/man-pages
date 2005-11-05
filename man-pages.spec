@@ -15,82 +15,84 @@ Summary(ru):	óÔÒÁÎÉÃÙ ÒÕËÏ×ÏÄÓÔ×Á ÉÚ ðÒÏÅËÔÁ äÏËÕÍÅÎÔÁÃÉÉ ÎÁ ìÉÎÕËÓ
 Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Summary(uk):	óÔÏÒ¦ÎËÉ ÍÁÎÕÁÌÕ (man) Ú Linux Documentation Project
 Name:		man-pages
-Version:	2.08
+Version:	2.13
 Release:	1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
 %define		da_version		0.1.1
 %define		de_version		0.4
-%define		es_version		1.28
+%define		es_version		1.55
 %define		es_extra_version	0.8a
-%define		fi_version		0.1
-%define		fr_base_version		1.58
-%define		fr_version		%{fr_base_version}.1
-%define		hu_version		2001_01_05
+%define		fi_version		0.2
+%define		fr_version		1.64.0
+%define		hu_version		20010119
 %define		id_version		20011116
 %define		it_version		0.3.4
-%define		ja_version		20050615
-%define		ko_version		20010901
+%define		ja_version		20051015
+%define		ko_version		20050219
 %define		nl_version		0.13.3
-%define		pl_version		20050612
+%define		pl_version		20051105
 %define		pt_version		1.39
 %define		ro_version		0.2
-#%%define	ru_version		0.97
+#%%define	ru_version		0.98
 %define		ru_asp_version		1.4
+%define		tr_version		1.0.3
 %define		zh_version		1.4
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
-# Source0-md5:	a5309f1bd018840e9304a5b2d4ce1952
-#
-# Source1:	ftp://ftp.muni.cz/pub/linux/people/petr_kolar/localization/man-pages-cs/%{name}-cs-%{cs_version}.tar.gz
+# Source0-md5:	8b5a9c069013ba2402da1a2339f727af
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # Source1-md5:	e8036794c1762804f2e242cc5b52001e
-#
-# there is no LDP man page here, yet.
-# Source2:	http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz
+# there is no LDP man page here, yet - but include it in sources for completeness
+Source2:	http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz
+# Source2-md5:	d12ba0481d824c28a8b7d6b73e20d7c0
 Source3:	http://www.infodrom.org/projects/manpages-de/download/manpages-de-%{de_version}.tar.gz
 # Source3-md5:	6a2a1cd24b0bd61c4ab384324e707a95
-Source4:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-%{es_version}.tar.gz
-# Source4-md5:	b58b76cdd2b2174ba216fa30e5d83518
+Source4:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-%{es_version}.tar.bz2
+# Source4-md5:	b71f701dcae827f2f5e4e848c66321fc
 Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra_version}.tar.gz
 # Source5-md5:	5827f41f77658df17f550b7f8e831432
-# extracted from http://developer.bestlinux.net/man-fi/usr/man/RPMS/%{name}-fi-%{fi_version}-4.src.rpm
-Source6:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-fi-%{fi_version}.tar.bz2
-# Source6-md5:	53dcf98b573c6e00c45eb91affca0a2e
-Source7:	ftp://ftp.lip6.fr/pub/linux/french/docs/man-fr-%{fr_version}.tar.bz2
-# Source7-md5:	ab2cd0d107ce1d12ff8bfd72437fc8c4
-# Source7:	http://perso.club-internet.fr/ccb/man/man-fr-%{fr_version}.tar.bz2
-#Source8:	http://www.kde.hu/mlp/man/man_hu_%{hu_version}.tar.gz
-Source8:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man_hu_%{hu_version}.tar.gz
-# Source8-md5:	8b94f02287672c5a0601c1ad422a8e07
+# extracted from http://www.ftp.funet.fi/index/sotlinux/bestlinux-2000R3/BL_2000_R3_FINAL/update/Finnish/man-pages-fi-0.2-1.src.rpm
+# (despite archive filename it's 0.2 version)
+Source6:	man-fi-0.1.tar.bz2
+# Source6-md5:	bb266d3797cdf71bfbe1da190196f455
+Source7:	http://manpagesfr.free.fr/download/man-fr-%{fr_version}.tar.bz2
+# Source7-md5:	336029199c9dd6c16ed85f8b7039dd2e
+#Source8:	http://download.uhulinux.hu/sources/man-pages-hu/man_hu_%{hu_version}.tar.gz (older)
+Source8:	http://ftp.debian.org/debian/pool/main/m/manpages-hu/manpages-hu_%{hu_version}.orig.tar.gz
+# Source8-md5:	742b682c5237a1e370b28f363826b2d5
 #
-# there is no LDP man page here, yet.
-# based on http://nakula.rvs.uni-bielefeld.de/made/my_project/ManPage/
-# Source9:	man-pages-from-www-id-%{id_version}.tar.gz
+# there is no LDP man page here, yet, but included for completeness
+# based on http://nakula.rvs.uni-bielefeld.de/made/my_project/ManPage/ (dead now)
+Source9:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-pages-from-www-id-%{id_version}.tar.gz
+# Source9-md5:	34a69de42ec4ae8180b947f8777a3e7a
 # available also as http://
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
 # Source10-md5:	4e072cafbd196654c925ff0a0dca2c8f
 Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	30d5ecaf3831d43c645932de40c45fab
-#
-# Source12:	ftp://metalab.unc.edu/pub/Linux/docs/LDP/man-pages/%{name}-ko-%{ko_version}.tar.gz
-Source12:	http://download.kldp.net/man/%{name}-ko-%{ko_version}.tar.gz
-# Source12-md5:	e73c7999af103208e5497f939de764ca
+# Source11-md5:	fbc4c3bf09038ff0765596103fd37062
+Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
+# Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 # Source13-md5:	b37b0216a87db7583e88ba87031a0b4a
-Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
-# Source14-md5:	4119c4ff3056798772a0ff841f9afc8b
+#Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
+Source14:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
+# Source14-md5:	b9b5751fcde4c36022850d0e5a4757d3
 Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-%{pt_version}-pt_BR.tgz
 # Source15-md5:	3f8db6dd6a7884b595e70f624ac93735
-# Source16:	http://www.rolix.org/man/arhiva/man-pages-ro-%{ro_version}.tar.gz
+# no LDP man pages yet
+Source16:	http://www.rolix.org/man/arhiva/man-pages-ro-%{ro_version}.tar.gz
+# Source16-md5:	ac5b2c970a31cb721e068ff80e5bd466
 #Source17:	http://www.linuxshare.ru/projects/trans/manpages-ru-%{ru_version}.tar.bz2
-# ASP-linux have more up-to-date manpages
+# ASP-linux have more up-to-date manpages (but 0.98 contains some updated pages)
 Source17:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/manpages-ru-asp-%{ru_asp_version}.tar.bz2
 # Source17-md5:	fffb27648417c8dd551e2a4403eefc64
-Source18:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.tar.gz
-# Source18-md5:	89576c5b51bb83c8bfa8bda794b96e21
-Source19:	http://cmpp.linuxforum.net/download/man-pages-zh_CN-%{zh_version}.tar.gz
-# Source19-md5:	2638da6c30a83b443064ca7353563a09
+Source18:	http://dl.sourceforge.net/belgeler/man-pages-tr-%{tr_version}.tar.gz
+# Source18-md5:	903c7b22a87961842dec8f4f1adeeaf3
+Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.tar.gz
+# Source19-md5:	89576c5b51bb83c8bfa8bda794b96e21
+Source20:	http://cmpp.linuxforum.net/download/man-pages-zh_CN-%{zh_version}.tar.gz
+# Source20-md5:	2638da6c30a83b443064ca7353563a09
 Source50:	%{name}-extra.tar.bz2
 # Source50-md5:	967e10b6b691f53885ffa01695657f79
 Source51:	mbox.5
@@ -189,7 +191,7 @@ altre pagine di uso comune. ATTENZIONE: alcune pagine sono obsolete!
 Pakiet ten zawiera du¿± kolekcjê podrêczników ekranowych (man pages),
 opisuj±cych format plików, protoko³y itp.
 
-- sekcja 1: komendy u¿ytkowników (tylko wstêp)
+- sekcja 1: polecenia u¿ytkowników (tylko wstêp)
 - sekcja 2: wywo³ania systemowe
 - sekcja 3: wywo³ania bibliotek (tylko wstêp)
 - sekcja 4: urz±dzenia (np., hd, sd)
@@ -267,15 +269,15 @@ Part of POSIX 1003.1-2003 in man pages format.
 Fragmenty POSIX 1003.1-2003 w postaci stron podrêcznika systemowego.
 
 %prep
-%setup -q -a1 -a3 -a4 -a5 -a6 -a7 -a11 -a13 -a14 -a15 -a17 -a18 -a19
+%setup -q -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a11 -a13 -a14 -a15 -a17 -a18 -a19 -a20
 %patch0 -p1
 %patch1 -p0
-#rm -f cman/man*/*.html
 
-mkdir hu it ko
-tar xzf %{SOURCE8} -C hu
+mkdir it ko
 tar xzf %{SOURCE10} -C it
 tar xzf %{SOURCE12} -C ko
+
+find man-pages-tr-%{tr_version} -name '*.gz' | xargs gzip -d
 
 %build
 rm -f man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install,diff}.1
@@ -316,6 +318,7 @@ install -d $RPM_BUILD_ROOT%{_mandir}/pl/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/pt/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/pt_BR/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/ru/man{1,2,3,4,5,6,7,8}
+install -d $RPM_BUILD_ROOT%{_mandir}/tr/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/uk/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/zh_CN/man{1,2,3,4,5,6,7,8}
 install -d $RPM_BUILD_ROOT%{_mandir}/zh_TW/man{1,2,3,4,5,6,7,8}
@@ -336,14 +339,10 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	fi
 	if [ -f man-fr-%{fr_version}/$n ]; then
 		install man-fr-%{fr_version}/$n $RPM_BUILD_ROOT%{_mandir}/fr/$n
-#	if [ -f man-fr/$n ]; then
-#		install man-fr/$n $RPM_BUILD_ROOT%{_mandir}/fr/$n
 	fi
-	if [ -f hu/$n ]; then
-		install hu/$n $RPM_BUILD_ROOT%{_mandir}/hu/$n
+	if [ -f manpages-hu-%{hu_version}.orig/usr/share/man/hu/$n ]; then
+		install manpages-hu-%{hu_version}.orig/usr/share/man/hu/$n $RPM_BUILD_ROOT%{_mandir}/hu/$n
 	fi
-#	if [ -f %{name}-it-%{it_version}/$n ]; then
-#		install %{name}-it-%{it_version}/$n $RPM_BUILD_ROOT%{_mandir}/it/$n
 	if [ -f it/$n ]; then
 		install it/$n $RPM_BUILD_ROOT%{_mandir}/it/$n
 	fi
@@ -368,17 +367,15 @@ for n in man{1,2,3,4,5,6,7,8}/*; do
 	if [ -f manpages-ru-asp-%{ru_asp_version}/$n ]; then
 		install manpages-ru-asp-%{ru_asp_version}/$n $RPM_BUILD_ROOT%{_mandir}/ru/$n
 	fi
+	if [ -f man-pages-tr-%{tr_version}/tr/$n ]; then
+		install man-pages-tr-%{tr_version}/tr/$n $RPM_BUILD_ROOT%{_mandir}/tr/$n
+	fi
 	if [ -f %{name}-uk_UA.alfa/$n ]; then
 		install %{name}-uk_UA.alfa/$n $RPM_BUILD_ROOT%{_mandir}/uk/$n
 	fi
-#	if [ -f cman/$n ]; then
-#		install cman/$n $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
 	if [ -f man-pages-zh_CN-%{zh_version}/src/$n ]; then
 		# these man-pages are in UTF-8
 		iconv -f UTF8 -t GB2312 man-pages-zh_CN-%{zh_version}/src/$n > $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
-#		install man-pages-zh_CN-%{zh_version}/src/$n $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
-#               Doesn't work. Bad encoding ?
-#		iconv -f GB2312 -t Big5 cman/$n > $RPM_BUILD_ROOT%{_mandir}/zh_TW/$n
 	fi
 done
 bzip2 -dc %{SOURCE50} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
@@ -386,7 +383,7 @@ bzip2 -dc %{SOURCE50} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 install %{SOURCE51} $RPM_BUILD_ROOT%{_mandir}/man5/mbox.5
 install %{SOURCE52} $RPM_BUILD_ROOT%{_mandir}/man4/sk98lin.4
 
-for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,lt,nl,pl,pt,pt_BR,ru,uk,zh_CN,zh_TW} ; do
+for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,lt,nl,pl,pt,pt_BR,ru,tr,uk,zh_CN,zh_TW} ; do
 	for n in $k/man{1,2,3,4,5,6,7,8}/*; do
 		if head -n 1 $n| grep '^\.so' >/dev/null 2>&1 ; then
 			sed 's,\.so man./,.so ,' < $n > $n.
@@ -415,6 +412,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt) %{_mandir}/pt/man*/*
 %lang(pt_BR) %{_mandir}/pt_BR/man*/*
 %lang(ru) %{_mandir}/ru/man*/*
+%lang(tr) %{_mandir}/tr/man*/*
 %lang(uk) %{_mandir}/uk/man*/*
 %lang(zh_CN) %{_mandir}/zh_CN/man*/*
 #%lang(zh_TW) %{_mandir}/zh_TW/man*/*
