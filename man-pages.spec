@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem kýlavuz sayfalarý
 Summary(uk):	óÔÏÒ¦ÎËÉ ÍÁÎÕÁÌÕ (man) Ú Linux Documentation Project
 Name:		man-pages
 Version:	2.13
-Release:	1
+Release:	1.1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -61,7 +61,6 @@ Source7:	http://manpagesfr.free.fr/download/man-fr-%{fr_version}.tar.bz2
 #Source8:	http://download.uhulinux.hu/sources/man-pages-hu/man_hu_%{hu_version}.tar.gz (older)
 Source8:	http://ftp.debian.org/debian/pool/main/m/manpages-hu/manpages-hu_%{hu_version}.orig.tar.gz
 # Source8-md5:	742b682c5237a1e370b28f363826b2d5
-#
 # there is no LDP man page here, yet, but included for completeness
 # based on http://nakula.rvs.uni-bielefeld.de/made/my_project/ManPage/ (dead now)
 Source9:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-pages-from-www-id-%{id_version}.tar.gz
@@ -100,7 +99,7 @@ Source51:	mbox.5
 Source52:	sk98lin.4
 Patch0:		%{name}-localtime.patch
 Patch1:		%{name}-zh_fixes.patch
-BuildArch:	noarch
+BuildRequires:	sed >= 4.0
 AutoReqProv:	no
 Obsoletes:	man-pages-cs
 Obsoletes:	man-pages-de
@@ -121,6 +120,7 @@ Obsoletes:	man-pages-ru-asp
 Obsoletes:	man-pages-uk
 Obsoletes:	man-pages-zh
 Conflicts:	attr-devel < 2.2.0-2
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -270,9 +270,9 @@ Part of POSIX 1003.1-2003 in man pages format.
 Fragmenty POSIX 1003.1-2003 w postaci stron podrêcznika systemowego.
 
 %prep
-%setup -q -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a11 -a13 -a14 -a15 -a17 -a18 -a19 -a20
+%setup -q -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20
 %patch0 -p1
-#%%patch1 -p0
+%patch1 -p0
 
 mkdir it ko
 tar xzf %{SOURCE10} -C it
@@ -280,115 +280,119 @@ tar xzf %{SOURCE12} -C ko
 
 find man-pages-tr-%{tr_version} -name '*.gz' | xargs gzip -d
 
+# unify tries for easier processing
+mv -f man-pages-%{pt_version}-pt_BR pt_BR
+mv -f man-pages-cs-%{cs_version} cs
+mv -f manpages-da-%{da_version} da
+install -d da/man1
+mv -f da/*.1 da/man1
+mv -f manpages-de-%{de_version} de
+mv -f man-pages-es-%{es_version} es
+# already in main es
+rm -f man-pages-es-extra-%{es_extra_version}/man3/dl*.3
+rm -f man-pages-es-extra-%{es_extra_version}/man5/{acct,host.conf,resolv.conf,resolver}.5
+rm -f man-pages-es-extra-%{es_extra_version}/man8/ld.so.8
+for f in 1 2 4 5 6 7 8 ; do
+	mv -i man-pages-es-extra-%{es_extra_version}/man${f}/* es/man${f}
+done
+mv -f manpages-fi fi
+mv -f man-fr-%{fr_version} fr
+mv -f manpages-hu-%{hu_version}.orig/usr/share/man/hu hu
+mv -f man-pages-ja-%{ja_version}/manual/LDP_man-pages ja
+# duplicates of LDP man pages
+rm -rf man-pages-ja-%{ja_version}/manual/{gnumaniak,ld.so,netkit/man3/{daemon,err,login}.3,bind/man5/resolver.5,netkit/man5/ftpusers.5,bind/man7/mailaddr.7}
+# shadow manuals already in shadow package
+rm -rf man-pages-ja-%{ja_version}/manual/shadow
+# we have man not man-db
+rm -rf man-pages-ja-%{ja_version}/manual/man-db
+# dhcp 3 not dhcp2
+rm -rf man-pages-ja-%{ja_version}/manual/dhcp2
+# nfs-utils not nfs-server
+rm -rf man-pages-ja-%{ja_version}/manual/nfs-server
+# ypbind-mt not ypbind
+rm -rf man-pages-ja-%{ja_version}/manual/ypbind
+# we use: net-tools/hostname, util-linux/{kill,write}, SysVinit/{last,mesg,wall,halt,reboot,shutdown}, textutils/od, quota/rquotad
+rm -f man-pages-ja-%{ja_version}/manual/{GNU_sh-utils/man1/hostname.1,procps/man1/kill.1,util-linux/man1/{last,mesg,od,wall}.1,netkit/man1/write.1,nfs-utils/man8/rquotad.8,util-linux/man8/{halt,reboot,shutdown}.8}
+# following modutils changes
+for f in man-pages-ja-%{ja_version}/manual/modutils/man8/{depmod,insmod,lsmod,modinfo,modprobe,rmmod} ; do
+	mv -f ${f}.8 ${f}.modutils.8
+done
+# avoid filename conflict
+mv -f man-pages-ja-%{ja_version}/manual/netkit/man8/ftpd.{8,8n}
+for f in 1 2 3 4 5 6 7 8 ; do
+	mv -i man-pages-ja-%{ja_version}/manual/*/man${f}/* ja/man${f}
+done
+mv -f manpages-nl-%{nl_version} nl
+mv -f pl_PL pl
+mv -f man-ro ro
+mv -f manpages-ru-asp-%{ru_asp_version} ru
+mv -f man-pages-tr-%{tr_version}/tr tr
+mv -f man-pages-uk_UA.alfa uk
+mv -f man-pages-zh_CN-%{zh_version}/src zh_CN
+find zh_CN -name CVS -o -name '*.orig' | xargs rm -rf
+# would go in big5 or gb18030, but not gb2312
+rm -f zh_CN/man1/perltw.1
+# would go in gb18030, but not gb2312
+rm -f zh_CN/man8/{chat,printcap}.8
+# these man-pages are in UTF-8
+for f in zh_CN/man?/* ; do
+	iconv -f UTF8 -t GB2312 $f > ${f}.tmp
+	mv -f ${f}.tmp $f
+done
+
+bzip2 -dc %{SOURCE50} | tar xf -
+rm -rf pt
+
+# common for few packages (taken from tin)
+cp -f %{SOURCE51} man5/mbox.5
+# updated version
+cp -f %{SOURCE52} man4/sk98lin.4
+
+# cleanup
+rm -f man1/COPYING
+rm -f man*/README*
+find man3 -type f | grep -v 'intro\.3' | xargs rm -f
+
+for n in man{1,2,3,4,5,6,7,8,0p,1p,3p}/* */man{1,2,3,4,5,6,7,8,9}/* ; do
+	x=`echo $n | sed -e 's,^.*man\([^/]\)/.*,\1,'`
+	if head -n 1 $n| grep "^\.so man$x/" >/dev/null 2>&1 ; then
+		sed -i -e 's,\.so man./,.so ,' $n
+	fi
+done
+
+ln -sf pt_BR pt
+
 %build
+# these belong to coreutils (sync is man1 BTW)
 rm -f man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install,diff}.1
 rm -f man1/{ldd,ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,time,touch,dir,vdir}.1
-rm -f man1/COPYING
+rm -f man8/sync.8
+# libcap-devel - but better place is here or in glibc IMO
 rm -f man2/{capget,capset}.2
-find man3 -type f | grep -v 'intro\.3' | xargs rm -f
-rm -f man4/{console,console_ioctl,sk98lin}.4
-rm -f man5/{ftpusers,locale,nscd.conf,nsswitch.conf,passwd,tzfile}.5
+# kbd - but better place is here IMO
+rm -f man4/{console,console_ioctl}.4
+# ftp servers
+rm -f man5/ftpusers.5
+# shadow (but not pwdutils!); shadow(5) is missing in pwdutils too
+rm -f man5/passwd.5
+# glibc
+rm -f man5/{locale,nscd.conf,nsswitch.conf,tzfile}.5
 rm -f man7/{ascii,charsets,iso*,koi8-r,latin*,locale,unicode,utf*}.7
-rm -f man8/{ld.so,ldconfig,nscd,sync,tzselect,zdump,zic}.8
-
-rm -f man*/README*
+rm -f man8/{ld.so,ldconfig,nscd,tzselect,zdump,zic}.8
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8,0p,1p,3p}
 
 for n in man{1,2,3,4,5,6,7,8,0p,1p,3p}/*; do
-	if head -n 1 $n| grep '^\.so' >/dev/null 2>&1 ; then
-		sed 's,\.so man./,.so ,' < $n > $n.
-		mv $n. $n
-	fi
 	install $n $RPM_BUILD_ROOT%{_mandir}/$n
 done
 
-install -d $RPM_BUILD_ROOT%{_mandir}/cs/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/de/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/es/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/fi/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/fr/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/hu/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/it/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/ja/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/ko/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/nl/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/pl/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/pt/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/pt_BR/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/ru/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/tr/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/uk/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/zh_CN/man{1,2,3,4,5,6,7,8}
-install -d $RPM_BUILD_ROOT%{_mandir}/zh_TW/man{1,2,3,4,5,6,7,8}
-for n in man{1,2,3,4,5,6,7,8}/*; do
-	if [ -f %{name}-cs-%{cs_version}/$n ]; then
-		install %{name}-cs-%{cs_version}/$n $RPM_BUILD_ROOT%{_mandir}/cs/$n
-	fi
-	if [ -f manpages-de-%{de_version}/$n ]; then
-		install manpages-de-%{de_version}/$n $RPM_BUILD_ROOT%{_mandir}/de/$n
-	fi
-	if [ -f %{name}-es-%{es_version}/$n ]; then
-		install %{name}-es-%{es_version}/$n $RPM_BUILD_ROOT%{_mandir}/es/$n
-	elif [ -f %{name}-es-extra-%{es_extra_version}/$n ]; then
-		install %{name}-es-extra-%{es_extra_version}/$n $RPM_BUILD_ROOT%{_mandir}/es/$n
-	fi
-	if [ -f manpages-fi/$n ]; then
-		install manpages-fi/$n $RPM_BUILD_ROOT%{_mandir}/fi/$n
-	fi
-	if [ -f man-fr-%{fr_version}/$n ]; then
-		install man-fr-%{fr_version}/$n $RPM_BUILD_ROOT%{_mandir}/fr/$n
-	fi
-	if [ -f manpages-hu-%{hu_version}.orig/usr/share/man/hu/$n ]; then
-		install manpages-hu-%{hu_version}.orig/usr/share/man/hu/$n $RPM_BUILD_ROOT%{_mandir}/hu/$n
-	fi
-	if [ -f it/$n ]; then
-		install it/$n $RPM_BUILD_ROOT%{_mandir}/it/$n
-	fi
-	if [ -f %{name}-ja-%{ja_version}/manual/LDP_man-pages/$n ]; then
-		install %{name}-ja-%{ja_version}/manual/LDP_man-pages/$n $RPM_BUILD_ROOT%{_mandir}/ja/$n
-	fi
-	if [ -f ko/$n ]; then
-		install ko/$n $RPM_BUILD_ROOT%{_mandir}/ko/$n
-	fi
-	if [ -f manpages-nl-%{nl_version}/$n ]; then
-		install manpages-nl-%{nl_version}/$n $RPM_BUILD_ROOT%{_mandir}/nl/$n
-	fi
-	if [ -f pl_PL/$n ]; then
-		install pl_PL/$n $RPM_BUILD_ROOT%{_mandir}/pl/$n
-	fi
-	if [ -f %{name}-%{pt_version}-pt_BR/$n ]; then
-		install %{name}-%{pt_version}-pt_BR/$n $RPM_BUILD_ROOT%{_mandir}/pt_BR/$n
-	fi
-	if [ -f %{name}-%{pt_version}-pt_BR/$n ]; then
-		install %{name}-%{pt_version}-pt_BR/$n $RPM_BUILD_ROOT%{_mandir}/pt/$n
-	fi
-	if [ -f manpages-ru-asp-%{ru_asp_version}/$n ]; then
-		install manpages-ru-asp-%{ru_asp_version}/$n $RPM_BUILD_ROOT%{_mandir}/ru/$n
-	fi
-	if [ -f man-pages-tr-%{tr_version}/tr/$n ]; then
-		install man-pages-tr-%{tr_version}/tr/$n $RPM_BUILD_ROOT%{_mandir}/tr/$n
-	fi
-	if [ -f %{name}-uk_UA.alfa/$n ]; then
-		install %{name}-uk_UA.alfa/$n $RPM_BUILD_ROOT%{_mandir}/uk/$n
-	fi
-	if [ -f man-pages-zh_CN-%{zh_version}/src/$n ]; then
-		# these man-pages are in UTF-8
-		iconv -f UTF8 -t GB2312 man-pages-zh_CN-%{zh_version}/src/$n > $RPM_BUILD_ROOT%{_mandir}/zh_CN/$n
-	fi
-done
-bzip2 -dc %{SOURCE50} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
-
-install %{SOURCE51} $RPM_BUILD_ROOT%{_mandir}/man5/mbox.5
-install %{SOURCE52} $RPM_BUILD_ROOT%{_mandir}/man4/sk98lin.4
-
-for k in $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fi,fr,hu,it,ja,ko,lt,nl,pl,pt,pt_BR,ru,tr,uk,zh_CN,zh_TW} ; do
-	for n in $k/man{1,2,3,4,5,6,7,8}/*; do
-		if head -n 1 $n| grep '^\.so' >/dev/null 2>&1 ; then
-			sed 's,\.so man./,.so ,' < $n > $n.
-			mv $n. $n
+for l in cs de es fi fr hu it ja ko nl pl pt pt_BR ru tr uk zh_CN ; do
+	install -d $RPM_BUILD_ROOT%{_mandir}/$l/man{1,2,3,4,5,6,7,8}
+	for n in man{1,2,3,4,5,6,7,8}/*; do
+		if [ -f $l/$n ]; then
+			install $l/$n $RPM_BUILD_ROOT%{_mandir}/$l/$n
 		fi
 	done
 done
@@ -416,7 +420,6 @@ rm -rf $RPM_BUILD_ROOT
 %lang(tr) %{_mandir}/tr/man*/*
 %lang(uk) %{_mandir}/uk/man*/*
 %lang(zh_CN) %{_mandir}/zh_CN/man*/*
-#%lang(zh_TW) %{_mandir}/zh_TW/man*/*
 
 %files posix
 %defattr(644,root,root,755)
