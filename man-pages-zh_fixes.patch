@@ -1,5 +1,5 @@
---- man-pages-zh_CN-1.4/src/man1/gcc.1.orig	Wed Nov 19 15:19:48 2003
-+++ man-pages-zh_CN-1.4/src/man1/gcc.1	Wed Nov 19 15:26:37 2003
+--- man-pages-zh_CN-1.5/src/man1/gcc.1.orig	Wed Nov 19 15:19:48 2003
++++ man-pages-zh_CN-1.5/src/man1/gcc.1	Wed Nov 19 15:26:37 2003
 @@ -3153,7 +3153,7 @@
  .BR r6000 .
  虽然 选定 某个 
@@ -9,19 +9,19 @@
  .B \-mips2
  或
  .B \-mips3
---- man-pages-zh_CN-1.4/src/man1/intro.1.orig	Wed Nov 19 14:45:51 2003
-+++ man-pages-zh_CN-1.4/src/man1/intro.1	Wed Nov 19 14:45:51 2003
-@@ -36,7 +36,7 @@
- INTRO(1)
- 
- 名称
--intro – 介绍用户命令
+--- man-pages-zh_CN-1.5/src/man1/intro.1.orig	2005-05-31 04:21:30.000000000 +0200
++++ man-pages-zh_CN-1.5/src/man1/intro.1	2005-11-19 20:25:50.876712528 +0100
+@@ -17,7 +17,7 @@
+ .\"修改时间：Sat Jul 24 16:53:03 1993 by Rik Faith (faith@cs.unc.edu)
+ .TH INTRO 1 "24 July 1993" "Linux" "Linux Programmer's Manual"
+ .SH NAME
+-intro \-介绍用户命令
 +intro \- 介绍用户命令
- 
- 描述
- 这章描述用户命令。
---- man-pages-zh_CN-1.4/src/man1/ls.1.orig	Wed Nov 19 15:17:19 2003
-+++ man-pages-zh_CN-1.4/src/man1/ls.1	Wed Nov 19 15:18:36 2003
+ .SH 描述
+ 这章描述用户命令
+ .SH 作者
+--- man-pages-zh_CN-1.5/src/man1/ls.1.orig	Wed Nov 19 15:17:19 2003
++++ man-pages-zh_CN-1.5/src/man1/ls.1	Wed Nov 19 15:18:36 2003
 @@ -43,7 +43,7 @@
  .br
  每一内含文件的目录）分别按文件名比较顺序排序。如果
@@ -51,8 +51,8 @@
  个特定的文件系统中是唯一的。
  .TP
  .B "-k, --kilobytes"
---- man-pages-zh_CN-1.4/src/man2/close.2.orig	Thu Oct 30 23:35:00 2003
-+++ man-pages-zh_CN-1.4/src/man2/close.2	Wed Nov 19 15:33:02 2003
+--- man-pages-zh_CN-1.5/src/man2/close.2.orig	Thu Oct 30 23:35:00 2003
++++ man-pages-zh_CN-1.5/src/man2/close.2	Wed Nov 19 15:33:02 2003
 @@ -29,7 +29,7 @@
  .\"   corrected description of effect on locks (thanks to
  .\"   Tigran Aivazian <tigran@sco.com>).
@@ -62,8 +62,8 @@
  .\"   added note about close(2) not guaranteeing that data is safe on close.
  .\"
  .TH CLOSE 2 1996-04-14 "" "Linux Programmer's Manual"
---- man-pages-zh_CN-1.4/src/man5/environ.5.orig	Thu Oct 30 23:35:02 2003
-+++ man-pages-zh_CN-1.4/src/man5/environ.5	Wed Nov 19 15:35:36 2003
+--- man-pages-zh_CN-1.5/src/man5/environ.5.orig	Thu Oct 30 23:35:02 2003
++++ man-pages-zh_CN-1.5/src/man5/environ.5	Wed Nov 19 15:35:36 2003
 @@ -26,7 +26,7 @@
  .\" Modified Sun Jul 25 10:45:30 1993 by Rik Faith (faith@cs.unc.edu)
  .\" Modified Sun Jul 21 21:25:26 1996 by Andries Brouwer (aeb@cwi.nl)
@@ -73,8 +73,8 @@
  .\" Modified Mon Sep 21 00:00:26 1998 by Andries Brouwer (aeb@cwi.nl)
  .TH ENVIRON(5) Linux Programmer's Manual ENVIRON(5)
  
---- man-pages-zh_CN-1.4/src/man7/hier.7.orig	Wed Nov 19 15:37:08 2003
-+++ man-pages-zh_CN-1.4/src/man7/hier.7	Wed Nov 19 15:37:15 2003
+--- man-pages-zh_CN-1.5/src/man7/hier.7.orig	Wed Nov 19 15:37:08 2003
++++ man-pages-zh_CN-1.5/src/man7/hier.7	Wed Nov 19 15:37:15 2003
 @@ -23,8 +23,8 @@
  .\" License.
  .\" Modified Sun Jul 25 11:05:58 1993 by Rik Faith (faith@cs.unc.edu)
@@ -86,8 +86,8 @@
  .\" Modified Tue Feb 8 16:46:45 2000 by Chris Pepper 
  .\" 中文版 Copyright (c) 2000 LetBright 和 www.linuxforum.net
  .TH HIER 7 "June 16, 1997" "Linux" "Linux Programmer's Manual"
---- man-pages-zh_CN-1.4/src/man7/suffix.7.orig	Wed Nov 19 15:37:23 2003
-+++ man-pages-zh_CN-1.4/src/man7/suffix.7	Wed Nov 19 15:37:27 2003
+--- man-pages-zh_CN-1.5/src/man7/suffix.7.orig	Wed Nov 19 15:37:23 2003
++++ man-pages-zh_CN-1.5/src/man7/suffix.7	Wed Nov 19 15:37:27 2003
 @@ -27,7 +27,7 @@
  .\" Modified Tue Oct 22 23:28:12 1996 by Eric S. Raymond 
  .\" Modified Sun Jan 26 21:56:56 1997 by Ralph Schleicher
@@ -97,8 +97,8 @@
  .\" Modified Sun Oct 18 22:11:28 1998 by Joseph S. Myers 
  .\" Modified Mon Nov 16 17:24:47 1998 by Andries Brouwer 
  .\"
---- man-pages-zh_CN-1.4/src/man8/blockdev.8.orig	Thu Oct 30 23:35:15 2003
-+++ man-pages-zh_CN-1.4/src/man8/blockdev.8	Wed Nov 19 15:54:29 2003
+--- man-pages-zh_CN-1.5/src/man8/blockdev.8.orig	Thu Oct 30 23:35:15 2003
++++ man-pages-zh_CN-1.5/src/man8/blockdev.8	Wed Nov 19 15:54:29 2003
 @@ -34,7 +34,7 @@
  只读模式检测。如果是只读模式，显示1，否则显示0。
  .TP
@@ -108,23 +108,19 @@
  .TP
  .B \--getsize
  显示设备容量（使用512个字节大小的扇区为单位）
---- man-pages-zh_CN-1.4/src/man8/iptables.8.orig	Thu Oct 30 23:35:17 2003
-+++ man-pages-zh_CN-1.4/src/man8/iptables.8	Wed Nov 19 15:51:40 2003
-@@ -1,5 +1,5 @@
- .TH Iptables "iptables 中文手册" ""
--./杨鹏·NetSnake 2002年3月20日
-+./杨鹏・NetSnake 2002年3月20日
- ./for CMPP
- .SH 名子
- iptables - IP包过滤器管理
-@@ -443,4 +443,4 @@
-                            Mar 20, 2000
+--- man-pages-zh_CN-1.5/src/man8/iptables.8.orig	2005-05-31 04:21:30.000000000 +0200
++++ man-pages-zh_CN-1.5/src/man8/iptables.8	2005-11-19 20:27:22.039853624 +0100
+@@ -444,7 +444,7 @@
+ .SH "TRANSBY"
+ LinuxForum.Net CMPP 中文手册页计划 http://cmpp.linuxforum.net
+ .P
+-* Thu Nov 20 2003 杨鹏·NetSnake <netsnake@963.net>
++* Thu Nov 20 2003 杨鹏・NetSnake <netsnake@963.net>
  .br
- 
--.SS 中文维护：杨鹏·NetSnake
-+.SS 中文维护：杨鹏・NetSnake
---- man-pages-zh_CN-1.4/src/man8/lilo.8.orig	Thu Oct 30 23:35:17 2003
-+++ man-pages-zh_CN-1.4/src/man8/lilo.8	Wed Nov 19 15:58:27 2003
+ - 初始版本
+ - 湖北省恩施市东风大道22号《恩施日报》社 445000 0718-8260030
+--- man-pages-zh_CN-1.5/src/man8/lilo.8.orig	Thu Oct 30 23:35:17 2003
++++ man-pages-zh_CN-1.5/src/man8/lilo.8	Wed Nov 19 15:58:27 2003
 @@ -26,21 +26,21 @@
  .SH 总述
  主要功能:
@@ -152,3 +148,119 @@
  \- 卸载lilo
  
  .SH 使用说明
+--- man-pages-zh_CN-1.5/src/man1/mirror.1l.orig	2005-05-31 04:21:30.000000000 +0200
++++ man-pages-zh_CN-1.5/src/man1/mirror.1l	2005-11-19 20:35:43.242659216 +0100
+@@ -850,7 +850,7 @@
+ .P
+ * Sun Nov 28 1999 NONAME <NONAME@NOWHERE>
+ .br
+-- Copyright © 1999 《Best Linux》. All rights reserved.
++- Copyright (c) 1999 《Best Linux》. All rights reserved.
+ .br
+ - 最新的版本是mirror-2.9.7(20031118) 因此您手上这份1996年的原始文档+1999年的翻译也许不能满足您的要求了。请登录
+ .BI http://sunsite.org.uk/packages/mirror/mirror.html
+--- man-pages-zh_CN-1.5/src/man1/perlboot.1.orig	2005-05-31 04:21:30.000000000 +0200
++++ man-pages-zh_CN-1.5/src/man1/perlboot.1	2005-11-19 20:51:07.585137800 +0100
+@@ -498,7 +498,7 @@
+ 但是，如果找不到 \f(CW\*(C`Class::method\*(C'\fR, 程序会查看 \f(CW@Class::ISA\fR (递归的) 找到一个包含 \f(CW\*(C`method\*(C'\fR 的包,然后执行它.
+ .PP
+ 使用这种简单的语法, 我们可以有类方法,(多)继承,重载,以及其它扩展. 使用我们已经学到的东西, 我们可以析出公共的代码,以各种不同的形式重用同一工具. 这是对象能够提供的核心内容, 但是对象还能够提供实例数据, 这一点我们还没有涉及.
+-.Sh "A horse is a horse, of course of course \*(-- or is it? 马就是马——真的是这样吗?"
++.Sh "A horse is a horse, of course of course \*(-- or is it? 马就是马--真的是这样吗?"
+ .IX Subsection "A horse is a horse, of course of course  or is it?"
+ 我们从 \f(CW\*(C`Animal\*(C'\fR 和 \f(CW\*(C`Horse\*(C'\fR 类的代码开始:
+ .PP
+--- man-pages-zh_CN-1.5/src/man1/perlsec.1.orig	2005-05-31 04:21:30.000000000 +0200
++++ man-pages-zh_CN-1.5/src/man1/perlsec.1	2005-11-19 21:10:52.849950160 +0100
+@@ -140,7 +140,7 @@
+ .PP
+ 在“污染模式”中，Perl使用叫做“污染检测”的特殊预防方法来防止明显的和不易被察觉的陷阱。一些检测相当简单，如检查路径目录以确定它们对其他人是不可写的；小心的程序员一向做此类检测。其他的检测已经得到Perl本身最好的支持，这些检测尤其使写一个set-id的Perl程序比相应的C程序更安全。
+ .PP
+-你不可以使用来自程序之外的数据来影响程序之外的事情——至少不是偶然的。所有命令行参数，环境变量，本地信息（参见perllocale），特定系统调用的结果（readdir(),readlink(),shmread()的变量,msgrcv()的返回信息,getpwxxx()调用返回的密码、gcos和shell域）和所有文件输入都被标记成“污染的”。“污染的”数据既不可以直接或间接在任何调用一个子shell命令中使用，也不能在任何修改文件、目录或进程的命令中使用，但有以下例外：
++你不可以使用来自程序之外的数据来影响程序之外的事情--至少不是偶然的。所有命令行参数，环境变量，本地信息（参见perllocale），特定系统调用的结果（readdir(),readlink(),shmread()的变量,msgrcv()的返回信息,getpwxxx()调用返回的密码、gcos和shell域）和所有文件输入都被标记成"污染的"。"污染的"数据既不可以直接或间接在任何调用一个子shell命令中使用，也不能在任何修改文件、目录或进程的命令中使用，但有以下例外：
+ .IP "\(bu" 4
+ print和syswrite的参数不被检查是否被污染。
+ .IP "\(bu" 4
+--- man-pages-zh_CN-1.5/src/man1/pg_restore.1.orig	2005-05-31 04:21:30.000000000 +0200
++++ man-pages-zh_CN-1.5/src/man1/pg_restore.1	2005-11-19 21:49:21.922917712 +0100
+@@ -105,7 +105,7 @@
+  以对象类型重排项目（这个发生在以 -N 或者 -o 排序之后）。 重排是为了给出最大可能的性能。
+ 
+ 如果没有 \fB-N\fR, \fB-o\fR, and
+-\fB-r\fR，那么 pg_restore 以项目出现在归档的内容列表中的顺序恢复他们， 或者按照他们在 list-file 里面的顺序恢复他们——假如给出了 -L 的话。 -o 和 -r 的组合复制了 pg_dump 在创建归档的内容列表之前进行的排序， 因此，这个选项通常没必要声明。
++\fB-r\fR，那么 pg_restore 以项目出现在归档的内容列表中的顺序恢复他们， 或者按照他们在 list-file 里面的顺序恢复他们--假如给出了 -L 的话。 -o 和 -r 的组合复制了 pg_dump 在创建归档的内容列表之前进行的排序， 因此，这个选项通常没必要声明。
+ .TP
+ \fB-R\fR
+ .TP
+--- man-pages-zh_CN-1.5/src/man1/postgres.1.orig	2005-05-31 04:21:30.000000000 +0200
++++ man-pages-zh_CN-1.5/src/man1/postgres.1	2005-11-19 21:57:25.431413248 +0100
+@@ -95,7 +95,7 @@
+ .PP
+  要告诉 postgres 重新读取配置文件， 使用一个 SIGHUP 信号。 通常我们最好给 postmaster 发送 SIGHUP； postmaster 将随后 SIGHUP 他的每个子进程。 但是有时候我们可能想只让一个 postgres 进程重装载配置文件。
+ .PP
+-\fBpostmaster\fR 使用 SIGTERM 告诉postgres进程正常退出， 而 SIGQUIT 是不经过正常清理的退出。 这些信号不应该由用户使用。 给一个 postgres 进程发送 SIGKILL 也是不明智的 —— postmaster 将把这个信号解释成一次在 postgres 里的崩溃， 并且会强制所有他的子 postgres 进程像在一个标准的崩溃－恢复过程里一样退出。
++\fBpostmaster\fR 使用 SIGTERM 告诉postgres进程正常退出， 而 SIGQUIT 是不经过正常清理的退出。 这些信号不应该由用户使用。 给一个 postgres 进程发送 SIGKILL 也是不明智的 -- postmaster 将把这个信号解释成一次在 postgres 里的崩溃， 并且会强制所有他的子 postgres 进程像在一个标准的崩溃－恢复过程里一样退出。
+ .SH "USAGE 用法"
+ .PP
+  用下面这样的命令启动一个独立的服务器
+--- man-pages-zh_CN-1.5/src/man1/wish.1.orig	2005-05-31 04:21:30.000000000 +0200
++++ man-pages-zh_CN-1.5/src/man1/wish.1	2005-11-19 22:02:37.834920696 +0100
+@@ -72,9 +72,9 @@
+ shell, 工具箱
+ .SH 作者
+ .nf
+-Copyright © 1991-1994 The Regents of the University of California.
+-Copyright © 1994-1996 Sun Microsystems, Inc.
+-Copyright © 1995-1997 Roger E. Critchlow Jr.
++Copyright (c) 1991-1994 The Regents of the University of California.
++Copyright (c) 1994-1996 Sun Microsystems, Inc.
++Copyright (c) 1995-1997 Roger E. Critchlow Jr.
+ .fi
+ .SH "TRANSBY"
+ LinuxForum.Net CMPP 中文手册页计划 http://cmpp.linuxforum.net
+--- man-pages-zh_CN-1.5/src/man7/create_type.7.orig	2005-05-31 04:21:30.000000000 +0200
++++ man-pages-zh_CN-1.5/src/man7/create_type.7	2005-11-19 22:16:02.415605840 +0100
+@@ -38,7 +38,7 @@
+ .PP
+  函数 input_function  将该类型的外部文本形式转换成可以被对该类型操作的操作符和函数识别的内部形式。 output_function  用做相反用途。 输入函数可以声明为接受一个类型为 c_string 的参数，或者接受三个类型分别为 c_string，oid，integer 的参数。 （第一个参数是 C 字串形式的输入文本，第二个是在该类型为数组类型时其元素的类型， 第三个是目标字段的typmod，如果已知的话。） 它应该返回一个该数据类型本身的数值。 输出函数可以声明为接受一个类型为新数据类型的参数， 或者接受两个类型，第二个参数的类型是 oid。 第二个参数也是用于数组类型的数组元素类型。输出函数应该返回类型 cstring。
+ .PP
+- 可选的 receive_function 把该类型的外部二进制表现形式转换成内部表现形式。 如果没有提供这个函数，那么该类型不能用二进制输入。二进制格式应该选取那种转换成内部格式比较容易的，同时还有一定移植性的。 （比如，标准的整数数据类型使用网络字节序作为外部的二进制表现形式，而内部表现形式是机器的本机字节序。） 接收函数应该声明为接受一个类型为 internal 的参数，或者两个类型分别为 internal 和 oid 的参数。 它必须返回一个数据类型自身的数值。（第一个参数是一个指向一个 StringInfo 缓冲区的，保存接受字节串的指针； 可选的第二个参数是元素类型——如果类型是一个数组类型的话。）类似的，可选的 send_function  把类型转换为外部二进制表现形式。 如果没有提供这些函数，那么类型就不能用二进制方式输出。发送函数可以声明为接收一个新数据类型， 或者接收两个参数，第二个参数的类型是 oid。第二个参数仍然是用做数组类型的。 发送函数必须返回 bytea。
++ 可选的 receive_function 把该类型的外部二进制表现形式转换成内部表现形式。 如果没有提供这个函数，那么该类型不能用二进制输入。二进制格式应该选取那种转换成内部格式比较容易的，同时还有一定移植性的。 （比如，标准的整数数据类型使用网络字节序作为外部的二进制表现形式，而内部表现形式是机器的本机字节序。） 接收函数应该声明为接受一个类型为 internal 的参数，或者两个类型分别为 internal 和 oid 的参数。 它必须返回一个数据类型自身的数值。（第一个参数是一个指向一个 StringInfo 缓冲区的，保存接受字节串的指针； 可选的第二个参数是元素类型--如果类型是一个数组类型的话。）类似的，可选的 send_function  把类型转换为外部二进制表现形式。 如果没有提供这些函数，那么类型就不能用二进制方式输出。发送函数可以声明为接收一个新数据类型， 或者接收两个参数，第二个参数的类型是 oid。第二个参数仍然是用做数组类型的。 发送函数必须返回 bytea。
+ .PP
+  这个时候你应该觉得奇怪，就是输入和输出函数怎么可以声明为返回新类型的结果或者是接受新类型的参数， 而且是在新类型创建之前就需要创建它们。 答案是输入函数必须先创建，然后是输出函数，最后是数据类型。 PostgreSQL 将首先把新数据类型的名字看作输入函数的返回类型。 它将创建一个"壳"类型，这个类型只是在 pg_type里面的一个占位符，然后把输入函数定义和这个壳类型连接起来。 类似的是输出函数将连接到（现在已经存在）的壳类型。最后， CREATE TYPE 把这个壳类型替换成完整的类型定义，这样就可以使用新类型了。
+ .PP
+--- man-pages-zh_CN-1.5/src/man8/iptables-restore.8.orig	2005-05-31 04:21:30.000000000 +0200
++++ man-pages-zh_CN-1.5/src/man8/iptables-restore.8	2005-11-19 22:42:15.612443568 +0100
+@@ -51,6 +51,6 @@
+ .SH "TRANSBY"
+ LinuxForum.Net CMPP 中文手册页计划 http://cmpp.linuxforum.net
+ .P
+-* Thu Nov 20 2003 杨鹏·NetSnake <netsnake@963.net>
++* Thu Nov 20 2003 杨鹏・NetSnake <netsnake@963.net>
+ .br
+ - 初始版本
+--- man-pages-zh_CN-1.5/src/man8/iptables-save.8.orig	2005-05-31 04:21:30.000000000 +0200
++++ man-pages-zh_CN-1.5/src/man8/iptables-save.8	2005-11-19 22:47:56.589607160 +0100
+@@ -50,6 +50,6 @@
+ .SH "TRANSBY"
+ LinuxForum.Net CMPP 中文手册页计划 http://cmpp.linuxforum.net
+ .P
+-* Wed May  1 2002 杨鹏·NetSnake <netsnake@963.net>
++* Wed May  1 2002 杨鹏・NetSnake <netsnake@963.net>
+ .br
+ - 初始版本，与 Poopy 合作
+--- man-pages-zh_CN-1.5/src/mann/while.n.orig	2005-05-31 04:21:30.000000000 +0200
++++ man-pages-zh_CN-1.5/src/mann/while.n	2005-11-19 23:00:12.791687432 +0100
+@@ -21,9 +21,9 @@
+ 
+ .SH 作者
+ .nf
+-Copyright © 1993 The Regents of the University of California.
+-Copyright © 1994-1997 Sun Microsystems, Inc.
+-Copyright © 1995-1997 Roger E. Critchlow Jr.
++Copyright (c) 1993 The Regents of the University of California.
++Copyright (c) 1994-1997 Sun Microsystems, Inc.
++Copyright (c) 1995-1997 Roger E. Critchlow Jr.
+ .fi
+ .SH "TRANSBY"
+ LinuxForum.Net CMPP 中文手册页计划 http://cmpp.linuxforum.net
