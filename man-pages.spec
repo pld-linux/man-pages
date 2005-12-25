@@ -15,8 +15,8 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Summary(uk):	Стор╕нки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	2.13
-Release:	1.1
+Version:	2.18
+Release:	1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -25,11 +25,11 @@ Group:		Documentation
 %define		es_version		1.55
 %define		es_extra_version	0.8a
 %define		fi_version		0.2
-%define		fr_version		1.64.0
+%define		fr_version		1.67.0
 %define		hu_version		20010119
 %define		id_version		20011116
 %define		it_version		0.3.4
-%define		ja_version		20051015
+%define		ja_version		20051215
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -40,7 +40,7 @@ Group:		Documentation
 %define		tr_version		1.0.3
 %define		zh_version		1.5
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
-# Source0-md5:	8b5a9c069013ba2402da1a2339f727af
+# Source0-md5:	d0b6472fcabf2aecf0ede6f8dbd0252d
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # Source1-md5:	e8036794c1762804f2e242cc5b52001e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -57,7 +57,7 @@ Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra
 Source6:	man-fi-0.1.tar.bz2
 # Source6-md5:	bb266d3797cdf71bfbe1da190196f455
 Source7:	http://manpagesfr.free.fr/download/man-fr-%{fr_version}.tar.bz2
-# Source7-md5:	336029199c9dd6c16ed85f8b7039dd2e
+# Source7-md5:	45d79316e7078f1a1ff575e01afc7a97
 #Source8:	http://download.uhulinux.hu/sources/man-pages-hu/man_hu_%{hu_version}.tar.gz (older)
 Source8:	http://ftp.debian.org/debian/pool/main/m/manpages-hu/manpages-hu_%{hu_version}.orig.tar.gz
 # Source8-md5:	742b682c5237a1e370b28f363826b2d5
@@ -69,7 +69,7 @@ Source9:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-pages-from-www-i
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
 # Source10-md5:	4e072cafbd196654c925ff0a0dca2c8f
 Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	fbc4c3bf09038ff0765596103fd37062
+# Source11-md5:	dd8d4b42f5e7ab456ed93a0099d9602e
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
