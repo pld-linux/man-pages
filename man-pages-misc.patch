@@ -1,0 +1,207 @@
+--- man-pages-2.18/man1/ldd.1.orig	2005-10-04 14:49:58.000000000 +0200
++++ man-pages-2.18/man1/ldd.1	2005-12-25 18:30:24.446732064 +0100
+@@ -24,13 +24,13 @@
+ Print the version number of
+ .BR ldd .
+ .TP
+-.B \-v\ \-\-verbose
++.BR \-v , " \-\-verbose"
+ Print all information, including e.g. symbol versioning information.
+ .TP
+-.B \-d\ \-\-data\-relocs
++.BR \-d , " \-\-data\-relocs"
+ Perform relocations and report any missing objects (ELF only).
+ .TP
+-.B \-r\ \-\-function\-relocs
++.BR \-r, " \-\-function\-relocs"
+ Perform relocations for both data objects and functions, and
+ report any missing objects or functions (ELF only).
+ .TP
+@@ -66,6 +66,6 @@
+ .\" .SH AUTHOR
+ .\" David Engel.
+ .\" Roland McGrath and Ulrich Drepper.
+-.SH SEE ALSO
++.SH "SEE ALSO"
+ .BR ld.so (8),
+ .BR ldconfig (8)
+--- man-pages-2.18/man3/dlopen.3.orig	2005-10-28 15:27:52.000000000 +0200
++++ man-pages-2.18/man3/dlopen.3	2005-12-25 18:38:09.788989288 +0100
+@@ -21,8 +21,8 @@
+ .\"
+ .\" You should have received a copy of the GNU General Public
+ .\" License along with this manual; if not, write to the Free
+-.\" Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139,
+-.\" USA.
++.\" Software Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston,
++.\" MA 02110-1301, USA.
+ .\"
+ .\" Modified by David A. Wheeler <dwheeler@dwheeler.com> 2000-11-28.
+ .\" Applied patch by Terran Melconian, aeb, 2001-12-14.
+--- man-pages-2.18/man5/locale.5.orig	2005-11-02 14:55:25.000000000 +0100
++++ man-pages-2.18/man5/locale.5	2005-12-25 20:16:15.125282176 +0100
+@@ -20,7 +20,7 @@
+ .\"
+ .TH LOCALE 5 1994-11-09 "National Language Support" "Linux User Manual"
+ .SH NAME
+-locale \- Describes a locale definition file
++locale \- describes a locale definition file
+ .SH DESCRIPTION
+ The 
+ .B locale
+@@ -243,7 +243,7 @@
+ The 
+ .B LC_CTYPE
+ definition ends with the string 
+-.I END LC_CYTPE.
++.IR "END LC_CTYPE" .
+ 
+ .SS LC_COLLATE
+ The 
+@@ -291,7 +291,7 @@
+ The 
+ .B LC_COLLATE
+ definition ends with the string 
+-.IR END LC_COLLATE .
++.IR "END LC_COLLATE" .
+ 
+ .SS LC_MONETARY
+ The definition starts with the string
+@@ -347,7 +347,7 @@
+ .I currency_symbol
+ or
+ .I int_curr_symbol
+- should precede the formatted monetary quantity or set to
++should precede the formatted monetary quantity or set to
+ .B 0
+ if the symbol succeeds the value.
+ .TP
+@@ -462,7 +462,7 @@
+ The 
+ .B LC_MONETARY
+ definition ends with the string 
+-.I END LC_MONETARY.
++.IR "END LC_MONETARY" .
+ 
+ .SS LC_NUMERIC
+ The definition starts with the string
+@@ -487,7 +487,7 @@
+ The 
+ .B LC_NUMERIC
+ definition ends with the string 
+-.I END LC_NUMERIC.
++.IR "END LC_NUMERIC" .
+ 
+ .SS LC_TIME
+ The definition starts with the string
+@@ -532,7 +532,7 @@
+ The 
+ .B LC_TIME
+ definition ends with the string 
+-.I END LC_TIME.
++.IR "END LC_TIME" .
+ 
+ .SS LC_MESSAGES
+ The definition starts with the string
+@@ -554,7 +554,7 @@
+ The 
+ .B LC_MESSAGES
+ definition ends with the string 
+-.I END LC_MESSAGES.
++.IR "END LC_MESSAGES" .
+ 
+ See the POSIX.2 standard for details.
+ .SH FILES
+--- man-pages-2.18/man8/nscd.8.orig	2005-07-06 09:41:37.000000000 +0200
++++ man-pages-2.18/man8/nscd.8	2005-12-25 18:41:47.316920016 +0100
+@@ -21,13 +21,13 @@
+ .SH NAME
+ /usr/sbin/nscd \- name service cache daemon
+ .SH DESCRIPTION
+-Nscd is a daemon that provides a cache for the most common name service
++nscd is a daemon that provides a cache for the most common name service
+ requests. The default configuration file,
+ .IR /etc/nscd.conf ,
+ determines the behavior of the cache daemon. See
+ .BR nscd.conf (5).
+ 
+-Nscd provides cacheing for accesses of the
++nscd provides cacheing for accesses of the
+ .BR passwd (5),
+ .BR group (5),
+ and
+@@ -54,7 +54,7 @@
+ will give you a list with all options and what they do.
+ 
+ .SH NOTES
+-Nscd doesn't know anything about the underlaying protocols for a
++nscd doesn't know anything about the underlaying protocols for a
+ service. This also means, that if you change
+ .I /etc/resolv.conf
+ for DNS queries, nscd will continue to use the old one if you have
+--- man-pages-2.18/man8/zic.8.orig	2005-11-02 12:11:03.000000000 +0100
++++ man-pages-2.18/man8/zic.8	2005-12-25 18:43:54.762545336 +0100
+@@ -408,7 +408,7 @@
+ field of the earliest transition time's rule to ensure that
+ the earliest transition time recorded in the compiled file is correct.
+ .SH FILE
+-/usr/local/etc/zoneinfo	standard directory used for created files
++/usr/share/zoneinfo	standard directory used for created files
+ .SH "SEE ALSO"
+ .BR tzfile (5),
+ .BR zdump (8)
+--- man-pages-2.18/de/man7/iso_8859-1.7.orig	1998-12-07 01:34:44.000000000 +0100
++++ man-pages-2.18/de/man7/iso_8859-1.7	2005-12-25 19:27:49.914941280 +0100
+@@ -25,10 +25,10 @@
+ .\" Translated Thu Jan  4 16:37:10 MET 1996 by Lutz.Donnerhacke@Jena.Thur.De
+ .\" Modified Mon Jun 10 00:20:28 1996 by Martin Schulze (joey@linux.de)
+ .\"
+-.TH ISO_8859_1 7 "11. Juli 1995" "Linux" "Verschiedenes"
++.TH ISO_8859-1 7 "11. Juli 1995" "Linux" "Verschiedenes"
+ .nh
+ .SH BEZEICHNUNG
+-iso_8859_1 \- Zeichentabelle ISO 8859-1 in oktaler, dezimaler und
++iso_8859-1 \- Zeichentabelle ISO 8859-1 in oktaler, dezimaler und
+ hexadezimaler Kodierung
+ .SH ERKL�RUNG
+ Der Standard ISO 8859 enth�lt verschiedene 8-bit Erweiterungen des ASCII
+--- man-pages-2.18/de/man7/latin1.7.orig	2005-12-25 16:15:02.883397000 +0100
++++ man-pages-2.18/de/man7/latin1.7	2005-12-25 19:27:57.253825600 +0100
+@@ -1 +1 @@
+-.so man7/iso_8859_1.7
++.so iso_8859-1.7
+--- man-pages-2.18/fr/man7/latin1.7.orig	2005-12-25 16:15:05.100060000 +0100
++++ man-pages-2.18/fr/man7/latin1.7	2005-12-25 19:31:49.976446384 +0100
+@@ -1 +1 @@
+-.so man7/iso_8859_1.7
++.so iso_8859-1.7
+--- man-pages-2.18/fr/man7/iso_8859-1.7.orig	2005-06-27 09:20:02.000000000 +0200
++++ man-pages-2.18/fr/man7/iso_8859-1.7	2005-12-25 19:32:11.625155280 +0100
+@@ -27,9 +27,9 @@
+ .\" Màj 25/07/2003 LDP-1.56
+ .\" Màj 27/06/2005 LDP-1.60
+ .\"
+-.TH ISO_8859_1 7 "15 juillet 2003" LDP "Manuel de l'administrateur Linux"
++.TH ISO_8859-1 7 "15 juillet 2003" LDP "Manuel de l'administrateur Linux"
+ .SH NOM
+-iso_8859_1, latin1 \- Le jeu de caractères ISO 8859-1 en octal, décimal et hexadécimal.
++iso_8859-1, latin1 \- Le jeu de caractères ISO 8859-1 en octal, décimal et hexadécimal.
+ .SH DESCRIPTION
+ Le standard ISO 8859 inclut plusieurs extensions au jeu de caractères ASCII
+ (ISO 646-IRV). Le jeu le plus important est ISO 8859-1, l'alphabet
+--- man-pages-2.18/it/man7/latin1.7.orig	1999-05-24 17:40:24.000000000 +0200
++++ man-pages-2.18/it/man7/latin1.7	2005-12-25 19:39:58.868123552 +0100
+@@ -1,2 +1 @@
+-.\" $Id$
+-.so man7/iso_8859_1.7
++.so man7/iso_8859-1.7
+--- man-pages-2.18/pt_BR/man7/latin1.7.orig	2005-12-25 16:15:09.747353000 +0100
++++ man-pages-2.18/pt_BR/man7/latin1.7	2005-12-25 19:40:58.025130320 +0100
+@@ -1 +1 @@
+-.so man7/iso_8859_1.7
++.so iso_8859-1.7
+--- man-pages-2.18/pt_BR/man7/latin2.7.orig	2005-12-25 16:15:09.766350000 +0100
++++ man-pages-2.18/pt_BR/man7/latin2.7	2005-12-25 19:41:00.917690584 +0100
+@@ -1 +1 @@
+-.so man7/iso_8859_2.7
++.so iso_8859-2.7
