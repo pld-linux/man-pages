@@ -387,7 +387,8 @@ while read line ; do
 		if [ -f "$line" ]; then
 			echo "$line" >> ${package}-man.list
 		fi
-		for l in cs de es fi fr hu it ja ko nl pl pt pt_BR ru tr uk zh_CN ; do
+		# omit pt_BR here, package them as pt
+		for l in cs de es fi fr hu it ja ko nl pl pt ru tr uk zh_CN ; do
 			if [ -f "$l/$line" ]; then
 				echo "$l/$line" >> ${package}-man.list
 			fi
@@ -421,7 +422,8 @@ for n in man{1,2,3,4,5,6,7,8,0p,1p,3p}/*; do
 	install $n $RPM_BUILD_ROOT%{_mandir}/$n
 done
 
-for l in cs de es fi fr hu it ja ko nl pl pt pt_BR ru tr uk zh_CN ; do
+# omit pt_BR here, package them as pt
+for l in cs de es fi fr hu it ja ko nl pl pt ru tr uk zh_CN ; do
 	install -d $RPM_BUILD_ROOT%{_mandir}/$l/man{1,2,3,4,5,6,7,8}
 	for n in man{1,2,3,4,5,6,7,8}/*; do
 		if [ -f $l/$n ]; then
@@ -448,7 +450,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nl) %{_mandir}/nl/man*/*
 %lang(pl) %{_mandir}/pl/man*/*
 %lang(pt) %{_mandir}/pt/man*/*
-%lang(pt_BR) %{_mandir}/pt_BR/man*/*
+#%lang(pt_BR) %{_mandir}/pt_BR/man*/*
 %lang(ru) %{_mandir}/ru/man*/*
 %lang(tr) %{_mandir}/tr/man*/*
 %lang(uk) %{_mandir}/uk/man*/*
