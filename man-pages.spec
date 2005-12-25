@@ -94,11 +94,12 @@ Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.
 Source20:	http://download.sf.linuxforum.net/cmpp/man-pages-zh_CN-%{zh_version}.tar.gz
 # Source20-md5:	edfe517621579520cf7451088ab126ea
 Source50:	%{name}-extra.tar.bz2
-# Source50-md5:	967e10b6b691f53885ffa01695657f79
-Source51:	mbox.5
-Source52:	sk98lin.4
+# NoSource50-md5:	2a23f3fb5f4e94d898cb514267fee350
+Source100:	%{name}-tars.list
 Patch0:		%{name}-localtime.patch
 Patch1:		%{name}-zh_fixes.patch
+Patch2:		%{name}-misc.patch
+Patch3:		%{name}-extra.patch
 BuildRequires:	sed >= 4.0
 AutoReqProv:	no
 Obsoletes:	man-pages-cs
@@ -120,6 +121,8 @@ Obsoletes:	man-pages-ru-asp
 Obsoletes:	man-pages-uk
 Obsoletes:	man-pages-zh
 Conflicts:	attr-devel < 2.2.0-2
+Conflicts:	kbd < 1.12-9
+Conflicts:	libcap < 1:1.10-5
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -280,7 +283,7 @@ tar xzf %{SOURCE12} -C ko
 
 find man-pages-tr-%{tr_version} -name '*.gz' | xargs gzip -d
 
-# unify tries for easier processing
+# unify trees for easier processing
 mv -f man-pages-%{pt_version}-pt_BR pt_BR
 mv -f man-pages-cs-%{cs_version} cs
 mv -f manpages-da-%{da_version} da
@@ -340,18 +343,22 @@ for f in zh_CN/man?/* ; do
 	mv -f ${f}.tmp $f
 done
 
-bzip2 -dc %{SOURCE50} | tar xf -
-rm -rf pt
+# unify name
+mv -f de/man7/{iso_8859_1,iso_8859-1}.7
+# unify name + fix infinite loop
+mv -f it/man7/{iso_8859-1,tmp}.7
+mv -f it/man7/{iso_8859_1,iso_8859-1}.7
+mv -f it/man7/{tmp,iso_8859_1}.7
+# non-existing target
+rm -f it/man7/latin.2
+%patch2 -p1
 
-# common for few packages (taken from tin)
-cp -f %{SOURCE51} man5/mbox.5
-# updated version
-cp -f %{SOURCE52} man4/sk98lin.4
+bzip2 -dc %{SOURCE50} | tar xf -
+%patch3 -p0
 
 # cleanup
 rm -f man1/COPYING
 rm -f man*/README*
-find man3 -type f | grep -v 'intro\.3' | xargs rm -f
 
 for n in man{1,2,3,4,5,6,7,8,0p,1p,3p}/* */man{1,2,3,4,5,6,7,8,9}/* ; do
 	x=`echo $n | sed -e 's,^.*man\([^/]\)/.*,\1,'`
@@ -362,23 +369,49 @@ done
 
 ln -sf pt_BR pt
 
-%build
 # these belong to coreutils (sync is man1 BTW)
 rm -f man1/{chgrp,chmod,chown,cp,dd,df,dircolors,du,install,diff}.1
-rm -f man1/{ldd,ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,time,touch,dir,vdir}.1
+rm -f man1/{ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,touch,dir,vdir}.1
 rm -f man8/sync.8
-# libcap-devel - but better place is here or in glibc IMO
-rm -f man2/{capget,capset}.2
-# kbd - but better place is here IMO
-rm -f man4/{console,console_ioctl}.4
+# time
+rm -f man1/time.1
 # ftp servers
 rm -f man5/ftpusers.5
-# shadow (but not pwdutils!); shadow(5) is missing in pwdutils too
-rm -f man5/passwd.5
+
+%if %{with tars}
+package=NONE
+while read line ; do
+	if echo $line | grep -q '^\[.\+\]$' ; then
+		package=`echo $line | sed -e 's/^\[//;s/\]$//;'`
+	else
+		if [ -f "$line" ]; then
+			echo "$line" >> ${package}-man.list
+		fi
+		for l in cs de es fi fr hu it ja ko nl pl pt pt_BR ru tr uk zh_CN ; do
+			if [ -f "$l/$line" ]; then
+				echo "$l/$line" >> ${package}-man.list
+			fi
+		done
+	fi
+done < %{SOURCE100}
+for l in *-man.list ; do
+	t=`basename $l .list`
+	if [ -f README.${t}-pages ]; then
+		echo "README.${t}-pages" >> "$l"
+	fi
+	tar cjf %{_sourcedir}/${t}-pages.tar.bz2 --files-from "$l"
+	cat "$l" | xargs rm -f
+done
+%else
 # glibc
+find man3 -type f | grep -v 'intro\.3' | xargs rm -f
 rm -f man5/{locale,nscd.conf,nsswitch.conf,tzfile}.5
 rm -f man7/{ascii,charsets,iso*,koi8-r,latin*,locale,unicode,utf*}.7
 rm -f man8/{ld.so,ldconfig,nscd,tzselect,zdump,zic}.8
+%endif
+
+# shadow (but not pwdutils!); shadow(5) is missing in pwdutils too
+rm -f man5/passwd.5
 
 %install
 rm -rf $RPM_BUILD_ROOT
