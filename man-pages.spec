@@ -343,14 +343,31 @@ for f in zh_CN/man?/* ; do
 	mv -f ${f}.tmp $f
 done
 
+mv -f cs/man8/at.1 cs/man1
 # unify name
 mv -f de/man7/{iso_8859_1,iso_8859-1}.7
+mv -f es/man8/sync.8 es/man1/sync.1
+mv -f fr/man8/sync.8 fr/man1/sync.1
+# man1/sync.1 already exists
+rm -f hu/man8/sync.8
 # unify name + fix infinite loop
 mv -f it/man7/{iso_8859-1,tmp}.7
 mv -f it/man7/{iso_8859_1,iso_8859-1}.7
 mv -f it/man7/{tmp,iso_8859_1}.7
 # non-existing target
 rm -f it/man7/latin.2
+mv -f ja/man8/nslookup.8 ja/man1/nslookup.1
+mv -f ja/man8/sync.8 ja/man1/sync.1
+mv -f ko/man8/sync.8 ko/man1/sync.1
+# filename typo?
+mv -f pl/man5/{at_acces,at_access}.5
+# man1/sync.1 already exists
+rm -f pl/man8/sync.8
+mv -f pt_BR/man8/sync.8 pt_BR/man1/sync.1
+mv -f ru/man8/sync.8 ru/man1/sync.1
+# man1/sync.1 already exists
+rm -f zh_CN/man8/sync.8
+
 %patch2 -p1
 
 bzip2 -dc %{SOURCE50} | tar xf -
@@ -401,7 +418,7 @@ for l in *-man.list ; do
 		echo "README.${t}-pages" >> "$l"
 	fi
 	tar cjf %{_sourcedir}/${t}-pages.tar.bz2 --files-from "$l"
-	cat "$l" | xargs rm -f
+	grep '^man' "$l" | xargs rm -f
 done
 %else
 # glibc
