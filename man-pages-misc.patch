@@ -216,8 +216,8 @@
  .Os BSD 4
  .Sh Ì¾¾Î
  .Nm nslookup
---- man-pages/fi/man1/finger.1.orig	Sun Nov 14 02:34:31 1999
-+++ man-pages/fi/man1/finger.1	Wed Nov  7 00:29:11 2001
+--- man-pages-2.18/fi/man1/finger.1.orig	2000-10-24 19:35:48.000000000 +0200
++++ man-pages-2.18/fi/man1/finger.1	2005-12-26 01:31:52.973291672 +0100
 @@ -1,5 +1,5 @@
  .\" $Id$
 -..\" Copyright (c) 1989, 1990 The Regents of the University of California.
@@ -225,9 +225,9 @@
  .\" All rights reserved.
  .\"
  .\" Redistribution and use in source and binary forms, with or without
-@@ -36,17 +36,17 @@
- .Dd July 13, 1996
+@@ -38,17 +38,17 @@
  .\" Translated into Finnish by Lauri Nurmi (lanurmi@kauhajoki.fi)
+ .\" Proofread by Juhana Siren (Juhana.Siren@oulu.fi)
  .\"
 -.TH FINGER 7 "" "Käyttäjän sovellusohjelmat" ""
 +.Dt FINGER 7
@@ -247,7 +247,7 @@
  .Nm Finger
  näyttää tietoja järjestelmän käyttäjistä.
  .Pp
-@@ -149,14 +149,13 @@
+@@ -151,12 +151,12 @@
  -tyyli.
  .Fl l
  on ainoa optio, joka voidaan lähettää muille koneille.
@@ -259,11 +259,9 @@
  .Xr who 1
 -.SH HISTORIA
 +.Sh HISTORIA
- The
  .Nm finger
  -komento ilmestyi
  .Bx 3.0 :ssä.
--.SH "KATSO MYÖS"
 --- man-pages/fi/man6/hangman.6~	2004-09-29 00:29:49.000000000 +0200
 +++ man-pages/fi/man6/hangman.6	2004-09-29 00:29:49.000000000 +0200
 @@ -37,7 +37,7 @@
@@ -297,23 +295,22 @@
  .SH BUGS
  Ötökät?
  Sinä,
---- man-pages/fi/man6/trek.6~	2004-09-29 00:31:32.000000000 +0200
-+++ man-pages/fi/man6/trek.6	2004-09-29 00:31:32.000000000 +0200
-@@ -37,7 +37,7 @@
+--- man-pages-2.18/fi/man6/trek.6.orig	2000-10-24 19:35:31.000000000 +0200
++++ man-pages-2.18/fi/man6/trek.6	2005-12-26 01:32:57.027553944 +0100
+@@ -39,7 +39,7 @@
  .SH NIMI
- trek \- trekkari peli
+ trek \- trekkaripeli
  .SH "YLEISKATSAUS"
 -.B /usr/games/trek
 +.B trek
  [ [
  .B \-a
  ] tiedostonnimi ]
-@@ -87,4 +87,4 @@
+@@ -90,4 +90,4 @@
  .fi
  .DT
  .SH "KATSO MYÖS"
 -/usr/doc/trek 
-\ No newline at end of file
 +/usr/share/doc/bsd-games-*/trek/trekmanual.txt
 --- man-pages/pl/man6/trek.6~	2004-09-29 00:28:13.000000000 +0200
 +++ man-pages/pl/man6/trek.6	2004-09-29 00:28:13.000000000 +0200
