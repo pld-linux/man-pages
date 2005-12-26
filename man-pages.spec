@@ -94,7 +94,7 @@ Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.
 Source20:	http://download.sf.linuxforum.net/cmpp/man-pages-zh_CN-%{zh_version}.tar.gz
 # Source20-md5:	edfe517621579520cf7451088ab126ea
 Source50:	%{name}-extra.tar.bz2
-# NoSource50-md5:	2a23f3fb5f4e94d898cb514267fee350
+# NoSource50-md5:	f5dd5b8067bc0a5a60e6753fed224902
 Source100:	%{name}-tars.list
 Patch0:		%{name}-localtime.patch
 Patch1:		%{name}-zh_fixes.patch
@@ -286,6 +286,12 @@ find man-pages-tr-%{tr_version} -name '*.gz' | xargs gzip -d
 # unify trees for easier processing
 mv -f man-pages-%{pt_version}-pt_BR pt_BR
 mv -f man-pages-cs-%{cs_version} cs
+# replace symlinks by .so pointers
+for l in `find cs -type l` ; do
+	t=`readlink "$l"`
+	rm -f "$l"
+	echo ".so $t" > "$l"
+done
 mv -f manpages-da-%{da_version} da
 install -d da/man1
 mv -f da/*.1 da/man1
@@ -346,8 +352,10 @@ done
 mv -f cs/man8/at.1 cs/man1
 # unify name
 mv -f de/man7/{iso_8859_1,iso_8859-1}.7
+mv -f es/man4/magic.4 es/man5/magic.5
 mv -f es/man8/sync.8 es/man1/sync.1
 mv -f fr/man8/sync.8 fr/man1/sync.1
+mv -f hu/man1/gpm.1 hu/man8/gpm.8
 # man1/sync.1 already exists
 rm -f hu/man8/sync.8
 # unify name + fix infinite loop
@@ -356,6 +364,7 @@ mv -f it/man7/{iso_8859_1,iso_8859-1}.7
 mv -f it/man7/{tmp,iso_8859_1}.7
 # non-existing target
 rm -f it/man7/latin.2
+mv -f ja/man4/magic.4 ja/man5/magic.5
 mv -f ja/man8/nslookup.8 ja/man1/nslookup.1
 mv -f ja/man8/sync.8 ja/man1/sync.1
 mv -f ko/man8/sync.8 ko/man1/sync.1
