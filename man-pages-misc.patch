@@ -205,3 +205,208 @@
 @@ -1 +1 @@
 -.so man7/iso_8859_2.7
 +.so iso_8859-2.7
+--- man-pages-2.18/ja/man1/nslookup.1.orig	2005-12-14 16:07:15.000000000 +0100
++++ man-pages-2.18/ja/man1/nslookup.1	2005-12-25 22:55:44.710484096 +0100
+@@ -57,7 +57,7 @@
+ .\"
+ .\" $FreeBSD: doc/ja_JP.eucJP/man/man8/nslookup.8,v 1.6 2001/07/29 05:15:29 horikawa Exp $
+ .Dd June 24, 1990
+-.Dt NSLOOKUP 8
++.Dt NSLOOKUP 1
+ .Os BSD 4
+ .Sh ÃææŒ
+ .Nm nslookup
+--- man-pages/fi/man1/finger.1.orig	Sun Nov 14 02:34:31 1999
++++ man-pages/fi/man1/finger.1	Wed Nov  7 00:29:11 2001
+@@ -1,5 +1,5 @@
+ .\" $Id$
+-..\" Copyright (c) 1989, 1990 The Regents of the University of California.
++.\" Copyright (c) 1989, 1990 The Regents of the University of California.
+ .\" All rights reserved.
+ .\"
+ .\" Redistribution and use in source and binary forms, with or without
+@@ -36,17 +36,17 @@
+ .Dd July 13, 1996
+ .\" Translated into Finnish by Lauri Nurmi (lanurmi@kauhajoki.fi)
+ .\"
+-.TH FINGER 7 "" "K‰ytt‰j‰n sovellusohjelmat" ""
++.Dt FINGER 7
+ .Os "Linux NetKit 0.07"
+-.SH NIMI
++.Sh NIMI
+ .Nm finger
+ .Nd k‰ytt‰j‰tietojen etsint‰ohjelma
+-.SH "YLEISKATSAUS"
++.Sh "YLEISKATSAUS"
+ .Nm finger
+ .Op Fl lmsp
+ .Op Ar k‰ytt‰j‰ ...
+ .Op Ar k‰ytt‰j‰@koneen_nimi ...
+-.SH KUVAUS
++.Sh KUVAUS
+ .Nm Finger
+ n‰ytt‰‰ tietoja j‰rjestelm‰n k‰ytt‰jist‰.
+ .Pp
+@@ -149,14 +149,13 @@
+ -tyyli.
+ .Fl l
+ on ainoa optio, joka voidaan l‰hett‰‰ muille koneille.
+-.SH "KATSO MY÷S"
++.Sh "KATSO MY÷S"
+ .Xr chfn 1 ,
+ .Xr passwd 1 ,
+ .Xr w 1 ,
+ .Xr who 1
+-.SH HISTORIA
++.Sh HISTORIA
+ The
+ .Nm finger
+ -komento ilmestyi
+ .Bx 3.0 :ss‰.
+-.SH "KATSO MY÷S"
+--- man-pages/fi/man6/hangman.6~	2004-09-29 00:29:49.000000000 +0200
++++ man-pages/fi/man6/hangman.6	2004-09-29 00:29:49.000000000 +0200
+@@ -37,7 +37,7 @@
+ .SH NIMI
+ hangman \- Hirsipuu tietokoneelle
+ .SH "YLEISKATSAUS"
+-.B /usr/games/hangman
++.B hangman
+ .SH KUVAUS
+ .I hangman-peliss‰
+ tietokone valitsee englanninkielisen sanan listasta
+@@ -47,7 +47,7 @@
+ piirret‰‰n jokaisesta v‰‰r‰st‰ arvauksesta yksi viiva lis‰‰ hirress‰
+ roikkuvaan hahmoon.
+ .SH TIEDOSTOT
+-/usr/games/lib/hangman-words     Sanalista
++/usr/share/dict/words     Sanalista
+ .SH TEKIJƒ
+ Ken Arnold
+ .SH "KATSO MY÷S"
+--- man-pages/fi/man6/robots.6~	2004-09-29 00:30:33.000000000 +0200
++++ man-pages/fi/man6/robots.6	2004-09-29 00:30:33.000000000 +0200
+@@ -127,8 +127,8 @@
+ Ken Arnold
+ .SH TIEDOSTOT
+ .ta
+-.ta \w'/usr/games/lib/robots_roll\ \ \ \ 'u
+-/usr/games/lib/robots_roll	tuloslistatiedosto
++.ta \w'/var/games/robots_roll\ \ \ \ 'u
++/var/games/robots_roll	tuloslistatiedosto
+ .SH BUGS
+ ÷tˆk‰t?
+ Sin‰,
+--- man-pages/fi/man6/trek.6~	2004-09-29 00:31:32.000000000 +0200
++++ man-pages/fi/man6/trek.6	2004-09-29 00:31:32.000000000 +0200
+@@ -37,7 +37,7 @@
+ .SH NIMI
+ trek \- trekkari peli
+ .SH "YLEISKATSAUS"
+-.B /usr/games/trek
++.B trek
+ [ [
+ .B \-a
+ ] tiedostonnimi ]
+@@ -87,4 +87,4 @@
+ .fi
+ .DT
+ .SH "KATSO MY÷S"
+-/usr/doc/trek 
+\ No newline at end of file
++/usr/share/doc/bsd-games-*/trek/trekmanual.txt
+--- man-pages/pl/man6/trek.6~	2004-09-29 00:28:13.000000000 +0200
++++ man-pages/pl/man6/trek.6	2004-09-29 00:28:13.000000000 +0200
+@@ -37,7 +37,7 @@
+ .SH NAZWA
+ trek \- trekkerska gra
+ .SH SK£ADNIA
+-.B /usr/games/trek
++.B trek
+ [ [
+ .B \-a
+ ] plik ]
+@@ -66,7 +66,7 @@
+ .SH AUTOR
+ Eric Allman
+ .SH "ZOBACZ TAKØE"
+-/usr/doc/trek
++/usr/share/doc/bsd-games-*/trek/trekmanual.txt
+ .SH "SPIS KOMEND"
+ .ie t .ds f \fB
+ .el .ds f \fI
+--- man-pages-2.18/ko/man1/sync.1.orig	2005-12-26 00:34:31.615457000 +0100
++++ man-pages-2.18/ko/man1/sync.1	2005-12-26 00:35:05.272340960 +0100
+@@ -6,7 +6,7 @@
+ .\"
+ .\" «—±πæÓ π¯ø™ : ASPLINUX<man@asp-linux.co.kr>    2000≥‚ 7ø˘ 29¿œ
+ .\"
+-.TH SYNC 8 "1998≥‚ 11ø˘ " "GNU fileutils 4.0"
++.TH SYNC 1 "1998≥‚ 11ø˘ " "GNU fileutils 4.0"
+ .SH ¿Ã∏ß
+ sync \- ∏ﬁ∏∏Æ∏¶ µΩ∫≈© ¿⁄∑·øÕ µø±‚»≠
+ .SH SYNOPSYS
+@@ -52,8 +52,3 @@
+ .BR halt (8),
+ .BR reboot (8),
+ .BR update (8)
+-
+-
+-
+-
+-
+--- man-pages-2.18/pt_BR/man1/sync.1.orig	2005-12-26 00:35:34.260934000 +0100
++++ man-pages-2.18/pt_BR/man1/sync.1	2005-12-26 00:35:45.454232384 +0100
+@@ -4,7 +4,7 @@
+ .\" information is attributed to Linus Torvalds
+ .\" Copyright 1992, 1993 Rickard E. Faith (faith@cs.unc.edu)
+ .\" May be distributed under the GNU General Public License
+-.TH SYNC 8 "11/1998" "Utilit·rios de Arquivo GNU 4.0"
++.TH SYNC 1 "11/1998" "Utilit·rios de Arquivo GNU 4.0"
+ .SH NOME
+ sync \- sincroniza os dados do disco com a memÛria
+ .SH SIN”PSE
+--- man-pages-2.18/es/man1/sync.1.orig	2005-12-26 00:27:59.705037000 +0100
++++ man-pages-2.18/es/man1/sync.1	2005-12-26 00:28:13.834888960 +0100
+@@ -6,7 +6,7 @@
+ .\"
+ .\" Translated Sat Apr 22 2000 by Juan Piernas <piernas@ditec.um.es>
+ .\¬∑
+-.TH SYNC 8 "noviembre 1998" "GNU fileutils 4.0"
++.TH SYNC 1 "noviembre 1998" "GNU fileutils 4.0"
+ .SH NOMBRE
+ sync \- sincroniza los datos en disco con los que hay en memoria
+ .SH SINOPSYS
+--- man-pages-2.18/fr/man1/sync.1.orig	2005-12-26 00:28:50.785271000 +0100
++++ man-pages-2.18/fr/man1/sync.1	2005-12-26 00:29:01.001718512 +0100
+@@ -8,7 +8,7 @@
+ .\" M√†j 25/07/2003 LDP-1.56
+ .\" M√†j 04/07/2005 LDP-1.61
+ .\"
+-.TH SYNC 8 "25 juillet 2003" LDP "Manuel de l'administrateur Linux"
++.TH SYNC 1 "25 juillet 2003" LDP "Manuel de l'administrateur Linux"
+ .SH NOM
+ sync \- Synchroniser les donn√©es en m√©moire et celles sur disque.
+ .SH SYNOPSYS
+--- man-pages-2.18/ja/man1/sync.1.orig	2005-12-26 00:31:46.550551000 +0100
++++ man-pages-2.18/ja/man1/sync.1	2005-12-26 00:34:23.310720096 +0100
+@@ -14,7 +14,7 @@
+ .\"WORD:	halt		ƒ‰ªﬂ
+ .\"WORD:	processer	•◊•Ì•ª•√•µ°º
+ .\"
+-.TH SYNC 8 1998-11 "GNU fileutils 4.0" "Linux Programmer's Manual"
++.TH SYNC 1 1998-11 "GNU fileutils 4.0" "Linux Programmer's Manual"
+ .SH Ãæ¡∞
+ sync \- •«•£•π•ØæÂ§Œ•«°º•ø§Ú•·•‚•Í§»∆±¥¸§µ§ª§Î
+ .SH ΩÒº∞
+--- man-pages-2.18/ru/man1/sync.1.orig	2005-12-26 00:35:54.936790000 +0100
++++ man-pages-2.18/ru/man1/sync.1	2005-12-26 00:36:03.548481640 +0100
+@@ -9,7 +9,7 @@
+ .\" ·◊‘œ“”À…≈ –“¡◊¡ Œ¡ –≈“≈◊œƒ “’Àœ◊œƒ”‘◊¡ –“…Œ¡ƒÃ≈÷¡‘ ÀœÕ–¡Œ…… ASPLinux.
+ .\" ‰Ã— –œÃ’ﬁ≈Œ…— ¬œÃ≈≈ –œƒ“œ¬Œœ  …Œ∆œ“Õ¡√…… –“œﬁ‘…‘≈
+ .\" translators (7). 
+-.TH SYNC 8 1998-11 "GNU fileutils 4.0"
++.TH SYNC 1 1998-11 "GNU fileutils 4.0"
+ .SH "Ó·˙˜·ÓÈÂ"
+ sync \- ”…Œ»“œŒ…⁄…“’≈‘ ƒ¡ŒŒŸ≈ Œ¡ ƒ…”À≈ ” ƒ¡ŒŒŸÕ… ◊ –¡Õ—‘…
+ .SH "ÛÈÓÙ·ÎÛÈÛ"
