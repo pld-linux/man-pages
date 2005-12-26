@@ -407,3 +407,112 @@
  .SH "îáú÷áîéå"
  sync \- ÓÉÎÈÒÏÎÉÚÉÒÕÅÔ ÄÁÎÎÙÅ ÎÁ ÄÉÓËÅ Ó ÄÁÎÎÙÍÉ × ÐÁÍÑÔÉ
  .SH "óéîôáëóéó"
+--- man-pages-2.18/it/man1/file.1.orig	1999-03-31 15:50:53.000000000 +0200
++++ man-pages-2.18/it/man1/file.1	2005-12-26 12:11:17.128053648 +0100
+@@ -148,7 +148,7 @@
+ .B MAGIC
+ può essere usata per predefinire i file coi numeri magici.
+ .SH VEDERE ANCHE
+-.BR magic (4)
++.BR magic (5)
+ \- descrizione del formato dei file magici.
+ .br
+ .BR strings (1), " od" (1), " hexdump(1)"
+@@ -371,4 +371,4 @@
+ anonimo a
+ .B ftp.astron.com
+ nella directory
+-.I /pub/file/file-X.YY.tar.gz
+\ Brak znaku nowej linii na koñcu pliku
++.I /pub/file/file-X.YY.tar.gz
+--- man-pages-2.18/es/man1/file.1.orig	1999-04-12 14:26:16.000000000 +0200
++++ man-pages-2.18/es/man1/file.1	2005-12-26 12:17:09.258521680 +0100
+@@ -155,7 +155,7 @@
+ se puede emplear para establecer los ficheros predeterminados con
+ números mágicos.
+ .SH VÉASE TAMBIÉN
+-.BR magic (4)
++.BR magic (5)
+ \- descripción del formato del fichero mágico.
+ .br
+ .BR strings (1), " od" (1), " hexdump(1)"
+--- man-pages-2.18/es/man5/magic.5.orig	2005-12-26 12:11:53.277558000 +0100
++++ man-pages-2.18/es/man5/magic.5	2005-12-26 12:12:14.232372472 +0100
+@@ -1,7 +1,7 @@
+ .\" Translated into Spanish on Mon Nov 23 1998 by 
+ .\" Gerardo Aburruzaga Gª <gerardo.aburruzaga@uca.es>
+ .\"
+-.TH MAGIC 4 "Dominio Público"
++.TH MAGIC 5 "Dominio Público"
+ .\" install as magic.4 on USG, magic.5 on V7 or Berkeley systems.
+ .SH NOMBRE
+ magic \- fichero de números mágicos para la orden file
+--- man-pages-2.18/ja/man5/magic.5.orig	2005-12-26 12:13:04.131786000 +0100
++++ man-pages-2.18/ja/man5/magic.5	2005-12-26 12:13:25.660513744 +0100
+@@ -1,4 +1,4 @@
+-.TH MAGIC 4 "Public Domain"
++.TH MAGIC 5 "Public Domain"
+ .\"
+ .\" Translated Wed Jan 12 23:14:34 JST 2000
+ .\"    by FUJIWARA Teruyoshi <fujiwara@linux.or.jp>
+--- man-pages-2.18/ja/man1/file.1.orig	2005-12-14 16:07:17.000000000 +0100
++++ man-pages-2.18/ja/man1/file.1	2005-12-26 12:13:51.485587736 +0100
+@@ -306,7 +306,7 @@
+ .B $HOME/.magic
+ ¤ò¥ª¡¼¥×¥ó¤·¤Ê¤¤¡£
+ .SH ´ØÏ¢¹àÌÜ
+-.BR magic (4)
++.BR magic (5)
+ \- ¥Þ¥¸¥Ã¥¯¥Õ¥¡¥¤¥ë¤Î¥Õ¥©¡¼¥Þ¥Ã¥È¤Ë¤Ä¤¤¤Æ¤Îµ­½Ò¡£
+ .br
+ .BR strings (1), " od" (1), " hexdump" (1)
+--- man-pages-2.18/hu/man8/gpm.8.orig	2000-07-09 14:31:30.000000000 +0200
++++ man-pages-2.18/hu/man8/gpm.8	2005-12-26 14:29:35.521506088 +0100
+@@ -1,4 +1,4 @@
+-.TH GPM 1 "February 1995"
++.TH GPM 8 "February 1995"
+ .UC 4
+ .SH NÉV
+ gpm \- kivágás és beillesztés segédprogram és egér szerver virtuális
+--- man-pages-2.18/ja/man1/grep.1.orig	2005-12-14 16:07:04.000000000 +0100
++++ man-pages-2.18/ja/man1/grep.1	2005-12-26 16:09:57.555017840 +0100
+@@ -19,7 +19,7 @@
+ .\"
+ .\" WORD: word-constituent characters	Ã±¸ì¹½À®Ê¸»ú
+ .SH Ì¾¾Î
+-grep, egrep, fgrep, zgrep \- ¥Ñ¥¿¡¼¥ó¤Ë¥Þ¥Ã¥Á¤¹¤ë¹Ô¤òÉ½¼¨¤¹¤ë
++grep, egrep, fgrep \- ¥Ñ¥¿¡¼¥ó¤Ë¥Þ¥Ã¥Á¤¹¤ë¹Ô¤òÉ½¼¨¤¹¤ë
+ .SH ½ñ¼°
+ .B grep
+ .RI [ options ]
+@@ -63,10 +63,6 @@
+ ¤Ï
+ .BR "grep\ \-F"
+ ¤ÈÆ±¤¸¤Ç¤¹¡£
+-.B zgrep
+-¤Ï
+-.BR "grep\ \-Z"
+-¤ÈÆ±¤¸¤Ç¤¹¡£
+ .SH ¥ª¥×¥·¥ç¥ó
+ .TP
+ .BI \-A " NUM" "\fR,\fP \-\^\-after-context=" NUM
+@@ -331,7 +327,7 @@
+ .BR \-i
+ ¤ÈÆ±¤¸°ÕÌ£¤ò»ý¤Äµì¼°¤Î¥ª¥×¥·¥ç¥ó¤Ç¤¹¡£
+ .TP
+-.B \-\^\-null
++.BR \-Z ", " \-\^\-null
+ ÄÌ¾ï¥Õ¥¡¥¤¥ëÌ¾¤Î¸å¤ËÂ³¤¯Ê¸»ú¤ÎÂå¤ï¤ê¤Ë¥Ð¥¤¥È 0 (\s-1ASCII\s0
+ .B NUL
+ Ê¸»ú) ¤ò½ÐÎÏ¤·¤Þ¤¹¡£
+@@ -348,10 +344,6 @@
+ .B "xargs \-0"
+ Åù¤Î¥³¥Þ¥ó¥É¤È¶¦¤Ë»ÈÍÑ¤¹¤ì¤Ð¡¢Ç¤°Õ¤Î¥Õ¥¡¥¤¥ëÌ¾¤ò½èÍý¤Ç¤­¤Þ¤¹¡£
+ ¥Õ¥¡¥¤¥ëÌ¾¤¬ newline Ê¸»ú¤ò´Þ¤ó¤Ç¤¤¤Æ¤â½èÍý²ÄÇ½¤Ç¤¹¡£
+-.TP
+-.BR \-Z ", " \-\^\-decompress
+-¸¡º÷¤ò³«»Ï¤¹¤ëÁ°¤ËÆþÎÏ¥Ç¡¼¥¿¤ò¿­Ä¹¤·¤Þ¤¹¡£
+-¤³¤Î¥ª¥×¥·¥ç¥ó¤Ï zlib ¥é¥¤¥Ö¥é¥ê¤È¶¦¤Ë¥³¥ó¥Ñ¥¤¥ë¤·¤¿¾ì¹ç¤Î¤ß»ÈÍÑ²ÄÇ½¤Ç¤¹¡£
+ .SH "Àµµ¬É½¸½"
+ Àµµ¬É½¸½¤Ï¡¢Ê¸»úÎó¤Î½¸¹ç¤òÉ½¸½¤¹¤ë¥Ñ¥¿¡¼¥ó¤Î»ö¤Ç¤¹¡£¿ô¼°É½¸½¤ÈÆ±ÍÍ¤Ë¡¢
+ ¤è¤ê¾®¤µ¤ÊÉ½¸½¤òÁÈ¤ß¹ç¤ï¤»¤ë¤µ¤Þ¤¶¤Þ¤Ê±é»»»Ò¤òÍÑ¤¤¤ë»ö¤Ç¡¢

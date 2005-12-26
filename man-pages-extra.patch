@@ -214,3 +214,25 @@
  checks if everybody has read permissions for a given NIS+ table and returns 0
  if this is the case or 1
  if only authenticated users can read the table.
+--- pt_BR/man1/file.1.orig	1998-12-04 21:02:29.000000000 +0100
++++ pt_BR/man1/file.1	2005-12-26 12:23:57.944391984 +0100
+@@ -140,7 +140,7 @@
+ .B MAGIC
+ pode ser usado para definir os arquivos de números mágicos.
+ .SH VEJA TAMBÉM
+-.BR magic (4)
++.BR magic (5)
+ \- descrição do formato do arquivo mágico.
+ .br
+ .BR strings (1), " od" (1), " hexdump(1)"
+--- pt_BR/man5/magic.5.orig	1998-12-04 21:02:29.000000000 +0100
++++ pt_BR/man5/magic.5	2005-12-26 12:24:27.409912544 +0100
+@@ -21,7 +21,7 @@
+ .\" em português na Conectiva Informática Ltda. - http://www.conectiva.com.br
+ .\"
+ .\"
+-.TH MAGIC 4 "Domínio Público"
++.TH MAGIC 5 "Domínio Público"
+ .\" instalar como magic.4 em USG, magic.5 em V7 em Berkeley systems.
+ .SH NOME
+ magic \-  arquivo de números mágicos 
