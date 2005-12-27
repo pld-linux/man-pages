@@ -94,7 +94,7 @@ Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.
 Source20:	http://download.sf.linuxforum.net/cmpp/man-pages-zh_CN-%{zh_version}.tar.gz
 # Source20-md5:	edfe517621579520cf7451088ab126ea
 Source50:	%{name}-extra.tar.bz2
-# NoSource50-md5:	f5dd5b8067bc0a5a60e6753fed224902
+# NoSource50-md5:	ea9f180127076c37f274639cfb286bc3
 Source100:	%{name}-tars.list
 Patch0:		%{name}-localtime.patch
 Patch1:		%{name}-zh_fixes.patch
@@ -414,7 +414,7 @@ while read line ; do
 			echo "$line" >> ${package}-man.list
 		fi
 		# omit pt_BR here, package them as pt
-		for l in cs de es fi fr hu it ja ko nl pl pt ru tr uk zh_CN ; do
+		for l in cs da de es fi fr hu id it ja ko nl pl pt ru tr uk zh_CN ; do
 			if [ -f "$l/$line" ]; then
 				echo "$l/$line" >> ${package}-man.list
 			fi
@@ -449,7 +449,7 @@ for n in man{1,2,3,4,5,6,7,8,0p,1p,3p}/*; do
 done
 
 # omit pt_BR here, package them as pt
-for l in cs de es fi fr hu it ja ko nl pl pt ru tr uk zh_CN ; do
+for l in cs da de es fi fr hu id it ja ko nl pl pt ru tr uk zh_CN ; do
 	install -d $RPM_BUILD_ROOT%{_mandir}/$l/man{1,2,3,4,5,6,7,8}
 	for n in man{1,2,3,4,5,6,7,8}/*; do
 		if [ -f $l/$n ]; then
