@@ -15,7 +15,7 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Summary(uk):	Стор╕нки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	2.18
+Version:	2.20
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -29,7 +29,7 @@ Group:		Documentation
 %define		hu_version		20010119
 %define		id_version		20011116
 %define		it_version		0.3.4
-%define		ja_version		20051215
+%define		ja_version		20060115
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -40,7 +40,7 @@ Group:		Documentation
 %define		tr_version		1.0.3
 %define		zh_version		1.5
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
-# Source0-md5:	d0b6472fcabf2aecf0ede6f8dbd0252d
+# Source0-md5:	fcd3de7266a5e2999ea77fe5fbea13c1
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # Source1-md5:	e8036794c1762804f2e242cc5b52001e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -69,7 +69,7 @@ Source9:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-pages-from-www-i
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
 # Source10-md5:	4e072cafbd196654c925ff0a0dca2c8f
 Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	dd8d4b42f5e7ab456ed93a0099d9602e
+# Source11-md5:	b91ffbd3a518e8778ee9689397d2fad4
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
