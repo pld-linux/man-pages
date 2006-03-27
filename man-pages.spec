@@ -435,6 +435,7 @@ find man3 -type f | grep -v 'intro\.3' | xargs rm -f
 rm -f man5/{locale,nscd.conf,nsswitch.conf,tzfile}.5
 rm -f man7/{ascii,charsets,iso*,koi8-r,latin*,locale,unicode,utf*}.7
 rm -f man8/{ld.so,ldconfig,nscd,tzselect,zdump,zic}.8
+rm -f */man1/ldd.1 */man8/sln.8 */man1/iconv.1
 %endif
 
 # shadow (but not pwdutils!); shadow(5) is missing in pwdutils too
