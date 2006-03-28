@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk):	óÔÏÒ¦ÎËÉ ÍÁÎÕÁÌÕ (man) Ú Linux Documentation Project
 Name:		man-pages
 Version:	2.27
-Release:	1
+Release:	2
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -432,6 +432,7 @@ done
 %else
 # glibc
 find man3 -type f | grep -v 'intro\.3' | xargs rm -f
+rm -f man1/ldd.1
 rm -f man5/{locale,nscd.conf,nsswitch.conf,tzfile}.5
 rm -f man7/{ascii,charsets,iso*,koi8-r,latin*,locale,unicode,utf*}.7
 rm -f man8/{ld.so,ldconfig,nscd,tzselect,zdump,zic}.8
