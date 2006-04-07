@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk):	óÔÏÒ¦ÎËÉ ÍÁÎÕÁÌÕ (man) Ú Linux Documentation Project
 Name:		man-pages
 Version:	2.27
-Release:	2
+Release:	3
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -441,6 +441,10 @@ rm -f */man1/ldd.1 */man8/sln.8 */man1/iconv.1
 
 # shadow (but not pwdutils!); shadow(5) is missing in pwdutils too
 rm -f man5/passwd.5
+
+rm -f man1/{i,}gawk.1
+rm -f man1/{i,}gawk.1
+rm -f {it,ja,pl}/man1/{i,}gawk.1
 
 %install
 rm -rf $RPM_BUILD_ROOT
