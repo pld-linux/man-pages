@@ -15,8 +15,8 @@ Summary(ru):	Страницы руководства из Проекта Документации на Линукс
 Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
 Summary(uk):	Стор╕нки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	2.27
-Release:	3
+Version:	2.29
+Release:	1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -40,7 +40,7 @@ Group:		Documentation
 %define		tr_version		1.0.3
 %define		zh_version		1.5
 Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
-# Source0-md5:	4456703a9f217ef9c07af225cab29162
+# Source0-md5:	16c35613184066c961a1de044496b389
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # Source1-md5:	e8036794c1762804f2e242cc5b52001e
 # there is no LDP man page here, yet - but include it in sources for completeness
