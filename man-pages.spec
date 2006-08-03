@@ -338,11 +338,12 @@ mv -f manpages-ru-asp-%{ru_asp_version} ru
 mv -f man-pages-tr-%{tr_version}/tr tr
 mv -f man-pages-uk_UA.alfa uk
 mv -f man-pages-zh_CN-%{zh_version}/src zh_CN
-find zh_CN -name CVS -o -name '*.orig' | xargs rm -rf
+find zh_CN -name CVS -o -name '*.orig' -o -name '*~' | xargs rm -rf
 # would go in big5 or gb18030, but not gb2312
 rm -f zh_CN/man1/perltw.1
 # would go in gb18030, but not gb2312
 rm -f zh_CN/man8/{chat,printcap}.8
+
 # these man-pages are in UTF-8
 for f in zh_CN/man?/* ; do
 	iconv -f UTF8 -t GB2312 $f > ${f}.tmp
@@ -381,6 +382,9 @@ rm -f zh_CN/man8/sync.8
 
 bzip2 -dc %{SOURCE50} | tar xf -
 %patch3 -p0
+
+# patching creates backups
+find . '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -rf
 
 # cleanup
 rm -f man1/COPYING
