@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem k˝lavuz sayfalar˝
 Summary(uk):	Û‘œ“¶ŒÀ… Õ¡Œ’¡Ã’ (man) ⁄ Linux Documentation Project
 Name:		man-pages
 Version:	2.39
-Release:	2
+Release:	0.1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -273,12 +273,11 @@ Part of POSIX 1003.1-2003 in man pages format.
 Fragmenty POSIX 1003.1-2003 w postaci stron podrÍcznika systemowego.
 
 %prep
-%setup -q -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20
+%setup -q -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20
 %patch0 -p1
 %patch1 -p0
 
-mkdir it ko
-tar xzf %{SOURCE10} -C it
+mkdir ko
 tar xzf %{SOURCE12} -C ko
 
 find man-pages-tr-%{tr_version} -name '*.gz' | xargs gzip -d
@@ -305,8 +304,9 @@ for f in 1 2 4 5 6 7 8 ; do
 	mv -i man-pages-es-extra-%{es_extra_version}/man${f}/* es/man${f}
 done
 mv -f manpages-fi fi
-mv -f man-fr-%{fr_version} fr
+mv -f man-pages-fr-%{fr_version} fr
 mv -f manpages-hu-%{hu_version}.orig/usr/share/man/hu hu
+mv -f man-pages-it-%{it_version} it
 mv -f man-pages-ja-%{ja_version}/manual/LDP_man-pages ja
 # duplicates of LDP man pages
 rm -rf man-pages-ja-%{ja_version}/manual/{gnumaniak,ld.so,netkit/man3/{daemon,err,login}.3,bind/man5/resolver.5,netkit/man5/ftpusers.5,bind/man7/mailaddr.7}
