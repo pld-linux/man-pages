@@ -16,7 +16,7 @@ Summary(tr):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk):	óÔÏÒ¦ÎËÉ ÍÁÎÕÁÌÕ (man) Ú Linux Documentation Project
 Name:		man-pages
 Version:	2.39
-Release:	0.1
+Release:	1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -309,7 +309,7 @@ mv -f manpages-hu-%{hu_version}.orig/usr/share/man/hu hu
 mv -f man-pages-it-%{it_version} it
 mv -f man-pages-ja-%{ja_version}/manual/LDP_man-pages ja
 # duplicates of LDP man pages
-rm -rf man-pages-ja-%{ja_version}/manual/{gnumaniak,ld.so,netkit/man3/{daemon,err,login}.3,bind/man5/resolver.5,netkit/man5/ftpusers.5,bind/man7/mailaddr.7}
+rm -rf man-pages-ja-%{ja_version}/manual/{gnumaniak,ld.so,modutils/man2,glibc-linuxthreads/man3,netkit/{man3/{daemon,err,login}.3,man5/ftpusers.5},bind/{man5/resolver.5,man7/mailaddr.7},util-linux/man1/tailf.1}
 # shadow manuals already in shadow package
 rm -rf man-pages-ja-%{ja_version}/manual/shadow
 # we have man not man-db
@@ -328,7 +328,7 @@ for f in man-pages-ja-%{ja_version}/manual/modutils/man8/{depmod,insmod,lsmod,mo
 done
 # avoid filename conflict
 mv -f man-pages-ja-%{ja_version}/manual/netkit/man8/ftpd.{8,8n}
-for f in 1 2 3 4 5 6 7 8 ; do
+for f in 1 3 4 5 6 7 8 ; do
 	mv -i man-pages-ja-%{ja_version}/manual/*/man${f}/* ja/man${f}
 done
 mv -f manpages-nl-%{nl_version} nl
