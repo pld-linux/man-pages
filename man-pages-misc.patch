@@ -1,12 +1,16 @@
 --- man-pages-2.18/man1/ldd.1.orig	2005-10-04 14:49:58.000000000 +0200
 +++ man-pages-2.18/man1/ldd.1	2005-12-25 18:30:24.446732064 +0100
-@@ -24,13 +24,13 @@
+@@ -24,16 +24,16 @@
  Print the version number of
  .BR ldd .
  .TP
 -.B \-v\ \-\-verbose
 +.BR \-v , " \-\-verbose"
  Print all information, including e.g. symbol versioning information.
+ .TP
+-.B \-u\ \-\-unused
++.B \-u\ , " \-\-unused"
+ Print unused direct dependencies.
  .TP
 -.B \-d\ \-\-data\-relocs
 +.BR \-d , " \-\-data\-relocs"
@@ -17,7 +21,7 @@
  Perform relocations for both data objects and functions, and
  report any missing objects or functions (ELF only).
  .TP
-@@ -66,6 +66,6 @@
+@@ -69,6 +69,6 @@
  .\" .SH AUTHOR
  .\" David Engel.
  .\" Roland McGrath and Ulrich Drepper.
@@ -173,28 +177,27 @@
 --- man-pages-2.18/fr/man7/latin1.7.orig	2005-12-25 16:15:05.100060000 +0100
 +++ man-pages-2.18/fr/man7/latin1.7	2005-12-25 19:31:49.976446384 +0100
 @@ -1 +1 @@
--.so man7/iso_8859_1.7
+-.so man7/iso_8859-1.7
 +.so iso_8859-1.7
 --- man-pages-2.18/fr/man7/iso_8859-1.7.orig	2005-06-27 09:20:02.000000000 +0200
 +++ man-pages-2.18/fr/man7/iso_8859-1.7	2005-12-25 19:32:11.625155280 +0100
-@@ -27,9 +27,9 @@
- .\" M√†j 25/07/2003 LDP-1.56
+@@ -28,9 +28,9 @@
  .\" M√†j 27/06/2005 LDP-1.60
+ .\" M√†j 01/05/2006 LDP-1.67.1
  .\"
 -.TH ISO_8859_1 7 "15 juillet 2003" LDP "Manuel de l'administrateur Linux"
 +.TH ISO_8859-1 7 "15 juillet 2003" LDP "Manuel de l'administrateur Linux"
  .SH NOM
--iso_8859_1, latin1 \- Le jeu de caract√®res ISO 8859-1 en octal, d√©cimal et hexad√©cimal.
-+iso_8859-1, latin1 \- Le jeu de caract√®res ISO 8859-1 en octal, d√©cimal et hexad√©cimal.
+-iso_8859_1, latin1 \- Le jeu de caract√®res ISO 8859\-1 en octal, d√©cimal et hexad√©cimal.
++iso_8859-1, latin1 \- Le jeu de caract√®res ISO 8859\-1 en octal, d√©cimal et hexad√©cimal.
  .SH DESCRIPTION
  Le standard ISO 8859 inclut plusieurs extensions au jeu de caract√®res ASCII
- (ISO 646-IRV). Le jeu le plus important est ISO 8859-1, l'alphabet
+ (ISO 646-IRV). Le jeu le plus important est ISO 8859\-1, l'alphabet
 --- man-pages-2.18/it/man7/latin1.7.orig	1999-05-24 17:40:24.000000000 +0200
 +++ man-pages-2.18/it/man7/latin1.7	2005-12-25 19:39:58.868123552 +0100
-@@ -1,2 +1 @@
--.\" $Id$
--.so man7/iso_8859_1.7
-+.so man7/iso_8859-1.7
+@@ -1 +1 @@
+-.so man7/iso_8859-1.7
++.so iso_8859-1.7
 --- man-pages-2.18/pt_BR/man7/latin1.7.orig	2005-12-25 16:15:09.747353000 +0100
 +++ man-pages-2.18/pt_BR/man7/latin1.7	2005-12-25 19:40:58.025130320 +0100
 @@ -1 +1 @@
@@ -377,11 +380,11 @@
 --- man-pages-2.18/fr/man1/sync.1.orig	2005-12-26 00:28:50.785271000 +0100
 +++ man-pages-2.18/fr/man1/sync.1	2005-12-26 00:29:01.001718512 +0100
 @@ -8,7 +8,7 @@
- .\" M√†j 25/07/2003 LDP-1.56
- .\" M√†j 04/07/2005 LDP-1.61
+ .\" M√†j 12/05/2006 LDP-1.70.0
+ .\" M√†j 14/08/2006 LDP-2.38.0
  .\"
--.TH SYNC 8 "25 juillet 2003" LDP "Manuel de l'administrateur Linux"
-+.TH SYNC 1 "25 juillet 2003" LDP "Manuel de l'administrateur Linux"
+-.TH SYNC 8 "Novembre 1998" LDP "Manuel de l'administrateur Linux"
++.TH SYNC 1 "Novembre 1998" LDP "Manuel de l'administrateur Linux"
  .SH NOM
  sync \- Synchroniser les donn√©es en m√©moire et celles sur disque.
  .SH SYNOPSYS
@@ -407,24 +410,24 @@
  .SH "Ó·˙˜·ÓÈÂ"
  sync \- ”…Œ»“œŒ…⁄…“’≈‘ ƒ¡ŒŒŸ≈ Œ¡ ƒ…”À≈ ” ƒ¡ŒŒŸÕ… ◊ –¡Õ—‘…
  .SH "ÛÈÓÙ·ÎÛÈÛ"
---- man-pages-2.18/it/man1/file.1.orig	1999-03-31 15:50:53.000000000 +0200
-+++ man-pages-2.18/it/man1/file.1	2005-12-26 12:11:17.128053648 +0100
-@@ -148,7 +148,7 @@
- .B MAGIC
- puÚ essere usata per predefinire i file coi numeri magici.
- .SH VEDERE ANCHE
--.BR magic (4)
-+.BR magic (5)
- \- descrizione del formato dei file magici.
- .br
- .BR strings (1), " od" (1), " hexdump(1)"
-@@ -371,4 +371,4 @@
- anonimo a
- .B ftp.astron.com
- nella directory
--.I /pub/file/file-X.YY.tar.gz
-\ Brak znaku nowej linii na koÒcu pliku
-+.I /pub/file/file-X.YY.tar.gz
+#--- man-pages-2.18/it/man1/file.1.orig	1999-03-31 15:50:53.000000000 +0200
+#+++ man-pages-2.18/it/man1/file.1	2005-12-26 12:11:17.128053648 +0100
+#@@ -148,7 +148,7 @@
+# .B MAGIC
+# puÚ essere usata per predefinire i file coi numeri magici.
+# .SH VEDERE ANCHE
+#-.BR magic (4)
+#+.BR magic (5)
+# \- descrizione del formato dei file magici.
+# .br
+# .BR strings (1), " od" (1), " hexdump(1)"
+#@@ -371,4 +371,4 @@
+# anonimo a
+# .B ftp.astron.com
+# nella directory
+#-.I /pub/file/file-X.YY.tar.gz
+#\ Brak znaku nowej linii na koÒcu pliku
+#+.I /pub/file/file-X.YY.tar.gz
 --- man-pages-2.18/es/man1/file.1.orig	1999-04-12 14:26:16.000000000 +0200
 +++ man-pages-2.18/es/man1/file.1	2005-12-26 12:17:09.258521680 +0100
 @@ -155,7 +155,7 @@
