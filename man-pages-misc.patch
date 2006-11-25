@@ -1,26 +1,37 @@
 --- man-pages-2.18/man1/ldd.1.orig	2005-10-04 14:49:58.000000000 +0200
 +++ man-pages-2.18/man1/ldd.1	2005-12-25 18:30:24.446732064 +0100
-@@ -24,16 +24,16 @@
+@@ -20,25 +20,25 @@
+ specified on the command line.
+ .SH OPTIONS
+ .TP
+-.B \-\-version
++.BR \-\-version
  Print the version number of
  .BR ldd .
  .TP
 -.B \-v\ \-\-verbose
-+.BR \-v , " \-\-verbose"
++.BR \-v\ \-\-verbose
  Print all information, including e.g. symbol versioning information.
  .TP
 -.B \-u\ \-\-unused
-+.B \-u\ , " \-\-unused"
++.BR \-u\ \-\-unused
  Print unused direct dependencies.
+ (Since glibc 2.3.4.)
  .TP
 -.B \-d\ \-\-data\-relocs
-+.BR \-d , " \-\-data\-relocs"
++.BR \-d\ \-\-data\-relocs
  Perform relocations and report any missing objects (ELF only).
  .TP
 -.B \-r\ \-\-function\-relocs
-+.BR \-r, " \-\-function\-relocs"
++.BR \-r\ \-\-function\-relocs
  Perform relocations for both data objects and functions, and
  report any missing objects or functions (ELF only).
  .TP
+-.B \-\-help
++.BR \-\-help
+ Usage information.
+ .SH NOTES
+ The standard version of
 @@ -69,6 +69,6 @@
  .\" .SH AUTHOR
  .\" David Engel.
