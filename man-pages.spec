@@ -3,17 +3,17 @@
 %bcond_with	tars	# generate man-pages tars for other packages [not done yet]
 #
 Summary:	System manual pages from the Linux Documentation Project
-Summary(de.UTF-8):   System-man-Seiten vom Linux Documentation Project
-Summary(es.UTF-8):   Páginas de manual, del Proyecto de Documentación del Linux (LDP)
-Summary(fi.UTF-8):   Suomenkieliset man-sivut
-Summary(fr.UTF-8):   Pages man système du Projet de Documentation Linux
-Summary(it.UTF-8):   Pagine di manuale
-Summary(pl.UTF-8):   Podręczniki systemowe z Linux Documentation Project
-Summary(pt.UTF-8):   Páginas de manual, do Projeto de Documentação do Linux (LDP)
-Summary(pt_BR.UTF-8):   Páginas de manual, do Projeto de Documentação do Linux (LDP)
-Summary(ru.UTF-8):   Страницы руководства из Проекта Документации на Линукс
-Summary(tr.UTF-8):   Linux Belgeleme Projesinin sistem kılavuz sayfaları
-Summary(uk.UTF-8):   Сторінки мануалу (man) з Linux Documentation Project
+Summary(de.UTF-8):	System-man-Seiten vom Linux Documentation Project
+Summary(es.UTF-8):	Páginas de manual, del Proyecto de Documentación del Linux (LDP)
+Summary(fi.UTF-8):	Suomenkieliset man-sivut
+Summary(fr.UTF-8):	Pages man système du Projet de Documentation Linux
+Summary(it.UTF-8):	Pagine di manuale
+Summary(pl.UTF-8):	Podręczniki systemowe z Linux Documentation Project
+Summary(pt.UTF-8):	Páginas de manual, do Projeto de Documentação do Linux (LDP)
+Summary(pt_BR.UTF-8):	Páginas de manual, do Projeto de Documentação do Linux (LDP)
+Summary(ru.UTF-8):	Страницы руководства из Проекта Документации на Линукс
+Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
+Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
 Version:	2.42
 Release:	1
@@ -262,8 +262,8 @@ Project (LDP). Сторінки організовані у такі секці�
 
 %package posix
 Summary:	POSIX manual pages from the Linux Documentation Project
-Summary(de.UTF-8):   POSIX-man-Seiten vom Linux Documentation Project
-Summary(pl.UTF-8):   Podręczniki systemowe z Linux Documentation Project dotyczące POSIX
+Summary(de.UTF-8):	POSIX-man-Seiten vom Linux Documentation Project
+Summary(pl.UTF-8):	Podręczniki systemowe z Linux Documentation Project dotyczące POSIX
 Group:		Documentation
 
 %description posix
