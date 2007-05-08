@@ -16,7 +16,7 @@ Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
 Version:	2.43
-Release:	1
+Release:	2
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -446,6 +446,9 @@ rm -f {ja,ru}/man1/rpcgen.1
 
 # shadow (but not pwdutils!); shadow(5) is missing in pwdutils too
 rm -f man5/passwd.5
+
+# rpcbind, formerly glibc
+rm -f man8/rpcinfo.8
 
 rm -f man1/{i,}gawk.1
 rm -f man1/{i,}gawk.1
