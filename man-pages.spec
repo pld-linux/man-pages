@@ -15,8 +15,8 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	2.43
-Release:	2
+Version:	2.52
+Release:	0.1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -39,8 +39,8 @@ Group:		Documentation
 %define		ru_asp_version		1.4
 %define		tr_version		1.0.3
 %define		zh_version		1.5
-Source0:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/%{name}-%{version}.tar.gz
-# Source0-md5:	8023a498fe2650256e6bd797b932e1af
+Source0:	http://www.kernel.org/pub/linux/docs/manpages/%{name}-%{version}.tar.gz
+# Source0-md5:	6f9e82a7ef2fa2495eb6cdce066632eb
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # Source1-md5:	e8036794c1762804f2e242cc5b52001e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -377,7 +377,8 @@ mv -f pt_BR/man8/sync.8 pt_BR/man1/sync.1
 mv -f ru/man8/sync.8 ru/man1/sync.1
 # man1/sync.1 already exists
 rm -f zh_CN/man8/sync.8
-%patch2 -p1
+# FIXME
+#%patch2 -p1
 
 bzip2 -dc %{SOURCE50} | tar xf -
 %patch3 -p0
