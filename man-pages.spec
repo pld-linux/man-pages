@@ -16,7 +16,7 @@ Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
 Version:	2.57
-Release:	0.1
+Release:	0.2
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -29,7 +29,7 @@ Group:		Documentation
 %define		hu_version		20010119
 %define		id_version		20011116
 %define		it_version		2.34
-%define		ja_version		20060815
+%define		ja_version		20070615
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -69,7 +69,7 @@ Source9:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-pages-from-www-i
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
 # Source10-md5:	259868d64ee589828b4cc43e8769507b
 Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	0d5f64ddaf4ee862d1a03c72acc20c15
+# Source11-md5:	d0079890039b10ef88f1e635ce59d859
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
