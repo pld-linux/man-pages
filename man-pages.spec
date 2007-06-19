@@ -377,8 +377,8 @@ mv -f pt_BR/man8/sync.8 pt_BR/man1/sync.1
 mv -f ru/man8/sync.8 ru/man1/sync.1
 # man1/sync.1 already exists
 rm -f zh_CN/man8/sync.8
-# FIXME
-#%patch2 -p1
+
+%patch2 -p1
 
 bzip2 -dc %{SOURCE50} | tar xf -
 %patch3 -p0
