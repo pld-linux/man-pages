@@ -366,8 +366,8 @@
  .\"WORD:	halt		停止
  .\"WORD:	processer	プロセッサー
  .\"
--.TH SYNC 8 1998-11 "GNU fileutils 4.0" "Linux Programmer's Manual"
-+.TH SYNC 1 1998-11 "GNU fileutils 4.0" "Linux Programmer's Manual"
+-.TH SYNC 8 1998-11-01 "GNU" "Linux Programmer's Manual"
++.TH SYNC 1 1998-11-01 "GNU" "Linux Programmer's Manual"
  .SH 名前
  sync \- ディスク上のデータをメモリと同期させる
  .SH 書式
