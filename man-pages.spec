@@ -16,7 +16,7 @@ Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
 Version:	2.57
-Release:	0.2
+Release:	1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
