@@ -97,15 +97,6 @@
  requests.
  The default configuration file,
  .IR /etc/nscd.conf ,
-@@ -29,7 +29,7 @@
- See
- .BR nscd.conf (5).
- 
--Nscd provides cacheing for accesses of the
-+nscd provides caching for accesses of the
- .BR passwd (5),
- .BR group (5),
- and
 @@ -55,7 +55,7 @@
  .B "\-\-help"
  will give you a list with all options and what they do.
