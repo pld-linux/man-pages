@@ -3,17 +3,17 @@
 %bcond_with	tars	# generate man-pages tars for other packages [not done yet]
 #
 Summary:	System manual pages from the Linux Documentation Project
-Summary(de.UTF-8):	System-man-Seiten vom Linux Documentation Project
-Summary(es.UTF-8):	Pц║ginas de manual, del Proyecto de DocumentaciцЁn del Linux (LDP)
-Summary(fi.UTF-8):	Suomenkieliset man-sivut
-Summary(fr.UTF-8):	Pages man systц╗me du Projet de Documentation Linux
-Summary(it.UTF-8):	Pagine di manuale
-Summary(pl.UTF-8):	Podrд≥czniki systemowe z Linux Documentation Project
-Summary(pt.UTF-8):	Pц║ginas de manual, do Projeto de Documentaц╖цёo do Linux (LDP)
-Summary(pt_BR.UTF-8):	Pц║ginas de manual, do Projeto de Documentaц╖цёo do Linux (LDP)
-Summary(ru.UTF-8):	п║я┌я─п╟п╫п╦я├я▀ я─я┐п╨п╬п╡п╬п╢я│я┌п╡п╟ п╦п╥ п÷я─п╬п╣п╨я┌п╟ п■п╬п╨я┐п╪п╣п╫я┌п╟я├п╦п╦ п╫п╟ п⌡п╦п╫я┐п╨я│
-Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kд╠lavuz sayfalarд╠
-Summary(uk.UTF-8):	п║я┌п╬я─я√п╫п╨п╦ п╪п╟п╫я┐п╟п╩я┐ (man) п╥ Linux Documentation Project
+Summary(de):	System-man-Seiten vom Linux Documentation Project
+Summary(es):	PАginas de manual, del Proyecto de DocumentaciСn del Linux (LDP)
+Summary(fi):	Suomenkieliset man-sivut
+Summary(fr):	Pages man systХme du Projet de Documentation Linux
+Summary(it):	Pagine di manuale
+Summary(pl):	PodrЙczniki systemowe z Linux Documentation Project
+Summary(pt):	PАginas de manual, do Projeto de DocumentaГЦo do Linux (LDP)
+Summary(pt_BR):	PАginas de manual, do Projeto de DocumentaГЦo do Linux (LDP)
+Summary(ru):	Страницы руководства из Проекта Документации на Линукс
+Summary(tr):	Linux Belgeleme Projesinin sistem kЩlavuz sayfalarЩ
+Summary(uk):	Стор╕нки мануалу (man) з Linux Documentation Project
 Name:		man-pages
 Version:	2.58
 Release:	1
@@ -139,138 +139,138 @@ formats, protocols, etc.
 - section 7: conventions, macro packages, etc. (e.g., nroff, ascii)
 - section 8: system administration (intro only)
 
-%description -l de.UTF-8
-Eine groц÷e Sammlung von man-Seiten ц╪ber Programmier-APIs,
+%description -l de
+Eine groъe Sammlung von man-Seiten Эber Programmier-APIs,
 Dateiformate, Protokolle, usw..
 
 - section 1: Benutzerbefehle (nur intro)
 - section 2: Systemaufrufe
 - section 3: libc-Aufrufe (nur intro)
-- section 4: Gerц╓te (z.B. hd, sd)
+- section 4: GerДte (z.B. hd, sd)
 - section 5: Dateiformate und Protokolle (z.B. wtmp, /etc/passwd, nfs)
 - section 6: Spiele (nur intro)
 - section 7: Konventionen, Makro-Pakete, usw. (z.B. nroff, ascii)
 - section 8: Systemverwaltung (nur intro)
 
-%description -l es.UTF-8
-Una larga colecciцЁn de pц║ginas de manuales cubriendo programaciцЁn
+%description -l es
+Una larga colecciСn de pАginas de manuales cubriendo programaciСn
 APIs, formatos de archivos, protocolos, etc.
 
-- seciцЁn 1: comandos de usuario (solamente introducciцЁn)
-- seciцЁn 2: llamadas de sistema
-- seciцЁn 3: llamadas libc (solamente introducciцЁn)
-- seciцЁn 4: dispositivos (ej.: hd, sd)
-- seciцЁn 5: formatos de archivos y protocolos (ej: wtmp, /etc/passwd,
+- seciСn 1: comandos de usuario (solamente introducciСn)
+- seciСn 2: llamadas de sistema
+- seciСn 3: llamadas libc (solamente introducciСn)
+- seciСn 4: dispositivos (ej.: hd, sd)
+- seciСn 5: formatos de archivos y protocolos (ej: wtmp, /etc/passwd,
   nfs)
-- seciцЁn 6: juegos (solamente introducciцЁn)
-- seciцЁn 7: convenciones, paquetes de macros, etc. (ej: nroff, ascii)
-- seciцЁn 8: administraciцЁn de sistema (solamente introducciцЁn)
+- seciСn 6: juegos (solamente introducciСn)
+- seciСn 7: convenciones, paquetes de macros, etc. (ej: nroff, ascii)
+- seciСn 8: administraciСn de sistema (solamente introducciСn)
 
-%description -l fi.UTF-8
-Kokoelma man-sivujen kц╓ц╓nnц╤ksiц╓ suomenkielelle. Sivuja on mukana
-yhteensц╓ 211 kpl ja ne on paketoitu 14.11.1999 mennessц╓ valmiina
+%description -l fi
+Kokoelma man-sivujen kДДnnЖksiД suomenkielelle. Sivuja on mukana
+yhteensД 211 kpl ja ne on paketoitu 14.11.1999 mennessД valmiina
 olleista sivuista. Sivut ovat osista 1 (komennot) ja 2 (pelit).
 
-%description -l fr.UTF-8
+%description -l fr
 Une large collection de pages de manuel du Project de Documentation
-Linux (LDP), traduites en Franц╖ais. Les pages de manuel sont
-organisц╘es en differentes sections :
+Linux (LDP), traduites en FranГais. Les pages de manuel sont
+organisИes en differentes sections :
 
 - section 1: Commandes utilisateur (intro seulement)
-- section 2: Appels systц╗me
+- section 2: Appels systХme
 - section 3: Appels de la Libc (intro seulement)
-- section 4: Pц╘riphц╘riques (par ex. hd, sd)
+- section 4: PИriphИriques (par ex. hd, sd)
 - section 5: Formats de fichiers et de protocoles (par ex. wtmp,
   /etc/passwd, nfs)
 - section 6: Jeux (intro seulement)
 - section 7: Conventions, macro packages, etc. (par ex. nroff, ascii)
-- section 8: Administration systц╗me (intro seulement)
+- section 8: Administration systХme (intro seulement)
 
-%description -l it.UTF-8
+%description -l it
 Traduzioni italiane delle pagine di manuale per Linux: questo
 pacchetto include non solo quelle dell'LDP, ma anche traduzioni di
 altre pagine di uso comune. ATTENZIONE: alcune pagine sono obsolete!
 
-%description -l pl.UTF-8
-Pakiet ten zawiera duе╪д┘ kolekcjд≥ podrд≥cznikцЁw ekranowych (man pages),
-opisujд┘cych format plikцЁw, protokoе┌y itp.
+%description -l pl
+Pakiet ten zawiera du©╠ kolekcjЙ podrЙcznikСw ekranowych (man pages),
+opisuj╠cych format plikСw, protokoЁy itp.
 
-- sekcja 1: polecenia uе╪ytkownikцЁw (tylko wstд≥p)
-- sekcja 2: wywoе┌ania systemowe
-- sekcja 3: wywoе┌ania bibliotek (tylko wstд≥p)
-- sekcja 4: urzд┘dzenia (np., hd, sd)
-- sekcja 5: format plikцЁw i protokoе┌y (np., wtmp, /etc/passwd, nfs)
-- sekcja 6: gry (tylko wstд≥p)
+- sekcja 1: polecenia u©ytkownikСw (tylko wstЙp)
+- sekcja 2: wywoЁania systemowe
+- sekcja 3: wywoЁania bibliotek (tylko wstЙp)
+- sekcja 4: urz╠dzenia (np., hd, sd)
+- sekcja 5: format plikСw i protokoЁy (np., wtmp, /etc/passwd, nfs)
+- sekcja 6: gry (tylko wstЙp)
 - sekcja 7: konwencje, makro-pakiety, itp. (np., nroff, ascii)
-- sekcja 8: administracja systemu (tylko wstд≥p)
+- sekcja 8: administracja systemu (tylko wstЙp)
 
-%description -l pt.UTF-8
-Uma larga coleц╖цёo de pц║ginas de manuais cobrindo programaц╖цёo APIs,
+%description -l pt
+Uma larga coleГЦo de pАginas de manuais cobrindo programaГЦo APIs,
 formatos de arquivos, protocolos, etc.
 
-- seц╖цёo 1: comandos de usuц║rio (somente introduц╖цёo)
-- seц╖цёo 2: chamadas de sistema
-- seц╖цёo 3: chamadas libc (somente introduц╖цёo)
-- seц╖цёo 4: dispositivos (ex.: hd, sd)
-- seц╖цёo 5: formatos de arquivos e protocolos (ex: wtmp, /etc/passwd,
+- seГЦo 1: comandos de usuАrio (somente introduГЦo)
+- seГЦo 2: chamadas de sistema
+- seГЦo 3: chamadas libc (somente introduГЦo)
+- seГЦo 4: dispositivos (ex.: hd, sd)
+- seГЦo 5: formatos de arquivos e protocolos (ex: wtmp, /etc/passwd,
   nfs)
-- seц╖цёo 6: jogos (somente introduц╖цёo)
-- seц╖цёo 7: convenц╖ц╣es, pacotes de macros, etc. (ex: nroff, ascii)
-- seц╖цёo 8: administraц╖цёo de sistema (somente introduц╖цёo)
+- seГЦo 6: jogos (somente introduГЦo)
+- seГЦo 7: convenГУes, pacotes de macros, etc. (ex: nroff, ascii)
+- seГЦo 8: administraГЦo de sistema (somente introduГЦo)
 
-%description -l pt_BR.UTF-8
-Uma larga coleц╖цёo de pц║ginas de manuais cobrindo programaц╖цёo APIs,
+%description -l pt_BR
+Uma larga coleГЦo de pАginas de manuais cobrindo programaГЦo APIs,
 formatos de arquivos, protocolos, etc.
 
-- seц╖цёo 1: comandos de usuц║rio (somente introduц╖цёo)
-- seц╖цёo 2: chamadas de sistema
-- seц╖цёo 3: chamadas libc (somente introduц╖цёo)
-- seц╖цёo 4: dispositivos (ex.: hd, sd)
-- seц╖цёo 5: formatos de arquivos e protocolos (ex: wtmp, /etc/passwd,
+- seГЦo 1: comandos de usuАrio (somente introduГЦo)
+- seГЦo 2: chamadas de sistema
+- seГЦo 3: chamadas libc (somente introduГЦo)
+- seГЦo 4: dispositivos (ex.: hd, sd)
+- seГЦo 5: formatos de arquivos e protocolos (ex: wtmp, /etc/passwd,
   nfs)
-- seц╖цёo 6: jogos (somente introduц╖цёo)
-- seц╖цёo 7: convenц╖ц╣es, pacotes de macros, etc. (ex: nroff, ascii)
-- seц╖цёo 8: administraц╖цёo de sistema (somente introduц╖цёo)
+- seГЦo 6: jogos (somente introduГЦo)
+- seГЦo 7: convenГУes, pacotes de macros, etc. (ex: nroff, ascii)
+- seГЦo 8: administraГЦo de sistema (somente introduГЦo)
 
-%description -l ru.UTF-8
-п²п╣п╠п╬п╩я▄я┬п╟я▐ п╨п╬п╩п╩п╣п╨я├п╦я▐ я│я┌я─п╟п╫п╦я├ я─я┐п╨п╬п╡п╬п╢я│я┌п╡п╟ п╦п╥ п÷я─п╬п╣п╨я┌п╟ п■п╬п╨я┐п╪п╣п╫я┌п╟я├п╦п╦ п╫п╟
-п⌡п╦п╫я┐п╨я│. п║я┌я─п╟п╫п╦я├я▀ я─я┐п╨п╬п╡п╬п╢я│я┌п╡п╟ п╬я─пЁп╟п╫п╦п╥п╬п╡п╟п╫я▀ я│п╩п╣п╢я┐я▌я┴п╦п╪ п╬п╠я─п╟п╥п╬п╪:
+%description -l ru
+Небольшая коллекция страниц руководства из Проекта Документации на
+Линукс. Страницы руководства организованы следующим образом:
 
-- я│п╣п╨я├п╦я▐ 1: п╨п╬п╪п╟п╫п╢ п©п╬п╩я▄п╥п╬п╡п╟я┌п╣п╩я▐ (я┌п╬п╩я▄п╨п╬ п╡п╡п╣п╢п╣п╫п╦п╣)
-- я│п╣п╨я├п╦я▐ 2: я│п╦я│я┌п╣п╪п╫я▀п╣ п╡я▀п╥п╬п╡я▀
-- я│п╣п╨я├п╦я▐ 3: я└я┐п╫п╨я├п╦п╦ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╦ я▐п╥я▀п╨п╟ C (я┌п╬п╩я▄п╨п╬ п╡п╡п╣п╢п╣п╫п╦п╣)
-- я│п╣п╨я├п╦я▐ 4: я┐я│я┌я─п╬п╧я│я┌п╡п╟ (п╫п╟п©я─п╦п╪п╣я─, hd, sd)
-- я│п╣п╨я├п╦я▐ 5: я└п╬я─п╪п╟я┌я▀ я└п╟п╧п╩п╬п╡ п╦ п©я─п╬я┌п╬п╨п╬п╩я▀ (п╫п╟п©я─п╦п╪п╣я─, wtmp, /etc/passwd,
+- секция 1: команд пользователя (только введение)
+- секция 2: системные вызовы
+- секция 3: функции библиотеки языка C (только введение)
+- секция 4: устройства (например, hd, sd)
+- секция 5: форматы файлов и протоколы (например, wtmp, /etc/passwd,
   nfs)
-- я│п╣п╨я├п╦я▐ 6: п╦пЁя─я▀ (я┌п╬п╩я▄п╨п╬ п╡п╡п╣п╢п╣п╫п╦п╣)
-- я│п╣п╨я├п╦я▐ 7: я│п╬пЁп╩п╟я┬п╣п╫п╦я▐, п╪п╟п╨я─п╬-п©п╟п╨п╣я┌я▀, п╦ я┌. п©. (п╫п╟п©я─п╦п╪п╣я─, nroff, ascii)
-- я│п╣п╨я├п╦я▐ 8: я┐я┌п╦п╩п╦я┌я▀ п╟п╢п╪п╦п╫п╦я│я┌я─п╟я┌п╬я─п╟ (я┌п╬п╩я▄п╨п╬ п╡п╡п╣п╢п╣п╫п╦п╣)
+- секция 6: игры (только введение)
+- секция 7: соглашения, макро-пакеты, и т. п. (например, nroff, ascii)
+- секция 8: утилиты администратора (только введение)
 
-%description -l tr.UTF-8
-Programlama arayц╪zlerini, dosya formatlarд╠nд╠, protokolleri vs.
-kapsayan, geniе÷ bir kд╠lavuz sayfalarд╠ derlemesi.
+%description -l tr
+Programlama arayЭzlerini, dosya formatlarЩnЩ, protokolleri vs.
+kapsayan, geniЧ bir kЩlavuz sayfalarЩ derlemesi.
 
-%description -l uk.UTF-8
-п▓п╣п╩п╦п╨п╦п╧ п╫п╟п╠я√я─ я│я┌п╬я─я√п╫п╬п╨ п╪п╟п╫я┐п╟п╩я┐ (п╢п╬п╨я┐п╪п╣п╫я┌п╟я├я√я≈) п╥ Linux Documentation
-Project (LDP). п║я┌п╬я─я√п╫п╨п╦ п╬я─пЁп╟п╫я√п╥п╬п╡п╟п╫я√ я┐ я┌п╟п╨я√ я│п╣п╨я├я√я≈: п║п╣п╨я├я√я▐ 1, п╨п╬п╪п╟п╫п╢п╦
-п╨п╬я─п╦я│я┌я┐п╡п╟я┤п╟ (я┌я√п╩я▄п╨п╦ п╡я│я┌я┐п©); п║п╣п╨я├я√я▐ 2, я│п╦я│я┌п╣п╪п╫я√ п╡п╦п╨п╩п╦п╨п╦; п║п╣п╨я├я√я▐ 3,
-п╡п╦п╨п╩п╦п╨п╦ libc; п║п╣п╨я├я√я▐ 4, п©я─п╦я│я┌я─п╬я≈ (п╫п╟п©я─п╦п╨п╩п╟п╢, hd, sd); п║п╣п╨я├я√я▐ 5,
-я└п╬я─п╪п╟я┌п╦ я└п╟п╧п╩я√п╡ я┌п╟ п©я─п╬я┌п╬п╨п╬п╩п╦ (п╫п╟п©я─п╦п╨п╩п╟п╢, wtmp, /etc/passwd, nfs);
-п║п╣п╨я├я√я▐ 6, я√пЁя─п╦ (я┌я√п╩я▄п╨п╦ п╡я│я┌я┐п©); п║п╣п╨я├я√я▐ 7, я┐пЁп╬п╢п╦, п╪п╟п╨я─п╬п©п╟п╨п╣я┌п╦ я√ я┌.я√.
-(п╫п╟п©я─п╦п╨п╩п╟п╢, nroff, ascii); п║п╣п╨я├я√я▐ 8, я│п╦я│я┌п╣п╪п╫п╣ п╟п╢п╪я√п╫я√я│я┌я─я┐п╡п╟п╫п╫я▐ (я┌я√п╩я▄п╨п╦
-п╡я│я┌я┐п©).
+%description -l uk
+Великий наб╕р стор╕нок мануалу (документац╕╖) з Linux Documentation
+Project (LDP). Стор╕нки орган╕зован╕ у так╕ секц╕╖: Секц╕я 1, команди
+користувача (т╕льки вступ); Секц╕я 2, системн╕ виклики; Секц╕я 3,
+виклики libc; Секц╕я 4, пристро╖ (наприклад, hd, sd); Секц╕я 5,
+формати файл╕в та протоколи (наприклад, wtmp, /etc/passwd, nfs);
+Секц╕я 6, ╕гри (т╕льки вступ); Секц╕я 7, угоди, макропакети ╕ т.╕.
+(наприклад, nroff, ascii); Секц╕я 8, системне адм╕н╕стрування (т╕льки
+вступ).
 
 %package posix
 Summary:	POSIX manual pages from the Linux Documentation Project
-Summary(de.UTF-8):	POSIX-man-Seiten vom Linux Documentation Project
-Summary(pl.UTF-8):	Podrд≥czniki systemowe z Linux Documentation Project dotyczд┘ce POSIX
+Summary(de):	POSIX-man-Seiten vom Linux Documentation Project
+Summary(pl):	PodrЙczniki systemowe z Linux Documentation Project dotycz╠ce POSIX
 Group:		Documentation
 
 %description posix
 Part of POSIX 1003.1-2003 in man pages format.
 
-%description posix -l pl.UTF-8
-Fragmenty POSIX 1003.1-2003 w postaci stron podrд≥cznika systemowego.
+%description posix -l pl
+Fragmenty POSIX 1003.1-2003 w postaci stron podrЙcznika systemowego.
 
 %prep
 %setup -q -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20
