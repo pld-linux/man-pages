@@ -32,60 +32,6 @@
  .SH DESCRIPTION
  The 
  .B locale
-@@ -253,7 +253,7 @@
- The
- .B LC_CTYPE
- definition ends with the string
--.I END LC_CYTPE.
-+.IR "END LC_CTYPE" .
- .SS LC_COLLATE
- The
- .B LC_COLLATE
-@@ -296,7 +296,7 @@
- The
- .B LC_COLLATE
- definition ends with the string
--.IR END LC_COLLATE .
-+.IR "END LC_COLLATE" .
- .SS LC_MONETARY
- The definition starts with the string
- .B LC_MONETARY
-@@ -467,7 +467,7 @@
- The
- .B LC_MONETARY
- definition ends with the string
--.I END LC_MONETARY.
-+.IR "END LC_MONETARY" .
- .SS LC_NUMERIC
- The definition starts with the string
- .SS LC_NUMERIC
-@@ -490,7 +490,7 @@
- The
- .B LC_NUMERIC
- definition ends with the string
--.I END LC_NUMERIC.
-+.IR "END LC_NUMERIC" .
- .SS LC_TIME
- The definition starts with the string
- .B LC_TIME
-@@ -535,7 +535,7 @@
- The
- .B LC_TIME
- definition ends with the string
--.I END LC_TIME.
-+.IR "END LC_TIME" .
- .SS LC_MESSAGES
- The definition starts with the string
- .B LC_MESSAGES
-@@ -554,7 +554,7 @@
- The 
- .B LC_MESSAGES
- definition ends with the string
--.I END LC_MESSAGES.
-+.IR "END LC_MESSAGES" .
- 
- See the POSIX.2 standard for details.
- .SH FILES
 --- man-pages-2.57/man8/nscd.8.orig	2005-07-06 09:41:37.000000000 +0200
 +++ man-pages-2.57/man8/nscd.8	2005-12-25 18:41:47.316920016 +0100
 @@ -21,7 +21,7 @@
@@ -101,8 +47,8 @@
  .B "\-\-help"
  will give you a list with all options and what they do.
  .SH NOTES
--Nscd doesn't know anything about the underlaying protocols for a
-+nscd doesn't know anything about the underlaying protocols for a
+-Nscd doesn't know anything about the underlying protocols for a
++nscd doesn't know anything about the underlying protocols for a
  service.
  This also means, that if you change
  .I /etc/resolv.conf
