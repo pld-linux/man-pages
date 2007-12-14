@@ -19,7 +19,6 @@ Version:	2.73
 Release:	1
 License:	distributable
 Group:		Documentation
-URL:		http://www.kernel.org/doc/man-pages
 %define		cs_version		0.16
 %define		da_version		0.1.1
 %define		de_version		0.4
@@ -101,6 +100,7 @@ Patch0:		%{name}-localtime.patch
 Patch1:		%{name}-zh_fixes.patch
 Patch2:		%{name}-misc.patch
 Patch3:		%{name}-extra.patch
+URL:		http://www.kernel.org/doc/man-pages/
 BuildRequires:	sed >= 4.0
 AutoReqProv:	no
 Obsoletes:	man-pages-cs
