@@ -15,10 +15,11 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	2.72
+Version:	2.73
 Release:	1
 License:	distributable
 Group:		Documentation
+URL:		http://www.kernel.org/doc/man-pages
 %define		cs_version		0.16
 %define		da_version		0.1.1
 %define		de_version		0.4
@@ -40,7 +41,7 @@ Group:		Documentation
 %define		tr_version		1.0.3
 %define		zh_version		1.5
 Source0:	http://www.kernel.org/pub/linux/docs/manpages/%{name}-%{version}.tar.gz
-# Source0-md5:	878e55d0781af2b1d0ac25e6e86e6410
+# Source0-md5:	321bb6ed4b136179e710723b8214b9eb
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # Source1-md5:	e8036794c1762804f2e242cc5b52001e
 # there is no LDP man page here, yet - but include it in sources for completeness
