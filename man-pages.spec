@@ -74,6 +74,8 @@ Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{k
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 # Source13-md5:	b37b0216a87db7583e88ba87031a0b4a
+# currently at http://ptm.linux.pl/ (latest http://ptm.linux.pl/man-PL28-06-2007.tar.gz)
+# there is also a fork at http://ptm.berlios.de/, but seems to be stalled just after it started
 #Source14:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/PTM-snapshots/%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 Source14:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 # Source14-md5:	b9b5751fcde4c36022850d0e5a4757d3
