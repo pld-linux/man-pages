@@ -96,7 +96,7 @@ Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.
 Source20:	http://download.sf.linuxforum.net/cmpp/man-pages-zh_CN-%{zh_version}.tar.gz
 # Source20-md5:	edfe517621579520cf7451088ab126ea
 Source50:	%{name}-extra.tar.bz2
-# NoSource50-md5:	ea9f180127076c37f274639cfb286bc3
+# NoSource50-md5:	15d763c5221088dcb15ba8ae95f6d239
 Source100:	%{name}-tars.list
 Patch0:		%{name}-localtime.patch
 Patch1:		%{name}-zh_fixes.patch
