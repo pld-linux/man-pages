@@ -1467,6 +1467,7 @@ man1/yacc.1
 [bzip2]
 man1/bunzip2.1
 man1/bzcat.1
+man1/bzcmp.1
 man1/bzdiff.1
 man1/bzegrep.1
 man1/bzfgrep.1
