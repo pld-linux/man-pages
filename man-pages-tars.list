@@ -1468,9 +1468,12 @@ man1/yacc.1
 man1/bunzip2.1
 man1/bzcat.1
 man1/bzdiff.1
+man1/bzegrep.1
+man1/bzfgrep.1
 man1/bzgrep.1
 man1/bzip2.1
 man1/bzip2recover.1
+man1/bzless.1
 man1/bzmore.1
 [coreutils]
 man1/basename.1
