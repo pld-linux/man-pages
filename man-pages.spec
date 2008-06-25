@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	2.80
+Version:	3.01
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -40,7 +40,7 @@ Group:		Documentation
 %define		tr_version		1.0.3
 %define		zh_version		1.5
 Source0:	http://www.kernel.org/pub/linux/docs/manpages/%{name}-%{version}.tar.gz
-# Source0-md5:	888f88a21844be81bb60326cea621eed
+# Source0-md5:	5afc311cf7b96d08e17af30f566b1887
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # Source1-md5:	e8036794c1762804f2e242cc5b52001e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -95,6 +95,8 @@ Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.
 #Source20:	http://cmpp.linuxforum.net/download/man-pages-zh_CN-%{zh_version}.tar.gz
 Source20:	http://download.sf.linuxforum.net/cmpp/man-pages-zh_CN-%{zh_version}.tar.gz
 # Source20-md5:	edfe517621579520cf7451088ab126ea
+Source30:	http://www.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pages-posix-2003-a.tar.bz2
+# Source30-md5:	7c78aff03c0a6767ba483d34f19e4b09
 Source50:	%{name}-extra.tar.bz2
 # NoSource50-md5:	15d763c5221088dcb15ba8ae95f6d239
 Source100:	%{name}-tars.list
@@ -276,9 +278,11 @@ Part of POSIX 1003.1-2003 in man pages format.
 Fragmenty POSIX 1003.1-2003 w postaci stron podręcznika systemowego.
 
 %prep
-%setup -q -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20
+%setup -q -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20 -a30
 %patch0 -p1
 %patch1 -p0
+
+mv man-pages-posix-*/man*p .
 
 mkdir ko
 tar xzf %{SOURCE12} -C ko
