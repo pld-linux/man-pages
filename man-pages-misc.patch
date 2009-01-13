@@ -43,15 +43,6 @@
  requests.
  The default configuration file,
  .IR /etc/nscd.conf ,
-@@ -55,7 +55,7 @@
- .B "\-\-help"
- will give you a list with all options and what they do.
- .SH NOTES
--Nscd doesn't know anything about the underlying protocols for a
-+nscd doesn't know anything about the underlying protocols for a
- service.
- This also means, that if you change
- .I /etc/resolv.conf
 --- man-pages-2.57/man8/zic.8.orig	2005-11-02 12:11:03.000000000 +0100
 +++ man-pages-2.57/man8/zic.8	2005-12-25 18:43:54.762545336 +0100
 @@ -404,7 +404,7 @@
