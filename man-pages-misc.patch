@@ -1,0 +1,421 @@
+--- man-pages-2.57/man1/ldd.1.orig	2005-10-04 14:49:58.000000000 +0200
++++ man-pages-2.57/man1/ldd.1	2005-12-25 18:30:24.446732064 +0100
+@@ -70,6 +70,6 @@
+ .\" .SH AUTHOR
+ .\" David Engel.
+ .\" Roland McGrath and Ulrich Drepper.
+-.SH SEE ALSO
++.SH "SEE ALSO"
+ .BR ld.so (8),
+ .BR ldconfig (8)
+--- man-pages-2.57/man3/dlopen.3.orig	2005-10-28 15:27:52.000000000 +0200
++++ man-pages-2.57/man3/dlopen.3	2005-12-25 18:38:09.788989288 +0100
+@@ -21,8 +21,8 @@
+ .\"
+ .\" You should have received a copy of the GNU General Public
+ .\" License along with this manual; if not, write to the Free
+-.\" Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139,
+-.\" USA.
++.\" Software Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston,
++.\" MA 02110-1301, USA.
+ .\"
+ .\" Modified by David A. Wheeler <dwheeler@dwheeler.com> 2000-11-28.
+ .\" Applied patch by Terran Melconian, aeb, 2001-12-14.
+--- man-pages-2.57/man5/locale.5.orig	2005-11-02 14:55:25.000000000 +0100
++++ man-pages-2.57/man5/locale.5	2005-12-25 20:16:15.125282176 +0100
+@@ -20,7 +20,7 @@
+ .\"
+ .TH LOCALE 5 1994-11-09 "Linux" "Linux User Manual"
+ .SH NAME
+-locale \- Describes a locale definition file
++locale \- describes a locale definition file
+ .SH DESCRIPTION
+ The 
+ .B locale
+--- man-pages-2.57/man8/nscd.8.orig	2005-07-06 09:41:37.000000000 +0200
++++ man-pages-2.57/man8/nscd.8	2005-12-25 18:41:47.316920016 +0100
+@@ -21,7 +21,7 @@
+ .SH NAME
+ /usr/sbin/nscd \- name service cache daemon
+ .SH DESCRIPTION
+-Nscd is a daemon that provides a cache for the most common name service
++nscd is a daemon that provides a cache for the most common name service
+ requests.
+ The default configuration file,
+ .IR /etc/nscd.conf ,
+--- man-pages-2.57/man8/zic.8.orig	2005-11-02 12:11:03.000000000 +0100
++++ man-pages-2.57/man8/zic.8	2005-12-25 18:43:54.762545336 +0100
+@@ -404,7 +404,7 @@
+ if the leap second time given by the other fields should be interpreted as
+ local wall clock time.
+ .SH FILES
+-/usr/local/etc/zoneinfo	standard directory used for created files
++/usr/share/zoneinfo	standard directory used for created files
+ .SH NOTES
+ For areas with more than two types of local time,
+ you may need to use local standard time in the
+--- man-pages-2.57/de/man7/iso_8859-1.7.orig	1998-12-07 01:34:44.000000000 +0100
++++ man-pages-2.57/de/man7/iso_8859-1.7	2005-12-25 19:27:49.914941280 +0100
+@@ -25,10 +25,10 @@
+ .\" Translated Thu Jan  4 16:37:10 MET 1996 by Lutz.Donnerhacke@Jena.Thur.De
+ .\" Modified Mon Jun 10 00:20:28 1996 by Martin Schulze (joey@linux.de)
+ .\"
+-.TH ISO_8859_1 7 "11. Juli 1995" "Linux" "Verschiedenes"
++.TH ISO_8859-1 7 "11. Juli 1995" "Linux" "Verschiedenes"
+ .nh
+ .SH BEZEICHNUNG
+-iso_8859_1 \- Zeichentabelle ISO 8859-1 in oktaler, dezimaler und
++iso_8859-1 \- Zeichentabelle ISO 8859-1 in oktaler, dezimaler und
+ hexadezimaler Kodierung
+ .SH ERKLÄRUNG
+ Der Standard ISO 8859 enthält verschiedene 8-bit Erweiterungen des ASCII
+--- man-pages-2.57/de/man7/latin1.7.orig	2005-12-25 16:15:02.883397000 +0100
++++ man-pages-2.57/de/man7/latin1.7	2005-12-25 19:27:57.253825600 +0100
+@@ -1 +1 @@
+-.so man7/iso_8859_1.7
++.so iso_8859-1.7
+--- man-pages-2.57/fr/man7/latin1.7.orig	2005-12-25 16:15:05.100060000 +0100
++++ man-pages-2.57/fr/man7/latin1.7	2005-12-25 19:31:49.976446384 +0100
+@@ -1 +1 @@
+-.so man7/iso_8859-1.7
++.so iso_8859-1.7
+--- man-pages-2.57/fr/man7/iso_8859-1.7.orig	2005-06-27 09:20:02.000000000 +0200
++++ man-pages-2.57/fr/man7/iso_8859-1.7	2005-12-25 19:32:11.625155280 +0100
+@@ -28,9 +28,9 @@
+ .\" MÃ j 27/06/2005 LDP-1.60
+ .\" MÃ j 01/05/2006 LDP-1.67.1
+ .\"
+-.TH ISO_8859_1 7 "15 juillet 2003" LDP "Manuel de l'administrateur Linux"
++.TH ISO_8859-1 7 "15 juillet 2003" LDP "Manuel de l'administrateur Linux"
+ .SH NOM
+-iso_8859_1, latin1 \- Le jeu de caractÃ¨res ISO 8859\-1 en octal, dÃ©cimal et hexadÃ©cimal.
++iso_8859-1, latin1 \- Le jeu de caractÃ¨res ISO 8859\-1 en octal, dÃ©cimal et hexadÃ©cimal.
+ .SH DESCRIPTION
+ Le standard ISO 8859 inclut plusieurs extensions au jeu de caractÃ¨res ASCII
+ (ISO 646-IRV). Le jeu le plus important est ISO 8859\-1, l'alphabet
+--- man-pages-2.57/it/man7/latin1.7.orig	1999-05-24 17:40:24.000000000 +0200
++++ man-pages-2.57/it/man7/latin1.7	2005-12-25 19:39:58.868123552 +0100
+@@ -1 +1 @@
+-.so man7/iso_8859-1.7
++.so iso_8859-1.7
+--- man-pages-2.57/pt_BR/man7/latin1.7.orig	2005-12-25 16:15:09.747353000 +0100
++++ man-pages-2.57/pt_BR/man7/latin1.7	2005-12-25 19:40:58.025130320 +0100
+@@ -1 +1 @@
+-.so man7/iso_8859_1.7
++.so iso_8859-1.7
+--- man-pages-2.57/pt_BR/man7/latin2.7.orig	2005-12-25 16:15:09.766350000 +0100
++++ man-pages-2.57/pt_BR/man7/latin2.7	2005-12-25 19:41:00.917690584 +0100
+@@ -1 +1 @@
+-.so man7/iso_8859_2.7
++.so iso_8859-2.7
+--- man-pages-2.57/ja/man1/nslookup.1.orig	2005-12-14 16:07:15.000000000 +0100
++++ man-pages-2.57/ja/man1/nslookup.1	2005-12-25 22:55:44.710484096 +0100
+@@ -57,7 +57,7 @@
+ .\"
+ .\" $FreeBSD: doc/ja_JP.eucJP/man/man8/nslookup.8,v 1.6 2001/07/29 05:15:29 horikawa Exp $
+ .Dd June 24, 1990
+-.Dt NSLOOKUP 8
++.Dt NSLOOKUP 1
+ .Os BSD 4
+ .Sh Ì¾¾Î
+ .Nm nslookup
+--- man-pages-2.57/fi/man1/finger.1.orig	2000-10-24 19:35:48.000000000 +0200
++++ man-pages-2.57/fi/man1/finger.1	2005-12-26 01:31:52.973291672 +0100
+@@ -1,5 +1,5 @@
+ .\" $Id$
+-..\" Copyright (c) 1989, 1990 The Regents of the University of California.
++.\" Copyright (c) 1989, 1990 The Regents of the University of California.
+ .\" All rights reserved.
+ .\"
+ .\" Redistribution and use in source and binary forms, with or without
+@@ -38,17 +38,17 @@
+ .\" Translated into Finnish by Lauri Nurmi (lanurmi@kauhajoki.fi)
+ .\" Proofread by Juhana Siren (Juhana.Siren@oulu.fi)
+ .\"
+-.TH FINGER 7 "" "Käyttäjän sovellusohjelmat" ""
++.Dt FINGER 7
+ .Os "Linux NetKit 0.07"
+-.SH NIMI
++.Sh NIMI
+ .Nm finger
+ .Nd käyttäjätietojen etsintäohjelma
+-.SH "YLEISKATSAUS"
++.Sh "YLEISKATSAUS"
+ .Nm finger
+ .Op Fl lmsp
+ .Op Ar käyttäjä ...
+ .Op Ar käyttäjä@koneen_nimi ...
+-.SH KUVAUS
++.Sh KUVAUS
+ .Nm Finger
+ näyttää tietoja järjestelmän käyttäjistä.
+ .Pp
+@@ -151,12 +151,12 @@
+ -tyyli.
+ .Fl l
+ on ainoa optio, joka voidaan lähettää muille koneille.
+-.SH "KATSO MYÖS"
++.Sh "KATSO MYÖS"
+ .Xr chfn 1 ,
+ .Xr passwd 1 ,
+ .Xr w 1 ,
+ .Xr who 1
+-.SH HISTORIA
++.Sh HISTORIA
+ .Nm finger
+ -komento ilmestyi
+ .Bx 3.0 :ssä.
+--- man-pages/fi/man6/hangman.6~	2004-09-29 00:29:49.000000000 +0200
++++ man-pages/fi/man6/hangman.6	2004-09-29 00:29:49.000000000 +0200
+@@ -37,7 +37,7 @@
+ .SH NIMI
+ hangman \- Hirsipuu tietokoneelle
+ .SH "YLEISKATSAUS"
+-.B /usr/games/hangman
++.B hangman
+ .SH KUVAUS
+ .I hangman-pelissä
+ tietokone valitsee englanninkielisen sanan listasta
+@@ -47,7 +47,7 @@
+ piirretään jokaisesta väärästä arvauksesta yksi viiva lisää hirressä
+ roikkuvaan hahmoon.
+ .SH TIEDOSTOT
+-/usr/games/lib/hangman-words     Sanalista
++/usr/share/dict/words     Sanalista
+ .SH TEKIJÄ
+ Ken Arnold
+ .SH "KATSO MYÖS"
+--- man-pages/fi/man6/robots.6~	2004-09-29 00:30:33.000000000 +0200
++++ man-pages/fi/man6/robots.6	2004-09-29 00:30:33.000000000 +0200
+@@ -127,8 +127,8 @@
+ Ken Arnold
+ .SH TIEDOSTOT
+ .ta
+-.ta \w'/usr/games/lib/robots_roll\ \ \ \ 'u
+-/usr/games/lib/robots_roll	tuloslistatiedosto
++.ta \w'/var/games/robots_roll\ \ \ \ 'u
++/var/games/robots_roll	tuloslistatiedosto
+ .SH BUGS
+ Ötökät?
+ Sinä,
+--- man-pages-2.57/fi/man6/trek.6.orig	2000-10-24 19:35:31.000000000 +0200
++++ man-pages-2.57/fi/man6/trek.6	2005-12-26 01:32:57.027553944 +0100
+@@ -39,7 +39,7 @@
+ .SH NIMI
+ trek \- trekkaripeli
+ .SH "YLEISKATSAUS"
+-.B /usr/games/trek
++.B trek
+ [ [
+ .B \-a
+ ] tiedostonnimi ]
+@@ -90,4 +90,4 @@
+ .fi
+ .DT
+ .SH "KATSO MYÖS"
+-/usr/doc/trek 
++/usr/share/doc/bsd-games-*/trek/trekmanual.txt
+--- man-pages/pl/man6/trek.6~	2004-09-29 00:28:13.000000000 +0200
++++ man-pages/pl/man6/trek.6	2004-09-29 00:28:13.000000000 +0200
+@@ -37,7 +37,7 @@
+ .SH NAZWA
+ trek \- trekkerska gra
+ .SH SK£ADNIA
+-.B /usr/games/trek
++.B trek
+ [ [
+ .B \-a
+ ] plik ]
+@@ -66,7 +66,7 @@
+ .SH AUTOR
+ Eric Allman
+ .SH "ZOBACZ TAK¯E"
+-/usr/doc/trek
++/usr/share/doc/bsd-games-*/trek/trekmanual.txt
+ .SH "SPIS KOMEND"
+ .ie t .ds f \fB
+ .el .ds f \fI
+--- man-pages-2.57/ko/man1/sync.1.orig	2005-12-26 00:34:31.615457000 +0100
++++ man-pages-2.57/ko/man1/sync.1	2005-12-26 00:35:05.272340960 +0100
+@@ -6,7 +6,7 @@
+ .\"
+ .\" ÇÑ±¹¾î ¹ø¿ª : ASPLINUX<man@asp-linux.co.kr>    2000³â 7¿ù 29ÀÏ
+ .\"
+-.TH SYNC 8 "1998³â 11¿ù " "GNU fileutils 4.0"
++.TH SYNC 1 "1998³â 11¿ù " "GNU fileutils 4.0"
+ .SH ÀÌ¸§
+ sync \- ¸Þ¸ð¸®¸¦ µð½ºÅ© ÀÚ·á¿Í µ¿±âÈ­
+ .SH SYNOPSYS
+@@ -52,8 +52,3 @@
+ .BR halt (8),
+ .BR reboot (8),
+ .BR update (8)
+-
+-
+-
+-
+-
+--- man-pages-2.57/pt_BR/man1/sync.1.orig	2005-12-26 00:35:34.260934000 +0100
++++ man-pages-2.57/pt_BR/man1/sync.1	2005-12-26 00:35:45.454232384 +0100
+@@ -4,7 +4,7 @@
+ .\" information is attributed to Linus Torvalds
+ .\" Copyright 1992, 1993 Rickard E. Faith (faith@cs.unc.edu)
+ .\" May be distributed under the GNU General Public License
+-.TH SYNC 8 "11/1998" "Utilitários de Arquivo GNU 4.0"
++.TH SYNC 1 "11/1998" "Utilitários de Arquivo GNU 4.0"
+ .SH NOME
+ sync \- sincroniza os dados do disco com a memória
+ .SH SINÓPSE
+--- man-pages-2.57/es/man1/sync.1.orig	2005-12-26 00:27:59.705037000 +0100
++++ man-pages-2.57/es/man1/sync.1	2005-12-26 00:28:13.834888960 +0100
+@@ -6,7 +6,7 @@
+ .\"
+ .\" Translated Sat Apr 22 2000 by Juan Piernas <piernas@ditec.um.es>
+ .\Â·
+-.TH SYNC 8 "noviembre 1998" "GNU fileutils 4.0"
++.TH SYNC 1 "noviembre 1998" "GNU fileutils 4.0"
+ .SH NOMBRE
+ sync \- sincroniza los datos en disco con los que hay en memoria
+ .SH SINOPSYS
+--- man-pages-2.57/fr/man1/sync.1.orig	2005-12-26 00:28:50.785271000 +0100
++++ man-pages-2.57/fr/man1/sync.1	2005-12-26 00:29:01.001718512 +0100
+@@ -8,7 +8,7 @@
+ .\" MÃ j 12/05/2006 LDP-1.70.0
+ .\" MÃ j 14/08/2006 LDP-2.38.0
+ .\"
+-.TH SYNC 8 "Novembre 1998" LDP "Manuel de l'administrateur Linux"
++.TH SYNC 1 "Novembre 1998" LDP "Manuel de l'administrateur Linux"
+ .SH NOM
+ sync \- Synchroniser les donnÃ©es en mÃ©moire et celles sur disque.
+ .SH SYNOPSYS
+--- man-pages-2.57/ja/man1/sync.1.orig	2005-12-26 00:31:46.550551000 +0100
++++ man-pages-2.57/ja/man1/sync.1	2005-12-26 00:34:23.310720096 +0100
+@@ -14,7 +14,7 @@
+ .\"WORD:	halt		Ää»ß
+ .\"WORD:	processer	¥×¥í¥»¥Ã¥µ¡¼
+ .\"
+-.TH SYNC 8 1998-11-01 "GNU" "Linux Programmer's Manual"
++.TH SYNC 1 1998-11-01 "GNU" "Linux Programmer's Manual"
+ .SH Ì¾Á°
+ sync \- ¥Ç¥£¥¹¥¯¾å¤Î¥Ç¡¼¥¿¤ò¥á¥â¥ê¤ÈÆ±´ü¤µ¤»¤ë
+ .SH ½ñ¼°
+--- man-pages-2.57/ru/man1/sync.1.orig	2005-12-26 00:35:54.936790000 +0100
++++ man-pages-2.57/ru/man1/sync.1	2005-12-26 00:36:03.548481640 +0100
+@@ -9,7 +9,7 @@
+ .\" á×ÔÏÒÓËÉÅ ÐÒÁ×Á ÎÁ ÐÅÒÅ×ÏÄ ÒÕËÏ×ÏÄÓÔ×Á ÐÒÉÎÁÄÌÅÖÁÔ ËÏÍÐÁÎÉÉ ASPLinux.
+ .\" äÌÑ ÐÏÌÕÞÅÎÉÑ ÂÏÌÅÅ ÐÏÄÒÏÂÎÏÊ ÉÎÆÏÒÍÁÃÉÉ ÐÒÏÞÔÉÔÅ
+ .\" translators (7). 
+-.TH SYNC 8 1998-11 "GNU fileutils 4.0"
++.TH SYNC 1 1998-11 "GNU fileutils 4.0"
+ .SH "îáú÷áîéå"
+ sync \- ÓÉÎÈÒÏÎÉÚÉÒÕÅÔ ÄÁÎÎÙÅ ÎÁ ÄÉÓËÅ Ó ÄÁÎÎÙÍÉ × ÐÁÍÑÔÉ
+ .SH "óéîôáëóéó"
+#--- man-pages-2.57/it/man1/file.1.orig	1999-03-31 15:50:53.000000000 +0200
+#+++ man-pages-2.57/it/man1/file.1	2005-12-26 12:11:17.128053648 +0100
+#@@ -148,7 +148,7 @@
+# .B MAGIC
+# può essere usata per predefinire i file coi numeri magici.
+# .SH VEDERE ANCHE
+#-.BR magic (4)
+#+.BR magic (5)
+# \- descrizione del formato dei file magici.
+# .br
+# .BR strings (1), " od" (1), " hexdump(1)"
+#@@ -371,4 +371,4 @@
+# anonimo a
+# .B ftp.astron.com
+# nella directory
+#-.I /pub/file/file-X.YY.tar.gz
+#\ Brak znaku nowej linii na koñcu pliku
+#+.I /pub/file/file-X.YY.tar.gz
+--- man-pages-2.57/es/man1/file.1.orig	1999-04-12 14:26:16.000000000 +0200
++++ man-pages-2.57/es/man1/file.1	2005-12-26 12:17:09.258521680 +0100
+@@ -155,7 +155,7 @@
+ se puede emplear para establecer los ficheros predeterminados con
+ números mágicos.
+ .SH VÉASE TAMBIÉN
+-.BR magic (4)
++.BR magic (5)
+ \- descripción del formato del fichero mágico.
+ .br
+ .BR strings (1), " od" (1), " hexdump(1)"
+--- man-pages-2.57/es/man5/magic.5.orig	2005-12-26 12:11:53.277558000 +0100
++++ man-pages-2.57/es/man5/magic.5	2005-12-26 12:12:14.232372472 +0100
+@@ -1,7 +1,7 @@
+ .\" Translated into Spanish on Mon Nov 23 1998 by 
+ .\" Gerardo Aburruzaga Gª <gerardo.aburruzaga@uca.es>
+ .\"
+-.TH MAGIC 4 "Dominio Público"
++.TH MAGIC 5 "Dominio Público"
+ .\" install as magic.4 on USG, magic.5 on V7 or Berkeley systems.
+ .SH NOMBRE
+ magic \- fichero de números mágicos para la orden file
+--- man-pages-2.57/ja/man5/magic.5.orig	2005-12-26 12:13:04.131786000 +0100
++++ man-pages-2.57/ja/man5/magic.5	2005-12-26 12:13:25.660513744 +0100
+@@ -1,4 +1,4 @@
+-.TH MAGIC 4 "Public Domain"
++.TH MAGIC 5 "Public Domain"
+ .\"
+ .\" Translated Wed Jan 12 23:14:34 JST 2000
+ .\"    by FUJIWARA Teruyoshi <fujiwara@linux.or.jp>
+--- man-pages-2.57/ja/man1/file.1.orig	2005-12-14 16:07:17.000000000 +0100
++++ man-pages-2.57/ja/man1/file.1	2005-12-26 12:13:51.485587736 +0100
+@@ -306,7 +306,7 @@
+ .B $HOME/.magic
+ ¤ò¥ª¡¼¥×¥ó¤·¤Ê¤¤¡£
+ .SH ´ØÏ¢¹àÌÜ
+-.BR magic (4)
++.BR magic (5)
+ \- ¥Þ¥¸¥Ã¥¯¥Õ¥¡¥¤¥ë¤Î¥Õ¥©¡¼¥Þ¥Ã¥È¤Ë¤Ä¤¤¤Æ¤Îµ­½Ò¡£
+ .br
+ .BR strings (1), " od" (1), " hexdump" (1)
+--- man-pages-2.57/hu/man8/gpm.8.orig	2000-07-09 14:31:30.000000000 +0200
++++ man-pages-2.57/hu/man8/gpm.8	2005-12-26 14:29:35.521506088 +0100
+@@ -1,4 +1,4 @@
+-.TH GPM 1 "February 1995"
++.TH GPM 8 "February 1995"
+ .UC 4
+ .SH NÉV
+ gpm \- kivágás és beillesztés segédprogram és egér szerver virtuális
+--- man-pages-2.57/ja/man1/grep.1.orig	2005-12-14 16:07:04.000000000 +0100
++++ man-pages-2.57/ja/man1/grep.1	2005-12-26 16:09:57.555017840 +0100
+@@ -19,7 +19,7 @@
+ .\"
+ .\" WORD: word-constituent characters	Ã±¸ì¹½À®Ê¸»ú
+ .SH Ì¾¾Î
+-grep, egrep, fgrep, zgrep \- ¥Ñ¥¿¡¼¥ó¤Ë¥Þ¥Ã¥Á¤¹¤ë¹Ô¤òÉ½¼¨¤¹¤ë
++grep, egrep, fgrep \- ¥Ñ¥¿¡¼¥ó¤Ë¥Þ¥Ã¥Á¤¹¤ë¹Ô¤òÉ½¼¨¤¹¤ë
+ .SH ½ñ¼°
+ .B grep
+ .RI [ options ]
+@@ -63,10 +63,6 @@
+ ¤Ï
+ .BR "grep\ \-F"
+ ¤ÈÆ±¤¸¤Ç¤¹¡£
+-.B zgrep
+-¤Ï
+-.BR "grep\ \-Z"
+-¤ÈÆ±¤¸¤Ç¤¹¡£
+ .SH ¥ª¥×¥·¥ç¥ó
+ .TP
+ .BI \-A " NUM" "\fR,\fP \-\^\-after-context=" NUM
+@@ -331,7 +327,7 @@
+ .BR \-i
+ ¤ÈÆ±¤¸°ÕÌ£¤ò»ý¤Äµì¼°¤Î¥ª¥×¥·¥ç¥ó¤Ç¤¹¡£
+ .TP
+-.B \-\^\-null
++.BR \-Z ", " \-\^\-null
+ ÄÌ¾ï¥Õ¥¡¥¤¥ëÌ¾¤Î¸å¤ËÂ³¤¯Ê¸»ú¤ÎÂå¤ï¤ê¤Ë¥Ð¥¤¥È 0 (\s-1ASCII\s0
+ .B NUL
+ Ê¸»ú) ¤ò½ÐÎÏ¤·¤Þ¤¹¡£
+@@ -348,10 +344,6 @@
+ .B "xargs \-0"
+ Åù¤Î¥³¥Þ¥ó¥É¤È¶¦¤Ë»ÈÍÑ¤¹¤ì¤Ð¡¢Ç¤°Õ¤Î¥Õ¥¡¥¤¥ëÌ¾¤ò½èÍý¤Ç¤­¤Þ¤¹¡£
+ ¥Õ¥¡¥¤¥ëÌ¾¤¬ newline Ê¸»ú¤ò´Þ¤ó¤Ç¤¤¤Æ¤â½èÍý²ÄÇ½¤Ç¤¹¡£
+-.TP
+-.BR \-Z ", " \-\^\-decompress
+-¸¡º÷¤ò³«»Ï¤¹¤ëÁ°¤ËÆþÎÏ¥Ç¡¼¥¿¤ò¿­Ä¹¤·¤Þ¤¹¡£
+-¤³¤Î¥ª¥×¥·¥ç¥ó¤Ï zlib ¥é¥¤¥Ö¥é¥ê¤È¶¦¤Ë¥³¥ó¥Ñ¥¤¥ë¤·¤¿¾ì¹ç¤Î¤ß»ÈÍÑ²ÄÇ½¤Ç¤¹¡£
+ .SH "Àµµ¬É½¸½"
+ Àµµ¬É½¸½¤Ï¡¢Ê¸»úÎó¤Î½¸¹ç¤òÉ½¸½¤¹¤ë¥Ñ¥¿¡¼¥ó¤Î»ö¤Ç¤¹¡£¿ô¼°É½¸½¤ÈÆ±ÍÍ¤Ë¡¢
+ ¤è¤ê¾®¤µ¤ÊÉ½¸½¤òÁÈ¤ß¹ç¤ï¤»¤ë¤µ¤Þ¤¶¤Þ¤Ê±é»»»Ò¤òÍÑ¤¤¤ë»ö¤Ç¡¢
