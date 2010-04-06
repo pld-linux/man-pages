@@ -105,15 +105,14 @@ Patch1:		%{name}-zh_fixes.patch
 Patch2:		%{name}-misc.patch
 Patch3:		%{name}-extra.patch
 URL:		http://www.kernel.org/doc/man-pages/
+BuildRequires:	iconv
 BuildRequires:	sed >= 4.0
-AutoReqProv:	no
 Obsoletes:	man-pages-cs
 Obsoletes:	man-pages-de
 Obsoletes:	man-pages-es
 Obsoletes:	man-pages-fi
 Obsoletes:	man-pages-fr
 Obsoletes:	man-pages-hu
-Obsoletes:	manpages-hu
 Obsoletes:	man-pages-it
 Obsoletes:	man-pages-ja
 Obsoletes:	man-pages-ko
@@ -125,9 +124,11 @@ Obsoletes:	man-pages-ru
 Obsoletes:	man-pages-ru-asp
 Obsoletes:	man-pages-uk
 Obsoletes:	man-pages-zh
+Obsoletes:	manpages-hu
 Conflicts:	attr-devel < 2.2.0-2
 Conflicts:	kbd < 1.12-9
 Conflicts:	libcap < 1:1.10-5
+AutoReqProv:	no
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
