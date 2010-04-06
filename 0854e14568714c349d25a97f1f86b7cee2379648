@@ -1,0 +1,2 @@
+- removed man8/sync.8 (moved to fileutils)
+- fixed missing %
