@@ -1,0 +1,1 @@
+- release 3: removed %{_mandir}/man1/COPYING (this is not man page).
