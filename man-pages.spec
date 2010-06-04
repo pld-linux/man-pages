@@ -56,14 +56,14 @@ Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra
 # (despite archive filename it's 0.2 version)
 Source6:	man-fi-0.1.tar.bz2
 # Source6-md5:	bb266d3797cdf71bfbe1da190196f455
-Source7:	http://manpagesfr.free.fr/download/man-pages-fr-%{fr_version}.tar.bz2
+Source7:	http://manpagesfr.free.fr/download/%{name}-fr-%{fr_version}.tar.bz2
 # Source7-md5:	7e9ecdd134703e8172107124f1f3fec4
 #Source8:	http://download.uhulinux.hu/sources/man-pages-hu/man_hu_%{hu_version}.tar.gz (older)
 Source8:	http://ftp.debian.org/debian/pool/main/m/manpages-hu/manpages-hu_%{hu_version}.orig.tar.gz
 # Source8-md5:	742b682c5237a1e370b28f363826b2d5
 # there is no LDP man page here, yet, but included for completeness
 # based on http://nakula.rvs.uni-bielefeld.de/made/my_project/ManPage/ (dead now)
-Source9:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/man-pages-from-www-id-%{id_version}.tar.gz
+Source9:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/%{name}-from-www-id-%{id_version}.tar.gz
 # Source9-md5:	34a69de42ec4ae8180b947f8777a3e7a
 # available also as http://
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
@@ -128,9 +128,9 @@ Obsoletes:	manpages-hu
 Conflicts:	attr-devel < 2.2.0-2
 Conflicts:	kbd < 1.12-9
 Conflicts:	libcap < 1:1.10-5
-AutoReqProv:	no
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+AutoReqProv:	no
 
 %description
 A large collection of man pages covering programming APIs, file
