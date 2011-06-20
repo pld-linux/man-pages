@@ -98,7 +98,7 @@ Source20:	http://download.sf.linuxforum.net/cmpp/man-pages-zh_CN-%{zh_version}.t
 Source30:	http://www.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pages-posix-2003-a.tar.bz2
 # Source30-md5:	7c78aff03c0a6767ba483d34f19e4b09
 Source50:	%{name}-extra.tar.bz2
-# NoSource50-md5:	15d763c5221088dcb15ba8ae95f6d239
+# Source50-md5:	15d763c5221088dcb15ba8ae95f6d239
 Source100:	%{name}-tars.list
 Patch0:		%{name}-localtime.patch
 Patch1:		%{name}-zh_fixes.patch
