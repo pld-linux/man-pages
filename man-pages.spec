@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	3.34
+Version:	3.36
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -39,9 +39,8 @@ Group:		Documentation
 %define		ru_asp_version		1.4
 %define		tr_version		1.0.3
 %define		zh_version		1.5
-#Source0:	http://www.kernel.org/pub/linux/docs/manpages/%{name}-%{version}.tar.gz
-Source0:	http://man7.org/linux/man-pages/download/%{name}-%{version}.tar.gz
-# Source0-md5:	60e5737cd25b8b5ee763056d16e53b70
+Source0:	http://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
+# Source0-md5:	40048279571c07b797c1a9ef22c86ccb
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # Source1-md5:	e8036794c1762804f2e242cc5b52001e
 # there is no LDP man page here, yet - but include it in sources for completeness
