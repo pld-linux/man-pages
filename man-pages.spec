@@ -392,9 +392,8 @@ rm -f man1/COPYING
 rm -f man*/README*
 
 for n in man{1,2,3,4,5,6,7,8,0p,1p,3p}/* */man{1,2,3,4,5,6,7,8,9}/* ; do
-	x=`echo $n | sed -e 's,^.*man\([^/]\)/.*,\1,'`
-	if head -n 1 $n| grep "^\.so man$x/" >/dev/null 2>&1 ; then
-		sed -i -e 's,\.so man./,.so ,' $n
+	if head -n 1 $n | grep "^\.so [^/]*$" >/dev/null 2>&1 ; then
+		sed -i -e 's,.so \([^\.]*\)\.\(.*\),.so man\2/\1.\2,' $n
 	fi
 done
 
