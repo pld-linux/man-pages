@@ -15,8 +15,8 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	3.36
-Release:	1
+Version:	3.39
+Release:	0.1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -40,7 +40,7 @@ Group:		Documentation
 %define		tr_version		1.0.3
 %define		zh_version		1.5
 Source0:	http://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	40048279571c07b797c1a9ef22c86ccb
+# Source0-md5:	3feafd75f9bb2132bc5055347329b198
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # Source1-md5:	e8036794c1762804f2e242cc5b52001e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -105,7 +105,6 @@ Patch1:		%{name}-zh_fixes.patch
 Patch2:		%{name}-misc.patch
 Patch3:		%{name}-extra.patch
 URL:		http://www.kernel.org/doc/man-pages/
-BuildRequires:	iconv
 BuildRequires:	sed >= 4.0
 Obsoletes:	man-pages-cs
 Obsoletes:	man-pages-de
@@ -351,12 +350,6 @@ find zh_CN -name CVS -o -name '*.orig' -o -name '*~' | xargs rm -rf
 rm -f zh_CN/man1/perltw.1
 # would go in gb18030, but not gb2312
 rm -f zh_CN/man8/{chat,printcap}.8
-
-# these man-pages are in UTF-8
-for f in zh_CN/man?/* ; do
-	iconv -f UTF8 -t GB2312 $f > ${f}.tmp
-	mv -f ${f}.tmp $f
-done
 
 mv -f cs/man8/at.1 cs/man1
 # unify name
