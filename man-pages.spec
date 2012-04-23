@@ -319,8 +319,6 @@ mv -f man-pages-ja-%{ja_version}/manual/LDP_man-pages ja
 rm -rf man-pages-ja-%{ja_version}/manual/{gnumaniak,ld.so,modutils/man2,glibc-linuxthreads/man3,netkit/{man3/{daemon,err,login}.3,man5/ftpusers.5},bind/{man5/resolver.5,man7/mailaddr.7},util-linux/man1/tailf.1}
 # shadow manuals already in shadow package
 rm -rf man-pages-ja-%{ja_version}/manual/shadow
-# we have man not man-db
-rm -rf man-pages-ja-%{ja_version}/manual/man-db
 # dhcp 3 not dhcp2
 rm -rf man-pages-ja-%{ja_version}/manual/dhcp2
 # nfs-utils not nfs-server
@@ -407,6 +405,8 @@ rm -f man8/sync.8
 rm -f man1/time.1
 # ftp servers
 rm -f man5/ftpusers.5
+# glibc
+rm -f man8/ld-linux{,.so}.8
 
 %if %{with tars}
 package=NONE
