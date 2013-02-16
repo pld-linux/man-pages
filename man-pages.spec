@@ -15,8 +15,8 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	3.39
-Release:	2
+Version:	3.47
+Release:	1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.16
@@ -40,7 +40,7 @@ Group:		Documentation
 %define		tr_version		1.0.3
 %define		zh_version		1.5
 Source0:	http://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	3feafd75f9bb2132bc5055347329b198
+# Source0-md5:	2046259794d3003f4dc4dbe4b688ba2f
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # Source1-md5:	e8036794c1762804f2e242cc5b52001e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -316,7 +316,7 @@ mv -f manpages-hu-%{hu_version}.orig/usr/share/man/hu hu
 mv -f man-pages-it-%{it_version} it
 mv -f man-pages-ja-%{ja_version}/manual/LDP_man-pages ja
 # duplicates of LDP man pages
-rm -rf man-pages-ja-%{ja_version}/manual/{gnumaniak,ld.so,modutils/man2,glibc-linuxthreads/man3,netkit/{man3/{daemon,err,login}.3,man5/ftpusers.5},bind/{man5/resolver.5,man7/mailaddr.7},util-linux/man1/tailf.1}
+rm -rf man-pages-ja-%{ja_version}/manual/{gnumaniak,ld.so,modutils/man2,glibc-linuxthreads/man3,man/man1/{apropos,man,whatis}.1,netkit/{man3/{daemon,err,login}.3,man5/ftpusers.5},bind/{man5/resolver.5,man7/mailaddr.7},util-linux/man1/tailf.1}
 # shadow manuals already in shadow package
 rm -rf man-pages-ja-%{ja_version}/manual/shadow
 # dhcp 3 not dhcp2

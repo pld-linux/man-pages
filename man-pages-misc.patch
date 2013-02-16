@@ -21,17 +21,6 @@
  .\"
  .\" Modified by David A. Wheeler <dwheeler@dwheeler.com> 2000-11-28.
  .\" Applied patch by Terran Melconian, aeb, 2001-12-14.
---- man-pages-2.57/man5/locale.5.orig	2005-11-02 14:55:25.000000000 +0100
-+++ man-pages-2.57/man5/locale.5	2005-12-25 20:16:15.125282176 +0100
-@@ -20,7 +20,7 @@
- .\"
- .TH LOCALE 5 1994-11-09 "Linux" "Linux User Manual"
- .SH NAME
--locale \- Describes a locale definition file
-+locale \- describes a locale definition file
- .SH DESCRIPTION
- The 
- .B locale
 --- man-pages-2.57/man8/nscd.8.orig	2005-07-06 09:41:37.000000000 +0200
 +++ man-pages-2.57/man8/nscd.8	2005-12-25 18:41:47.316920016 +0100
 @@ -21,7 +21,7 @@
@@ -122,7 +111,7 @@
 --- man-pages-2.57/fi/man1/finger.1.orig	2000-10-24 19:35:48.000000000 +0200
 +++ man-pages-2.57/fi/man1/finger.1	2005-12-26 01:31:52.973291672 +0100
 @@ -1,5 +1,5 @@
- .\" $Id$
+ .\" $Id: $
 -..\" Copyright (c) 1989, 1990 The Regents of the University of California.
 +.\" Copyright (c) 1989, 1990 The Regents of the University of California.
  .\" All rights reserved.
