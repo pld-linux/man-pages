@@ -8,19 +8,6 @@
 +.SH "SEE ALSO"
  .BR ld.so (8),
  .BR ldconfig (8)
---- man-pages-2.57/man3/dlopen.3.orig	2005-10-28 15:27:52.000000000 +0200
-+++ man-pages-2.57/man3/dlopen.3	2005-12-25 18:38:09.788989288 +0100
-@@ -21,8 +21,8 @@
- .\"
- .\" You should have received a copy of the GNU General Public
- .\" License along with this manual; if not, write to the Free
--.\" Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139,
--.\" USA.
-+.\" Software Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston,
-+.\" MA 02110-1301, USA.
- .\"
- .\" Modified by David A. Wheeler <dwheeler@dwheeler.com> 2000-11-28.
- .\" Applied patch by Terran Melconian, aeb, 2001-12-14.
 --- man-pages-2.57/man8/nscd.8.orig	2005-07-06 09:41:37.000000000 +0200
 +++ man-pages-2.57/man8/nscd.8	2005-12-25 18:41:47.316920016 +0100
 @@ -21,7 +21,7 @@
