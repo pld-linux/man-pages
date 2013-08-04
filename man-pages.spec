@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	3.51
+Version:	3.53
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -40,7 +40,7 @@ Group:		Documentation
 %define		tr_version		1.0.3
 %define		zh_version		1.5
 Source0:	http://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	63eef7d6d5abf30bc5b785e344d1df8b
+# Source0-md5:	c3ab5df043bc95de69f73cb71a3c7bb6
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
 # Source1-md5:	e8036794c1762804f2e242cc5b52001e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -472,6 +472,15 @@ for l in cs da de es fi fr hu id it ja ko nl pl pt ru tr uk zh_CN ; do
 		fi
 	done
 done
+
+# files with just .so links pointing to non-existing man pages
+rm -f $RPM_BUILD_ROOT%{_mandir}/man2/{fstatvfs,getcontext,getcwd,getdtablesize,gethostid,mq_notify,mq_open,mq_timedreceive,mq_timedsend,mq_unlink,setcontext,sethostid,sigqueue,statvfs}.2
+rm -f $RPM_BUILD_ROOT%{_mandir}/man7/tis-620.7
+rm -f $RPM_BUILD_ROOT%{_mandir}/{fr,ja}/man2/fstatvfs.2
+rm -f $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fr,ja,ko,nl,pl,pt,ru}/man2/{oldfstat,oldlstat,oldolduname,oldstat,olduname}.2
+rm -f $RPM_BUILD_ROOT%{_mandir}/{es,fr,ja,ru}/man2/setcontext.2
+rm -f $RPM_BUILD_ROOT%{_mandir}/de/man2/{create_module,delete_module,get_kernel_syms,init_module}.2
+rm -f $RPM_BUILD_ROOT%{_mandir}/{es,ru}/man5/networks.5
 
 %clean
 rm -rf $RPM_BUILD_ROOT
