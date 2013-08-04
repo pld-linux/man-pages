@@ -19,17 +19,17 @@ Version:	3.53
 Release:	1
 License:	distributable
 Group:		Documentation
-%define		cs_version		0.16
+%define		cs_version		0.17.20080113
 %define		da_version		0.1.1
-%define		de_version		0.4
+%define		de_version		0.5
 %define		es_version		1.55
 %define		es_extra_version	0.8a
 %define		fi_version		0.2
-%define		fr_version		2.39.0
+%define		fr_version		3.03.0
 %define		hu_version		20010119
 %define		id_version		20011116
-%define		it_version		2.34
-%define		ja_version		20070615
+%define		it_version		2.80
+%define		ja_version		20130715
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -37,17 +37,17 @@ Group:		Documentation
 %define		ro_version		0.2
 #%%define	ru_version		0.98
 %define		ru_asp_version		1.4
-%define		tr_version		1.0.3
+%define		tr_version		1.0.5
 %define		zh_version		1.5
 Source0:	http://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
 # Source0-md5:	c3ab5df043bc95de69f73cb71a3c7bb6
-Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.gz
-# Source1-md5:	e8036794c1762804f2e242cc5b52001e
+Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
+# Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
 Source2:	http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz
 # Source2-md5:	d12ba0481d824c28a8b7d6b73e20d7c0
 Source3:	http://www.infodrom.org/projects/manpages-de/download/manpages-de-%{de_version}.tar.gz
-# Source3-md5:	6a2a1cd24b0bd61c4ab384324e707a95
+# Source3-md5:	6686b1be6da01cdbb5ea7511ddcf61a0
 Source4:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-%{es_version}.tar.bz2
 # Source4-md5:	b71f701dcae827f2f5e4e848c66321fc
 Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra_version}.tar.gz
@@ -57,7 +57,7 @@ Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra
 Source6:	man-fi-0.1.tar.bz2
 # Source6-md5:	bb266d3797cdf71bfbe1da190196f455
 Source7:	http://manpagesfr.free.fr/download/%{name}-fr-%{fr_version}.tar.bz2
-# Source7-md5:	7e9ecdd134703e8172107124f1f3fec4
+# Source7-md5:	64046b022c7c8d559d78dd05f953261b
 #Source8:	http://download.uhulinux.hu/sources/man-pages-hu/man_hu_%{hu_version}.tar.gz (older)
 Source8:	http://ftp.debian.org/debian/pool/main/m/manpages-hu/manpages-hu_%{hu_version}.orig.tar.gz
 # Source8-md5:	742b682c5237a1e370b28f363826b2d5
@@ -67,9 +67,9 @@ Source9:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/%{name}-from-www-id-
 # Source9-md5:	34a69de42ec4ae8180b947f8777a3e7a
 # available also as http://
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
-# Source10-md5:	259868d64ee589828b4cc43e8769507b
-Source11:	http://www.linux.or.jp/JM/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	d0079890039b10ef88f1e635ce59d859
+# Source10-md5:	d6edbaf893507f80199f35df9c268aa0
+Source11:	http://linuxjm.sourceforge.jp/%{name}-ja-%{ja_version}.tar.gz
+# Source11-md5:	e4b364e9707b5421d6f54d722f16998d
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
@@ -89,14 +89,14 @@ Source16:	http://www.rolix.org/man/arhiva/man-pages-ro-%{ro_version}.tar.gz
 Source17:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/manpages-ru-asp-%{ru_asp_version}.tar.bz2
 # Source17-md5:	fffb27648417c8dd551e2a4403eefc64
 Source18:	http://dl.sourceforge.net/belgeler/man-pages-tr-%{tr_version}.tar.gz
-# Source18-md5:	903c7b22a87961842dec8f4f1adeeaf3
+# Source18-md5:	8f322a60c80e31c34ef8979edaf68aae
 Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.tar.gz
 # Source19-md5:	89576c5b51bb83c8bfa8bda794b96e21
 #Source20:	http://cmpp.linuxforum.net/download/man-pages-zh_CN-%{zh_version}.tar.gz
 Source20:	http://download.sf.linuxforum.net/cmpp/man-pages-zh_CN-%{zh_version}.tar.gz
 # Source20-md5:	edfe517621579520cf7451088ab126ea
-Source30:	http://www.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pages-posix-2003-a.tar.bz2
-# Source30-md5:	7c78aff03c0a6767ba483d34f19e4b09
+Source30:	http://www.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pages-posix-2003-a.tar.xz
+# Source30-md5:	ec0a97ccb2ff9e4c32fac67111dbc99a
 Source50:	%{name}-extra.tar.bz2
 # Source50-md5:	15d763c5221088dcb15ba8ae95f6d239
 Source100:	%{name}-tars.list
@@ -287,8 +287,6 @@ mv man-pages-posix-*/man*p .
 mkdir ko
 tar xzf %{SOURCE12} -C ko
 
-find man-pages-tr-%{tr_version} -name '*.gz' | xargs gzip -d
-
 # unify trees for easier processing
 mv -f man-pages-%{pt_version}-pt_BR pt_BR
 mv -f man-pages-cs-%{cs_version} cs
@@ -333,6 +331,18 @@ for f in man-pages-ja-%{ja_version}/manual/modutils/man8/{depmod,insmod,lsmod,mo
 done
 # avoid filename conflict
 mv -f man-pages-ja-%{ja_version}/manual/netkit/man8/ftpd.{8,8n}
+# remove files existing in main man-pages tarball
+# note: (should we keep those from main tarball or ja tarball?)
+rm -f man-pages-ja-%{ja_version}/manual/GNU_fileutils/man1/{chgrp,chmod,chown,cp,dd,df,du,install,ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,touch}.1
+rm -f man-pages-ja-%{ja_version}/manual/GNU_sh-utils/man1/{basename,chroot,date,dirname,echo,env,expr,false,groups,hostid,id,logname,nice,nohup,pathchk,printenv,printf,pwd,sleep,stty,su,tee,test,true,tty,uname,users,who,whoami,yes}.1
+rm -f man-pages-ja-%{ja_version}/manual/GNU_textutils/man1/{cat,cksum,comm,csplit,cut,expand,fmt,fold,head,join,md5sum,nl,od,paste,pr,sort,split,sum,tac,tail,tr,unexpand,uniq,wc}.1
+rm -f man-pages-ja-%{ja_version}/manual/lpr-linux/man1/{lpq,lpr,lprm}.1
+rm -f man-pages-ja-%{ja_version}/manual/net-tools/man1/hostname.1
+rm -f man-pages-ja-%{ja_version}/manual/netatalk/man1/timeout.1
+rm -f man-pages-ja-%{ja_version}/manual/procps/man1/uptime.1
+rm -f man-pages-ja-%{ja_version}/manual/util-linux/man1/{arch,kill}.1
+rm -f man-pages-ja-%{ja_version}/manual/bind/man7/hostname.7
+rm -f man-pages-ja-%{ja_version}/manual/cups/man8/lpc.8
 for f in 1 3 4 5 6 7 8 ; do
 	mv -i man-pages-ja-%{ja_version}/manual/*/man${f}/* ja/man${f}
 done
@@ -340,6 +350,8 @@ mv -f manpages-nl-%{nl_version} nl
 mv -f pl_PL pl
 mv -f man-ro ro
 mv -f manpages-ru-asp-%{ru_asp_version} ru
+make -C man-pages-tr-%{tr_version}/source
+find man-pages-tr-%{tr_version} -name '*.gz' | xargs gzip -d
 mv -f man-pages-tr-%{tr_version}/tr tr
 mv -f man-pages-uk_UA.alfa uk
 mv -f man-pages-zh_CN-%{zh_version}/src zh_CN
@@ -348,8 +360,6 @@ find zh_CN -name CVS -o -name '*.orig' -o -name '*~' | xargs rm -rf
 rm -f zh_CN/man1/perltw.1
 # would go in gb18030, but not gb2312
 rm -f zh_CN/man8/{chat,printcap}.8
-
-mv -f cs/man8/at.1 cs/man1
 # unify name
 mv -f de/man7/{iso_8859_1,iso_8859-1}.7
 mv -f es/man4/magic.4 es/man5/magic.5
@@ -474,8 +484,11 @@ for l in cs da de es fi fr hu id it ja ko nl pl pt ru tr uk zh_CN ; do
 done
 
 # files with just .so links pointing to non-existing man pages
-rm -f $RPM_BUILD_ROOT%{_mandir}/man2/{fstatvfs,getcontext,getcwd,getdtablesize,gethostid,mq_notify,mq_open,mq_timedreceive,mq_timedsend,mq_unlink,setcontext,sethostid,sigqueue,statvfs}.2
-rm -f $RPM_BUILD_ROOT%{_mandir}/man7/tis-620.7
+rm -f $RPM_BUILD_ROOT%{_mandir}/{man2,{fr,ja}/man2}/{getcwd,gethostid,mq_notify,mq_open,mq_timedreceive,mq_timedsend,mq_unlink}.2
+rm -f $RPM_BUILD_ROOT%{_mandir}/man2/{fstatvfs,getcontext,getdtablesize,setcontext,sethostid,sigqueue,statvfs}.2
+rm -f $RPM_BUILD_ROOT%{_mandir}/fr/man2/{clock_getres,clock_gettime,clock_settime,sethostid}.2
+rm -f $RPM_BUILD_ROOT%{_mandir}/ja/man2/{sethostid,sigqueue,statvfs}.2
+rm -f $RPM_BUILD_ROOT%{_mandir}/{man7,ja/man7}/tis-620.7
 rm -f $RPM_BUILD_ROOT%{_mandir}/{fr,ja}/man2/fstatvfs.2
 rm -f $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fr,ja,ko,nl,pl,pt,ru}/man2/{oldfstat,oldlstat,oldolduname,oldstat,olduname}.2
 rm -f $RPM_BUILD_ROOT%{_mandir}/{es,fr,ja,ru}/man2/setcontext.2
