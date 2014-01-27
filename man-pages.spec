@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	3.55
+Version:	3.57
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -40,7 +40,7 @@ Group:		Documentation
 %define		tr_version		1.0.5
 %define		zh_version		1.5
 Source0:	http://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	443b13defb23df578aa11c6c768f2c7d
+# Source0-md5:	18bba89745fecdfddad3caaef7cde5f4
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -95,8 +95,8 @@ Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.
 #Source20:	http://cmpp.linuxforum.net/download/man-pages-zh_CN-%{zh_version}.tar.gz
 Source20:	http://download.sf.linuxforum.net/cmpp/man-pages-zh_CN-%{zh_version}.tar.gz
 # Source20-md5:	edfe517621579520cf7451088ab126ea
-Source30:	http://www.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pages-posix-2003-a.tar.xz
-# Source30-md5:	ec0a97ccb2ff9e4c32fac67111dbc99a
+Source30:	https://www.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pages-posix-2013-a.tar.xz
+# Source30-md5:	825fde78e6fddd02426ecdd50e2cbe0d
 Source50:	%{name}-extra.tar.bz2
 # Source50-md5:	15d763c5221088dcb15ba8ae95f6d239
 Source100:	%{name}-tars.list
