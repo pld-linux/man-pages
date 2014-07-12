@@ -275,9 +275,9 @@ diff -ur man-pages-3.53.orig/man1/ldd.1 man-pages-3.53/man1/ldd.1
  .\" Roland McGrath and Ulrich Drepper.
 -.SH SEE ALSO
 +.SH "SEE ALSO"
+ .BR sprof (1),
  .BR ld.so (8),
  .BR ldconfig (8)
- .SH COLOPHON
 diff -ur man-pages-3.53.orig/man8/nscd.8 man-pages-3.53/man8/nscd.8
 --- man-pages-3.53.orig/man8/nscd.8	2013-07-31 06:45:56.000000000 +0000
 +++ man-pages-3.53/man8/nscd.8	2013-08-04 15:15:48.772116951 +0000
