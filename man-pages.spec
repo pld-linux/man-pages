@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	3.70
+Version:	3.71
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -40,7 +40,7 @@ Group:		Documentation
 %define		tr_version		1.0.5
 %define		zh_version		1.5
 Source0:	http://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	e5a3fc1d7ae4f03a27676d7bad725416
+# Source0-md5:	9a2a288f1e481045c991e0cb476127d8
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
