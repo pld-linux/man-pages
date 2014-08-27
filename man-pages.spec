@@ -16,7 +16,7 @@ Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
 Version:	3.71
-Release:	1
+Release:	2
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.17.20080113
@@ -446,11 +446,10 @@ done
 %else
 # glibc
 find man3 -type f | grep -v 'intro\.3' | xargs rm -f
-rm -f man1/ldd.1
-rm -f man1/rpcgen.1
+rm -f man1/{getent,iconv,ldd,locale,sprof,rpcgen}.1
 rm -f man5/{locale,nscd.conf,nsswitch.conf,tzfile}.5
 rm -f man7/{ascii,charsets,iso*,koi8-r,latin*,locale,unicode,utf*}.7
-rm -f man8/{ld.so,ldconfig,nscd,tzselect,zdump,zic}.8
+rm -f man8/{ld.so,ldconfig,nscd,sln,tzselect,zdump,zic}.8
 rm -f */man1/ldd.1 */man8/sln.8 */man1/iconv.1
 rm -f {ja,ru}/man1/rpcgen.1
 %endif
