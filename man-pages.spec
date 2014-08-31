@@ -464,6 +464,10 @@ find man3 -type f | grep -v 'intro\.3' | xargs %{__rm}
 
 # rpcbind, formerly glibc
 %{__rm} man8/rpcinfo.8
+# gawk
+%{__rm} man1/{gawk,igawk}.1
+%{__rm} {es,it,ja,pl}/man1/gawk.1
+%{__rm} {es,ja,pl}/man1/igawk.1
 # shadow (but not pwdutils!); shadow(5) is missing in pwdutils too
 %{__rm} man5/passwd.5
 
