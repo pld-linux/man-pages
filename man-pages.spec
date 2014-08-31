@@ -28,8 +28,8 @@ Group:		Documentation
 %define		fr_version		3.03.0
 %define		hu_version		20010119
 %define		id_version		20011116
-%define		it_version		2.80
-%define		ja_version		20130715
+%define		it_version		3.64
+%define		ja_version		20140815
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -58,6 +58,8 @@ Source6:	man-fi-0.1.tar.bz2
 # Source6-md5:	bb266d3797cdf71bfbe1da190196f455
 Source7:	http://manpagesfr.free.fr/download/%{name}-fr-%{fr_version}.tar.bz2
 # Source7-md5:	64046b022c7c8d559d78dd05f953261b
+# there is also: http://manpagesfr.free.fr/download/man-pages-extras-fr-0.8.1.tar.bz2
+# and: http://manpagesfr.free.fr/download/man-pages-sup-fr-20080606.tar.bz2
 #Source8:	http://download.uhulinux.hu/sources/man-pages-hu/man_hu_%{hu_version}.tar.gz (older)
 Source8:	http://ftp.debian.org/debian/pool/main/m/manpages-hu/manpages-hu_%{hu_version}.orig.tar.gz
 # Source8-md5:	742b682c5237a1e370b28f363826b2d5
@@ -66,23 +68,27 @@ Source8:	http://ftp.debian.org/debian/pool/main/m/manpages-hu/manpages-hu_%{hu_v
 Source9:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/%{name}-from-www-id-%{id_version}.tar.gz
 # Source9-md5:	34a69de42ec4ae8180b947f8777a3e7a
 # available also as http://
-Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.gz
-# Source10-md5:	d6edbaf893507f80199f35df9c268aa0
+Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.xz
+# Source10-md5:	a7607a5e9674c0f0732e10f5c61b8f35
+# note: man-pages-it-extra-0.5.0.tar.gz is also covered by the above version
+#Source11Download: http://linuxjm.sourceforge.jp/download.html
 Source11:	http://linuxjm.sourceforge.jp/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	e4b364e9707b5421d6f54d722f16998d
+# Source11-md5:	f81250198f28680308e2b0a403dbbd94
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
+# TODO: check 20051127 in Debian/Ubuntu?
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 # Source13-md5:	b37b0216a87db7583e88ba87031a0b4a
 # TODO: PTM has been overtaken by new project at http://manpages-pl.sourceforge.net/
+# http://downloads.sourceforge.net/manpages-pl/manpages-pl-%{pl_version}.tar.bz2 with pl_version=0.5
 Source14:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 # Source14-md5:	b9b5751fcde4c36022850d0e5a4757d3
-Source15:	ftp://ftp.win.tue.nl/pub/home/aeb/linux-local/manpages/tr/%{name}-pt_BR-%{pt_version}.tgz
+Source15:	http://www.win.tue.nl/~aeb/ftpdocs/linux-local/manpages/tr/%{name}-pt_BR-%{pt_version}.tgz
 # Source15-md5:	3f8db6dd6a7884b595e70f624ac93735
 # no LDP man pages yet
 Source16:	http://www.rolix.org/man/arhiva/man-pages-ro-%{ro_version}.tar.gz
 # Source16-md5:	ac5b2c970a31cb721e068ff80e5bd466
-#Source17:	http://www.linuxshare.ru/projects/trans/manpages-ru-%{ru_version}.tar.bz2
+#Source17:	http://linuxshare.ru/projects/trans/manpages-ru-%{ru_version}.tar.bz2
 # ASP-linux have more up-to-date manpages (but 0.98 contains some updated pages)
 Source17:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/manpages-ru-asp-%{ru_asp_version}.tar.bz2
 # Source17-md5:	fffb27648417c8dd551e2a4403eefc64
@@ -90,7 +96,7 @@ Source18:	http://download.sourceforge.net/belgeler/man-pages-tr-%{tr_version}.ta
 # Source18-md5:	8f322a60c80e31c34ef8979edaf68aae
 Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.tar.gz
 # Source19-md5:	89576c5b51bb83c8bfa8bda794b96e21
-#Source20:	http://cmpp.linuxforum.net/download/man-pages-zh_CN-%{zh_version}.tar.gz
+# TODO: https://github.com/lidaobing/manpages-zh/archive/v%{zh_version}/man-pages-zh_CN-%{zh_version}.tar.gz with zh_version=1.5.2
 Source20:	http://download.sf.linuxforum.net/cmpp/man-pages-zh_CN-%{zh_version}.tar.gz
 # Source20-md5:	edfe517621579520cf7451088ab126ea
 Source30:	https://www.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pages-posix-2013-a.tar.xz
@@ -313,7 +319,11 @@ done
 mv -f manpages-fi fi
 mv -f man-pages-fr-%{fr_version} fr
 mv -f manpages-hu-%{hu_version}.orig/usr/share/man/hu hu
-mv -f man-pages-it-%{it_version} it
+install -d it
+mv -f man-pages-it-%{it_version}/man-pages/man? it
+for f in 1 4 5 8 9 ; do
+	mv -i man-pages-it-%{it_version}/*/man${f}/* it/man${f}
+done
 mv -f man-pages-ja-%{ja_version}/manual/LDP_man-pages ja
 # duplicates of LDP man pages
 %{__rm} -r man-pages-ja-%{ja_version}/manual/{gnumaniak,ld.so,modutils/man2,glibc-linuxthreads/man3,man/man1/{apropos,man,whatis}.1,netkit/{man3/{daemon,err,login}.3,man5/ftpusers.5},bind/{man5/resolver.5,man7/mailaddr.7},util-linux/man1/tailf.1}
@@ -343,6 +353,7 @@ mv -f man-pages-ja-%{ja_version}/manual/netkit/man8/ftpd.{8,8n}
 %{__rm} man-pages-ja-%{ja_version}/manual/netatalk/man1/timeout.1
 %{__rm} man-pages-ja-%{ja_version}/manual/procps/man1/uptime.1
 %{__rm} man-pages-ja-%{ja_version}/manual/util-linux/man1/{arch,kill}.1
+%{__rm} man-pages-ja-%{ja_version}/manual/util-linux/man8/sln.8
 %{__rm} man-pages-ja-%{ja_version}/manual/bind/man7/hostname.7
 %{__rm} man-pages-ja-%{ja_version}/manual/cups/man8/lpc.8
 for f in 1 3 4 5 6 7 8 ; do
@@ -379,7 +390,6 @@ mv -f it/man7/{tmp,iso_8859_1}.7
 %{__rm} it/man7/latin2.7
 mv -f ja/man4/magic.4 ja/man5/magic.5
 mv -f ja/man8/nslookup.8 ja/man1/nslookup.1
-mv -f ja/man8/sync.8 ja/man1/sync.1
 mv -f ko/man8/sync.8 ko/man1/sync.1
 # filename typo?
 mv -f pl/man5/{at_acces,at_access}.5
@@ -479,7 +489,7 @@ done
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/{man2,{fr,ja}/man2}/{getcwd,gethostid,mq_notify,mq_open,mq_timedreceive,mq_timedsend,mq_unlink}.2
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man2/{fstatvfs,getcontext,getdtablesize,setcontext,sethostid,sigqueue,statvfs}.2
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/fr/man2/{clock_getres,clock_gettime,clock_settime,sethostid}.2
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/ja/man2/{sethostid,sigqueue,statvfs}.2
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/ja/man2/{getcontext,setcontext,sethostid,sigqueue,statvfs}.2
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/{man7,ja/man7}/tis-620.7
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/{fr,ja}/man2/fstatvfs.2
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fr,ja,ko,nl,pl,pt,ru}/man2/{oldfstat,oldlstat,oldolduname,oldstat,olduname}.2

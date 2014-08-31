@@ -224,18 +224,6 @@ diff -ur man-pages-3.53.orig/ja/man1/nslookup.1 man-pages-3.53/ja/man1/nslookup.
  .Os BSD 4
  .Sh 名称
  .Nm nslookup
-diff -ur man-pages-3.53.orig/ja/man1/sync.1 man-pages-3.53/ja/man1/sync.1
---- man-pages-3.53.orig/ja/man1/sync.1	2013-07-14 16:03:21.000000000 +0000
-+++ man-pages-3.53/ja/man1/sync.1	2013-08-04 15:17:57.466116179 +0000
-@@ -12,7 +12,7 @@
- .\" This file was generated with po4a. Translate the source file.
- .\"
- .\"*******************************************************************
--.TH SYNC 8 1998\-11\-01 GNU "Linux Programmer's Manual"
-+.TH SYNC 1 1998\-11\-01 GNU "Linux Programmer's Manual"
- .SH 名前
- sync \- ディスク上のデータをメモリと同期させる
- .SH 書式
 diff -ur man-pages-3.53.orig/ja/man5/magic.5 man-pages-3.53/ja/man5/magic.5
 --- man-pages-3.53.orig/ja/man5/magic.5	2013-07-14 16:03:24.000000000 +0000
 +++ man-pages-3.53/ja/man5/magic.5	2013-08-04 15:15:48.785116890 +0000
