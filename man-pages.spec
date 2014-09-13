@@ -1,3 +1,4 @@
+# TODO: fix cs
 #
 # Conditional build:
 %bcond_with	tars	# generate man-pages tars for other packages [not done yet]
@@ -39,6 +40,7 @@ Group:		Documentation
 %define		ru_asp_version		1.4
 %define		tr_version		1.0.5
 %define		zh_version		1.5
+%define		posix_version		2013-a
 Source0:	http://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
 # Source0-md5:	9a2a288f1e481045c991e0cb476127d8
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
@@ -99,7 +101,7 @@ Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.
 # TODO: https://github.com/lidaobing/manpages-zh/archive/v%{zh_version}/man-pages-zh_CN-%{zh_version}.tar.gz with zh_version=1.5.2
 Source20:	http://download.sf.linuxforum.net/cmpp/man-pages-zh_CN-%{zh_version}.tar.gz
 # Source20-md5:	edfe517621579520cf7451088ab126ea
-Source30:	https://www.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pages-posix-2013-a.tar.xz
+Source30:	https://www.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pages-posix-%{posix_version}.tar.xz
 # Source30-md5:	825fde78e6fddd02426ecdd50e2cbe0d
 Source50:	%{name}-extra.tar.bz2
 # Source50-md5:	15d763c5221088dcb15ba8ae95f6d239
@@ -109,7 +111,9 @@ Patch1:		%{name}-zh_fixes.patch
 Patch2:		%{name}-misc.patch
 Patch3:		%{name}-extra.patch
 Patch4:		%{name}-tr-bash.patch
-URL:		http://www.kernel.org/doc/man-pages/
+Patch5:		%{name}-misc-localized.patch
+URL:		https://www.kernel.org/doc/man-pages/
+BuildRequires:	rpmbuild(macros) >= 1.566
 BuildRequires:	sed >= 4.0
 # for man-pages-tr
 BuildRequires:	zlib-devel
@@ -137,6 +141,10 @@ Conflicts:	libcap < 1:1.10-5
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 AutoReqProv:	no
+
+# languages of packaged man pages
+# note: pt_BR is omitted here, these manuals are packaged as pt
+%define	man_langs	cs da de es fi fr hu id it ja ko nl pl pt ru tr uk zh_CN
 
 %description
 A large collection of man pages covering programming APIs, file
@@ -285,229 +293,290 @@ Part of POSIX 1003.1-2003 in man pages format.
 Fragmenty POSIX 1003.1-2003 w postaci stron podręcznika systemowego.
 
 %prep
-%setup -q -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20 -a30
+%setup -q -c -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20 -a30
+cd man-pages-%{version}
 %patch0 -p1
-%patch1 -p0
+cd ../man-pages-zh_CN-%{zh_version}
+%patch1 -p1
+cd ../man-pages-tr-%{tr_version}
 %patch4 -p1
+cd ..
+install -d man-pages-extra
+bzip2 -dc %{SOURCE50} | tar xf - -C man-pages-extra
+cd man-pages-extra
+%patch3 -p0
+cd ..
 
-mv man-pages-posix-*/man*p .
+# prepare somehow unified source trees
+install -d src
+%{__mv} man-pages-%{version} src/C
+%{__mv} man-pages-posix-%{posix_version}/man*p src/C
+%{__mv} man-pages-cs-%{cs_version} src/cs
+%{__mv} manpages-da-%{da_version} src/da
+%{__mv} manpages-de-%{de_version} src/de
+%{__mv} man-pages-es-%{es_version} src/es
+%{__mv} manpages-fi src/fi
+%{__mv} man-pages-fr-%{fr_version} src/fr
+%{__mv} manpages-hu-%{hu_version}.orig/usr/share/man/hu src/hu
+install -d src/id/man{1,8}
+%{__mv} man-pages-it-%{it_version} src/it
+%{__mv} man-pages-ja-%{ja_version} src/ja
+install -d src/ko
+tar xzf %{SOURCE12} -C src/ko
+%{__mv} manpages-nl-%{nl_version} src/nl
+%{__mv} pl_PL src/pl
+%{__mv} man-pages-%{pt_version}-pt_BR src/pt_BR
+%{__mv} man-ro src/ro
+%{__mv} manpages-ru-asp-%{ru_asp_version} src/ru
+%{__mv} man-pages-tr-%{tr_version} src/tr
+%{__mv} man-pages-uk_UA.alfa src/uk
+%{__mv} man-pages-zh_CN-%{zh_version}/src src/zh_CN
 
-mkdir ko
-tar xzf %{SOURCE12} -C ko
+# unify trees for easier processing (where possible)
 
-# unify trees for easier processing
-mv -f man-pages-%{pt_version}-pt_BR pt_BR
-mv -f man-pages-cs-%{cs_version} cs
-# replace symlinks by .so pointers
-for l in `find cs -type l` ; do
+# cs: replace symlinks by .so pointers
+for l in `find src/cs -type l` ; do
 	t=`readlink "$l"`
 	rm -f "$l"
 	echo ".so $t" > "$l"
 done
-mv -f manpages-da-%{da_version} da
-install -d da/man1
-mv -f da/*.1 da/man1
-mv -f manpages-de-%{de_version} de
-mv -f man-pages-es-%{es_version} es
-# already in main es
+
+# da: add man1 subdir
+install -d src/da/man1
+%{__mv} src/da/*.1 src/da/man1
+
+# es: merge in "extra" pages
+# skip pages already in main es
 %{__rm} man-pages-es-extra-%{es_extra_version}/man3/dl*.3
 %{__rm} man-pages-es-extra-%{es_extra_version}/man5/{acct,host.conf,resolv.conf,resolver}.5
 %{__rm} man-pages-es-extra-%{es_extra_version}/man8/ld.so.8
 for f in 1 2 4 5 6 7 8 ; do
-	mv -i man-pages-es-extra-%{es_extra_version}/man${f}/* es/man${f}
+	mv -i man-pages-es-extra-%{es_extra_version}/man${f}/* src/es/man${f}
 done
-mv -f manpages-fi fi
-mv -f man-pages-fr-%{fr_version} fr
-mv -f manpages-hu-%{hu_version}.orig/usr/share/man/hu hu
-install -d it
-mv -f man-pages-it-%{it_version}/man-pages/man? it
+
+# it: merge per-package trees
+%{__mv} src/it/man-pages/man? src/it
 for f in 1 4 5 8 9 ; do
-	mv -i man-pages-it-%{it_version}/*/man${f}/* it/man${f}
+	mv -i src/it/*/man${f}/* src/it/man${f}
 done
-mv -f man-pages-ja-%{ja_version}/manual/LDP_man-pages ja
+
+# ja: merge per-package trees
+%{__mv} src/ja/manual/LDP_man-pages/man* src/ja
 # duplicates of LDP man pages
-%{__rm} -r man-pages-ja-%{ja_version}/manual/{gnumaniak,ld.so,modutils/man2,glibc-linuxthreads/man3,man/man1/{apropos,man,whatis}.1,netkit/{man3/{daemon,err,login}.3,man5/ftpusers.5},bind/{man5/resolver.5,man7/mailaddr.7},util-linux/man1/tailf.1}
+%{__rm} -r src/ja/manual/{gnumaniak,ld.so,modutils/man2,glibc-linuxthreads/man3,man/man1/{apropos,man,whatis}.1,netkit/{man3/{daemon,err,login}.3,man5/ftpusers.5},bind/{man5/resolver.5,man7/mailaddr.7},util-linux/man1/tailf.1}
 # shadow manuals already in shadow package
-%{__rm} -r man-pages-ja-%{ja_version}/manual/shadow
+%{__rm} -r src/ja/manual/shadow
 # dhcp 3 not dhcp2
-%{__rm} -r man-pages-ja-%{ja_version}/manual/dhcp2
+%{__rm} -r src/ja/manual/dhcp2
 # nfs-utils not nfs-server
-%{__rm} -r man-pages-ja-%{ja_version}/manual/nfs-server
+%{__rm} -r src/ja/manual/nfs-server
 # ypbind-mt not ypbind
-%{__rm} -r man-pages-ja-%{ja_version}/manual/ypbind
+%{__rm} -r src/ja/manual/ypbind
 # we use: net-tools/hostname, util-linux/{kill,write}, SysVinit/{last,mesg,wall,halt,reboot,shutdown}, textutils/od, quota/rquotad
-%{__rm} man-pages-ja-%{ja_version}/manual/{GNU_sh-utils/man1/hostname.1,procps/man1/kill.1,util-linux/man1/{last,mesg,od,wall}.1,netkit/man1/write.1,nfs-utils/man8/rquotad.8,util-linux/man8/{halt,reboot,shutdown}.8}
+%{__rm} src/ja/manual/{GNU_sh-utils/man1/hostname.1,procps/man1/kill.1,util-linux/man1/{last,mesg,od,wall}.1,netkit/man1/write.1,nfs-utils/man8/rquotad.8,util-linux/man8/{halt,reboot,shutdown}.8}
 # following modutils changes
-for f in man-pages-ja-%{ja_version}/manual/modutils/man8/{depmod,insmod,lsmod,modinfo,modprobe,rmmod} ; do
-	mv -f ${f}.8 ${f}.modutils.8
+for f in src/ja/manual/modutils/man8/{depmod,insmod,lsmod,modinfo,modprobe,rmmod} ; do
+	%{__mv} ${f}.8 ${f}.modutils.8
 done
 # avoid filename conflict
-mv -f man-pages-ja-%{ja_version}/manual/netkit/man8/ftpd.{8,8n}
+%{__mv} src/ja/manual/netkit/man8/ftpd.{8,8n}
 # remove files existing in main man-pages tarball
 # note: (should we keep those from main tarball or ja tarball?)
-%{__rm} man-pages-ja-%{ja_version}/manual/GNU_fileutils/man1/{chgrp,chmod,chown,cp,dd,df,du,install,ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,touch}.1
-%{__rm} man-pages-ja-%{ja_version}/manual/GNU_sh-utils/man1/{basename,chroot,date,dirname,echo,env,expr,false,groups,hostid,id,logname,nice,nohup,pathchk,printenv,printf,pwd,sleep,stty,su,tee,test,true,tty,uname,users,who,whoami,yes}.1
-%{__rm} man-pages-ja-%{ja_version}/manual/GNU_textutils/man1/{cat,cksum,comm,csplit,cut,expand,fmt,fold,head,join,md5sum,nl,od,paste,pr,sort,split,sum,tac,tail,tr,unexpand,uniq,wc}.1
-%{__rm} man-pages-ja-%{ja_version}/manual/lpr-linux/man1/{lpq,lpr,lprm}.1
-%{__rm} man-pages-ja-%{ja_version}/manual/net-tools/man1/hostname.1
-%{__rm} man-pages-ja-%{ja_version}/manual/netatalk/man1/timeout.1
-%{__rm} man-pages-ja-%{ja_version}/manual/procps/man1/uptime.1
-%{__rm} man-pages-ja-%{ja_version}/manual/util-linux/man1/{arch,kill}.1
-%{__rm} man-pages-ja-%{ja_version}/manual/util-linux/man8/sln.8
-%{__rm} man-pages-ja-%{ja_version}/manual/bind/man7/hostname.7
-%{__rm} man-pages-ja-%{ja_version}/manual/cups/man8/lpc.8
+%{__rm} src/ja/manual/GNU_fileutils/man1/{chgrp,chmod,chown,cp,dd,df,du,install,ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,touch}.1
+%{__rm} src/ja/manual/GNU_sh-utils/man1/{basename,chroot,date,dirname,echo,env,expr,false,groups,hostid,id,logname,nice,nohup,pathchk,printenv,printf,pwd,sleep,stty,su,tee,test,true,tty,uname,users,who,whoami,yes}.1
+%{__rm} src/ja/manual/GNU_textutils/man1/{cat,cksum,comm,csplit,cut,expand,fmt,fold,head,join,md5sum,nl,od,paste,pr,sort,split,sum,tac,tail,tr,unexpand,uniq,wc}.1
+%{__rm} src/ja/manual/lpr-linux/man1/{lpq,lpr,lprm}.1
+%{__rm} src/ja/manual/net-tools/man1/hostname.1
+%{__rm} src/ja/manual/netatalk/man1/timeout.1
+%{__rm} src/ja/manual/procps/man1/uptime.1
+%{__rm} src/ja/manual/util-linux/man1/{arch,kill}.1
+%{__rm} src/ja/manual/util-linux/man8/sln.8
+%{__rm} src/ja/manual/bind/man7/hostname.7
+%{__rm} src/ja/manual/cups/man8/lpc.8
 for f in 1 3 4 5 6 7 8 ; do
-	mv -i man-pages-ja-%{ja_version}/manual/*/man${f}/* ja/man${f}
+	mv -i src/ja/manual/*/man${f}/* src/ja/man${f}
 done
-mv -f manpages-nl-%{nl_version} nl
-mv -f pl_PL pl
-mv -f man-ro ro
-mv -f manpages-ru-asp-%{ru_asp_version} ru
-# FIXME: compiles some utility, should be in %build
-%{__make} -C man-pages-tr-%{tr_version}/source
-find man-pages-tr-%{tr_version} -name '*.gz' | xargs gzip -d
-mv -f man-pages-tr-%{tr_version}/tr tr
-mv -f man-pages-uk_UA.alfa uk
-mv -f man-pages-zh_CN-%{zh_version}/src zh_CN
-find zh_CN -name CVS -o -name '*.orig' -o -name '*~' | xargs rm -rf
+
+# zh_CN: cleanup
+find src/zh_CN -name CVS -o -name '*.orig' -o -name '*~' | xargs rm -rf
 # would go in big5 or gb18030, but not gb2312
-%{__rm} zh_CN/man1/perltw.1
+%{__rm} src/zh_CN/man1/perltw.1
 # would go in gb18030, but not gb2312
-%{__rm} zh_CN/man8/{chat,printcap}.8
+%{__rm} src/zh_CN/man8/{chat,printcap}.8
+
+# individual man pages fixes
+
 # unify name
-mv -f de/man7/{iso_8859_1,iso_8859-1}.7
-mv -f es/man4/magic.4 es/man5/magic.5
-mv -f es/man8/sync.8 es/man1/sync.1
-mv -f fr/man8/sync.8 fr/man1/sync.1
-mv -f hu/man1/gpm.1 hu/man8/gpm.8
+%{__mv} src/de/man7/{iso_8859_1,iso_8859-1}.7
+%{__mv} src/es/man4/magic.4 src/es/man5/magic.5
+%{__mv} src/es/man8/sync.8 src/es/man1/sync.1
+%{__mv} src/fr/man8/sync.8 src/fr/man1/sync.1
+%{__mv} src/hu/man1/gpm.1 src/hu/man8/gpm.8
 # man1/sync.1 already exists
-%{__rm} hu/man8/sync.8
-# unify name + fix infinite loop
-mv -f it/man7/{iso_8859-1,tmp}.7
-mv -f it/man7/{iso_8859_1,iso_8859-1}.7
-mv -f it/man7/{tmp,iso_8859_1}.7
-# non-existing target
-%{__rm} it/man7/latin2.7
-mv -f ja/man4/magic.4 ja/man5/magic.5
-mv -f ja/man8/nslookup.8 ja/man1/nslookup.1
-mv -f ko/man8/sync.8 ko/man1/sync.1
+%{__rm} src/hu/man8/sync.8
+%undos src/it/man7/{iso-8859-2,iso_8859_2}.7
+%{__mv} src/ja/man4/magic.4 src/ja/man5/magic.5
+%{__mv} src/ja/man8/nslookup.8 src/ja/man1/nslookup.1
+%{__mv} src/ko/man8/sync.8 src/ko/man1/sync.1
 # filename typo?
-mv -f pl/man5/{at_acces,at_access}.5
+%{__mv} src/pl/man5/{at_acces,at_access}.5
 # man1/sync.1 already exists
-%{__rm} pl/man8/sync.8
-mv -f pt_BR/man8/sync.8 pt_BR/man1/sync.1
-mv -f ru/man8/sync.8 ru/man1/sync.1
+%{__rm} src/pl/man8/sync.8
+%{__mv} src/pt_BR/man8/sync.8 src/pt_BR/man1/sync.1
+%{__mv} src/ru/man8/sync.8 src/ru/man1/sync.1
 # man1/sync.1 already exists
-%{__rm} zh_CN/man8/sync.8
+%{__rm} src/zh_CN/man8/sync.8
 
-%patch2 -p1
-
-bzip2 -dc %{SOURCE50} | tar xf -
-%patch3 -p0
+%patch2 -p1 -d src/C
+%patch5 -p1 -d src
 
 # patching creates backups
 find . '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -rf
 
-# cleanup
-%{__rm} man*/README*
-
-for n in man{1,2,3,4,5,6,7,8,0p,1p,3p}/* */man{1,2,3,4,5,6,7,8,9}/* ; do
-	if head -n 1 $n | grep "^\.so [^/]*$" >/dev/null 2>&1 ; then
-		sed -i -e 's,.so \([^\.]*\)\.\(.*\),.so man\2/\1.\2,' $n
-	fi
+# already in base man-pages
+%{__rm} man-pages-extra/man1/{getent,iconv,locale,localedef,sprof}.1
+%{__rm} man-pages-extra/man2/vm86old.2
+%{__rm} man-pages-extra/man3/{CIRCLEQ_*,LIST_*,TAILQ_*,__after_morecore_hook,__free_hook,__malloc_initialize_hook,__memalign_hook,__realloc_kook}.3
+%{__rm} man-pages-extra/man4/sk98lin.4
+%{__rm} man-pages-extra/man8/sln.8
+# empty now
+rmdir man-pages-extra/man4
+# apply man-pages-extra, preventing overwriting of already existing man pages
+for d in man-pages-extra/man* ; do
+	mv -i $d/*.* src/C/${d#man-pages-extra/}
+done
+mkdir src/cs/man{1,2,3,4,7}
+%{__rm} man-pages-extra/de/man3/ctime.3
+# empty now
+rmdir man-pages-extra/de/man3
+%{__rm} man-pages-extra/fr/man8/{ld-linux,ld-linux.so}.8
+%{__rm} man-pages-extra/it/man7/utf8.7
+# empty now
+rmdir man-pages-extra/it/man7
+%{__rm} man-pages-extra/ja/man3/{CIRCLEQ_*,LIST_*,TAILQ_*,__after_morecore_hook,__free_hook,__malloc_initialize_hook,__memalign_hook,__realloc_kook}.3
+%{__rm} man-pages-extra/pt_BR/man2/waitpid.2
+for d in man-pages-extra/*/man* ; do
+	mv -i $d/*.* src/${d#man-pages-extra/}
 done
 
-ln -sf pt_BR pt
+ln -sf pt_BR src/pt
+
+# remove man pages existing in other packages
 
 # time
-%{__rm} man1/time.1
+%{__rm} src/C/man1/time.1
 # ftp servers
-%{__rm} man5/ftpusers.5
+%{__rm} src/C/man5/ftpusers.5
 # glibc
-%{__rm} man8/ld-linux{,.so}.8
+%{__rm} src/C/man8/ld-linux{,.so}.8
 
-%if %{with tars}
+%build
+# some man-pages require build step
+
+# tr: make man pages from XML (note: compiles some utility)
+%{__make} -C src/tr/source
+find src/tr/tr -name '*.gz' | xargs gzip -d
+%{__mv} src/tr/tr/man* src/tr
+
+# per-package lists / tarballs production
 package=NONE
 while read line ; do
 	if echo $line | grep -q '^\[.\+\]$' ; then
 		package=`echo $line | sed -e 's/^\[//;s/\]$//;'`
 	else
-		if [ -f "$line" ]; then
+		if [ -f "src/C/$line" ]; then
 			echo "$line" >> ${package}-man.list
 		fi
-		# omit pt_BR here, package them as pt
-		for l in cs da de es fi fr hu id it ja ko nl pl pt ru tr uk zh_CN ; do
-			if [ -f "$l/$line" ]; then
+		for l in %{man_langs} ; do
+			if [ -f "src/$l/$line" ]; then
 				echo "$l/$line" >> ${package}-man.list
 			fi
 		done
 	fi
 done < %{SOURCE100}
+%if %{with tars}
+rm -rf tarsrc tar
+install -d tarsrc tar
+cd tarsrc
+ln -snf ../src/[!C]* ../src/C/man* ../man-pages-extra/README.*-pages .
+cd ..
 for l in *-man.list ; do
 	t=`basename $l .list`
-	if [ -f README.${t}-pages ]; then
+	if [ -f tarsrc/README.${t}-pages ]; then
 		echo "README.${t}-pages" >> "$l"
 	fi
-	tar cjf %{_sourcedir}/${t}-pages.tar.bz2 --files-from "$l"
-	grep '^man' "$l" | xargs rm -f
+	tar cJf tar/${t}-pages.tar.xz -C tarsrc --files-from "$l"
 done
-%else
-# glibc
-find man3 -type f | grep -v 'intro\.3' | xargs %{__rm}
-%{__rm} man1/{getent,iconv,ldd,locale,localedef,sprof,rpcgen}.1
-%{__rm} man5/{locale,nscd.conf,nsswitch.conf,tzfile}.5
-%{__rm} man7/{ascii,charsets,iso*,koi8-r,latin*,locale,unicode,utf*}.7
-%{__rm} man8/{ld.so,ldconfig,nscd,sln,tzselect,zdump,zic}.8
-%{__rm} */man1/ldd.1 */man8/sln.8 */man1/iconv.1
-%{__rm} {ja,ru}/man1/rpcgen.1
 %endif
-
-# rpcbind, formerly glibc
-%{__rm} man8/rpcinfo.8
-# gawk
-%{__rm} man1/{gawk,igawk}.1
-%{__rm} {es,it,ja,pl}/man1/gawk.1
-%{__rm} {es,ja,pl}/man1/igawk.1
-# shadow (but not pwdutils!); shadow(5) is missing in pwdutils too
-%{__rm} man5/passwd.5
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8,0p,1p,3p}
 
-for n in man{1,2,3,4,5,6,7,8,0p,1p,3p}/*; do
-	install $n $RPM_BUILD_ROOT%{_mandir}/$n
+# install C man pages
+for n in src/C/man{1,2,3,4,5,6,7,8,0p,1p,3p}/*; do
+	bn=${n#src/C}
+	install -m644 $n $RPM_BUILD_ROOT%{_mandir}/$bn
 done
+# drop man pages packaged separately
+grep '^man' glibc-man-pages.list | sed -e "s,^,$RPM_BUILD_ROOT%{_mandir}/," | xargs -r %{__rm} 
+# rpcbind, formerly glibc
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/man8/rpcinfo.8
+# gawk
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/man1/{gawk,igawk}.1
+# shadow (but not pwdutils!); shadow(5) is missing in pwdutils too
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/man5/passwd.5
 
-# omit pt_BR here, package them as pt
-for l in cs da de es fi fr hu id it ja ko nl pl pt ru tr uk zh_CN ; do
+# install localized man pages, only for installed C man pages
+for l in %{man_langs} ; do
 	install -d $RPM_BUILD_ROOT%{_mandir}/$l/man{1,2,3,4,5,6,7,8}
-	for n in man{1,2,3,4,5,6,7,8}/*; do
-		if [ -f $l/$n ]; then
-			install $l/$n $RPM_BUILD_ROOT%{_mandir}/$l/$n
+	for n in $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8}/*; do
+		bn=$(basename $(dirname $n))/$(basename $n)
+		if [ -f src/$l/$bn ]; then
+			install -m644 src/$l/$bn $RPM_BUILD_ROOT%{_mandir}/$l/$bn
 		fi
 	done
 done
 
 # files with just .so links pointing to non-existing man pages
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/{man2,{fr,ja}/man2}/{getcwd,gethostid,mq_notify,mq_open,mq_timedreceive,mq_timedsend,mq_unlink}.2
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/man2/{fstatvfs,getcontext,getdtablesize,setcontext,sethostid,sigqueue,statvfs}.2
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/fr/man2/{clock_getres,clock_gettime,clock_settime,sethostid}.2
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/ja/man2/{getcontext,setcontext,sethostid,sigqueue,statvfs}.2
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/{man7,ja/man7}/tis-620.7
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/{fr,ja}/man2/fstatvfs.2
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,fr,ja,ko,nl,pl,pt,ru}/man2/{oldfstat,oldlstat,oldolduname,oldstat,olduname}.2
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/{es,fr,ru}/man2/setcontext.2
+# FIXME: recheck after fixing cs man pages build/install
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/cs/man{2,3,4,7}/*.*
+# modules.2
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/de/man2/{create_module,delete_module,get_kernel_syms,init_module}.2
+# obsolete.2
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/{de,es,ko,nl,pl,pt,ru}/man2/{oldfstat,oldlstat,oldolduname,oldstat,olduname}.2
+# undocumented.7
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/{es,ru}/man5/networks.5
+# statfs.2
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/pl/man2/fstatfs.2
+# scandir.3
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/pl/man3/alphasort.3
+# termios.3
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/pl/man3/{cfgetispeed,cfgetospeed,cfmakeraw,cfsetispeed,cfsetospeed}.3
+# syslog.3
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/pl/man3/closelog.3
+# resolver.3
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/pl/man3/{dn_comp,dn_expand}.3
+# scanf.3
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/pl/man3/fscanf.3
+# encrypt.3
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/tr/man3/{encrypt_r,setkey,setkey_r}.3
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{_mandir}/man?/*
-%lang(cs) %{_mandir}/cs/man*/*
+%{_mandir}/man1/*.1*
+%{_mandir}/man2/*.2*
+%{_mandir}/man3/*.3*
+%{_mandir}/man4/*.4*
+%{_mandir}/man5/*.5*
+%{_mandir}/man6/*.6*
+%{_mandir}/man7/*.7*
+%{_mandir}/man8/*.8*
+# FIXME
+#%lang(cs) %{_mandir}/cs/man*/*
 %lang(de) %{_mandir}/de/man*/*
 %lang(es) %{_mandir}/es/man*/*
 %lang(fi) %{_mandir}/fi/man*/*
@@ -519,6 +588,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nl) %{_mandir}/nl/man*/*
 %lang(pl) %{_mandir}/pl/man*/*
 %lang(pt) %{_mandir}/pt/man*/*
+# packaged as plain pt for now
 #%lang(pt_BR) %{_mandir}/pt_BR/man*/*
 %lang(ru) %{_mandir}/ru/man*/*
 %lang(tr) %{_mandir}/tr/man*/*
@@ -527,5 +597,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files posix
 %defattr(644,root,root,755)
-%dir %{_mandir}/man?p
-%{_mandir}/man?p/*
+%dir %{_mandir}/man0p
+%{_mandir}/man0p/*.0p*
+%dir %{_mandir}/man1p
+%{_mandir}/man1p/*.1p*
+%dir %{_mandir}/man3p
+%{_mandir}/man3p/*.3p*
