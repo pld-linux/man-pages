@@ -16,8 +16,8 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	3.71
-Release:	3
+Version:	3.72
+Release:	1
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.17.20080113
@@ -41,8 +41,8 @@ Group:		Documentation
 %define		tr_version		1.0.5
 %define		zh_version		1.5
 %define		posix_version		2013-a
-Source0:	http://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	9a2a288f1e481045c991e0cb476127d8
+Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
+# Source0-md5:	3ca69a6263d9863ccace2e53b9bcff86
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -483,7 +483,7 @@ package=NONE
 while read line ; do
 	if echo $line | grep -q '^\[.\+\]$' ; then
 		package=`echo $line | sed -e 's/^\[//;s/\]$//;'`
-	else
+	elif ! echo $line | grep -q '^#' ; then
 		if [ -f "src/C/$line" ]; then
 			echo "$line" >> ${package}-man.list
 		fi
@@ -515,15 +515,17 @@ install -d $RPM_BUILD_ROOT%{_mandir}/man{1,2,3,4,5,6,7,8,0p,1p,3p}
 
 # install C man pages
 for n in src/C/man{1,2,3,4,5,6,7,8,0p,1p,3p}/*; do
-	bn=${n#src/C}
+	bn=${n#src/C/}
 	install -m644 $n $RPM_BUILD_ROOT%{_mandir}/$bn
 done
 # drop man pages packaged separately
-grep '^man' glibc-man-pages.list | sed -e "s,^,$RPM_BUILD_ROOT%{_mandir}/," | xargs -r %{__rm} 
+grep '^man' glibc-man.list | sed -e "s,^,$RPM_BUILD_ROOT%{_mandir}/," | xargs -r %{__rm} 
 # rpcbind, formerly glibc
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man8/rpcinfo.8
 # gawk
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man1/{gawk,igawk}.1
+# libaio
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/man3/{aio_init,lio_listio}.3
 # shadow (but not pwdutils!); shadow(5) is missing in pwdutils too
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man5/passwd.5
 
@@ -540,27 +542,19 @@ done
 
 # files with just .so links pointing to non-existing man pages
 # FIXME: recheck after fixing cs man pages build/install
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/cs/man{2,3,4,7}/*.*
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/cs/man{2,4}/*.*
 # modules.2
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/de/man2/{create_module,delete_module,get_kernel_syms,init_module}.2
 # obsolete.2
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/{de,es,ko,nl,pl,pt,ru}/man2/{oldfstat,oldlstat,oldolduname,oldstat,olduname}.2
+# undocumented.7 (exists in es, but not installed because it's not in C manuals)
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/es/man5/networks.5
+# clock_getres.3 (packaged in glibc, but these links exist only in fr manuals, not C)
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/fr/man2/{clock_getres,clock_gettime,clock_settime}.2
 # undocumented.7
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/{es,ru}/man5/networks.5
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/ru/man5/networks.5
 # statfs.2
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/pl/man2/fstatfs.2
-# scandir.3
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/pl/man3/alphasort.3
-# termios.3
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/pl/man3/{cfgetispeed,cfgetospeed,cfmakeraw,cfsetispeed,cfsetospeed}.3
-# syslog.3
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/pl/man3/closelog.3
-# resolver.3
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/pl/man3/{dn_comp,dn_expand}.3
-# scanf.3
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/pl/man3/fscanf.3
-# encrypt.3
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/tr/man3/{encrypt_r,setkey,setkey_r}.3
 
 %clean
 rm -rf $RPM_BUILD_ROOT
