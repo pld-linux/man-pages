@@ -1,4 +1,3 @@
-# TODO: fix cs
 #
 # Conditional build:
 %bcond_with	tars	# generate man-pages tars for other packages [not done yet]
@@ -112,6 +111,7 @@ Patch2:		%{name}-misc.patch
 Patch3:		%{name}-extra.patch
 Patch4:		%{name}-tr-bash.patch
 Patch5:		%{name}-misc-localized.patch
+Patch6:		%{name}-cs-bash.patch
 URL:		https://www.kernel.org/doc/man-pages/
 BuildRequires:	rpmbuild(macros) >= 1.566
 BuildRequires:	sed >= 4.0
@@ -294,18 +294,15 @@ Fragmenty POSIX 1003.1-2003 w postaci stron podręcznika systemowego.
 
 %prep
 %setup -q -c -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20 -a30
-cd man-pages-%{version}
-%patch0 -p1
-cd ../man-pages-zh_CN-%{zh_version}
-%patch1 -p1
-cd ../man-pages-tr-%{tr_version}
-%patch4 -p1
-cd ..
+%patch0 -p1 -d man-pages-%{version}
+%patch1 -p1 -d man-pages-zh_CN-%{zh_version}
+%patch4 -p1 -d man-pages-tr-%{tr_version}
+%patch6 -p1 -d man-pages-cs-%{cs_version}
 install -d man-pages-extra
 bzip2 -dc %{SOURCE50} | tar xf - -C man-pages-extra
-cd man-pages-extra
-%patch3 -p0
-cd ..
+#cd man-pages-extra
+%patch3 -p0 -d man-pages-extra
+#cd ..
 
 # prepare somehow unified source trees
 install -d src
@@ -333,13 +330,6 @@ tar xzf %{SOURCE12} -C src/ko
 %{__mv} man-pages-zh_CN-%{zh_version}/src src/zh_CN
 
 # unify trees for easier processing (where possible)
-
-# cs: replace symlinks by .so pointers
-for l in `find src/cs -type l` ; do
-	t=`readlink "$l"`
-	rm -f "$l"
-	echo ".so $t" > "$l"
-done
 
 # da: add man1 subdir
 install -d src/da/man1
@@ -433,6 +423,8 @@ find src/zh_CN -name CVS -o -name '*.orig' -o -name '*~' | xargs rm -rf
 # patching creates backups
 find . '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -rf
 
+# merge our "extra" tarball
+
 # already in base man-pages
 %{__rm} man-pages-extra/man1/{getent,iconv,locale,localedef,sprof}.1
 %{__rm} man-pages-extra/man2/vm86old.2
@@ -445,7 +437,11 @@ rmdir man-pages-extra/man4
 for d in man-pages-extra/man* ; do
 	mv -i $d/*.* src/C/${d#man-pages-extra/}
 done
-mkdir src/cs/man{1,2,3,4,7}
+%{__rm} man-pages-extra/cs/man1/{dir,egrep,fgrep,vdir}.1
+%{__rm} man-pages-extra/cs/man4/{kmem,port,vcsa,zero}.4
+%{__rm} man-pages-extra/cs/man7/utf8.7
+# empty now
+rmdir man-pages-extra/cs/man{4,7}
 %{__rm} man-pages-extra/de/man3/ctime.3
 # empty now
 rmdir man-pages-extra/de/man3
@@ -455,7 +451,8 @@ rmdir man-pages-extra/de/man3
 rmdir man-pages-extra/it/man7
 %{__rm} man-pages-extra/ja/man3/{CIRCLEQ_*,LIST_*,TAILQ_*,__after_morecore_hook,__free_hook,__malloc_initialize_hook,__memalign_hook,__realloc_kook}.3
 %{__rm} man-pages-extra/pt_BR/man2/waitpid.2
-for d in man-pages-extra/*/man* ; do
+# note: cs are omitted here and processed later
+for d in man-pages-extra/{de,es,fi,fr,hu,id,it,ja,ko,nl,pl,pt_BR,ru,zh_CN}/man* ; do
 	mv -i $d/*.* src/${d#man-pages-extra/}
 done
 
@@ -472,6 +469,15 @@ ln -sf pt_BR src/pt
 
 %build
 # some man-pages require build step
+
+# cs: prepare man pages and apply extra
+LANG=en_GB.UTF-8 \
+%{__make} -C src/cs latest
+%{__mv} src/cs/latest/man* src/cs
+rmdir src/cs/latest
+for d in man-pages-extra/cs/man* ; do
+	mv -i $d/*.* src/${d#man-pages-extra/}
+done
 
 # tr: make man pages from XML (note: compiles some utility)
 %{__make} -C src/tr/source
@@ -541,12 +547,10 @@ for l in %{man_langs} ; do
 done
 
 # files with just .so links pointing to non-existing man pages
-# FIXME: recheck after fixing cs man pages build/install
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/cs/man{2,4}/*.*
 # modules.2
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/de/man2/{create_module,delete_module,get_kernel_syms,init_module}.2
 # obsolete.2
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/{de,es,ko,nl,pl,pt,ru}/man2/{oldfstat,oldlstat,oldolduname,oldstat,olduname}.2
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/{cs,de,es,ko,nl,pl,pt,ru}/man2/{oldfstat,oldlstat,oldolduname,oldstat,olduname}.2
 # undocumented.7 (exists in es, but not installed because it's not in C manuals)
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/es/man5/networks.5
 # clock_getres.3 (packaged in glibc, but these links exist only in fr manuals, not C)
@@ -569,8 +573,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man6/*.6*
 %{_mandir}/man7/*.7*
 %{_mandir}/man8/*.8*
-# FIXME
-#%lang(cs) %{_mandir}/cs/man*/*
+%lang(cs) %{_mandir}/cs/man*/*
 %lang(de) %{_mandir}/de/man*/*
 %lang(es) %{_mandir}/es/man*/*
 %lang(fi) %{_mandir}/fi/man*/*
