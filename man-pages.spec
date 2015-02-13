@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	3.76
+Version:	3.79
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -41,7 +41,7 @@ Group:		Documentation
 %define		zh_version		1.5
 %define		posix_version		2013-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	c2c0ff8bebf00054089dcb43787135b6
+# Source0-md5:	938950106f4483383dd367fe9e8aab9f
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -93,7 +93,7 @@ Source16:	http://www.rolix.org/man/arhiva/man-pages-ro-%{ro_version}.tar.gz
 # ASP-linux have more up-to-date manpages (but 0.98 contains some updated pages)
 Source17:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/manpages-ru-asp-%{ru_asp_version}.tar.bz2
 # Source17-md5:	fffb27648417c8dd551e2a4403eefc64
-Source18:	http://download.sourceforge.net/belgeler/man-pages-tr-%{tr_version}.tar.gz
+Source18:	http://downloads.sourceforge.net/belgeler/man-pages-tr-%{tr_version}.tar.gz
 # Source18-md5:	8f322a60c80e31c34ef8979edaf68aae
 Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.tar.gz
 # Source19-md5:	89576c5b51bb83c8bfa8bda794b96e21
@@ -105,13 +105,12 @@ Source30:	https://www.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pa
 Source50:	%{name}-extra.tar.bz2
 # Source50-md5:	15d763c5221088dcb15ba8ae95f6d239
 Source100:	%{name}-tars.list
-Patch0:		%{name}-localtime.patch
-Patch1:		%{name}-zh_fixes.patch
-Patch2:		%{name}-misc.patch
-Patch3:		%{name}-extra.patch
-Patch4:		%{name}-tr-bash.patch
-Patch5:		%{name}-misc-localized.patch
-Patch6:		%{name}-cs-bash.patch
+Patch0:		%{name}-zh_fixes.patch
+Patch1:		%{name}-misc.patch
+Patch2:		%{name}-extra.patch
+Patch3:		%{name}-tr-bash.patch
+Patch4:		%{name}-misc-localized.patch
+Patch5:		%{name}-cs-bash.patch
 URL:		https://www.kernel.org/doc/man-pages/
 BuildRequires:	rpmbuild(macros) >= 1.566
 BuildRequires:	sed >= 4.0
@@ -294,14 +293,13 @@ Fragmenty POSIX 1003.1-2003 w postaci stron podręcznika systemowego.
 
 %prep
 %setup -q -c -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20 -a30
-%patch0 -p1 -d man-pages-%{version}
-%patch1 -p1 -d man-pages-zh_CN-%{zh_version}
-%patch4 -p1 -d man-pages-tr-%{tr_version}
-%patch6 -p1 -d man-pages-cs-%{cs_version}
+%patch0 -p1 -d man-pages-zh_CN-%{zh_version}
+%patch3 -p1 -d man-pages-tr-%{tr_version}
+%patch5 -p1 -d man-pages-cs-%{cs_version}
 install -d man-pages-extra
 bzip2 -dc %{SOURCE50} | tar xf - -C man-pages-extra
 #cd man-pages-extra
-%patch3 -p0 -d man-pages-extra
+%patch2 -p0 -d man-pages-extra
 #cd ..
 
 # prepare somehow unified source trees
@@ -417,8 +415,8 @@ find src/zh_CN -name CVS -o -name '*.orig' -o -name '*~' | xargs rm -rf
 # man1/sync.1 already exists
 %{__rm} src/zh_CN/man8/sync.8
 
-%patch2 -p1 -d src/C
-%patch5 -p1 -d src
+%patch1 -p1 -d src/C
+%patch4 -p1 -d src
 
 # patching creates backups
 find . '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -rf
@@ -525,7 +523,7 @@ for n in src/C/man{1,2,3,4,5,6,7,8,0p,1p,3p}/*; do
 	install -m644 $n $RPM_BUILD_ROOT%{_mandir}/$bn
 done
 # drop man pages packaged separately
-grep '^man' glibc-man.list | sed -e "s,^,$RPM_BUILD_ROOT%{_mandir}/," | xargs -r %{__rm} 
+grep '^man' glibc-man.list | sed -e "s,^,$RPM_BUILD_ROOT%{_mandir}/," | xargs -r %{__rm}
 # rpcbind, formerly glibc
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man8/rpcinfo.8
 # gawk
