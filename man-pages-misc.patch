@@ -20,14 +20,14 @@
  requests.
  The default configuration file,
  .IR /etc/nscd.conf ,
---- man-pages-3.71.orig/man8/zic.8	2013-07-31 06:45:56.000000000 +0000
-+++ man-pages-3.71/man8/zic.8	2013-08-04 15:15:48.773116654 +0000
-@@ -408,7 +408,7 @@
- if the leap second time given by the other fields should be interpreted as
+--- man-pages-3.80/man8/zic.8.orig	2015-02-23 21:40:06.812639470 +0100
++++ man-pages-3.80/man8/zic.8	2015-02-23 21:53:33.905938931 +0100
+@@ -409,7 +409,7 @@
  local wall clock time.
  .SH FILES
--/usr/local/etc/zoneinfo	standard directory used for created files
-+/usr/share/zoneinfo	standard directory used for created files
+ .TP
+-.I /usr/local/etc/zoneinfo
++.I /usr/share/zoneinfo
+ Standard directory used for created files.
  .SH NOTES
  For areas with more than two types of local time,
- you may need to use local standard time in the
