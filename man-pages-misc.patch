@@ -1,14 +1,14 @@
---- man-pages-3.71.orig/man1/ldd.1	2013-07-31 06:45:51.000000000 +0000
-+++ man-pages-3.71/man1/ldd.1	2013-08-04 15:15:48.772116951 +0000
+--- man-pages-3.82/man1/ldd.1.orig	2015-04-12 21:00:47.237951704 +0200
++++ man-pages-3.82/man1/ldd.1	2015-04-12 21:17:06.421264629 +0200
 @@ -105,7 +105,7 @@
  .\" .SH AUTHOR
  .\" David Engel.
  .\" Roland McGrath and Ulrich Drepper.
 -.SH SEE ALSO
 +.SH "SEE ALSO"
+ .BR pldd (1),
  .BR sprof (1),
  .BR ld.so (8),
- .BR ldconfig (8)
 --- man-pages-3.71.orig/man8/nscd.8	2013-07-31 06:45:56.000000000 +0000
 +++ man-pages-3.71/man8/nscd.8	2013-08-04 15:15:48.772116951 +0000
 @@ -24,7 +24,7 @@
