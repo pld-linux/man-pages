@@ -6,6 +6,10 @@ man1/iconv.1
 man1/ldd.1
 man1/locale.1
 man1/localedef.1
+man1/memusage.1
+man1/memusagestat.1
+man1/mtrace.1
+man1/pldd.1
 man1/rpcgen.1
 man1/sprof.1
 man2/getcwd.2
@@ -636,8 +640,11 @@ man3/getrpcent_r.3
 man3/getrpcport.3
 man3/gets.3
 man3/getservbyname.3
+man3/getservbyname_r.3
 man3/getservbyport.3
+man3/getservbyport_r.3
 man3/getservent.3
+man3/getservent_r.3
 man3/getspent.3
 man3/getspent_r.3
 man3/getspnam.3
@@ -1542,6 +1549,7 @@ man5/rpc.5
 man5/tzfile.5
 man7/aio.7
 man7/armscii.7
+man7/armscii-8.7
 man7/ascii.7
 man7/attributes.7
 man7/charsets.7
@@ -1621,6 +1629,7 @@ man7/tis-620.7
 man7/unicode.7
 man7/utf-8.7
 man7/utf8.7
+man8/iconvconfig.8
 man8/ld-linux.8
 man8/ld-linux.so.8
 man8/ld.so.8
