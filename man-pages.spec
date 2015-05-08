@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	3.83
+Version:	4.00
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -41,7 +41,7 @@ Group:		Documentation
 %define		zh_version		1.5
 %define		posix_version		2013-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	a8d21f07f4ee01a117f196ab2f5e260a
+# Source0-md5:	3401eb0020c56639070d199c3e59a4f8
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
