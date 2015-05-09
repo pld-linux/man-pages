@@ -28,8 +28,8 @@ Group:		Documentation
 %define		fr_version		3.03.0
 %define		hu_version		20010119
 %define		id_version		20011116
-%define		it_version		3.64
-%define		ja_version		20140815
+%define		it_version		3.80
+%define		ja_version		20150415
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -70,11 +70,11 @@ Source9:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/%{name}-from-www-id-
 # Source9-md5:	34a69de42ec4ae8180b947f8777a3e7a
 # available also as http://
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.xz
-# Source10-md5:	a7607a5e9674c0f0732e10f5c61b8f35
+# Source10-md5:	d386f809a0d61a99b53d3a7cfb85a3d9
 # note: man-pages-it-extra-0.5.0.tar.gz is also covered by the above version
 #Source11Download: http://linuxjm.sourceforge.jp/download.html
 Source11:	http://linuxjm.sourceforge.jp/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	f81250198f28680308e2b0a403dbbd94
+# Source11-md5:	8c3e2cd683675c5a70a75f0361c8f6c5
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 # TODO: check 20051127 in Debian/Ubuntu?
