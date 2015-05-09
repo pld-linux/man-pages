@@ -462,8 +462,6 @@ ln -sf pt_BR src/pt
 %{__rm} src/C/man1/time.1
 # ftp servers
 %{__rm} src/C/man5/ftpusers.5
-# glibc
-%{__rm} src/C/man8/ld-linux{,.so}.8
 
 %build
 # some man-pages require build step
