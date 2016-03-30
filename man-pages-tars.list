@@ -118,7 +118,9 @@ man3/__ppc_mdoio.3
 man3/__ppc_mdoom.3
 man3/__ppc_set_ppr_low.3
 man3/__ppc_set_ppr_med.3
+man3/__ppc_set_ppr_med_high.3
 man3/__ppc_set_ppr_med_low.3
+man3/__ppc_set_ppr_very_low.3
 man3/__ppc_yield.3
 man3/__realloc_hook.3
 man3/__setfpucw.3
@@ -771,6 +773,7 @@ man3/iruserok_af.3
 man3/isalnum.3
 man3/isalnum_l.3
 man3/isalpha.3
+man3/isalpha_l.3
 man3/isascii.3
 man3/isascii_l.3
 man3/isatty.3
@@ -1310,6 +1313,7 @@ man3/strcspn.3
 man3/strdup.3
 man3/strdupa.3
 man3/strerror.3
+man3/strerror_l.3
 man3/strerror_r.3
 man3/strfmon.3
 man3/strfmon_l.3
