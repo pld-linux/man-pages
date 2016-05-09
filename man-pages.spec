@@ -16,7 +16,7 @@ Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
 Version:	4.05
-Release:	1
+Release:	2
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.17.20080113
@@ -137,6 +137,7 @@ Obsoletes:	manpages-hu
 Conflicts:	attr-devel < 2.2.0-2
 Conflicts:	kbd < 1.12-9
 Conflicts:	libcap < 1:1.10-5
+Conflicts:	lirc < 0.9.3a-2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 AutoReqProv:	no
