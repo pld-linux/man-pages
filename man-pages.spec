@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	4.07
+Version:	4.08
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -28,8 +28,8 @@ Group:		Documentation
 %define		fr_version		3.03.0
 %define		hu_version		20010119
 %define		id_version		20011116
-%define		it_version		4.06
-%define		ja_version		20160715
+%define		it_version		4.07
+%define		ja_version		20161015
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -41,7 +41,7 @@ Group:		Documentation
 %define		zh_version		1.5
 %define		posix_version		2013-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	6d6c59b83431852ba44930785def30d4
+# Source0-md5:	5a8e0a08c275cf37421e39e58acca397
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -72,11 +72,11 @@ Source9:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/%{name}-from-www-id-
 # Source9-md5:	34a69de42ec4ae8180b947f8777a3e7a
 # available also as http://
 Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.tar.xz
-# Source10-md5:	67f88487605e622e850be306db1aa8b6
+# Source10-md5:	47b4ff95e55abf0291c81c990903ec50
 # note: man-pages-it-extra-0.5.0.tar.gz is also covered by the above version
 #Source11Download: http://linuxjm.osdn.jp/download.html
 Source11:	http://linuxjm.osdn.jp/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	37c5338b5126ae10725955229c4919c0
+# Source11-md5:	2c54b46d361b88569c484e7c934ada32
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 # TODO: check 20051127 in Debian/Ubuntu?
