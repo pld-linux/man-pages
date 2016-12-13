@@ -13,6 +13,7 @@ man1/pldd.1
 man1/rpcgen.1
 man1/sprof.1
 man2/getcwd.2
+man2/killpg.2
 man3/CIRCLEQ_ENTRY.3
 man3/CIRCLEQ_HEAD.3
 man3/CIRCLEQ_INIT.3
