@@ -451,6 +451,7 @@ man3/exp2f.3
 man3/exp2l.3
 man3/expf.3
 man3/expl.3
+man3/explicit_bzero.3
 man3/expm1.3
 man3/expm1f.3
 man3/expm1l.3
