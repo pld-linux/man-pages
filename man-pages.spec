@@ -535,6 +535,8 @@ grep '^man' glibc-man.list | sed -e "s,^,$RPM_BUILD_ROOT%{_mandir}/," | xargs -r
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man3/{aio_init,lio_listio}.3
 # shadow (but not pwdutils!); shadow(5) is missing in pwdutils too
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man5/passwd.5
+# keyutils-devel
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/man7/{keyrings,persistent-keyring,process-keyring,session-keyring,thread-keyring,user-keyring,user-session-keyring}.7
 
 # install localized man pages, only for installed C man pages
 for l in %{man_langs} ; do
