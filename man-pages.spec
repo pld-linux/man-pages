@@ -16,7 +16,7 @@ Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
 Version:	4.11
-Release:	1
+Release:	2
 License:	distributable
 Group:		Documentation
 %define		cs_version		0.17.20080113
@@ -29,7 +29,7 @@ Group:		Documentation
 %define		hu_version		20010119
 %define		id_version		20011116
 %define		it_version		4.08
-%define		ja_version		20170415
+%define		ja_version		20170615
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -76,7 +76,7 @@ Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.t
 # note: man-pages-it-extra-0.5.0.tar.gz is also covered by the above version
 #Source11Download: http://linuxjm.osdn.jp/download.html
 Source11:	http://linuxjm.osdn.jp/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	6ec32f9f2c70ea39e945dac06d0ca582
+# Source11-md5:	ee20907738e957d4956197bb0163c9cd
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 # TODO: check 20051127 in Debian/Ubuntu?
@@ -100,7 +100,7 @@ Source18:	http://downloads.sourceforge.net/belgeler/man-pages-tr-%{tr_version}.t
 # Source18-md5:	8f322a60c80e31c34ef8979edaf68aae
 Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.tar.gz
 # Source19-md5:	89576c5b51bb83c8bfa8bda794b96e21
-# TODO: https://github.com/lidaobing/manpages-zh/archive/v%{zh_version}/man-pages-zh_CN-%{zh_version}.tar.gz with zh_version=1.5.2
+# TODO: https://github.com/lidaobing/manpages-zh/archive/v%{zh_version}/man-pages-zh-%{zh_version}.tar.gz with zh_version=1.5.2
 # or http://www.win.tue.nl/~aeb/ftpdocs/linux-local/manpages/tr/man-pages-zh-20141004.zip - what is the original source?
 Source20:	http://download.sf.linuxforum.net/cmpp/man-pages-zh_CN-%{zh_version}.tar.gz
 # Source20-md5:	edfe517621579520cf7451088ab126ea
@@ -140,6 +140,7 @@ Obsoletes:	man-pages-zh
 Obsoletes:	manpages-hu
 Conflicts:	attr-devel < 2.2.0-2
 Conflicts:	kbd < 1.12-9
+Conflicts:	keyutils < 1.5.10
 Conflicts:	libcap < 1:1.10-5
 Conflicts:	lirc < 0.9.3a-2
 BuildArch:	noarch
@@ -535,8 +536,6 @@ grep '^man' glibc-man.list | sed -e "s,^,$RPM_BUILD_ROOT%{_mandir}/," | xargs -r
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man3/{aio_init,lio_listio}.3
 # shadow (but not pwdutils!); shadow(5) is missing in pwdutils too
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man5/passwd.5
-# keyutils-devel
-%{__rm} $RPM_BUILD_ROOT%{_mandir}/man7/{keyrings,persistent-keyring,process-keyring,session-keyring,thread-keyring,user-keyring,user-session-keyring}.7
 
 # install localized man pages, only for installed C man pages
 for l in %{man_langs} ; do
