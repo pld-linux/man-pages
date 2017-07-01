@@ -38,7 +38,7 @@ Group:		Documentation
 #%%define	ru_version		0.98
 %define		ru_asp_version		1.4
 %define		tr_version		1.0.5
-%define		zh_version		1.5
+%define		zh_version		1.5.2
 %define		posix_version		2013-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
 # Source0-md5:	c2f25e2367fc12267bb85abe7b39f173
@@ -100,10 +100,10 @@ Source18:	http://downloads.sourceforge.net/belgeler/man-pages-tr-%{tr_version}.t
 # Source18-md5:	8f322a60c80e31c34ef8979edaf68aae
 Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.tar.gz
 # Source19-md5:	89576c5b51bb83c8bfa8bda794b96e21
-# TODO: https://github.com/lidaobing/manpages-zh/archive/v%{zh_version}/man-pages-zh-%{zh_version}.tar.gz with zh_version=1.5.2
-# or http://www.win.tue.nl/~aeb/ftpdocs/linux-local/manpages/tr/man-pages-zh-20141004.zip - what is the original source?
-Source20:	http://download.sf.linuxforum.net/cmpp/man-pages-zh_CN-%{zh_version}.tar.gz
-# Source20-md5:	edfe517621579520cf7451088ab126ea
+#Source20Download: https://github.com/lidaobing/manpages-zh/releases
+# also newer git snapshot available at http://www.win.tue.nl/~aeb/ftpdocs/linux-local/manpages/tr/man-pages-zh-20141004.zip
+Source20:	https://github.com/lidaobing/manpages-zh/archive/v%{zh_version}/manpages-zh-%{zh_version}.tar.gz
+# Source20-md5:	1bbdc4f32272df0b95146518b27bf4be
 Source30:	https://www.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pages-posix-%{posix_version}.tar.xz
 # Source30-md5:	825fde78e6fddd02426ecdd50e2cbe0d
 Source50:	%{name}-extra.tar.bz2
@@ -116,8 +116,12 @@ Patch3:		%{name}-tr-bash.patch
 Patch4:		%{name}-misc-localized.patch
 Patch5:		%{name}-cs-bash.patch
 URL:		https://www.kernel.org/doc/man-pages/
+BuildRequires:	autoconf >= 2.61
+BuildRequires:	automake
 BuildRequires:	rpmbuild(macros) >= 1.566
 BuildRequires:	sed >= 4.0
+# for man-pages-zh
+BuildRequires:	zh-autoconvert
 # for man-pages-tr
 BuildRequires:	zlib-devel
 Obsoletes:	man-pages-cs
@@ -149,7 +153,7 @@ AutoReqProv:	no
 
 # languages of packaged man pages
 # note: pt_BR is omitted here, these manuals are packaged as pt
-%define	man_langs	cs da de es fi fr hu id it ja ko nl pl pt ru tr uk zh_CN
+%define	man_langs	cs da de es fi fr hu id it ja ko nl pl pt ru tr uk zh_CN zh_TW
 
 %description
 A large collection of man pages covering programming APIs, file
@@ -299,7 +303,7 @@ Fragmenty POSIX 1003.1-2003 w postaci stron podręcznika systemowego.
 
 %prep
 %setup -q -c -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20 -a30
-%patch0 -p1 -d man-pages-zh_CN-%{zh_version}
+%patch0 -p1 -d manpages-zh-%{zh_version}
 %patch3 -p1 -d man-pages-tr-%{tr_version}
 %patch5 -p1 -d man-pages-cs-%{cs_version}
 install -d man-pages-extra
@@ -331,7 +335,7 @@ tar xzf %{SOURCE12} -C src/ko
 %{__mv} manpages-ru-asp-%{ru_asp_version} src/ru
 %{__mv} man-pages-tr-%{tr_version} src/tr
 %{__mv} man-pages-uk_UA.alfa src/uk
-%{__mv} man-pages-zh_CN-%{zh_version}/src src/zh_CN
+%{__mv} manpages-zh-%{zh_version} src/zh
 
 # unify trees for easier processing (where possible)
 
@@ -391,12 +395,7 @@ for f in 1 3 4 5 6 7 8 ; do
 	mv -i src/ja/manual/*/man${f}/* src/ja/man${f}
 done
 
-# zh_CN: cleanup
-find src/zh_CN -name CVS -o -name '*.orig' -o -name '*~' | xargs rm -rf
-# would go in big5 or gb18030, but not gb2312
-%{__rm} src/zh_CN/man1/perltw.1
-# would go in gb18030, but not gb2312
-%{__rm} src/zh_CN/man8/{chat,printcap}.8
+# zh_CN: cleanup must be done after build (in build stage)
 
 # individual man pages fixes
 
@@ -418,8 +417,7 @@ find src/zh_CN -name CVS -o -name '*.orig' -o -name '*~' | xargs rm -rf
 %{__rm} src/pl/man8/sync.8
 %{__mv} src/pt_BR/man8/sync.8 src/pt_BR/man1/sync.1
 %{__mv} src/ru/man8/sync.8 src/ru/man1/sync.1
-# man1/sync.1 already exists
-%{__rm} src/zh_CN/man8/sync.8
+# zh: handler later (after build)
 
 %patch1 -p1 -d src/C
 %patch4 -p1 -d src
@@ -455,9 +453,12 @@ rmdir man-pages-extra/de/man3
 rmdir man-pages-extra/it/man7
 %{__rm} man-pages-extra/ja/man3/{CIRCLEQ_*,LIST_*,TAILQ_*,__after_morecore_hook,__free_hook,__malloc_initialize_hook,__memalign_hook,__realloc_kook}.3
 %{__rm} man-pages-extra/pt_BR/man2/waitpid.2
-# note: cs are omitted here and processed later
-for d in man-pages-extra/{de,es,fi,fr,hu,id,it,ja,ko,nl,pl,pt_BR,ru,zh_CN}/man* ; do
+# note: cs and zh_CN are omitted here and processed later
+for d in man-pages-extra/{de,es,fi,fr,hu,id,it,ja,ko,nl,pl,pt_BR,ru}/man* ; do
 	mv -i $d/*.* src/${d#man-pages-extra/}
+done
+for d in man-pages-extra/zh_CN/man* ; do
+	mv -i $d/*.* src/zh/src/${d#man-pages-extra/zh_CN/}
 done
 
 ln -sf pt_BR src/pt
@@ -485,6 +486,24 @@ done
 %{__make} -C src/tr/source
 find src/tr/tr -name '*.gz' | xargs gzip -d
 %{__mv} src/tr/tr/man* src/tr
+
+# zh: prepare zh_CN and zh_TW
+cd src/zh
+%{__aclocal}
+%{__autoconf}
+%{__automake}
+%configure
+%{__make}
+cd ../..
+for l in zh_CN zh_TW ; do
+install -d src/${l}
+for d in man{1,2,3,4,5,6,7,8,n} ; do
+ln -snf ../zh/src/${d}/${l} src/${l}/${d}
+done
+done
+# zh_*: man1/sync.1 already exists
+%{__rm} src/zh_CN/man8/sync.8
+%{__rm} src/zh_TW/man8/sync.8
 
 # per-package lists / tarballs production
 package=NONE
@@ -593,6 +612,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(tr) %{_mandir}/tr/man*/*
 %lang(uk) %{_mandir}/uk/man*/*
 %lang(zh_CN) %{_mandir}/zh_CN/man*/*
+%lang(zh_TW) %{_mandir}/zh_TW/man*/*
 
 %files posix
 %defattr(644,root,root,755)
