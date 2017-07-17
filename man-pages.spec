@@ -106,8 +106,7 @@ Source20:	https://github.com/lidaobing/manpages-zh/archive/v%{zh_version}/manpag
 # Source20-md5:	1bbdc4f32272df0b95146518b27bf4be
 Source30:	https://www.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pages-posix-%{posix_version}.tar.xz
 # Source30-md5:	825fde78e6fddd02426ecdd50e2cbe0d
-Source50:	%{name}-extra.tar.bz2
-# Source50-md5:	15d763c5221088dcb15ba8ae95f6d239
+Source50:	%{name}-links.list
 Source100:	%{name}-tars.list
 Patch0:		%{name}-zh_fixes.patch
 Patch1:		%{name}-misc.patch
@@ -115,6 +114,7 @@ Patch2:		%{name}-extra.patch
 Patch3:		%{name}-tr-bash.patch
 Patch4:		%{name}-misc-localized.patch
 Patch5:		%{name}-cs-bash.patch
+Patch10:	%{name}-extra-files.patch
 URL:		https://www.kernel.org/doc/man-pages/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
@@ -306,11 +306,24 @@ Fragmenty POSIX 1003.1-2003 w postaci stron podręcznika systemowego.
 %patch0 -p1 -d manpages-zh-%{zh_version}
 %patch3 -p1 -d man-pages-tr-%{tr_version}
 %patch5 -p1 -d man-pages-cs-%{cs_version}
-install -d man-pages-extra
-bzip2 -dc %{SOURCE50} | tar xf - -C man-pages-extra
-#cd man-pages-extra
+# man-pages-extra
+%patch10 -p0
 %patch2 -p0 -d man-pages-extra
-#cd ..
+install -d man-pages-extra/C
+%{__mv} man-pages-extra/man* man-pages-extra/C
+# extra so links (via man-pages-extra)
+while read LINE ; do
+	if echo "$LINE" | grep -q '^#' ; then
+		continue
+	fi
+	set -- $LINE
+	install -d man-pages-extra/${1}/$(dirname $2)
+	if [ -f man-pages-extra/${1}/${2} ]; then
+		echo "man-pages-extra/${1}/${2} already exists!"
+		exit 1
+	fi
+	echo ".so $3" >>man-pages-extra/${1}/${2}
+done < %{SOURCE50}
 
 # prepare somehow unified source trees
 install -d src
@@ -428,16 +441,16 @@ find . '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -rf
 # merge our "extra" tarball
 
 # already in base man-pages
-%{__rm} man-pages-extra/man1/{getent,iconv,locale,localedef,sprof}.1
-%{__rm} man-pages-extra/man2/vm86old.2
-%{__rm} man-pages-extra/man3/{CIRCLEQ_*,LIST_*,TAILQ_*,__after_morecore_hook,__free_hook,__malloc_initialize_hook,__memalign_hook,__realloc_kook}.3
-%{__rm} man-pages-extra/man4/sk98lin.4
-%{__rm} man-pages-extra/man8/sln.8
+%{__rm} man-pages-extra/C/man1/{getent,iconv,locale,localedef,sprof}.1
+%{__rm} man-pages-extra/C/man2/vm86old.2
+%{__rm} man-pages-extra/C/man3/{CIRCLEQ_*,LIST_*,TAILQ_*,__after_morecore_hook,__free_hook,__malloc_initialize_hook,__memalign_hook,__realloc_hook}.3
+%{__rm} man-pages-extra/C/man4/sk98lin.4
+%{__rm} man-pages-extra/C/man8/sln.8
 # empty now
-rmdir man-pages-extra/man4
+rmdir man-pages-extra/C/man4
 # apply man-pages-extra, preventing overwriting of already existing man pages
-for d in man-pages-extra/man* ; do
-	mv -i $d/*.* src/C/${d#man-pages-extra/}
+for d in man-pages-extra/C/man* ; do
+	mv -i $d/*.* src/C/${d#man-pages-extra/C/}
 done
 %{__rm} man-pages-extra/cs/man1/{dir,egrep,fgrep,vdir}.1
 %{__rm} man-pages-extra/cs/man4/{kmem,port,vcsa,zero}.4
@@ -451,7 +464,7 @@ rmdir man-pages-extra/de/man3
 %{__rm} man-pages-extra/it/man7/utf8.7
 # empty now
 rmdir man-pages-extra/it/man7
-%{__rm} man-pages-extra/ja/man3/{CIRCLEQ_*,LIST_*,TAILQ_*,__after_morecore_hook,__free_hook,__malloc_initialize_hook,__memalign_hook,__realloc_kook}.3
+%{__rm} man-pages-extra/ja/man3/{CIRCLEQ_*,LIST_*,TAILQ_*,__after_morecore_hook,__free_hook,__malloc_initialize_hook,__memalign_hook,__realloc_hook}.3
 %{__rm} man-pages-extra/pt_BR/man2/waitpid.2
 # note: cs and zh_CN are omitted here and processed later
 for d in man-pages-extra/{de,es,fi,fr,hu,id,it,ja,ko,nl,pl,pt_BR,ru}/man* ; do
