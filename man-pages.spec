@@ -440,32 +440,10 @@ find . '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -rf
 
 # merge our "extra" tarball
 
-# already in base man-pages
-%{__rm} man-pages-extra/C/man1/{getent,iconv,locale,localedef,sprof}.1
-%{__rm} man-pages-extra/C/man2/vm86old.2
-%{__rm} man-pages-extra/C/man3/{CIRCLEQ_*,LIST_*,TAILQ_*,__after_morecore_hook,__free_hook,__malloc_initialize_hook,__memalign_hook,__realloc_hook}.3
-%{__rm} man-pages-extra/C/man4/sk98lin.4
-%{__rm} man-pages-extra/C/man8/sln.8
-# empty now
-rmdir man-pages-extra/C/man4
 # apply man-pages-extra, preventing overwriting of already existing man pages
 for d in man-pages-extra/C/man* ; do
 	mv -i $d/*.* src/C/${d#man-pages-extra/C/}
 done
-%{__rm} man-pages-extra/cs/man1/{dir,egrep,fgrep,vdir}.1
-%{__rm} man-pages-extra/cs/man4/{kmem,port,vcsa,zero}.4
-%{__rm} man-pages-extra/cs/man7/utf8.7
-# empty now
-rmdir man-pages-extra/cs/man{4,7}
-%{__rm} man-pages-extra/de/man3/ctime.3
-# empty now
-rmdir man-pages-extra/de/man3
-%{__rm} man-pages-extra/fr/man8/{ld-linux,ld-linux.so}.8
-%{__rm} man-pages-extra/it/man7/utf8.7
-# empty now
-rmdir man-pages-extra/it/man7
-%{__rm} man-pages-extra/ja/man3/{CIRCLEQ_*,LIST_*,TAILQ_*,__after_morecore_hook,__free_hook,__malloc_initialize_hook,__memalign_hook,__realloc_hook}.3
-%{__rm} man-pages-extra/pt_BR/man2/waitpid.2
 # note: cs and zh_CN are omitted here and processed later
 for d in man-pages-extra/{de,es,fi,fr,hu,id,it,ja,ko,nl,pl,pt_BR,ru}/man* ; do
 	mv -i $d/*.* src/${d#man-pages-extra/}
