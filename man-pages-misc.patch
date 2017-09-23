@@ -9,17 +9,6 @@
  .BR pldd (1),
  .BR sprof (1),
  .BR ld.so (8),
---- man-pages-3.71.orig/man8/nscd.8	2013-07-31 06:45:56.000000000 +0000
-+++ man-pages-3.71/man8/nscd.8	2013-08-04 15:15:48.772116951 +0000
-@@ -24,7 +24,7 @@
- .SH NAME
- nscd \- name service cache daemon
- .SH DESCRIPTION
--Nscd is a daemon that provides a cache for the most common name service
-+nscd is a daemon that provides a cache for the most common name service
- requests.
- The default configuration file,
- .IR /etc/nscd.conf ,
 --- man-pages-3.80/man8/zic.8.orig	2015-02-23 21:40:06.812639470 +0100
 +++ man-pages-3.80/man8/zic.8	2015-02-23 21:53:33.905938931 +0100
 @@ -409,7 +409,7 @@
