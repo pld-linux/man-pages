@@ -146,33 +146,6 @@
  .SH "KATSO MY�S"
 -/usr/doc/trek 
 +/usr/share/doc/bsd-games-*/trek/trekmanual.txt
---- man-pages.orig/fr/man1/sync.1	2008-07-17 12:03:15.000000000 +0000
-+++ man-pages/fr/man1/sync.1	2013-08-04 15:16:51.690178673 +0000
-@@ -17,7 +17,7 @@
- .\" Màj 24/06/2008 man-pages-fr-3.00.0
- .\" Màj 17/07/2008 man-pages-fr-3.03.0
- .\"
--.TH SYNC 8 "1er novembre 1998" "GNU" "Manuel de l'administrateur Linux"
-+.TH SYNC 1 "1er novembre 1998" "GNU" "Manuel de l'administrateur Linux"
- .SH NOM
- sync \- Synchroniser les données en mémoire et celles sur disque
- .SH SYNOPSIS
---- man-pages.orig/fr/man7/iso_8859-1.7	2008-07-17 12:03:15.000000000 +0000
-+++ man-pages/fr/man7/iso_8859-1.7	2013-08-04 15:17:39.700116046 +0000
-@@ -37,7 +37,7 @@
- .\"
- .TH ISO_8859-1 7 "31 mai 1999" "Linux" "Manuel de l'administrateur Linux"
- .SH NOM
--iso_8859_1, latin1 \- Le jeu de caractères ISO 8859\-1 encodé en octal, décimal et hexadécimal
-+iso_8859-1, latin1 \- Le jeu de caractères ISO 8859\-1 encodé en octal, décimal et hexadécimal
- .SH DESCRIPTION
- Le standard ISO\ 8859 inclut plusieurs extensions au jeu de caractères ASCII
- (ISO\ 646-IRV).
---- man-pages.orig/fr/man7/latin1.7	2007-07-11 12:53:10.000000000 +0000
-+++ man-pages/fr/man7/latin1.7	2013-08-04 15:15:48.774116647 +0000
-@@ -1 +1 @@
--.so man7/iso_8859-1.7
-+.so iso_8859-1.7
 --- man-pages.orig/hu/man8/gpm.8	2000-07-09 12:31:30.000000000 +0000
 +++ man-pages/hu/man8/gpm.8	2013-08-04 15:15:48.787116774 +0000
 @@ -1,4 +1,4 @@

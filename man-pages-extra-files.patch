@@ -3509,6 +3509,126 @@
 +
 +.SH TRADUCTION
 +Fr�d�ric Delanoy, 2000.
+--- man-pages-extra.orig/fr/man1/sync.1	1970-01-01 01:00:00.000000000 +0100
++++ man-pages-extra/fr/man1/sync.1	2008-07-17 14:03:15.000000000 +0200
+@@ -0,0 +1,117 @@
++.\" Reboot/halt and Linux information extracted from Rick Faith's original
++.\" sync(8) manpage, dating back to the Linux 0.99 days.  The Linux-specific
++.\" information is attributed to Linus Torvalds
++.\" Copyright 1992, 1993 Rickard E. Faith (faith@cs.unc.edu)
++.\" May be distributed under the GNU General Public License
++.\"
++.\" Traduction : Christophe Blaess (ccb@club-internet.fr)
++.\" 09/01/2000 LDP-1.28
++.\" Màj 25/07/2003 LDP-1.56
++.\" Màj 04/07/2005 LDP-1.61
++.\" Màj 01/05/2006 LDP-1.67.1
++.\" Màj 12/05/2006 LDP-1.70.0
++.\" Màj 14/08/2006 LDP-2.38.0
++.\" Màj 19/11/2007 LDP-2.52.0
++.\" Màj 10/12/2007 LDP-2.60.0
++.\" Màj 17/12/2007 LDP-2.62.0
++.\" Màj 24/06/2008 man-pages-fr-3.00.0
++.\" Màj 17/07/2008 man-pages-fr-3.03.0
++.\"
++.TH SYNC 8 "1er novembre 1998" "GNU" "Manuel de l'administrateur Linux"
++.SH NOM
++sync \- Synchroniser les données en mémoire et celles sur disque
++.SH SYNOPSIS
++.B "sync [\-\-help] [\-\-version]"
++.SH DESCRIPTION
++La commande
++.B sync
++écrit sur le disque toutes les données dans les tampons en mémoire.
++Ceci peut inclure les superblocs modifiés, les inœuds modifiés,
++et les écritures différées.
++Ceci est implémenté dans le noyau, le programme
++.B sync
++ne fait rien d'autre que d'invoquer l'appel système
++.BR sync (2).
++.PP
++Le noyau garde des données en mémoire pour éviter d'avoir à faire trop
++de lectures et écritures (relativement lentes) sur le disque.
++Ceci améliore sensiblement les performances,
++mais si l'ordinateur se plante, des données peuvent être perdues,
++ou le système de fichiers peut être endommagé.
++L'application
++.B sync
++garantit que le contenu des tampons en mémoire soit écrit sur le disque.
++.PP
++Normalement,
++.B sync
++devrait être invoqué avant que le processeur soit arrêté de manière
++anormale (par exemple avant de déclencher une panique du noyau lors
++du débogage d'un nouveau module du noyau).
++En général, la machine doit être arrêtée en employant les commandes
++.BR shutdown (8),
++.BR reboot (8)
++ou
++.BR halt (8),
++qui tentent de mettre le système dans un état calme, avant d'appeler
++.BR sync (2).
++(Il existe plusieurs implémentations de ces commandes, consultez la
++documentation de votre distribution, car sur certains systèmes,
++il ne faut pas appeler
++.BR reboot (8)
++ou
++.BR halt (8)
++directement).
++.SH OPTIONS
++.TP
++.B "\-\-help"
++Afficher un message d'aide sur la sortie standard et terminer normalement.
++.TP
++.B "\-\-version"
++Afficher le numéro de version sur la sortie standard
++et terminer normalement.
++.TP
++.B "\-\-"
++Terminer la liste des options.
++.SH ENVIRONNEMENT
++Les variables d'environnement
++.BR LANG ,
++.BR LC_ALL ,
++.B LC_CTYPE
++et
++.B LC_MESSAGES
++ont leur signification habituelle.
++.SH CONFORMITÉ
++POSIX.2.
++.SH NOTES
++Sous Linux,
++.B sync
++garantit seulement que l'écriture des blocs modifiés est programmée.
++Il peut y avoir un petit retard entre le retour de l'appel système
++et l'écriture effective.
++Les commandes
++.BR reboot (8)
++et
++.BR halt (8)
++gèrent ceci en dormant quelques secondes après l'invocation de
++.BR sync (2).
++.PP
++Cette page décrit la commande
++.B sync
++telle qu'elle est fournie dans le paquetage fileutils-4.0.
++D'autres versions peuvent être légèrement différentes.
++.SH VOIR AUSSI
++.BR sync (2),
++.BR halt (8),
++.BR reboot (8),
++.BR update (8)
++.SH TRADUCTION
++.PP
++Ce document est une traduction réalisée par Christophe Blaess
++<http://www.blaess.fr/christophe/> le 9\ janvier\ 2000
++et révisée le 17\ juillet\ 2008.
++.PP
++L'équipe de traduction a fait le maximum pour réaliser une adaptation
++française de qualité. La version anglaise la plus à jour de ce document est
++toujours consultable via la commande\ : «\ \fBLANG=C\ man\ 8\ sync\fP\ ».
++N'hésitez pas à signaler à l'auteur ou au traducteur, selon le cas, toute
++erreur dans cette page de manuel.
 --- man-pages-extra.orig/fr/man1/wall.1	1970-01-01 01:00:00.000000000 +0100
 +++ man-pages-extra/fr/man1/wall.1	2000-09-25 14:08:39.000000000 +0200
 @@ -0,0 +1,24 @@

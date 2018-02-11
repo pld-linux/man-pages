@@ -74,6 +74,17 @@
  checks if everybody has read permissions for a given NIS+ table and returns 0
  if this is the case or 1
  if only authenticated users can read the table.
+--- fr.orig/man1/sync.1      2008-07-17 12:03:15.000000000 +0000
++++ fr/man1/sync.1   2013-08-04 15:16:51.690178673 +0000
+@@ -17,7 +17,7 @@
+ .\" Màj 24/06/2008 man-pages-fr-3.00.0
+ .\" Màj 17/07/2008 man-pages-fr-3.03.0
+ .\"
+-.TH SYNC 8 "1er novembre 1998" "GNU" "Manuel de l'administrateur Linux"
++.TH SYNC 1 "1er novembre 1998" "GNU" "Manuel de l'administrateur Linux"
+ .SH NOM
+ sync \- Synchroniser les données en mémoire et celles sur disque
+ .SH SYNOPSIS
 --- pt_BR/man1/file.1.orig	1998-12-04 21:02:29.000000000 +0100
 +++ pt_BR/man1/file.1	2005-12-26 12:23:57.944391984 +0100
 @@ -140,7 +140,7 @@
