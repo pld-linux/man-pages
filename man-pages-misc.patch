@@ -9,14 +9,3 @@
  .BR pldd (1),
  .BR sprof (1),
  .BR ld.so (8),
---- man-pages-3.80/man8/zic.8.orig	2015-02-23 21:40:06.812639470 +0100
-+++ man-pages-3.80/man8/zic.8	2015-02-23 21:53:33.905938931 +0100
-@@ -409,7 +409,7 @@
- local wall clock time.
- .SH FILES
- .TP
--.I /usr/local/etc/zoneinfo
-+.I /usr/share/zoneinfo
- Standard directory used for created files.
- .SH NOTES
- For areas with more than two types of local time,

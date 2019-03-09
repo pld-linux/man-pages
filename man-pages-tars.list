@@ -1135,6 +1135,7 @@ man3/re_exec.3
 man3/readdir.3
 man3/readdir_r.3
 man3/realloc.3
+man3/reallocarray.3
 man3/realpath.3
 man3/recno.3
 man3/regcomp.3

@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	4.16
+Version:	5.00
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -25,11 +25,11 @@ Group:		Documentation
 %define		es_version		1.55
 %define		es_extra_version	0.8a
 %define		fi_version		0.2
-%define		fr_version		3.70
+%define		fr_version		3.70-1
 %define		hu_version		20010119
 %define		id_version		20011116
 %define		it_version		4.08
-%define		ja_version		20180815
+%define		ja_version		20190215
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -41,14 +41,14 @@ Group:		Documentation
 %define		zh_version		1.5.2
 %define		posix_version		2013-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	ad9f1ff81276fe8d90d077484d6d4b5e
+# Source0-md5:	d3be22b49e52d93734343c0df52dad01
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
 # http://www.sslug.dk/locale/man-sider/manpages-da-%{da_version}.tar.gz (404 as of Feb 2018)
 Source2:	manpages-da-%{da_version}.tar.gz
 # Source2-md5:	26cdd12ea7c62e595fc1a3a39bf53115
-# TODO: new project at https://manpages-de.alioth.debian.org/downloads/, current version is 2.3
+# TODO: new project at https://manpages-de-team.pages.debian.net/manpages-de/, current version is 2.12
 Source3:	http://www.infodrom.org/projects/manpages-de/download/manpages-de-%{de_version}.tar.gz
 # Source3-md5:	6686b1be6da01cdbb5ea7511ddcf61a0
 Source4:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-%{es_version}.tar.bz2
@@ -59,8 +59,9 @@ Source5:	http://www.ditec.um.es/~piernas/manpages-es/%{name}-es-extra-%{es_extra
 # (despite archive filename it's 0.2 version)
 Source6:	man-fi-0.1.tar.bz2
 # Source6-md5:	bb266d3797cdf71bfbe1da190196f455
-#Source7Download: https://alioth.debian.org/frs/?group_id=100455
-Source7:	https://alioth.debian.org/frs/download.php/file/4119/man-pages-fr-%{fr_version}-1.tar.xz
+#Source7Download: https://gitlab.com/perkamon/man-pages-fr/tags
+# TODO: use https://gitlab.com/perkamon/man-pages-fr/-/archive/%{fr_version}/man-pages-fr-%{fr_version}.tar.bz2, then make dist-fr to get tarball - but 4.16 produces very few translations
+Source7:	man-pages-fr-%{fr_version}.tar.xz
 # Source7-md5:	66a6033fb2ed3641c35b1d53c0fe5deb
 # there is also: http://manpagesfr.free.fr/download/man-pages-extras-fr-0.8.1.tar.bz2
 # and: http://manpagesfr.free.fr/download/man-pages-sup-fr-20080606.tar.bz2
@@ -77,14 +78,14 @@ Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.t
 # note: man-pages-it-extra-0.5.0.tar.gz is also covered by the above version
 #Source11Download: http://linuxjm.osdn.jp/download.html
 Source11:	http://linuxjm.osdn.jp/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	fd5111c6ea1054252660d4e96eddeefc
+# Source11-md5:	6ccca47c5fb401b2c83063e40acbb161
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 # TODO: check 20051127 in Debian/Ubuntu?
 Source13:	ftp://ftp.nl.linux.org/pub/DOC-NL/manpages-nl/manpages-nl-%{nl_version}.tar.gz
 # Source13-md5:	b37b0216a87db7583e88ba87031a0b4a
 # TODO: PTM has been overtaken by new project at http://manpages-pl.sourceforge.net/
-# http://downloads.sourceforge.net/manpages-pl/manpages-pl-%{pl_version}.tar.bz2 with pl_version=0.6
+# http://downloads.sourceforge.net/manpages-pl/manpages-pl-%{pl_version}.tar.bz2 with pl_version=0.7
 Source14:	%{name}-pl-PTM-snapshot.%{pl_version}.tar.bz2
 # Source14-md5:	b9b5751fcde4c36022850d0e5a4757d3
 Source15:	http://www.win.tue.nl/~aeb/ftpdocs/linux-local/manpages/tr/%{name}-pt_BR-%{pt_version}.tgz
@@ -92,7 +93,7 @@ Source15:	http://www.win.tue.nl/~aeb/ftpdocs/linux-local/manpages/tr/%{name}-pt_
 # no LDP man pages yet
 Source16:	http://www.rolix.org/man/arhiva/man-pages-ro-%{ro_version}.tar.gz
 # Source16-md5:	ac5b2c970a31cb721e068ff80e5bd466
-# TODO: new project at: https://sourceforge.net/projects/man-pages-ru/files/
+# TODO: new project at: https://sourceforge.net/projects/man-pages-ru/files/, latest version man-pages-ru_4.17-2385-2385-20181124.tar.bz2
 #Source17:	http://linuxshare.ru/projects/trans/manpages-ru-%{ru_version}.tar.bz2
 # ASP-linux have more up-to-date manpages (but 0.98 contains some updated pages)
 Source17:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/manpages-ru-asp-%{ru_asp_version}.tar.bz2
