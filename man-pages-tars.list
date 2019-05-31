@@ -1437,9 +1437,9 @@ man3/ttyname.3
 man3/ttyname_r.3
 man3/ttyslot.3
 man3/twalk.3
+man3/twalk_r.3
 man3/tzname.3
 man3/tzset.3
-man3/tzset.3.orig
 man3/ualarm.3
 man3/ulckpwdf.3
 man3/ulimit.3
