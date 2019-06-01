@@ -1381,6 +1381,7 @@ fr	man7/PF_X25.7	x25.7
 fr	man7/SOCK_RAW.7	raw.7
 fr	man7/gibi.7	units.7
 fr	man7/giga.7	units.7
+fr	man7/glibc.7	libc.7
 fr	man7/iso-8859-1.7	iso_8859-1.7
 fr	man7/iso-8859-15.7	iso_8859-15.7
 fr	man7/iso-8859-16.7	iso_8859-16.7
