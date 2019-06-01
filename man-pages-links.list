@@ -1672,3 +1672,4 @@ zh_CN	man3/execlp.3	exec.3
 zh_CN	man3/execv.3	exec.3
 zh_CN	man3/execvp.3	exec.3
 zh_CN	man7/utf8.7	utf-8.7
+# zh_TW are handled as preprocessed zh_CN

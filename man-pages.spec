@@ -315,19 +315,6 @@ Fragmenty POSIX 1003.1-2003 w postaci stron podręcznika systemowego.
 %patch2 -p0 -d man-pages-extra
 install -d man-pages-extra/C
 %{__mv} man-pages-extra/man* man-pages-extra/C
-# extra so links (via man-pages-extra)
-while read LINE ; do
-	if echo "$LINE" | grep -q '^#' ; then
-		continue
-	fi
-	set -- $LINE
-	install -d man-pages-extra/${1}/$(dirname $2)
-	if [ -f man-pages-extra/${1}/${2} ]; then
-		echo "man-pages-extra/${1}/${2} already exists!"
-		exit 1
-	fi
-	echo ".so $3" >>man-pages-extra/${1}/${2}
-done < %{SOURCE50}
 
 # prepare somehow unified source trees
 install -d src
@@ -353,6 +340,31 @@ tar xzf %{SOURCE12} -C src/ko
 %{__mv} man-pages-tr-%{tr_version} src/tr
 %{__mv} man-pages-uk_UA.alfa src/uk
 %{__mv} manpages-zh-%{zh_version} src/zh
+
+# extra so links (via man-pages-extra)
+while read LINE ; do
+	if echo "$LINE" | grep -q '^#' ; then
+		continue
+	fi
+	set -- $LINE
+	install -d man-pages-extra/${1}/$(dirname $2)
+	if [ -f man-pages-extra/${1}/${2} ]; then
+		echo "man-pages-extra/${1}/${2} already exists!"
+		exit 1
+	fi
+	echo ".so $3" >>man-pages-extra/${1}/${2}
+	# special case for zh
+	if [ "$1" = "zh_CN" ]; then
+		zhmandir="src/zh/src/$(dirname "$2")"
+		makefile="$zhmandir/manpages"
+		if [ ! -f "$zhmandir/.init.mark" ]; then
+			# allow continuation in next line
+			%{__sed} -i -e 's/\(\.[1-8]\)$/\1 \\/' "$makefile"
+			touch "$zhmandir/.init.mark"
+		fi
+		printf " %s" "$(basename "$2")" >> "$makefile"
+	fi
+done < %{SOURCE50}
 
 # unify trees for easier processing (where possible)
 
@@ -447,7 +459,7 @@ find . '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -rf
 for d in man-pages-extra/C/man* ; do
 	mv -i $d/*.* src/C/${d#man-pages-extra/C/}
 done
-# note: cs and zh_CN are omitted here and processed later
+# note: cs and zh_CN are omitted here and processed in separate special pass
 for d in man-pages-extra/{de,es,fi,fr,hu,id,it,ja,ko,nl,pl,pt_BR,ru}/man* ; do
 	mv -i $d/*.* src/${d#man-pages-extra/}
 done
@@ -526,7 +538,7 @@ for l in *-man.list ; do
 	if [ -f tarsrc/README.${t}-pages ]; then
 		echo "README.${t}-pages" >> "$l"
 	fi
-	tar cJf tar/${t}-pages.tar.xz -C tarsrc --files-from "$l"
+	tar chJf tar/${t}-pages.tar.xz -C tarsrc --files-from "$l"
 done
 %endif
 
