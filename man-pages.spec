@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	5.02
+Version:	5.03
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -29,7 +29,7 @@ Group:		Documentation
 %define		hu_version		20010119
 %define		id_version		20011116
 %define		it_version		4.08
-%define		ja_version		20190715
+%define		ja_version		20191015
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -41,7 +41,7 @@ Group:		Documentation
 %define		zh_version		1.5.2
 %define		posix_version		2013-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	136e5e3380963571a079693d8ae38f52
+# Source0-md5:	4a85d16759c883048a1d27c741dadf17
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -78,7 +78,7 @@ Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.t
 # note: man-pages-it-extra-0.5.0.tar.gz is also covered by the above version
 #Source11Download: http://linuxjm.osdn.jp/download.html
 Source11:	http://linuxjm.osdn.jp/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	f4adcfe3f7881c9a15af7307caff4232
+# Source11-md5:	57969415701eb835a6437bbf1e464816
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 # TODO: check 20051127 in Debian/Ubuntu?
@@ -390,7 +390,7 @@ done
 # ja: merge per-package trees
 %{__mv} src/ja/manual/LDP_man-pages/man* src/ja
 # duplicates of LDP man pages
-%{__rm} -r src/ja/manual/{gnumaniak,ld.so,modutils/man2,glibc-linuxthreads/man3,man/man1/{apropos,man,whatis}.1,netkit/{man3/{daemon,err,login}.3,man5/ftpusers.5},bind/{man5/resolver.5,man7/mailaddr.7},util-linux/man1/tailf.1}
+%{__rm} -r src/ja/manual/{gnumaniak,ld.so,modutils/man2,glibc-linuxthreads/man3,man/man1/{apropos,man,whatis}.1,netkit/{man3/{daemon,err,login}.3,man5/ftpusers.5},bind/{man5/resolver.5,man7/mailaddr.7}}
 # shadow manuals already in shadow package
 %{__rm} -r src/ja/manual/shadow
 # dhcp 3 not dhcp2
@@ -399,8 +399,8 @@ done
 %{__rm} -r src/ja/manual/nfs-server
 # ypbind-mt not ypbind
 %{__rm} -r src/ja/manual/ypbind
-# we use: net-tools/hostname, util-linux/{kill,write}, SysVinit/{last,mesg,wall,halt,reboot,shutdown}, textutils/od, quota/rquotad
-%{__rm} src/ja/manual/{GNU_sh-utils/man1/hostname.1,procps/man1/kill.1,util-linux/man1/{last,mesg,od,wall}.1,netkit/man1/write.1,nfs-utils/man8/rquotad.8,util-linux/man8/{halt,reboot,shutdown}.8}
+# we use: net-tools/hostname, util-linux/{kill,last,lastb,write}, SysVinit/{mesg,wall,halt,reboot,shutdown}, textutils/od, quota/rquotad
+%{__rm} src/ja/manual/{GNU_sh-utils/man1/hostname.1,SysVinit/man1/{last,lastb}.1,procps/man1/kill.1,util-linux/man1/{mesg,wall}.1,netkit/man1/write.1,nfs-utils/man8/rquotad.8}
 # following modutils changes
 for f in src/ja/manual/modutils/man8/{depmod,insmod,lsmod,modinfo,modprobe,rmmod} ; do
 	%{__mv} ${f}.8 ${f}.modutils.8
@@ -416,8 +416,7 @@ done
 %{__rm} src/ja/manual/net-tools/man1/hostname.1
 %{__rm} src/ja/manual/netatalk/man1/timeout.1
 %{__rm} src/ja/manual/procps/man1/uptime.1
-%{__rm} src/ja/manual/util-linux/man1/{arch,kill}.1
-%{__rm} src/ja/manual/util-linux/man8/sln.8
+%{__rm} src/ja/manual/util-linux/man1/kill.1
 %{__rm} src/ja/manual/bind/man7/hostname.7
 %{__rm} src/ja/manual/cups/man8/lpc.8
 for f in 1 3 4 5 6 7 8 ; do

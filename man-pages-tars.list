@@ -1154,6 +1154,7 @@ man3/remquof.3
 man3/remquol.3
 man3/res_init.3
 man3/res_mkquery.3
+man3/res_nclose.3
 man3/res_ninit.3
 man3/res_nmkquery.3
 man3/res_nquery.3
