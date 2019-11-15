@@ -85,6 +85,7 @@ cs	man3/sigdelset.3	sigsetops.3
 cs	man3/sigemptyset.3	sigsetops.3
 cs	man3/sigfillset.3	sigsetops.3
 cs	man3/sigismember.3	sigsetops.3
+de	man1/uncompress.1	compress.1
 de	man2/FD_CLR.2	select.2
 de	man2/FD_ISSET.2	select.2
 de	man2/FD_SET.2	select.2
@@ -1442,6 +1443,7 @@ id	man8/reboot.8	halt.8
 it	man1/byacc.1	yacc.1
 it	man1/bzip2recover.1	bzip2.1
 it	man1/rbash.1	bash.1
+it	man1/uncompress.1	compress.1
 it	man2/vmold.2	vm86.2
 ja	man1/byacc.1	yacc.1
 ja	man1/flex++.1	flex.1

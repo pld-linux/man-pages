@@ -2089,7 +2089,9 @@ man7/roff.7
 #[modutils]
 #[mt-st]
 #[mtools]
-#[ncompress]
+[ncompress]
+man1/compress.1
+man1/uncompress.1
 #[ncurses]
 #[net-tools]
 #[netpbm]

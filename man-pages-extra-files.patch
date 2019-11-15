@@ -3976,6 +3976,292 @@
 +.\"}}}
 +.SH TRADUCTION
 +Frédéric Delanoy, 2000.
+--- man-pages-extra.orig/it/man1/compress.1	1970-01-01 01:00:00.000000000 +0100
++++ man-pages-extra/it/man1/compress.1	1999-05-24 17:40:20.145820848 +0200
+@@ -0,0 +1,283 @@
++.\" $Id: compress.1,v 1.1.1.1 1999/05/24 15:40:20 sagan Exp $
++.\" Traduzione di Christian K. Franzone -- Copyright (C) 1996.
++.\" Aggiornamento alla 4.1 di Ottavio Rizzo, marzo 1999.
++.PU
++.TH COMPRESS 1 local
++.SH NOME
++compress, uncompress, zcat \- comprime ed espande dati (versione 4.1)
++.SH SINTASSI
++.ll +8
++.B compress
++[
++.B \-f
++] [
++.B \-v
++] [
++.B \-c
++] [
++.B \-V
++] [
++.B \-r
++] [
++.B \-b
++.I bit
++] [
++.I "nome \&..."
++]
++.ll -8
++.br
++.B uncompress
++[
++.B \-f
++] [
++.B \-v
++] [
++.B \-c
++] [
++.B \-V
++] [
++.I "nome \&..."
++]
++.br
++.B zcat
++[
++.B \-V
++] [
++.I "nome \&..."
++]
++.SH DESCRIZIONE
++.I Compress
++riduce la grandezza dei file usando la codifica adattativa di Lempel-Ziv.
++Quando possibile,
++ogni file viene sostituito da uno con estensione 
++.B "\&.Z,"
++mentre vengono mantenuti gli stessi permessi di possesso, accesso e modifica.
++Se non vengono specificati file, lo standard input viene compresso sullo 
++standard output.
++.I Compress
++proverà a comprimere solo file regolari.
++In particolare, ignorerà i collegamenti simbolici. Se un file ha più
++collegamenti fisici,
++.I compress
++si rifiuterà di comprimerlo, a meno che venga data l'opzione
++.BR \-f .
++.PP
++Se
++.B \-f
++non viene usata e
++.I compress
++viene fatto girare in primo piano,
++all'utente viene chiesto se il file esistente debba essere sovrascritto.
++.PP
++I  file compressi possono essere ripristinati alla loro forma originale usando
++.I uncompress
++o
++.I zcat.
++.PP
++.I uncompress
++prende un elenco di file dalla riga di comando e rimpiazza ogni file,
++il cui nome termini per
++.B "\&.Z"
++e che inizi con il numero magico giusto, con un file decompresso 
++senza la
++.BR "\&.Z" .
++Il file decompresso avrà gli stessi modi, proprietari e orari del file
++compresso.
++.PP
++L'opzione 
++.B \-c
++fa si che 
++.I compress/uncompress
++scriva sullo standard output; nessun file viene cambiato.
++.PP
++.I zcat
++è identico a 
++.I uncompress
++.BR \-c .
++.I zcat
++decomprime o un elenco di file passato sulla riga di comando o lo
++standard input, e scrive i dati decompressi sullo standard output.
++.I zcat
++decomprime file con il numero magico giusto sia che abbiano il suffisso
++.B "\&.Z"
++o meno.
++.PP
++Se l'opzione
++.B \-r
++viene usata, allora
++.I compress
++opera ricorsivamente: se qualcuno dei file passati sulla riga di
++comando è una directory,
++.I compress
++discende nella directory e comprime tutti i file che vi trova.
++.PP
++L'opzione
++.B \-V
++fa sì che ciascuno di questi programmi stampi su stderr, prima di
++comprimere o decomprimere, la propria versione e «patchlevel», insieme
++ad ogni opzione del pre-processore usata  durante la compilazione.
++.PP
++.I Compress
++usa l'algoritmo modificato Lempel-Ziv divulgato in 
++«A technique for high performance data compression»,
++Terry A. Welch,
++.I "IEEE Computer,"
++vol. 17, no. 6 (June 1984), pp. 8-19.
++Le sotto-stringhe comuni nel file vengono prima sostituite da codici a 9 bit da 257 in poi.
++Quando viene raggiunto il codice 512, l'algoritmo passa a codici a 10 bit e  
++continua a usare sempre più bit fino a quando 
++il limite specificato dall'opzione
++.B \-b
++viene raggiunto (predefinito a 16).  I
++.I bit
++devono essere compresi tra 9 e 16. Il valore predefinito può essere
++cambiato nella sorgente per permettere a  
++.I compress
++di essere eseguito su una macchina più piccola.
++.PP
++Dopo che il limite dei
++.I bit
++viene raggiunto,
++.I compress
++controlla periodicamente il rapporto di compressione.  Se sta aumentando,
++.I compress
++continua a usare il dizionario esistente del codice. Tuttavia,
++se il rapporto di compressione diminuisce,
++.I compress
++scarta  la tabella di sotto-stringhe e la ricostruisce da capo.  Questo permette 
++all'algoritmo di adattarsi al prossimo "blocco" del file.
++.PP
++Notare che l'opzione
++.B \-b
++è omesso per 
++.I uncompress,
++poiché il parametro dei
++.I bit
++specificato durante la compressione 
++è codificato all'interno dell'output, assieme a 
++un numero magico per assicurarsi che non venga tentata né la
++decompressione di dati a casaccio né
++la ricompressione di dati compressi. 
++.PP
++.ne 8
++La quantità di compressione ottenuta dipende dalla grandezza
++dell'input, dal numero dei 
++.I bit
++per codice e dalla distribuzione di sotto-stringhe comuni.
++Tipicamente, del codice sorgente o un testo in inglese
++viene accorciato del  50\-60%.
++La compressione è generalmente molto migliore di quella raggiunta dalla 
++codifica di Huffman  (come quella usata in 
++.IR pack ),
++o la codifica adattativa di Huffman
++.RI ( compact ),
++e necessita di un minore tempo di calcolo.
++.PP
++Con l'opzione 
++.BR \-v ,
++viene stampato un messaggio che dà la percentuale di riduzione
++per ogni file compresso.
++.PP
++Il codice di uscita è normalmente 0; se l'ultimo file si è ingrandito
++dopo una (tentata) compressione, il codice è 2; se c'è stato un
++errore, il codice è 1.
++.SH "VEDERE ANCHE"
++pack(1), compact(1)
++.SH "DIAGNOSTICA"
++Utilizzo: compress [\-dfvcV] [\-b maxbit] [file ...]
++.in +8
++Sono state specificate opzioni non valide nella riga di comando.
++.in -8
++Manca il parametro maxbit
++.in +8
++Maxbit deve seguire
++.BR \-b \.
++.in -8
++.IR file :
++non in formato compresso.
++.in +8
++Il file specificato a 
++.I uncompress
++non è stato compresso.
++.in -8
++.IR file :
++compresso con 
++.I xx
++bit, può solo gestire
++.I yy
++bit
++.in +8
++.RI Il file
++è stato compresso con un programma che potrebbe manipolare più 
++.I bit
++di quanto possa fare compress su questa macchina.
++Ricomprimere il file con  meno 
++.IR bit \.
++.in -8
++.IR file :
++ha già il suffisso .Z  -- nessun cambiamento
++.in +8
++Il file si suppone sia già compresso.
++Rinomina il file e prova di nuovo.
++.in -8
++.IR file :
++nome del file troppo lungo per aggiungere .Z
++.in +8
++Il file non può essere compresso perché il suo nome è più lungo di 
++12 caratteri.
++Rinomina il file e prova di nuovo.
++Questo messaggio non capita sui sistemi BSD.
++.in -8
++.I Il file
++esiste già ; vuoi sovrascriverlo (s o n)?
++.in +8
++Rispondi «y» se vuoi che il file di output venga sostituito; «n» altrimenti.
++.in -8
++uncompress: input corrotto.
++.in +8
++Una violazione SIGSEGV è stata rilevata, il che di solito significa
++che il file di input è stato corrotto.
++.in -8
++Compressione: 
++.I "xx.xx%"
++.in +8
++Percentuale dell'input risparmiata con la compressione
++(rilevante solo per 
++.BR \-v )\.
++.in -8
++-- non è un file regolare né una directory: immutato.
++.in +8
++Quando il file di input non è un file regolare né una directory,
++(p.e. un collegamento simbolico, una socket, FIFO, un dispositivo),
++viene lasciato inalterato.
++.in -8
++-- ha  
++.I xx 
++altri collegamenti: immutato.
++.in +8
++Il file in input ha dei collegamenti; viene lasciato immutato.  Vedere
++.IR ln "(1)"
++per ulteriori informazioni. Si usi l'opzione
++.B \-f
++per forzare la compressione di un file con più collegamenti.
++.in -8
++-- file immutato.
++.in +8
++Nessun risparmio raggiunto con la
++compressione.  L'input rimane intatto.
++.in -8
++.SH BACHI
++Sebbene i file compressi siano compatibili tra macchine con molta memoria,
++.BR \-b \12
++dovrebbe essere usato per il trasferimento di file verso  architetture con 
++un piccolo spazio per i dati del processo (64KB o meno, come mostrato dalle macchine DEC della serie PDP, dall'Intel 80286, ecc.)
++.PP
++Invocare compress con l'opzione \-r può, a volte, produrre messaggi
++d'errore spurî della forma
++.PP
++.in 8
++"<filename>.Z already has .Z suffix - ignored"
++.in -8
++.PP
++Questi avvisi possono essere ignorati. Si vedano i commenti in
++compress.c:compdir() per una spiegazione.
 --- man-pages-extra.orig/man1/catchsegv.1	1970-01-01 01:00:00.000000000 +0100
 +++ man-pages-extra/man1/catchsegv.1	2005-12-25 18:26:51.000000000 +0100
 @@ -0,0 +1,215 @@
@@ -10123,6 +10409,19 @@
 +	man-pages-zh_CN-1.5.tar.gz (converted from UTF-8 to GB2312)
 +
 +Some .so pointers have been added.
+--- man-pages-extra.orig/README.ncompress-non-english-man-pages	1970-01-01 01:00:00.000000000 +0100
++++ man-pages-extra/README.ncompress-non-english-man-pages	2019-11-15 20:51:31.399704034 +0100
+@@ -0,0 +1,10 @@
++Based on:
++
++de/*
++	manpages-de-0.5.tar.gz
++it/*
++	man-pages-it-0.3.4.tar.gz
++pl/*
++	From PTM (cvs.pld.org.pl/pl.po), 20051105 snapshot
++tr/*
++       man-pages-tr-1.0.5.tar.gz
 --- man-pages-extra.orig/README.sysvinit-man-pages	1970-01-01 01:00:00.000000000 +0100
 +++ man-pages-extra/README.sysvinit-man-pages	2005-12-28 00:09:20.000000000 +0100
 @@ -0,0 +1,30 @@
