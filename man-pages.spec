@@ -114,8 +114,9 @@ Patch0:		%{name}-zh_fixes.patch
 Patch1:		%{name}-misc.patch
 Patch2:		%{name}-extra.patch
 Patch3:		%{name}-tr-bash.patch
-Patch4:		%{name}-misc-localized.patch
-Patch5:		%{name}-cs-bash.patch
+Patch4:		%{name}-tr-so-links.patch
+Patch5:		%{name}-misc-localized.patch
+Patch6:		%{name}-cs-bash.patch
 Patch10:	%{name}-extra-files.patch
 URL:		https://www.kernel.org/doc/man-pages/
 BuildRequires:	autoconf >= 2.61
@@ -309,7 +310,8 @@ Fragmenty POSIX 1003.1-2003 w postaci stron podręcznika systemowego.
 %setup -q -c -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20 -a30
 %patch0 -p1 -d manpages-zh-%{zh_version}
 %patch3 -p1 -d man-pages-tr-%{tr_version}
-%patch5 -p1 -d man-pages-cs-%{cs_version}
+%patch4 -p1 -d man-pages-tr-%{tr_version}
+%patch6 -p1 -d man-pages-cs-%{cs_version}
 # man-pages-extra
 %patch10 -p0
 %patch2 -p0 -d man-pages-extra
@@ -447,7 +449,7 @@ done
 # zh: handler later (after build)
 
 %patch1 -p1 -d src/C
-%patch4 -p1 -d src
+%patch5 -p1 -d src
 
 # patching creates backups
 find . '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -rf

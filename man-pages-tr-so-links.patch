@@ -1,0 +1,11 @@
+--- man-pages-tr-1.0.5/source/xml2man-doc.xsl.orig	2008-04-21 15:03:33.000000000 +0200
++++ man-pages-tr-1.0.5/source/xml2man-doc.xsl	2019-11-16 09:16:25.727574073 +0100
+@@ -56,7 +56,7 @@
+   </xsl:variable>
+ 
+   <doc:document href="{concat('tr/man', $ext, '/', $thisbase, '.', $ext)}" omit-xml-declaration="yes">
+-    <xsl:value-of select="concat($sostr, $mainbase, '.', $ext, '.gz&#10;')"/>
++    <xsl:value-of select="concat($sostr, $mainbase, '.', $ext)"/>
+   </doc:document>
+ 
+ </xsl:template>
