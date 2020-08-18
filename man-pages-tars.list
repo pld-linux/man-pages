@@ -10,7 +10,6 @@ man1/memusage.1
 man1/memusagestat.1
 man1/mtrace.1
 man1/pldd.1
-man1/rpcgen.1
 man1/sprof.1
 man2/getcwd.2
 man2/killpg.2
@@ -2071,6 +2070,8 @@ man7/groff_ms.7
 man7/groff_trace.7
 man7/groff_www.7
 man7/roff.7
+[rpcsvc-proto]
+man1/rpcgen.1
 # TODO:
 #[gzip]
 #[inetd]
