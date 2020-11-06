@@ -29,7 +29,7 @@ Group:		Documentation
 %define		hu_version		20010119
 %define		id_version		20011116
 %define		it_version		5.06
-%define		ja_version		20200815
+%define		ja_version		20201015
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -78,7 +78,7 @@ Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.t
 # note: man-pages-it-extra-0.5.0.tar.gz is also covered by the above version
 #Source11Download: http://linuxjm.osdn.jp/download.html
 Source11:	http://linuxjm.osdn.jp/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	216fc6bc9ba38ec7f29256f4674ebf67
+# Source11-md5:	2ca73214a0027747ec3cc59e8059bc58
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 # TODO: check 20051127 in Debian/Ubuntu?
@@ -392,35 +392,49 @@ done
 # ja: merge per-package trees
 %{__mv} src/ja/manual/LDP_man-pages/man* src/ja
 # duplicates of LDP man pages
-%{__rm} -r src/ja/manual/{gnumaniak,ld.so,modutils/man2,glibc-linuxthreads/man3,man/man1/{apropos,man,whatis}.1,netkit/{man3/{daemon,err,login}.3,man5/ftpusers.5},bind/{man5/resolver.5,man7/mailaddr.7}}
+%{__rm} -r src/ja/manual/{gnumaniak,ld.so,modutils/man2,glibc-linuxthreads/man3}
+%{__rm} src/ja/manual/bind/{man5/resolver.5,man7/{hostname,mailaddr}.7}
+%{__rm} src/ja/manual/netkit/{man3/{daemon,err,login}.3,man5/ftpusers.5}
 # shadow manuals already in shadow package
 %{__rm} -r src/ja/manual/shadow
+# PLD uses:
+# coreutils not {file,sh-,text}utils
+%{__rm} -r src/ja/manual/GNU_{fileutils,sh-utils,textutils}
 # dhcp 3 not dhcp2
 %{__rm} -r src/ja/manual/dhcp2
+# kmod (ex-module-init-tools) not modutils
+%{__rm} -r src/ja/manual/modutils
 # nfs-utils not nfs-server
 %{__rm} -r src/ja/manual/nfs-server
 # ypbind-mt not ypbind
 %{__rm} -r src/ja/manual/ypbind
-# we use: net-tools/hostname, util-linux/{kill,last,lastb,write}, SysVinit/{mesg,wall,halt,reboot,shutdown}, textutils/od, quota/rquotad
-%{__rm} src/ja/manual/{GNU_sh-utils/man1/hostname.1,SysVinit/man1/{last,lastb}.1,procps/man1/kill.1,util-linux/man1/{mesg,wall}.1,netkit/man1/write.1,nfs-utils/man8/rquotad.8}
-# following modutils changes
-for f in src/ja/manual/modutils/man8/{depmod,insmod,lsmod,modinfo,modprobe,rmmod} ; do
-	%{__mv} ${f}.8 ${f}.modutils.8
-done
-# avoid filename conflict
-%{__mv} src/ja/manual/netkit/man8/ftpd.{8,8n}
-# remove files existing in main man-pages tarball
-# note: (should we keep those from main tarball or ja tarball?)
-%{__rm} src/ja/manual/GNU_fileutils/man1/{chgrp,chmod,chown,cp,dd,df,du,install,ln,ls,mkdir,mkfifo,mknod,mv,rm,rmdir,touch}.1
-%{__rm} src/ja/manual/GNU_sh-utils/man1/{basename,chroot,date,dirname,echo,env,expr,false,groups,hostid,id,logname,nice,nohup,pathchk,printenv,printf,pwd,sleep,stty,su,tee,test,true,tty,uname,users,who,whoami,yes}.1
-%{__rm} src/ja/manual/GNU_textutils/man1/{cat,cksum,comm,csplit,cut,expand,fmt,fold,head,join,md5sum,nl,od,paste,pr,sort,split,sum,tac,tail,tr,unexpand,uniq,wc}.1
-%{__rm} src/ja/manual/lpr-linux/man1/{lpq,lpr,lprm}.1
-%{__rm} src/ja/manual/net-tools/man1/hostname.1
+# man-db not man
+%{__rm} src/ja/manual/man/man1/{apropos,man,whatis}.1
+# hostname(1) from hostname (ex-net-tools)
+%{__rm} src/ja/manual/GNU_coreutils/man1/hostname.1
+# kill(1) from util-linux
+%{__rm} src/ja/manual/GNU_coreutils/man1/kill.1
+# uptime(1) from procps
+%{__rm} src/ja/manual/GNU_coreutils/man1/uptime.1
+# last(1),lastb(1),mesg(1) from util-linux
+%{__rm} src/ja/manual/SysVinit/man1/{last,lastb,mesg}.1
+# blkid(8) from util-linux
+%{__rm} src/ja/manual/e2fsprogs/man8/blkid.8
+# lpq(1),lpr(1),lprm(1),lpc(8) from cups (or LPRng)
+%{__rm} src/ja/manual/lpr-linux/{man1/{lpq,lpr,lprm}.1,man8/lpc.8}
+# timeout(1) from coreutils
 %{__rm} src/ja/manual/netatalk/man1/timeout.1
-%{__rm} src/ja/manual/procps/man1/uptime.1
-%{__rm} src/ja/manual/util-linux/man1/kill.1
-%{__rm} src/ja/manual/bind/man7/hostname.7
-%{__rm} src/ja/manual/cups/man8/lpc.8
+# write(1) from util-linux
+%{__rm} src/ja/manual/netkit/man1/write.1
+# rquotad(8) from quota
+%{__rm} src/ja/manual/nfs-utils/man8/rquotad.8
+# kill(1) from util-linux
+%{__rm} src/ja/manual/procps/man1/kill.1
+# wall(1) from SysVinit
+%{__rm} src/ja/manual/util-linux/man1/wall.1
+# resolve conflicts of alternatives
+%{__mv} src/ja/manual/netkit/man8/ftpd.8{,netkit}
+# merge the rest
 for f in 1 3 4 5 6 7 8 ; do
 	mv -i src/ja/manual/*/man${f}/* src/ja/man${f}
 done
