@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	5.10
+Version:	5.11
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -29,7 +29,7 @@ Group:		Documentation
 %define		hu_version		20010119
 %define		id_version		20011116
 %define		it_version		5.06
-%define		ja_version		20210215
+%define		ja_version		20210415
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -39,9 +39,9 @@ Group:		Documentation
 %define		ru_asp_version		1.4
 %define		tr_version		1.0.5
 %define		zh_version		1.5.2
-%define		posix_version		2013-a
+%define		posix_version		2017-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	4ae3f74a1beddd919936e1058642644c
+# Source0-md5:	9f40e8fff6766563837d98d7d7c6e19b
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -78,7 +78,7 @@ Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.t
 # note: man-pages-it-extra-0.5.0.tar.gz is also covered by the above version
 #Source11Download: http://linuxjm.osdn.jp/download.html
 Source11:	http://linuxjm.osdn.jp/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	83061bc82c94cc06e8e30d30d4c57311
+# Source11-md5:	069a2a8c91cd1056f95c8c7f4cfa8b43
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 # TODO: check 20051127 in Debian/Ubuntu?
@@ -107,7 +107,7 @@ Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.
 Source20:	https://github.com/lidaobing/manpages-zh/archive/v%{zh_version}/manpages-zh-%{zh_version}.tar.gz
 # Source20-md5:	1bbdc4f32272df0b95146518b27bf4be
 Source30:	https://www.kernel.org/pub/linux/docs/man-pages/man-pages-posix/man-pages-posix-%{posix_version}.tar.xz
-# Source30-md5:	825fde78e6fddd02426ecdd50e2cbe0d
+# Source30-md5:	16972095f1ec0820d51b2390e055c59d
 Source50:	%{name}-links.list
 Source100:	%{name}-tars.list
 Patch0:		%{name}-zh_fixes.patch
@@ -301,10 +301,10 @@ Summary(pl.UTF-8):	Podręczniki systemowe z Linux Documentation Project dotyczą
 Group:		Documentation
 
 %description posix
-Part of POSIX 1003.1-2003 in man pages format.
+Part of POSIX 1-2017 in man pages format.
 
 %description posix -l pl.UTF-8
-Fragmenty POSIX 1003.1-2003 w postaci stron podręcznika systemowego.
+Fragmenty POSIX 1-2017 w postaci stron podręcznika systemowego.
 
 %prep
 %setup -q -c -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20 -a30
@@ -321,7 +321,7 @@ install -d man-pages-extra/C
 # prepare somehow unified source trees
 install -d src
 %{__mv} man-pages-%{version} src/C
-%{__mv} man-pages-posix-%{posix_version}/man*p src/C
+%{__mv} man-pages-posix-%(echo %{posix_version} | sed -e s/-a//)/man*p src/C
 %{__mv} man-pages-cs-%{cs_version} src/cs
 %{__mv} manpages-da-%{da_version} src/da
 %{__mv} manpages-de-%{de_version} src/de

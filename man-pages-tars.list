@@ -64,6 +64,19 @@ man3/NLMSG_NEXT.3
 man3/NLMSG_OK.3
 man3/NLMSG_PAYLOAD.3
 man3/NLMSG_SPACE.3
+man3/SIMPLEQ_EMPTY.3
+man3/SIMPLEQ_ENTRY.3
+man3/SIMPLEQ_FIRST.3
+man3/SIMPLEQ_FOREACH.3
+man3/SIMPLEQ_HEAD.3
+man3/SIMPLEQ_HEAD_INITIALIZER.3
+man3/SIMPLEQ_INIT.3
+man3/SIMPLEQ_INSERT_AFTER.3
+man3/SIMPLEQ_INSERT_HEAD.3
+man3/SIMPLEQ_INSERT_TAIL.3
+man3/SIMPLEQ_NEXT.3
+man3/SIMPLEQ_REMOVE.3
+man3/SIMPLEQ_REMOVE_HEAD.3
 man3/SLIST_EMPTY.3
 man3/SLIST_ENTRY.3
 man3/SLIST_FIRST.3
@@ -959,6 +972,7 @@ man3/malloc_stats.3
 man3/malloc_trim.3
 man3/malloc_usable_size.3
 man3/mallinfo.3
+man3/mallinfo2.3
 man3/mallopt.3
 man3/matherr.3
 man3/mblen.3
@@ -1030,6 +1044,7 @@ man3/nrand48_r.3
 man3/ntohl.3
 man3/ntohs.3
 man3/off_t.3
+man3/off64_t.3
 man3/on_exit.3
 man3/open_memstream.3
 man3/open_wmemstream.3
@@ -1351,6 +1366,7 @@ man3/sigsetops.3
 man3/sigval.3
 man3/sigvec.3
 man3/sigwait.3
+man3/simpleq.3
 man3/sin.3
 man3/sincos.3
 man3/sincosf.3
