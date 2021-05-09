@@ -121,6 +121,7 @@ Patch10:	%{name}-extra-files.patch
 URL:		https://www.kernel.org/doc/man-pages/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
+BuildRequires:	iconv
 BuildRequires:	rpmbuild(macros) >= 1.566
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
