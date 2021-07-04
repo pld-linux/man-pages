@@ -224,6 +224,8 @@ man3/be16toh.3
 man3/be32toh.3
 man3/be64toh.3
 man3/bindresvport.3
+man3/blkcnt_t.3
+man3/blksize_t.3
 man3/bsd_signal.3
 man3/bsearch.3
 man3/bstring.3
@@ -269,6 +271,7 @@ man3/cbc_crypt.3
 man3/cbrt.3
 man3/cbrtf.3
 man3/cbrtl.3
+man3/cc_t.3
 man3/ccos.3
 man3/ccosf.3
 man3/ccosh.3
@@ -1007,6 +1010,7 @@ man3/mkstemp.3
 man3/mkstemps.3
 man3/mktemp.3
 man3/mktime.3
+man3/mode_t.3
 man3/modf.3
 man3/modff.3
 man3/modfl.3
@@ -1380,7 +1384,9 @@ man3/size_t.3
 man3/sleep.3
 man3/slist.3
 man3/snprintf.3
+man3/sockaddr.3
 man3/sockatmark.3
+man3/socklen_t.3
 man3/sprintf.3
 man3/sqrt.3
 man3/sqrtf.3

@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	5.11
+Version:	5.12
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -29,7 +29,7 @@ Group:		Documentation
 %define		hu_version		20010119
 %define		id_version		20011116
 %define		it_version		5.06
-%define		ja_version		20210415
+%define		ja_version		20210615
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -41,7 +41,7 @@ Group:		Documentation
 %define		zh_version		1.5.2
 %define		posix_version		2017-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	9f40e8fff6766563837d98d7d7c6e19b
+# Source0-md5:	192132118f07369c88df267a92f3ef16
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -78,7 +78,7 @@ Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.t
 # note: man-pages-it-extra-0.5.0.tar.gz is also covered by the above version
 #Source11Download: http://linuxjm.osdn.jp/download.html
 Source11:	http://linuxjm.osdn.jp/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	069a2a8c91cd1056f95c8c7f4cfa8b43
+# Source11-md5:	ba24288ccf010b6d1ed6fcee2fde33cd
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 # TODO: check 20051127 in Debian/Ubuntu?
