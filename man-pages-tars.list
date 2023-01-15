@@ -1431,6 +1431,7 @@ man3/strfromf.3
 man3/strfroml.3
 man3/strfry.3
 man3/strftime.3
+man3/strftime_l.3
 man3/string.3
 man3/strlen.3
 man3/strncasecmp.3

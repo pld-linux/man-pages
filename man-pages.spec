@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	5.13
+Version:	6.02
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -29,7 +29,7 @@ Group:		Documentation
 %define		hu_version		20010119
 %define		id_version		20011116
 %define		it_version		5.06
-%define		ja_version		20210815
+%define		ja_version		20230115
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -37,11 +37,11 @@ Group:		Documentation
 %define		ro_version		0.2
 #%%define	ru_version		0.98
 %define		ru_asp_version		1.4
-%define		tr_version		1.0.5
+%define		tr_version		2.0.3
 %define		zh_version		1.5.2
 %define		posix_version		2017-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	3ac24e8c6fae26b801cb87ceb63c0a30
+# Source0-md5:	05b9e8ce59f6257141fe9e4edd5bd149
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -78,7 +78,7 @@ Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.t
 # note: man-pages-it-extra-0.5.0.tar.gz is also covered by the above version
 #Source11Download: http://linuxjm.osdn.jp/download.html
 Source11:	http://linuxjm.osdn.jp/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	c7874d0f9515d150ae0612a42dc87379
+# Source11-md5:	6e44999f5c3affcef1d0d00d7e491004
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 # TODO: check 20051127 in Debian/Ubuntu?
@@ -98,8 +98,8 @@ Source16:	http://www.rolix.org/man/arhiva/man-pages-ro-%{ro_version}.tar.gz
 # ASP-linux have more up-to-date manpages (but 0.98 contains some updated pages)
 Source17:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/manpages-ru-asp-%{ru_asp_version}.tar.bz2
 # Source17-md5:	fffb27648417c8dd551e2a4403eefc64
-Source18:	http://downloads.sourceforge.net/belgeler/man-pages-tr-%{tr_version}.tar.gz
-# Source18-md5:	8f322a60c80e31c34ef8979edaf68aae
+Source18:	http://downloads.sourceforge.net/belgeler/manpages-tr-%{tr_version}.tar.gz
+# Source18-md5:	de42894c27b02e7423f462cd0c53d9ec
 Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.tar.gz
 # Source19-md5:	89576c5b51bb83c8bfa8bda794b96e21
 #Source20Download: https://github.com/lidaobing/manpages-zh/releases
@@ -113,8 +113,6 @@ Source100:	%{name}-tars.list
 Patch0:		%{name}-zh_fixes.patch
 Patch1:		%{name}-misc.patch
 Patch2:		%{name}-extra.patch
-Patch3:		%{name}-tr-bash.patch
-Patch4:		%{name}-tr-so-links.patch
 Patch5:		%{name}-misc-localized.patch
 Patch6:		%{name}-cs-bash.patch
 Patch10:	%{name}-extra-files.patch
@@ -310,8 +308,6 @@ Fragmenty POSIX 1-2017 w postaci stron podręcznika systemowego.
 %prep
 %setup -q -c -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20 -a30
 %patch0 -p1 -d manpages-zh-%{zh_version}
-%patch3 -p1 -d man-pages-tr-%{tr_version}
-%patch4 -p1 -d man-pages-tr-%{tr_version}
 %patch6 -p1 -d man-pages-cs-%{cs_version}
 # man-pages-extra
 %patch10 -p0
@@ -340,7 +336,7 @@ tar xzf %{SOURCE12} -C src/ko
 %{__mv} man-pages-%{pt_version}-pt_BR src/pt_BR
 %{__mv} man-ro src/ro
 %{__mv} manpages-ru-asp-%{ru_asp_version} src/ru
-%{__mv} man-pages-tr-%{tr_version} src/tr
+%{__mv} manpages-tr-%{tr_version}/source src/tr
 %{__mv} man-pages-uk_UA.alfa src/uk
 %{__mv} manpages-zh-%{zh_version} src/zh
 
@@ -403,14 +399,15 @@ done
 %{__rm} -r src/ja/manual/GNU_{fileutils,sh-utils,textutils}
 # dhcp 3 not dhcp2
 %{__rm} -r src/ja/manual/dhcp2
-# kmod (ex-module-init-tools) not modutils
+# kmod not modutils or module-init-tools
+%{__rm} -r src/ja/manual/module-init-tools
 %{__rm} -r src/ja/manual/modutils
 # nfs-utils not nfs-server
 %{__rm} -r src/ja/manual/nfs-server
 # ypbind-mt not ypbind
 %{__rm} -r src/ja/manual/ypbind
-# man-db not man
-%{__rm} src/ja/manual/man/man1/{apropos,man,whatis}.1
+# byacc not bison
+%{__rm} src/ja/manual/GNU_bison/man1/yacc.1
 # hostname(1) from hostname (ex-net-tools)
 %{__rm} src/ja/manual/GNU_coreutils/man1/hostname.1
 # kill(1) from util-linux
@@ -423,6 +420,8 @@ done
 %{__rm} src/ja/manual/e2fsprogs/man8/blkid.8
 # lpq(1),lpr(1),lprm(1),lpc(8) from cups (or LPRng)
 %{__rm} src/ja/manual/lpr-linux/{man1/{lpq,lpr,lprm}.1,man8/lpc.8}
+# from man-db not man
+%{__rm} src/ja/manual/man/man1/{apropos,man,whatis}.1
 # timeout(1) from coreutils
 %{__rm} src/ja/manual/netatalk/man1/timeout.1
 # write(1) from util-linux
@@ -504,10 +503,14 @@ for d in man-pages-extra/cs/man* ; do
 	mv -i $d/*.* src/${d#man-pages-extra/}
 done
 
-# tr: make man pages from XML (note: compiles some utility)
-%{__make} -C src/tr/source
-find src/tr/tr -name '*.gz' | xargs gzip -d
-%{__mv} src/tr/tr/man* src/tr
+# tr: gunzip .so links
+#find src/tr -name '*.gz' | xargs gzip -d
+# ...but currently ".gz" is a lie, files are plain ascii
+for f in src/tr/man?/*.?.gz ; do
+	%{__mv} "$f" "${f%.gz}"
+done
+%{__sed} -i -e 's/\.2\.gz$/.2/' src/tr/man2/{recvfrom,recvmsg,sendmsg,sendto}.2
+%{__sed} -i -e 's/\.4\.gz$/.4/' src/tr/man4/zero.4
 
 # zh: prepare zh_CN and zh_TW
 cd src/zh

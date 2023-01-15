@@ -1,8 +1,0 @@
---- man-pages-tr-1.0.5/source/manderle.sh.orig	2008-04-22 09:56:10.000000000 +0200
-+++ man-pages-tr-1.0.5/source/manderle.sh	2014-08-30 20:43:17.329673267 +0200
-@@ -1,3 +1,5 @@
-+#!/bin/bash
-+
- LANG=C gcc -Wall -lz -o xml2man xml2man.c
- mandirs=(1 2 3 4 5 6 7 8)
- for i in ${mandirs[@]};
