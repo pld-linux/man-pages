@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	6.02
+Version:	6.03
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -29,7 +29,7 @@ Group:		Documentation
 %define		hu_version		20010119
 %define		id_version		20011116
 %define		it_version		5.06
-%define		ja_version		20230115
+%define		ja_version		20230315
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -41,7 +41,7 @@ Group:		Documentation
 %define		zh_version		1.5.2
 %define		posix_version		2017-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	05b9e8ce59f6257141fe9e4edd5bd149
+# Source0-md5:	c62b7c944bb0887a35edab7cab301357
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -78,7 +78,7 @@ Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.t
 # note: man-pages-it-extra-0.5.0.tar.gz is also covered by the above version
 #Source11Download: http://linuxjm.osdn.jp/download.html
 Source11:	http://linuxjm.osdn.jp/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	6e44999f5c3affcef1d0d00d7e491004
+# Source11-md5:	dfe7b0f167c50cb2ba89344a6e05c713
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 # TODO: check 20051127 in Debian/Ubuntu?
@@ -366,6 +366,19 @@ while read LINE ; do
 done < %{SOURCE50}
 
 # unify trees for easier processing (where possible)
+
+# C: get rid of man2 and man3 subdirs
+%{__sed} -i -e 's,man3head/,man3/,' src/C/man3/register_printf_*.3
+%{__sed} -i -e 's,man3head/,man3/,' src/C/man3const/PA_*.3const
+%{__sed} -i -e 's,man3head/,man3/,' src/C/man3type/printf_*.3type
+%{__sed} -i -e 's,man3head/,man3/,' src/C/man3type/loff_t.3type
+%{__sed} -i -e 's,man3head/,man3/,' src/C/man3type/sockaddr_storage.3type
+%{__sed} -i -e 's,man3head/,man3/,' src/C/man3type/sockaddr_un.3type
+%{__mv} -i src/C/man2type/*.2type src/C/man2
+%{__mv} -i src/C/man3const/*.3const src/C/man3
+%{__mv} -i src/C/man3head/*.3head src/C/man3
+%{__mv} -i src/C/man3type/*.3type src/C/man3
+rmdir src/C/man2type src/C/man3{const,head,type}
 
 # da: add man1 subdir
 install -d src/da/man1
