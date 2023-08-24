@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	6.04
+Version:	6.05.01
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -29,7 +29,7 @@ Group:		Documentation
 %define		hu_version		20010119
 %define		id_version		20011116
 %define		it_version		5.06
-%define		ja_version		20230615
+%define		ja_version		20230815
 %define		ko_version		20050219
 %define		nl_version		0.13.3
 %define		pl_version		20051105
@@ -37,11 +37,11 @@ Group:		Documentation
 %define		ro_version		0.2
 #%%define	ru_version		0.98
 %define		ru_asp_version		1.4
-%define		tr_version		2.0.3
+%define		tr_version		2.0.4
 %define		zh_version		1.5.2
 %define		posix_version		2017-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	bbce1456edfa75a66c189cc594af6c4d
+# Source0-md5:	de4563b797cf9b1e0b0d73628b35e442
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -78,7 +78,7 @@ Source10:	ftp://ftp.pluto.linux.it/pub/pluto/ildp/man/%{name}-it-%{it_version}.t
 # note: man-pages-it-extra-0.5.0.tar.gz is also covered by the above version
 #Source11Download: http://linuxjm.osdn.jp/download.html
 Source11:	http://linuxjm.osdn.jp/%{name}-ja-%{ja_version}.tar.gz
-# Source11-md5:	a16fbd9038cfafc90287aee0bd711ea5
+# Source11-md5:	6a15edc5c0c65efb8855e05cf0e403f0
 Source12:	http://download.kldp.net/man/man-pages-ko/%{ko_version}/%{name}-ko-%{ko_version}.tar.gz
 # Source12-md5:	e31dc6a51c02436371373dedaeeeacab
 # TODO: check 20051127 in Debian/Ubuntu?
@@ -99,7 +99,7 @@ Source16:	http://www.rolix.org/man/arhiva/man-pages-ro-%{ro_version}.tar.gz
 Source17:	http://www.mif.pg.gda.pl/homepages/ankry/man-pages/manpages-ru-asp-%{ru_asp_version}.tar.bz2
 # Source17-md5:	fffb27648417c8dd551e2a4403eefc64
 Source18:	http://downloads.sourceforge.net/belgeler/manpages-tr-%{tr_version}.tar.gz
-# Source18-md5:	de42894c27b02e7423f462cd0c53d9ec
+# Source18-md5:	3f5fed164ba9fd9e725117cf4150fad4
 Source19:	http://www.linux.org.ua/twiki/pub/Projects/ManUk/man-pages-uk_UA.alfa.tar.gz
 # Source19-md5:	89576c5b51bb83c8bfa8bda794b96e21
 #Source20Download: https://github.com/lidaobing/manpages-zh/releases
@@ -522,7 +522,7 @@ done
 for f in src/tr/man?/*.?.gz ; do
 	%{__mv} "$f" "${f%.gz}"
 done
-%{__sed} -i -e 's/\.2\.gz$/.2/' src/tr/man2/{recvfrom,recvmsg,sendmsg,sendto}.2
+%{__sed} -i -e 's/\.2\.gz$/.2/' src/tr/man2/{afs_syscall,break,fattach,fdetach,getmsg,getpmsg,gtty,isastream,lock,madvise1,mpx,prof,putmsg,putpmsg,recvfrom,recvmsg,security,sendmsg,sendto,stty,tuxcall,vserver}.2
 %{__sed} -i -e 's/\.4\.gz$/.4/' src/tr/man4/zero.4
 
 # zh: prepare zh_CN and zh_TW
