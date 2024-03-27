@@ -146,6 +146,8 @@ man3/TAILQ_NEXT.3
 man3/TAILQ_PREV.3
 man3/TAILQ_REMOVE.3
 man3/TAILQ_SWAP.3
+man3/TIMESPEC_TO_TIMEVAL.3
+man3/TIMEVAL_TO_TIMESPEC.3
 man3/__after_morecore_hook.3
 man3/__fbufsize.3
 man3/__flbf.3
@@ -1480,8 +1482,6 @@ man3/stdio.3
 man3/stdio_ext.3
 man3/stdout.3
 man3/stpcpy.3
-man3/stpecpy.3
-man3/stpecpyx.3
 man3/stpncpy.3
 man3/strcasecmp.3
 man3/strcasestr.3
@@ -1658,8 +1658,6 @@ man3/uselocale.3
 man3/utmpxname.3
 man3/useconds_t.3type
 man3/usleep.3
-man3/ustpcpy.3
-man3/ustr2stp.3
 man3/utmpname.3
 man3/va_arg.3
 man3/va_copy.3
@@ -1786,8 +1784,6 @@ man3/y1l.3
 man3/yn.3
 man3/ynf.3
 man3/ynl.3
-man3/zustr2stp.3
-man3/zustr2ustp.3
 man5/charmap.5
 man5/gai.conf.5
 man5/locale.5
@@ -1875,6 +1871,7 @@ man7/rtld-audit.7
 man7/queue.7
 man7/sem_overview.7
 man7/shm_overview.7
+man7/sigevent.7
 man7/string_copying.7
 man7/system_data_types.7
 man7/tis-620.7
@@ -2515,6 +2512,7 @@ man7/groff_mom.7
 man7/groff_ms.7
 man7/groff_trace.7
 man7/groff_www.7
+man7/man.7
 man7/roff.7
 [grub2]
 man1/grub-editenv.1
