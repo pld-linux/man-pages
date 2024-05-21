@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	6.7
+Version:	6.8
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -41,7 +41,7 @@ Group:		Documentation
 %define		zh_version		1.5.2
 %define		posix_version		2017-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	1bd39d60e741f37b550d27f9d4fb1656
+# Source0-md5:	b4bbf3d7ba22877eeec4916168b40268
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -317,7 +317,7 @@ install -d man-pages-extra/C
 
 # prepare somehow unified source trees
 install -d src
-%{__mv} man-pages-%{version} src/C
+%{__mv} man-pages-%{version}/man src/C
 %{__mv} man-pages-posix-%(echo %{posix_version} | sed -e s/-a//)/man*p src/C
 %{__mv} man-pages-cs-%{cs_version} src/cs
 %{__mv} manpages-da-%{da_version} src/da
@@ -380,6 +380,8 @@ done < %{SOURCE50}
 %{__mv} -i src/C/man3head/*.3head src/C/man3
 %{__mv} -i src/C/man3type/*.3type src/C/man3
 rmdir src/C/man2type src/C/man3{const,head,type}
+# originally done by `make install`
+%{__sed} -i -e '/^\.TH/ s/(unreleased)/%{version}/' $(grep -l '^\.TH' src/C/man[1-8]/*.[1-8]*)
 
 # da: add man1 subdir
 install -d src/da/man1
