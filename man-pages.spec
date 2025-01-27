@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	6.9.1
+Version:	6.10
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -41,7 +41,7 @@ Group:		Documentation
 %define		zh_version		1.5.2
 %define		posix_version		2017-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	4d56775b6cce4edf1e496249e7c01c1a
+# Source0-md5:	31b3dd6309da64a249ff01f53616b17f
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -307,11 +307,11 @@ Fragmenty POSIX 1-2017 w postaci stron podręcznika systemowego.
 
 %prep
 %setup -q -c -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a13 -a14 -a15 -a16 -a17 -a18 -a19 -a20 -a30
-%patch0 -p1 -d manpages-zh-%{zh_version}
-%patch6 -p1 -d man-pages-cs-%{cs_version}
+%patch -P0 -p1 -d manpages-zh-%{zh_version}
+%patch -P6 -p1 -d man-pages-cs-%{cs_version}
 # man-pages-extra
-%patch10 -p0
-%patch2 -p0 -d man-pages-extra
+%patch -P10 -p0
+%patch -P2 -p0 -d man-pages-extra
 install -d man-pages-extra/C
 %{__mv} man-pages-extra/man* man-pages-extra/C
 
@@ -478,8 +478,8 @@ done
 %{__mv} src/ru/man8/sync.8 src/ru/man1/sync.1
 # zh: handler later (after build)
 
-%patch1 -p1 -d src/C
-%patch5 -p1 -d src
+%patch -P1 -p1 -d src/C
+%patch -P5 -p1 -d src
 
 # patching creates backups
 find . '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -rf
