@@ -1642,8 +1642,10 @@ man3/twalk.3
 man3/twalk_r.3
 man3/tzname.3
 man3/tzset.3
+man3/uabs.3
 man3/ualarm.3
 man3/uid_t.3type
+man3/uimaxabs.3
 man3/uint16_t.3type
 man3/uint32_t.3type
 man3/uint64_t.3type
@@ -1652,7 +1654,9 @@ man3/uintN_t.3type
 man3/uintmax_t.3type
 man3/uintptr_t.3type
 man3/ulckpwdf.3
+man3/ulabs.3
 man3/ulimit.3
+man3/ullabs.3
 man3/undocumented.3
 man3/ungetc.3
 man3/ungetwc.3
