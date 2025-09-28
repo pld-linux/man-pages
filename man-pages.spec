@@ -15,7 +15,7 @@ Summary(ru.UTF-8):	Страницы руководства из Проекта �
 Summary(tr.UTF-8):	Linux Belgeleme Projesinin sistem kılavuz sayfaları
 Summary(uk.UTF-8):	Сторінки мануалу (man) з Linux Documentation Project
 Name:		man-pages
-Version:	6.14
+Version:	6.15
 Release:	1
 License:	distributable
 Group:		Documentation
@@ -41,7 +41,7 @@ Group:		Documentation
 %define		zh_version		1.5.2
 %define		posix_version		2017-a
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-# Source0-md5:	d0c9b48d6c4b4c26ec580970c461ebfa
+# Source0-md5:	16f68d70139dd2bbcae4102be4705753
 Source1:	ftp://ftp.linux.cz/pub/localization/linux/czman/%{name}-cs-%{cs_version}.tar.bz2
 # Source1-md5:	a3df67d98ab63a0a360cd0794ec87e0e
 # there is no LDP man page here, yet - but include it in sources for completeness
@@ -368,6 +368,7 @@ done < %{SOURCE50}
 # unify trees for easier processing (where possible)
 
 # C: get rid of man2 and man3 subdirs
+%{__sed} -i -e 's,man2const/,man2/,' src/C/man2const/{FAT_IOCTL_GET_ATTRIBUTES,FICLONERANGE,FS_IOC_,FUTEX_WAKE_BITSET,F_,NS_GET_PARENT,PR_SET_,PR_TASK_PERF_EVENTS_ENABLE,TC,TIO,VFAT_IOCTL_READDIR_SHORT}*.2const
 %{__sed} -i -e 's,man3head/,man3/,' src/C/man3/register_printf_*.3
 %{__sed} -i -e 's,man3head/,man3/,' src/C/man3const/PA_*.3const
 %{__sed} -i -e 's,man3head/,man3/,' src/C/man3type/printf_*.3type
@@ -375,7 +376,9 @@ done < %{SOURCE50}
 %{__sed} -i -e 's,man3head/,man3/,' src/C/man3type/sockaddr_storage.3type
 %{__sed} -i -e 's,man3head/,man3/,' src/C/man3type/sockaddr_un.3type
 %{__sed} -i -e 's,man3type/,man3/,' src/C/man7/sigevent.7
+%{__mv} -i src/C/man2const/*.2const src/C/man2
 %{__mv} -i src/C/man2type/*.2type src/C/man2
+%{__mv} -i src/C/man3attr/*.3attr src/C/man3
 %{__mv} -i src/C/man3const/*.3const src/C/man3
 %{__mv} -i src/C/man3head/*.3head src/C/man3
 %{__mv} -i src/C/man3type/*.3type src/C/man3
@@ -629,7 +632,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc man-pages-%{version}/{CREDITS,Changes,Changes.old,README,SPONSORS}
+%doc man-pages-%{version}/{AUTHORS,Changes,Changes.old,README,SPONSORS}
 %{_mandir}/man1/*.1*
 %{_mandir}/man2/*.2*
 %{_mandir}/man3/*.3*
