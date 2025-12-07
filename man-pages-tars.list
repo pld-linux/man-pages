@@ -148,6 +148,7 @@ man3/TAILQ_REMOVE.3
 man3/TAILQ_SWAP.3
 man3/TIMESPEC_TO_TIMEVAL.3
 man3/TIMEVAL_TO_TIMESPEC.3
+man3/_Fork.3
 man3/__after_morecore_hook.3
 man3/__fbufsize.3
 man3/__flbf.3
@@ -385,6 +386,7 @@ man3/cosh.3
 man3/coshf.3
 man3/coshl.3
 man3/cosl.3
+man3/countof.3
 man3/cpow.3
 man3/cpowf.3
 man3/cpowl.3
@@ -1657,6 +1659,7 @@ man3/ulckpwdf.3
 man3/ulabs.3
 man3/ulimit.3
 man3/ullabs.3
+man3/umaxabs.3
 man3/undocumented.3
 man3/ungetc.3
 man3/ungetwc.3
@@ -1902,6 +1905,10 @@ man8/sln.8
 man8/tzselect.8
 man8/zdump.8
 man8/zic.8
+#[gnulib]
+# candidates for glibc
+#man3/memeq.3
+#man3/streq.3
 [SysVinit]
 man1/last.1
 man1/lastb.1
